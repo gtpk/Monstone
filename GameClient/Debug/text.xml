@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<MinMonstersMap name="Example" RootFolder="C:\monstone\GameResource\hueteotl">
+    <MapPieces>
+        <Piece Name="101" TextureName="C:\monstone\GameResource\hueteotl\chr_01.tga" ModelName="chr_01.md2" Scale="0.05">
+            <Trancerate x="3.6" y="4.6" z="-998" />
+            <Rotation x="3.5" y="-331" z="180" />
+        </Piece>
+        <Piece Name="102" TextureName="C:\monstone\GameResource\hueteotl\world_gn03_c.pcx" ModelName="" Scale="0.1">
+            <Trancerate x="4.55" y="6.04" z="-997" />
+            <Rotation x="0" y="90" z="90" />
+        </Piece>
+    </MapPieces>
+</MinMonstersMap>

@@ -1,0 +1,82 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly OpenGLManagedCpp, Version=1.0.*, Culture=고정 언어(고정 국가): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Assembly PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Class LogicCommon.SelectObjectInterface: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.ComponentModel.INotifyPropertyChanged
+  Properties:
+    System.ValueType Trance 'get set' Vector3D IsBoxed : 
+    System.ValueType Rotation 'get set' Vector3D IsBoxed : 
+    System.String ModelName 'get set' : 
+    Single Height 'get set' : 
+    Single Width 'get set' : 
+    Int32 CurrentName 'get set' : 
+    Single Scale 'get set' : 
+    System.String AlphaTextureName 'get set' : 
+    System.String TextureName 'get set' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+  Methods:
+    set_TextureName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TextureName(): PrivateScope, Public, HideBySig, SpecialName
+    set_AlphaTextureName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AlphaTextureName(): PrivateScope, Public, HideBySig, SpecialName
+    set_Scale(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_Scale(): PrivateScope, Public, HideBySig, SpecialName
+    set_CurrentName(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_CurrentName(): PrivateScope, Public, HideBySig, SpecialName
+    set_Width(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    set_Height(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    set_ModelName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ModelName(): PrivateScope, Public, HideBySig, SpecialName
+    set_Rotation(ValueType Vector3D IsBoxed): PrivateScope, Public, HideBySig, SpecialName
+    get_Rotation(): PrivateScope, Public, HideBySig, SpecialName
+    set_Trance(ValueType Vector3D IsBoxed): PrivateScope, Public, HideBySig, SpecialName
+    get_Trance(): PrivateScope, Public, HideBySig, SpecialName
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    GetInstance(): PrivateScope, Public, Static, HideBySig
+Class LogicCommon.ProjectSettingValuesInterface: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.ComponentModel.INotifyPropertyChanged
+  Properties:
+    System.String ProjectPath 'get set' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+  Methods:
+    set_ProjectPath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ProjectPath(): PrivateScope, Public, HideBySig, SpecialName
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    GetInstance(): PrivateScope, Public, Static, HideBySig
+Class WPFOpenGLLib.OpenGLHwnd: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Interop.HwndHost
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetNewPiece(Single, Single, String, String): PrivateScope, Public, HideBySig
+    SetNewPiece(Single, Single, String): PrivateScope, Public, HideBySig
+    SetNewPiece(String, String): PrivateScope, Public, HideBySig
+    DrawingCall(): PrivateScope, Public, HideBySig
+    Save(): PrivateScope, Public, HideBySig
+    Load(): PrivateScope, Public, HideBySig
+Class WPFOpenGLLib.OpenGLUserControl: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.UserControl
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
