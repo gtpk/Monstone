@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{86f91c86-996a-44ce-9788-2e7142ab5170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL">
+      <UniqueIdentifier>{1f3b3692-0843-4118-9728-9257b6ef4663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL\Player">
+      <UniqueIdentifier>{06c32088-ac6b-46e7-8ba1-a6b152c3f830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{12a79a64-5741-4591-9800-8fd94d47b23a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\FreeImage">
+      <UniqueIdentifier>{ebaf4d9e-9107-4902-a002-2c7a3f5e769b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarxObject">
+      <UniqueIdentifier>{78d84f0c-7304-4287-a372-16144ffe32e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarxObject\AttacehAble">
+      <UniqueIdentifier>{c973ccbe-9f27-45d8-8128-e7cdef19fc86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarxObject\AttacehAble\LuaScript">
+      <UniqueIdentifier>{1247e54d-221a-4407-b944-d0aec5f5577a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\EventLisener">
+      <UniqueIdentifier>{79dd7e43-7d4c-4ff2-9ecc-de7fa2cd1430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utill">
+      <UniqueIdentifier>{d8a669b9-fb4f-4084-8549-a450322ba2a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarxObject\Object">
+      <UniqueIdentifier>{513852ef-8fe8-4e5f-bc7e-169d9dca51bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarxObject\Object\Model">
+      <UniqueIdentifier>{aea783cb-5d0a-42ef-8b2a-403e678d56e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarxObject\Object\Model\Piece">
+      <UniqueIdentifier>{8d620f0c-e17f-47e6-9ca7-f1fdcf4bb8eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarxObject\Object\Model\Md2">
+      <UniqueIdentifier>{32b93540-640a-4b13-9c84-336291331850}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarxObject\Object\Manager">
+      <UniqueIdentifier>{56091030-ae9f-45e3-883b-9e3c0d354700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MarxLua">
+      <UniqueIdentifier>{5991752d-5ea1-4503-8a76-54e8ec897c1b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Md2Model.h">
+      <Filter>MarxObject\Object\Model\Md2</Filter>
+    </ClInclude>
+    <ClInclude Include="Opengl2md2.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Md2Player.h">
+      <Filter>OpenGL\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonDataType.h" />
+    <ClInclude Include="Anorms.h" />
+    <ClInclude Include="PieceModel.h">
+      <Filter>MarxObject\Object\Model\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Md2Object.h">
+      <Filter>MarxObject\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelInterface.h">
+      <Filter>MarxObject\Object\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\VolkesInterface.h" />
+    <ClInclude Include="ProjectLoader.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Externallib\FreeImage\Dist\FreeImage.h">
+      <Filter>Resource\FreeImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.h">
+      <Filter>Resource\FreeImage</Filter>
+    </ClInclude>
+    <ClInclude Include="MashManager.h">
+      <Filter>MarxObject\Object\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaScriptAttached.h">
+      <Filter>MarxObject\AttacehAble\LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MarxObject.h">
+      <Filter>MarxObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AttacheAble.h">
+      <Filter>MarxObject\AttacehAble</Filter>
+    </ClInclude>
+    <ClInclude Include="Eventlistener.h">
+      <Filter>Logic\EventLisener</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>MarxObject\Object\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaManager.h">
+      <Filter>MarxLua</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Md2Model.cpp">
+      <Filter>MarxObject\Object\Model\Md2</Filter>
+    </ClCompile>
+    <ClCompile Include="Opengl2md2.cpp">
+      <Filter>OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Md2Player.cpp">
+      <Filter>OpenGL\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="PieceModel.cpp">
+      <Filter>MarxObject\Object\Model\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Md2Object.cpp">
+      <Filter>MarxObject\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectLoader.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.cpp">
+      <Filter>Resource\FreeImage</Filter>
+    </ClCompile>
+    <ClCompile Include="MashManager.cpp">
+      <Filter>MarxObject\Object\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MarxObject.cpp">
+      <Filter>MarxObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AttacheAble.cpp">
+      <Filter>MarxObject\AttacehAble</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaScriptAttached.cpp">
+      <Filter>MarxObject\AttacehAble\LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>MarxObject\Object\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Stringformat.h">
+      <Filter>Utill</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaManager.cpp">
+      <Filter>MarxLua</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataManager.inl">
+      <Filter>Resource</Filter>
+    </None>
+  </ItemGroup>
+</Project>

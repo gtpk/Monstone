@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="WPFOpenGLApp">
+</Property><Property Name="솔루션 파일" Value="C:\Users\GTPK\Downloads\WPFOpenGLSrc\WPFOpenGLApp.sln">
+</Property><Property Name="Date" Value="2013년 4월 8일 월요일">
+</Property><Property Name="Time" Value="오후 23:15">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="WPFOpenGLApp.sln" Description="파일을 C:\Users\GTPK\Downloads\WPFOpenGLSrc\WPFOpenGLApp.sln.old(으)로 백업했습니다.">
+</Event><Event ErrorLevel="0" Project="WPFOpenGLApp" Source="WPFOpenGLApp\WPFOpenGLApp.csproj" Description="프로젝트 파일을 C:\Users\GTPK\Downloads\WPFOpenGLSrc\WPFOpenGLApp\WPFOpenGLApp.csproj.old(으)로 백업했습니다.">
+</Event><Event ErrorLevel="0" Project="WPFOpenGLApp" Source="WPFOpenGLApp\WPFOpenGLApp.csproj" Description="프로젝트를 변환했습니다.">
+</Event><Event ErrorLevel="3" Project="WPFOpenGLApp" Source="WPFOpenGLApp\WPFOpenGLApp.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Converting project file 'C:\Users\GTPK\Downloads\WPFOpenGLSrc\OpenGLManagedCpp\OpenGLManagedCpp.vcproj'.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'CopyLocalDependencies' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'CopyLocalDependencies' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'CopyLocalDependencies' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'CopyLocalDependencies' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'CopyLocalDependencies' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'CopyLocalDependencies' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'CopyLocalDependencies' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Attribute 'UseDependenciesInBuild' of 'AssemblyReference' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Done converting to new project file 'C:\Users\GTPK\Downloads\WPFOpenGLSrc\OpenGLManagedCpp\OpenGLManagedCpp.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="OpenGLManagedCpp" Source="OpenGLManagedCpp\OpenGLManagedCpp.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="WPFOpenGLApp.sln" Description="솔루션을 변환했습니다.">
+</Event><Event ErrorLevel="3" Project="" Source="WPFOpenGLApp.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="WPFOpenGLApp" Source="WPFOpenGLApp\WPFOpenGLApp.csproj" Description="검사 완료: 프로젝트 파일을 업그레이드할 필요가 없습니다.">
+</Event></UpgradeLog>

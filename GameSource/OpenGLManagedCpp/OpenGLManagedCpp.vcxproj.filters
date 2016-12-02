@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ControlConnect">
+      <UniqueIdentifier>{71d20504-f061-438d-a137-ce85c9c0a81d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utill">
+      <UniqueIdentifier>{e19d717f-8113-4141-a0f3-12ed67a5559c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LogicCommon">
+      <UniqueIdentifier>{069df15a-09c3-4a45-a0eb-5af2b8a47201}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LogicCommon\Selection">
+      <UniqueIdentifier>{304b157f-52e6-4f60-9554-67dd0be75ead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CLI_CSHARP">
+      <UniqueIdentifier>{e4e688fd-6a7e-4d66-9256-3af66e820675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CLI_CPP">
+      <UniqueIdentifier>{88db3f52-ff08-4a24-b1b9-59509e3e3c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CLI_CPP\Intrface">
+      <UniqueIdentifier>{c0686885-c3ec-455e-95d2-fc04fbce622a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CLI_CPP\ProjectSettingValues">
+      <UniqueIdentifier>{470b2b40-f96b-453a-9ac7-3ae11a50f435}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="OpenGLUserControl.cpp">
+      <Filter>ControlConnect</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLHwnd.cpp">
+      <Filter>ControlConnect</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>Utill</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper.cpp">
+      <Filter>Utill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CLILogicCommon\VolkesInterfaceTool.cpp">
+      <Filter>CLI_CSHARP</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectObjectInterface.cpp">
+      <Filter>CLI_CPP\Intrface</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectSettingValuesInterface.cpp">
+      <Filter>CLI_CPP\ProjectSettingValues</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OpenGLHwnd.h">
+      <Filter>ControlConnect</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLUserControl.h">
+      <Filter>ControlConnect</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper.h">
+      <Filter>Utill</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL.h">
+      <Filter>Utill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CLILogicCommon\VolkesInterfaceTool.h">
+      <Filter>CLI_CSHARP</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectObjectInterface.h">
+      <Filter>CLI_CPP\Intrface</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectSettingValuesInterface.h">
+      <Filter>CLI_CPP\ProjectSettingValues</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

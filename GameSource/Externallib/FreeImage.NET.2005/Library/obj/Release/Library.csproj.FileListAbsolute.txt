@@ -1,0 +1,3 @@
+C:\Users\thkwon\Downloads\WPFOpenGLSrc\GameSource\Externallib\FreeImage.NET.2005\Library\bin\Release\FreeImageNET.XML
+C:\Users\thkwon\Downloads\WPFOpenGLSrc\GameSource\Externallib\FreeImage.NET.2005\Library\bin\Release\FreeImageNET.dll
+C:\Users\thkwon\Downloads\WPFOpenGLSrc\GameSource\Externallib\FreeImage.NET.2005\Library\obj\Release\FreeImageNET.dll

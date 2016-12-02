@@ -1,0 +1,27 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="MarxEngineTool.VectorEditer"
+	x:Name="UserControl"
+	d:DesignWidth="238.032" d:DesignHeight="22.04">
+
+	<Grid x:Name="LayoutRoot">
+		<StackPanel Orientation="Horizontal">
+			<StackPanel Orientation="Horizontal" Width="65" Margin="0,0,16,0">
+				<TextBlock TextWrapping="Wrap" Text="X : " VerticalAlignment="Center"/>
+				<TextBox x:Name="x_" TextWrapping="Wrap" Text="{Binding piecemodel.Rotation.X}" IsEnabled="False" Height="22.04" Margin="0,0,184,0" Width="44" VerticalAlignment="Center"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Width="65" Margin="0,0,16,0">
+				<TextBlock TextWrapping="Wrap" Text="Y : " VerticalAlignment="Center"/>
+				<TextBox x:Name="y_" TextWrapping="Wrap" Text="{Binding piecemodel.Rotation.Y}" IsEnabled="False" Height="22.04" Margin="0,0,184,0" Width="44" VerticalAlignment="Center"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Width="65" Margin="0,0,16,0">
+				<TextBlock TextWrapping="Wrap" Text="Z : " VerticalAlignment="Center"/>
+				<TextBox x:Name="z_" TextWrapping="Wrap" IsEnabled="False" Height="22.04" Margin="0,0,184,0" Width="44" VerticalAlignment="Center" Text="{Binding piecemodel.Rotation.Z}"/>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CBC4F1C3-1136-48F2-95A6-FC9725FBF6F1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarxEngineTool</RootNamespace>
+    <AssemblyName>MarxEngineTool</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\GameClient\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\GameClient\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Effects" />
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Compile Include="CloseableTabItem.cs" />
+    <Compile Include="EditorContorl\TextureView\AlphaTextureView.xaml.cs">
+      <DependentUpon>AlphaTextureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorContorl\PieceProperty.xaml.cs">
+      <DependentUpon>PieceProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorContorl\TextureView\SourceTextureView.xaml.cs">
+      <DependentUpon>SourceTextureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorContorl\VectorEditer.xaml.cs">
+      <DependentUpon>VectorEditer.xaml</DependentUpon>
+    </Compile>
+    <Page Include="EditorContorl\TextureView\AlphaTextureView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MessageBox\NewProject.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OpenGLHWndWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OpenGLUserControlWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditorContorl\PieceProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditorContorl\TextureView\SourceTextureView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditorContorl\VectorEditer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simple Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MessageBox\NewProject.xaml.cs">
+      <DependentUpon>NewProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpenGLHWndWindow.xaml.cs">
+      <DependentUpon>OpenGLHWndWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpenGLUserControlWindow.xaml.cs">
+      <DependentUpon>OpenGLUserControlWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EditorContorl\1377030668_puzzle.png" />
+    <Resource Include="ImageAsset\Color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\1373913501_Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\1373914895_to_do_list_cheked_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\1373915017_select_by_color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\1373918230_object-rotate-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\1373918245_move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\Actions-document-save-as-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\Actions-edit-delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\Actions-transform-scale-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\Copy-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\Edit-Cut-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\Files-New-File-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\group-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\Paste-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\icons\Undo-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\Move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\Rotation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\Scale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\Trance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageAsset\UP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="problem_of_existance_god_is_not_the_question_desktop_1920x1200_hd-wallpaper-605790_Images\배경.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Externallib\FreeImage.NET.2005\Library\Library.csproj">
+      <Project>{6598a7cd-8f27-4d3f-a675-5ae63113a7c3}</Project>
+      <Name>Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicTool\LogicTool.csproj">
+      <Project>{ADBEA4B1-FF4D-490D-8E19-4BD0907D3680}</Project>
+      <Name>LogicTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenGLManagedCpp\OpenGLManagedCpp.vcxproj">
+      <Project>{a9fc4ce5-b87c-4ac4-a38d-cb46d5dba326}</Project>
+      <Name>OpenGLManagedCpp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,19 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="MarxEngineTool.NewProject"
+	x:Name="Window"
+	Title="NewProject"
+	Width="614" Height="189">
+
+	<Canvas x:Name="LayoutRoot" Background="#FF616161">
+		<TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Canvas.Left="10" Canvas.Top="10" Foreground="White"><Run Language="ko-kr" Text="New Folder "/><Run Language="ko-kr" Text="Name ( 폴더 이름)  :"/></TextBlock>
+		<TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="366" Canvas.Left="230" Canvas.Top="10" Foreground="White"><Run Language="ko-kr" Text="Game Title (게임 타이틀) :"/></TextBlock>
+		<TextBox HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" Canvas.Left="10" Canvas.Top="33"/>
+		<TextBox HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="366" Canvas.Left="230" Canvas.Top="33"/>
+		<TextBlock HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="586" Canvas.Left="10" Canvas.Top="74" Foreground="White"><Run Language="ko-kr" Text="Game Apsolute Path ( 게임 절대 위치 ):"/></TextBlock>
+		<TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="586" Canvas.Left="10" Canvas.Top="94"/>
+		<Button Content="OK" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="93" Canvas.Left="393" Canvas.Top="122"/>
+		<Button Content="Cansel" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="93" Canvas.Left="503" Canvas.Top="122"/>
+	</Canvas>
+</Window>

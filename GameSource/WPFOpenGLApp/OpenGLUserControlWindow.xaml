@@ -1,0 +1,13 @@
+﻿<Window x:Class="WPFOpenGLApp.OpenGLUserControlWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:int="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+    xmlns:oglc="clr-namespace:WPFOpenGLLib;assembly=OpenGLManagedCpp"
+    Title="OpenGL in a Windows Forms Control" Height="300" Width="300"
+    KeyDown="Window_KeyDown">
+    <Grid>
+        <int:WindowsFormsHost Name="windowsFormsHost1">
+            <!-- <oglc:OpenGLUserControl  Name="openGLUserControl1" /> -->
+        </int:WindowsFormsHost>
+    </Grid>
+</Window>

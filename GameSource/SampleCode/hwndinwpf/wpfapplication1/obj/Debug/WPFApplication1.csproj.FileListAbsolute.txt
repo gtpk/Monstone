@@ -1,0 +1,14 @@
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\obj\Debug\WPFApplication1.csprojResolveAssemblyReference.cache
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\obj\Debug\MyApp.g.cs
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\obj\Debug\WPFApplication1_MarkupCompile.cache
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\bin\Debug\WPFApplication1.exe.config
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\bin\Debug\WPFApplication1.exe
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\bin\Debug\WPFApplication1.pdb
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\bin\Debug\hwndInWPF.dll
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\bin\Debug\hwndInWPF.pdb
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\obj\Debug\Window1.baml
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\obj\Debug\WPFApplication1.g.resources
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\obj\Debug\Properties.Resources.resources
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\obj\Debug\WPFApplication1.csproj.GenerateResource.Cache
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\obj\Debug\WPFApplication1.exe
+C:\monstone\GameSource\SampleCode\hwndinwpf\WPFApplication1\obj\Debug\WPFApplication1.pdb

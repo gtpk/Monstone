@@ -1,0 +1,30 @@
+﻿<html><head><META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8" /><META NAME="save" CONTENT="history" /><title xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt">WPF에서 Win32 HWND 호스팅 샘플</title><META NAME="Description" CONTENT="이 샘플에서는 hwnd를 WPF(Windows Presentation Foundation) 응용 프로그램 안에 넣는 방법을 보여 줍니다."></META><META NAME="MS.LOCALE" CONTENT="en-us" /><style>
+body
+{font-family:Verdana;font-size:medium;}
+div#mainSection, div#header
+{font-size:70%;width: 100%;}
+div#mainBody
+{font-size:90%;}
+div#mainSection div table
+{font-size: 100%;text-align: left;}
+span#nsrTitle
+{color:#003399;font-size:90%;font-weight:600;}
+div#header
+{background-color:#D4DFFF;}
+.heading
+{font-size:120%;color:#003399;}
+.subHeading
+{font-size:100%;margin-bottom:4;}
+li
+{margin-top:-2;margin-bottom:3;}
+p
+{margin-top:10;margin-bottom:5;}
+div.tableSection p
+{margin-top:1;margin-bottom:4;}	
+div#mainSection table th
+{background-color:#EFEFF7;color:#000066;text-align:left;}
+div#mainSection table td
+{background-color:#F7F7FF;}
+div#mainSection table
+{margin-top:5px;margin-bottom: px;}
+			</style></head><body><div id="header"><table width="100%" id="topTable"><tr id="headerTableRow2" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><td align="left"><span id="nsrTitle">WPF에서 Win32 HWND 호스팅 샘플</span></td></tr></table></div><div id="mainSection"><div id="mainBody"><br /><font color="DarkGray">[This readme is a partial copy of the sample's topic in the SDK documentation.]</font><br /><div class="introduction"><p xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt">이 샘플에서는 hwnd를 WPF(Windows Presentation Foundation) 응용 프로그램 안에 넣는 방법을 보여 줍니다.</p><p xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt">이 샘플에서는 WPF(Windows Presentation Foundation)의 특정 기능에 대해 설명하므로 최선의 응용 프로그램 개발 방법을 따르지 않습니다. WPF(Windows Presentation Foundation) 및 Microsoft .NET Framework 응용 프로그램 개발을 위한 최선의 방법에 대한 자세한 내용은 다음에서 적절한 항목을 참조하십시오.</p><p xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt">내게 필요한 옵션 - 액세스 가능성에 대한 유용한 정보</p><p xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt">보안 - Windows Presentation Foundation 보안</p><p xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt">지역화 - WPF 전역화 및 지역화 개요</p></div><h1 class="heading" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><span onclick="ExpandCollapse(sectionToggle0)" style="cursor:default;" onkeypress="ExpandCollapse_CheckKey(sectionToggle0, event)" tabindex="0">샘플 빌드</span></h1><div id="sectionSection0" class="section"><ul xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Windows SDK(소프트웨어 개발 키트)를 설치하고 빌드 환경 명령 창을 엽니다. 시작 메뉴에서 모든 프로그램, Microsoft Windows SDK를 차례로 가리킨 다음 CMD 셸을 클릭합니다.</p></li><li><p>SDK(소프트웨어 개발 키트) 설명서 등에서 샘플을 하드 디스크 드라이브로 다운로드합니다.</p></li><li><p>빌드 환경 명령 창에서 샘플을 빌드하려면 샘플의 소스 디렉터리로 이동합니다. 명령 프롬프트에 MSBUILD를 입력합니다. 두 하위 디렉터리의 프로젝트 파일을 참조하는 솔루션 파일을 빌드합니다.</p></li><li><p>Microsoft Visual Studio에서 샘플을 빌드하려면 샘플 솔루션이나 프로젝트 파일을 로드한 다음 Ctrl+Shift+B를 누릅니다.<span class="code">WPFApplication1.exe </span>파일을 디버그 세션 도중 실행될 실행 파일로 지정해야 하며 이 작업은 프로젝트 설정 대화 상자에서 수행합니다.</p></li></ul></div><h1 class="heading" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><span onclick="ExpandCollapse(sectionToggle1)" style="cursor:default;" onkeypress="ExpandCollapse_CheckKey(sectionToggle1, event)" tabindex="0">샘플 실행</span></h1><div id="sectionSection1" class="section"><ul xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>빌드 환경 명령 창에서 샘플을 실행하려면 <span class="code">WPFApplication1</span> 소스 하위 디렉터리에 포함된 Bin\Debug 폴더의 <span class="code">WPFApplication1.exe</span> 파일을 실행하십시오.</p></li><li><p>Visual Studio에서 디버깅 기능을 사용하여 컴파일된 샘플을 실행하려면 F5 키를 누릅니다.<span class="code">WPFApplication1.exe </span>파일을 디버그 세션 도중 실행될 실행 파일로 지정해야 하며 이 작업은 프로젝트 설정 대화 상자에서 수행합니다.</p></li></ul></div><h1 class="heading" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><span onclick="ExpandCollapse(seeAlsoToggle)" style="cursor:default;" onkeypress="ExpandCollapse_CheckKey(seeAlsoToggle, event)" tabindex="0">참고 항목</span></h1><div id="seeAlsoSection" class="section"><h4 class="subHeading" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:msxsl="urn:schemas-microsoft-com:xslt">개념</h4><div class="seeAlsoStyle">WPF 및 Win32 상호 운용성 개요</div></div></div></div></body></html>
