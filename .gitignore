@@ -1,0 +1,14 @@
+*.obj
+*.1.tlog
+*.write.1.tlog
+*.read.1.tlog
+*.command.1.tlog
+*.VC.db
+*.idb
+*.g.i.cs
+*.g.cs
+*.tlog
+GameResource/
+NewProject/
+GameSource/WPFOpenGLApp.sdf
+*.sdf

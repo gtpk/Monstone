@@ -1151,10 +1151,10 @@ ImageColortoAlpha::ImageColortoAlpha (const ImageBuffer &ibuff,const ImageBuffer
 	Image *alpharesult = new ImagePCX (aibuff);
 
 
-	//흰색 알파를 빼고 다 지랄 해보자
+	//흰색 알파를 빼고
 
 	int Imagesize = colorresult->width() * colorresult->height() * 4;
-	//일단 있는거처럼 구라를 까보자
+	//일단 있는거처럼 
 
 	_standardCoordSystem = true;
 	_format = GLEW_EXT_bgra ? GL_BGRA : GL_RGBA;
@@ -1184,12 +1184,6 @@ ImageColortoAlpha::ImageColortoAlpha (const ImageBuffer &ibuff,const ImageBuffer
 		_pixels[i+3] = buffer[j];   //255일 경우 불투명함.
 	}
 
-	delete(colorresult);
-	delete(alpharesult);
-}
-
-ImageColortoAlpha::~ImageColortoAlpha()
-{
-	delete(_pixels);
-	_pixels=NULL;
+	//delete(colorresult);
+	//delete(alpharesult);
 }

@@ -57,9 +57,6 @@
     <ClInclude Include="Opengl2md2.h">
       <Filter>OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="Md2Player.h">
-      <Filter>OpenGL\Player</Filter>
-    </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>Resource</Filter>
     </ClInclude>
@@ -114,6 +111,9 @@
     <ClInclude Include="LuaManager.h">
       <Filter>MarxLua</Filter>
     </ClInclude>
+    <ClInclude Include="MarxWorld.h">
+      <Filter>OpenGL\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Md2Model.cpp">
@@ -121,9 +121,6 @@
     </ClCompile>
     <ClCompile Include="Opengl2md2.cpp">
       <Filter>OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="Md2Player.cpp">
-      <Filter>OpenGL\Player</Filter>
     </ClCompile>
     <ClCompile Include="Image.cpp">
       <Filter>Resource</Filter>
@@ -163,6 +160,9 @@
     </ClCompile>
     <ClCompile Include="LuaManager.cpp">
       <Filter>MarxLua</Filter>
+    </ClCompile>
+    <ClCompile Include="MarxWorld.cpp">
+      <Filter>OpenGL\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

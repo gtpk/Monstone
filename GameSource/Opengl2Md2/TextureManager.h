@@ -20,7 +20,7 @@
 
 #include "DataManager.h"
 #include "Texture.h"
-#include "Md2Player.h"
+#include "MarxWorld.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -44,7 +44,7 @@ public:
 	// loaded previously, return it instead of loading it.
 	Texture2D *load (const string &filename)
 	{
-		string AbsoluteFileName = Md2Player::getInstance()._RootDirctory + "\\" + filename;
+		string AbsoluteFileName = MarxWorld::getInstance()._RootDirctory + "\\asset\\" + filename;
 
 		// Look for the texture in the registry
 		Texture2D *tex = request (AbsoluteFileName);
@@ -74,8 +74,8 @@ public:
 
 	Texture2D *load (const string &filename,const string &Alphafilename)
 	{
-		string AbsoluteFileName = Md2Player::getInstance()._RootDirctory + "\\" + filename;
-		string AlphaAbsoluteFileName = Md2Player::getInstance()._RootDirctory + "\\" + Alphafilename;
+		string AbsoluteFileName = MarxWorld::getInstance()._RootDirctory + "\\asset\\" + filename;
+		string AlphaAbsoluteFileName = MarxWorld::getInstance()._RootDirctory + "\\asset\\" + Alphafilename;
 
 		string AlphaBlendingTextureName = filename + Alphafilename;
 

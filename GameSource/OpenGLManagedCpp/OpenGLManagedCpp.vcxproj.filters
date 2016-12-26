@@ -25,6 +25,9 @@
     <Filter Include="CLI_CPP\ProjectSettingValues">
       <UniqueIdentifier>{470b2b40-f96b-453a-9ac7-3ae11a50f435}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CLI_CPP\for Tool">
+      <UniqueIdentifier>{fc3967f4-4b03-431c-870e-9754cc59af47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLUserControl.cpp">
@@ -48,6 +51,9 @@
     <ClCompile Include="ProjectSettingValuesInterface.cpp">
       <Filter>CLI_CPP\ProjectSettingValues</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectTreeContator.cpp">
+      <Filter>CLI_CPP\for Tool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLHwnd.h">
@@ -70,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="ProjectSettingValuesInterface.h">
       <Filter>CLI_CPP\ProjectSettingValues</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectTreeContator.h">
+      <Filter>CLI_CPP\for Tool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

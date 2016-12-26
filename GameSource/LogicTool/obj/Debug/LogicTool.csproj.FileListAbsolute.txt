@@ -1,0 +1,5 @@
+E:\Monstone\GameSource\LogicTool\obj\Debug\LogicTool.csprojResolveAssemblyReference.cache
+E:\Monstone\GameClient\Debug\LogicTool.dll
+E:\Monstone\GameClient\Debug\LogicTool.pdb
+E:\Monstone\GameSource\LogicTool\obj\Debug\LogicTool.dll
+E:\Monstone\GameSource\LogicTool\obj\Debug\LogicTool.pdb

@@ -54,7 +54,7 @@ void VolkesIterfaceTool::OneTimeInit()
 {
 	ProjectSettingValuesInterface^ data = ProjectSettingValuesInterface::GetInstance();
 
-	string path2 = ProjectLoader::getinstance().GetProjectPath();
+	string path2 = ProjectLoader::getinstance()->GetProjectPath();
 
 	data->ProjectPath =  gcnew String(path2.c_str());
 

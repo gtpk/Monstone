@@ -25,7 +25,7 @@
 #include <fstream>
 
 #include "Md2Model.h"
-#include "Md2Player.h"
+#include "MarxWorld.h"
 #include "TextureManager.h"
 
 using std::cout;
@@ -65,7 +65,7 @@ Md2Model::Md2Model (const string &filename)
 	_scale =1.0f;
 	_tex  = NULL;
 
-	string AbsolutePath = Md2Player::getInstance()._RootDirctory + "/"+ filename;
+	string AbsolutePath = MarxWorld::getInstance()._RootDirctory + "/"+ filename;
 	// Open the file
 	std::ifstream ifs (AbsolutePath.c_str (), std::ios::binary);
 

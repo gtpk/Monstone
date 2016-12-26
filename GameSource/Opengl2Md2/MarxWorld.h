@@ -40,16 +40,16 @@ using std::auto_ptr;
 //
 /////////////////////////////////////////////////////////////////////////////
 
-class Md2Player
+class MarxWorld
 {
 private:
-	static Md2Player *inst;
+	static MarxWorld *inst;
 
 public:
 	// Constructors/destructor
-	Md2Player ()
+	MarxWorld ()
 		throw (std::runtime_error);
-	~Md2Player ();
+	~MarxWorld ();
 
 	const int MAX_PIECE ;
 
@@ -64,9 +64,11 @@ public:
 
 	EXTERN::VolkesIterface* Volkes;
 
-	static Md2Player& getInstance()
+	static MarxWorld& getInstance()
 	{
-		return *Md2Player::inst;
+		if (MarxWorld::inst == NULL)
+			MarxWorld::inst = new MarxWorld();
+		return *MarxWorld::inst;
 	}
 
 	string _RootDirctory;
@@ -75,7 +77,7 @@ public:
 	// Public interface
 	void drawPlayerItp (bool animated, Md2Object::Md2RenderMode renderMode);
 	void drawPlayerFrame (int frame, Md2Object::Md2RenderMode renderMode);
-	void animate (float percent);
+	void animate (float percent); //To Do
 
 	// Setters and accessors
 	void setScale (GLfloat scale);
@@ -93,10 +95,6 @@ public:
 	Md2Object *setNewPiece(float Width,float Height, const string &textureName);
 	Md2Object *setNewPiece(float Width,float Height, const string &textureName,const string &textureAlpha);
 	Md2Object *setNewPiece(Md2Object* model);
-
-
-
-
 
 	Md2Object *getSelectObj();
 

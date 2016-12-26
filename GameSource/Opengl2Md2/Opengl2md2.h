@@ -3,7 +3,7 @@
 #include "GL/glew.h"
 #include "GL/glut.h"
 
-#include "Md2Player.h"
+#include "MarxWorld.h"
 #include "TextureManager.h"
 #include "CommonDataType.h"
 #include "../Common/VolkesInterface.h"
@@ -27,7 +27,7 @@ private :
 	// PopUp ¸Þ´º Wnd°ª.
 	HMENU					hPopupMenu ;
 
-	Md2Player *player;
+	MarxWorld *player;
 
 	COMMONDATATYPE::Vector3d rot;
 

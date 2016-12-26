@@ -17,7 +17,7 @@
 #include "../Opengl2Md2/Md2Model.h"
 #include "../Common/VolkesInterface.h"
 #include "../CLILogicCommon/VolkesInterfaceTool.h"
-#include "../Opengl2Md2/Md2Player.h"
+#include "../Opengl2Md2/MarxWorld.h"
 
 // Exclude rarely used parts of the windows headers
 //#define WIN32_LEAN_AND_MEAN

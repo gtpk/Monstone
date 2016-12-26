@@ -30,7 +30,7 @@
 #include <fstream>
 #include <sys/types.h>
 
-#include "Md2Player.h"
+#include "../../Opengl2Md2/MarxWorld.h"
 #include "Texture.h"
 
 
@@ -52,7 +52,7 @@ using std::endl;
 // Constructor.  Read a MD2 player from directory.
 // --------------------------------------------------------------------------
 
-Md2Player::Md2Player (const string &dirname)
+MarxWorld::MarxWorld (const string &dirname)
 	throw (std::runtime_error)
 	: _playerMesh (NULL), _weaponMesh (NULL)
 {
@@ -242,7 +242,7 @@ Md2Player::Md2Player (const string &dirname)
 // Destructor.
 // --------------------------------------------------------------------------
 
-Md2Player::~Md2Player ()
+MarxWorld::~MarxWorld ()
 {
 }
 
@@ -254,7 +254,7 @@ Md2Player::~Md2Player ()
 // --------------------------------------------------------------------------
 
 void
-	Md2Player::drawPlayerItp (bool animated, Md2Object::Md2RenderMode renderMode)
+	MarxWorld::drawPlayerItp (bool animated, Md2Object::Md2RenderMode renderMode)
 {
 	if (_playerMesh.get ())
 	{
@@ -274,7 +274,7 @@ void
 // --------------------------------------------------------------------------
 
 void
-	Md2Player::drawPlayerFrame (int frame, Md2Object::Md2RenderMode renderMode)
+	MarxWorld::drawPlayerFrame (int frame, Md2Object::Md2RenderMode renderMode)
 {
 	if (_playerMesh.get ())
 	{
@@ -294,7 +294,7 @@ void
 // --------------------------------------------------------------------------
 
 void
-	Md2Player::animate (GLfloat percent)
+	MarxWorld::animate (GLfloat percent)
 {
 	if (_playerMesh.get ())
 		_playerObject.animate (percent);
@@ -311,7 +311,7 @@ void
 // --------------------------------------------------------------------------
 
 void
-	Md2Player::setScale (GLfloat scale)
+	MarxWorld::setScale (GLfloat scale)
 {
 	if (_playerMesh.get ())
 		_playerObject.setScale (scale);
@@ -328,7 +328,7 @@ void
 // --------------------------------------------------------------------------
 
 void
-	Md2Player::setSkin (const string &name)
+	MarxWorld::setSkin (const string &name)
 {
 	_currentSkin = name;
 }
@@ -340,7 +340,7 @@ void
 // Set current player animation.
 // --------------------------------------------------------------------------
 
-void Md2Player::setAnim (const string &name)
+void MarxWorld::setAnim (const string &name)
 {
 	if (_weaponMesh.get ())
 	{
@@ -356,7 +356,7 @@ void Md2Player::setAnim (const string &name)
 	}
 }
 
-void Md2Player::setRotate(vec3_t angle)
+void MarxWorld::setRotate(vec3_t angle)
 {
 	if (_weaponMesh.get ())
 	{
@@ -369,7 +369,7 @@ void Md2Player::setRotate(vec3_t angle)
 	}
 }
 
-void Md2Player::setTranslate(vec3_t trance )
+void MarxWorld::setTranslate(vec3_t trance )
 {
 	if (_weaponMesh.get ())
 	{

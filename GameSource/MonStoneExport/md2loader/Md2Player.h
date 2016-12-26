@@ -34,13 +34,13 @@ using std::auto_ptr;
 //
 /////////////////////////////////////////////////////////////////////////////
 
-class Md2Player
+class MarxWorld
 {
 public:
   // Constructors/destructor
-  Md2Player (const string &dirname)
+  MarxWorld (const string &dirname)
     throw (std::runtime_error);
-  ~Md2Player ();
+  ~MarxWorld ();
 
 public:
   // Public interface

@@ -12,3 +12,8 @@ C:\Users\thkwon\Downloads\WPFOpenGLSrc\GameSource\Externallib\FreeImage.NET.2005
 C:\Users\thkwon\Downloads\WPFOpenGLSrc\GameSource\Externallib\FreeImage.NET.2005\Library\obj\x86\Debug\FreeImageNET.dll
 C:\Users\thkwon\Downloads\WPFOpenGLSrc\GameSource\Externallib\FreeImage.NET.2005\Library\obj\x86\Debug\FreeImageNET.pdb
 C:\monstone\GameSource\Externallib\FreeImage.NET.2005\Library\obj\x86\Debug\Library.csprojResolveAssemblyReference.cache
+E:\Monstone\GameSource\GameClient\Debug\FreeImageNET.dll
+E:\Monstone\GameSource\GameClient\Debug\FreeImageNET.pdb
+E:\Monstone\GameSource\Externallib\FreeImage.NET.2005\Library\obj\x86\Debug\Library.csprojResolveAssemblyReference.cache
+E:\Monstone\GameSource\Externallib\FreeImage.NET.2005\Library\obj\x86\Debug\FreeImageNET.dll
+E:\Monstone\GameSource\Externallib\FreeImage.NET.2005\Library\obj\x86\Debug\FreeImageNET.pdb

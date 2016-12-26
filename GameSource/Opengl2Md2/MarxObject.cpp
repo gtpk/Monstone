@@ -27,6 +27,5 @@ bool MarxObject::OnAttech(AttacheAble* _pattachable)
 
 const char* MarxObject::is_test(const char* _name)
 {
-	printf("%s´Â ºýºýÀÌ´Ù\n",_name);
 	return m_name.c_str(); 
 }

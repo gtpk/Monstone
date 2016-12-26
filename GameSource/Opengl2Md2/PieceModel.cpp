@@ -10,7 +10,7 @@
 #include <fstream>
 
 #include "Md2Model.h"
-#include "Md2Player.h"
+#include "MarxWorld.h"
 #include "TextureManager.h"
 #include "PieceModel.h"
 //#include "GL/glew.h"

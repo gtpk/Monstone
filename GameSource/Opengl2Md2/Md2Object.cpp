@@ -8,7 +8,7 @@
 #include <fstream>
 
 #include "Md2Model.h"
-#include "Md2Player.h"
+#include "MarxWorld.h"
 #include "TextureManager.h"
 #include "Md2Object.h"
 #include "ProjectLoader.h"
@@ -228,8 +228,7 @@ void
 }
 
 
-void
-	Md2Object::animate (float percent)
+void Md2Object::animate (float percent)
 {
 	// Use the current animation
 	animate (_animInfo->start, _animInfo->end, percent);
@@ -305,7 +304,7 @@ bool Md2Object::setModel (float Width,float Height, const string &textureName,co
 	string TexturePath;
 	if(isAbsolute == false )
 	{
-		TexturePath = ProjectLoader::getinstance().GetProjectPath() + "/" + textureName;
+		TexturePath = ProjectLoader::getinstance()->GetProjectPath() + "/" + textureName;
 	}
 	else
 	{
@@ -345,7 +344,7 @@ bool Md2Object::setModel (float Width,float Height, const string &textureName)
 	Model = Md2ModelSPtr(new PieceModel (Width,Height));
 	
 
-	string TexturePath = ProjectLoader::getinstance().GetProjectPath() + "/" + textureName;
+	string TexturePath = ProjectLoader::getinstance()->GetProjectPath() + "/" + textureName;
 
 	if(Model->setTexture (textureName) == false)
 	{

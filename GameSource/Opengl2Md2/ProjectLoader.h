@@ -6,21 +6,19 @@ using std::string;
 class ProjectLoader
 {
 
-
+	static ProjectLoader* instance;
 private :
-	string ProjectPath; 
+	
 
 	bool isLoaded;
 public:
 	ProjectLoader();
 	~ProjectLoader();
-
+	string ProjectPath;
 	string GetProjectPath();
 	string GetProjectPath(string path);
 
-
-
-	static ProjectLoader& getinstance();
+	static ProjectLoader* getinstance();
 	void SaveProjectFile();
 
 private:

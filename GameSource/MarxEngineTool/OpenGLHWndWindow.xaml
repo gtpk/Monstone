@@ -128,10 +128,7 @@
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
 					</Button>
-					<Button Content="_" HorizontalAlignment="Left" Height="23.55" VerticalAlignment="Top" Width="33"/>
-					<Button Content="ㅁ" HorizontalAlignment="Left" Height="23.55" VerticalAlignment="Top" Width="33"/>
-					<Button Content="X" HorizontalAlignment="Left" Height="23.55" VerticalAlignment="Top" Width="33"/>
-				</StackPanel>
+                </StackPanel>
 			</Grid>
 			<DockPanel x:Name="stackPanel" Height="32" Margin="0" VerticalAlignment="Top" Background="#FF353535" DockPanel.Dock="Top" LastChildFill="False" >
 				<Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>

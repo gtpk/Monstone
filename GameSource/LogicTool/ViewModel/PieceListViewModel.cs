@@ -91,7 +91,7 @@ namespace LogicTool.ViewModel
 
 
             DirectoryInfo di = new DirectoryInfo(
-                ProjectSettingValuesInterface.GetInstance().ProjectPath /*+ @"\..\MONSTONE"*/);
+                ProjectSettingValuesInterface.GetInstance().ProjectPath + @"\asset");
 
             bool isFind = false;
             foreach (FileInfo f in di.GetFiles())
@@ -204,7 +204,16 @@ namespace LogicTool.ViewModel
 
                 node.Width = fib.Width;
                 node.Height = fib.Height;
-
+               // string savedname = AlphaPath.Replace("_a.", ".");
+               // try
+               // {
+               //     fib.Save(savedname);
+               // }
+               // catch(Exception e)
+               // {
+               //     MessageBox.Show(e.ToString());
+               //     continue;
+               // }
                 pieceList.Add(node);
 
                 

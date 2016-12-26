@@ -24,7 +24,7 @@
 #include "Opengl2md2.h"
 #include "Texture.h"
 
-#include "Md2Player.h"
+#include "MarxWorld.h"
 #include "TextureManager.h"
 #include "../Externallib/LuaJit/Header/lua.hpp"
 #include "../Externallib/LuaJit/Header/lua_tinker.h"
@@ -45,7 +45,7 @@ Opengl2md2::Opengl2md2():
 	verbose(2),renderMode(0),frameRate(7),fps(0),hits(0),wheel(0.005),scale(0.1),bSelectMode(true)
 	,bIsMouse_Left_Down(false), bIsMouse_Mid_Down(false)
 {
-
+	player = NULL;
 	for(int i = 0 ; i < 3; i ++)
 	{
 		angle[i] = 0;
@@ -183,7 +183,8 @@ int	Opengl2md2::buildAnimMenu (const Md2Model::AnimMap &animMap)
 
 void	Opengl2md2::shutdownApp ()
 {
-	delete player;
+	if(player != NULL)
+		delete player;
 
 	Texture2DManager::kill ();
 }
@@ -239,7 +240,7 @@ void	Opengl2md2::init ()
 	rot.z = 0.0f;   eye.z = 8.0f;
 
 
-	player = new Md2Player ();
+	player = new MarxWorld ();
 
 	//player->setScale (0.1f);
 
@@ -337,7 +338,7 @@ void	Opengl2md2::reshape (int w, int h)
 	glMatrixMode (GL_MODELVIEW);
 	glLoadIdentity ();
 
-	glutPostRedisplay ();
+	//glutPostRedisplay ();
 }
 
 

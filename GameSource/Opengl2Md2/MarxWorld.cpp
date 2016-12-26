@@ -31,7 +31,7 @@
 
 #include "Opengl2md2.h"
 
-#include "Md2Player.h"
+#include "MarxWorld.h"
 #include "Md2Object.h"
 
 #include "Texture.h"
@@ -56,7 +56,7 @@ using std::endl;
 /////////////////////////////////////////////////////////////////////////////
 
 // static 초기화는 이렇게 이루어지는것!
-Md2Player *Md2Player::inst = NULL;
+MarxWorld *MarxWorld::inst = NULL;
 
 // --------------------------------------------------------------------------
 // Md2Player::Md2Player
@@ -64,33 +64,32 @@ Md2Player *Md2Player::inst = NULL;
 // Constructor.  Read a MD2 player from directory.
 // --------------------------------------------------------------------------
 
-Md2Player::Md2Player ()
-	throw (std::runtime_error)
-	: _playerMesh (NULL), _weaponMesh (NULL),MAX_PIECE(20), _NextID(101),_Bottompos(99)
+MarxWorld::MarxWorld()
+throw (std::runtime_error)
+	: _playerMesh(NULL), _weaponMesh(NULL), MAX_PIECE(20), _NextID(101), _Bottompos(99)
 {
-	_RootDirctory = ProjectLoader::getinstance().GetProjectPath();
+	_RootDirctory = ProjectLoader::getinstance()->GetProjectPath();
 
-	Md2Player::inst = this;
+	MarxWorld::inst = this;
 
 	ObjectManager* m_ObjectManager = ObjectManager::GetInstance();
+
+
+	//Md2Object * obj = setNewPiece("chr_01.md2", "chr_01.tga", Opengl2md2::getInstance().eye);
+	//
+	//if (obj != NULL)
+	//{
+	//	//_playerMesh = Md2ModelPtr((Md2Model*)obj->model());
+	//	m_ObjectManager->ReplaceMarxObject("MainCharacter", obj);
+	//	obj->setScale(0.05);
+	//
+	//	//3.5 -331 z 는 아무거나
+	//	obj->setRotate(3.5, -331, 0);
+	//	LuaScriptAttached * attach = new LuaScriptAttached();
+	//	obj->OnAttech(attach);
+	//}
+	//	
 	
-	
-
-	Md2Object * obj = setNewPiece("chr_01.md2","chr_01.tga",Opengl2md2::getInstance().eye);
-
-	//_playerMesh = Md2ModelPtr((Md2Model*)obj->model());
-
-	m_ObjectManager->ReplaceMarxObject("MainCharacter",obj);
-
-	obj->setScale(0.05);
-
-	//3.5 -331 z 는 아무거나 곧츄
-	obj->setRotate(3.5,-331,0);
-
-	LuaScriptAttached * attach = new LuaScriptAttached();
-
-	obj->OnAttech(attach);
-
 
 
 }
@@ -103,7 +102,7 @@ Md2Player::Md2Player ()
 // Destructor.
 // --------------------------------------------------------------------------
 
-Md2Player::~Md2Player ()
+MarxWorld::~MarxWorld ()
 {
 }
 
@@ -114,7 +113,7 @@ Md2Player::~Md2Player ()
 // Draw player objects with interpolation.
 // --------------------------------------------------------------------------
 
-void Md2Player::drawPlayerItp (bool animated, Md2Object::Md2RenderMode renderMode)
+void MarxWorld::drawPlayerItp (bool animated, Md2Object::Md2RenderMode renderMode)
 {
 	
 	Md2Iter md2begin = _WorldPiece.begin();
@@ -145,7 +144,7 @@ void Md2Player::drawPlayerItp (bool animated, Md2Object::Md2RenderMode renderMod
 // Draw player objects at a given frame.
 // --------------------------------------------------------------------------
 
-void Md2Player::drawPlayerFrame (int frame, Md2Object::Md2RenderMode renderMode)
+void MarxWorld::drawPlayerFrame (int frame, Md2Object::Md2RenderMode renderMode)
 {
 
 	Md2Iter md2begin = _WorldPiece.begin();
@@ -160,7 +159,9 @@ void Md2Player::drawPlayerFrame (int frame, Md2Object::Md2RenderMode renderMode)
 	
 }
 
-void Md2Player::setSelectObj(int number) 
+
+
+void MarxWorld::setSelectObj(int number) 
 {
 	_SelectID = number; 
 
@@ -190,7 +191,7 @@ void Md2Player::setSelectObj(int number)
 // Animate player objects.
 // --------------------------------------------------------------------------
 
-void Md2Player::animate (GLfloat percent)
+void MarxWorld::animate (GLfloat percent)
 {
 
 	Md2Iter md2begin = _WorldPiece.begin();
@@ -215,7 +216,7 @@ void Md2Player::animate (GLfloat percent)
 // Scale model objects.
 // --------------------------------------------------------------------------
 
-void Md2Player::setScale (GLfloat scale)
+void MarxWorld::setScale (GLfloat scale)
 {
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
@@ -240,7 +241,7 @@ void Md2Player::setScale (GLfloat scale)
 // Set player skin.
 // --------------------------------------------------------------------------
 
-void Md2Player::setSkin (const string &name)
+void MarxWorld::setSkin (const string &name)
 {
 	if(100 == _SelectID)
 		_currentSkin = name;
@@ -270,7 +271,7 @@ void Md2Player::setSkin (const string &name)
 // Set current player animation.
 // --------------------------------------------------------------------------
 
-void Md2Player::setAnim (const string &name)
+void MarxWorld::setAnim (const string &name)
 {
 	if (_weaponMesh.get ())
 	{
@@ -285,7 +286,7 @@ void Md2Player::setAnim (const string &name)
 	}
 }
 
-void Md2Player::setRotate(vec3_t angle)
+void MarxWorld::setRotate(vec3_t angle)
 {
 	/*
 	if (_weaponMesh.get ())
@@ -312,7 +313,7 @@ void Md2Player::setRotate(vec3_t angle)
 	}
 }
 
-void Md2Player::setTranslate(vec3_t trance )
+void MarxWorld::setTranslate(vec3_t trance )
 {
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
@@ -329,7 +330,7 @@ void Md2Player::setTranslate(vec3_t trance )
 }
 
 
-Md2Object * Md2Player::getSelectObj()
+Md2Object * MarxWorld::getSelectObj()
 {
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
@@ -345,7 +346,7 @@ Md2Object * Md2Player::getSelectObj()
 	return NULL;
 }
 
-void Md2Player::setSelectionTopMost()
+void MarxWorld::setSelectionTopMost()
 {
 	Md2RIter md2begin = _WorldPiece.rbegin();
 	Md2RIter md2End = _WorldPiece.rend();
@@ -364,7 +365,7 @@ void Md2Player::setSelectionTopMost()
 		}
 	}
 }
-void Md2Player::setSelectionTop()
+void MarxWorld::setSelectionTop()
 {
 	Md2RIter md2begin = _WorldPiece.rbegin();
 	Md2RIter md2End = _WorldPiece.rend();
@@ -383,7 +384,7 @@ void Md2Player::setSelectionTop()
 		}
 	}
 }
-void Md2Player::setSelectionBottomMost()
+void MarxWorld::setSelectionBottomMost()
 {
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
@@ -400,7 +401,7 @@ void Md2Player::setSelectionBottomMost()
 	}
 	
 }
-void Md2Player::setSelectionBottom()
+void MarxWorld::setSelectionBottom()
 {
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
@@ -421,7 +422,7 @@ void Md2Player::setSelectionBottom()
 	}
 }
 
-void Md2Player::deleteSelectPiece()
+void MarxWorld::deleteSelectPiece()
 {
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
@@ -440,7 +441,7 @@ void Md2Player::deleteSelectPiece()
 	}
 }
 
-void Md2Player::setSelectionCopy()
+void MarxWorld::setSelectionCopy()
 {
 	m_copycount = 0;
 	this->m_CopyID.clear();
@@ -448,7 +449,7 @@ void Md2Player::setSelectionCopy()
 	this->m_CopyID.push_back(_SelectID);
 }
 
-void Md2Player::setSelectionPaste()
+void MarxWorld::setSelectionPaste()
 {
 	m_copycount++;
 	Md2Iter md2begin = _WorldPiece.begin();
@@ -474,7 +475,7 @@ void Md2Player::setSelectionPaste()
 
 }
 
-void Md2Player::duplicateSelectPiece()
+void MarxWorld::duplicateSelectPiece()
 {
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
@@ -501,7 +502,7 @@ void Md2Player::duplicateSelectPiece()
 // --------------------------------------------------------------------------
 
 
-Md2Object *Md2Player::setNewPiece(const string &dirname,const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye)
+Md2Object *MarxWorld::setNewPiece(const string &dirname,const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye)
 {
 	std::ifstream pieceifs;
 
@@ -535,36 +536,41 @@ Md2Object *Md2Player::setNewPiece(const string &dirname,const string &md2Name,co
 	return obj;
 }
 
-Md2Object *Md2Player::setNewPiece(const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye)
+Md2Object *MarxWorld::setNewPiece(const string &md2Name, const string &textureName, COMMONDATATYPE::Vector3d eye)
 {
 	std::ifstream pieceifs;
 
-	string path = _RootDirctory + "/"+ md2Name;
-	pieceifs.open (path.c_str (), std::ios::binary);
+	string path = _RootDirctory + "/" + md2Name;
+	pieceifs.open(path.c_str(), std::ios::binary);
 
-	if (pieceifs.fail ())
+	if (!pieceifs.fail())
 	{
+		pieceifs.close();
 		return false;
 	}
-	pieceifs.close ();
+
+	GLfloat pos = -10;
 
 	Md2Object* obj = new Md2Object();
 	//_WorldPiece.push_back()
 	obj->setName(_NextID);
 	_NextID++;
-	obj->setModel (md2Name,textureName);
-	obj->setRotate(0,90,90);
+	obj->setModel(path, textureName);
+	obj->setRotate(0, 90, 90);
+	obj->setTranslate(0, pos, pos / 2);
+	pos += 2;
 	obj->setScale(0.1);
-	obj->setTranslate(eye.x+5,eye.y+5,(_NextID-1100));
-
-	
-
 	_WorldPiece.push_back(obj);
+
+	// Set first skin as default skin
+	// 피스는 에니메이션이 없다고 가정한다.
+	//_currentSkin = Model->skins().begin ()->first;
+	//_currentAnim = obj->currentAnim ();
 
 	return obj;
 }
 
-Md2Object *Md2Player::setNewPieceChar(const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye)
+Md2Object *MarxWorld::setNewPieceChar(const string &md2Name, const string &textureName, COMMONDATATYPE::Vector3d eye)
 {
 	std::ifstream pieceifs;
 
@@ -591,7 +597,7 @@ Md2Object *Md2Player::setNewPieceChar(const string &md2Name,const string &textur
 	return obj;
 }
 
-Md2Object *Md2Player::setNewPiece(const string &md2Name,const string &textureName,float x,float y,float z)
+Md2Object *MarxWorld::setNewPiece(const string &md2Name,const string &textureName,float x,float y,float z)
 {
 	COMMONDATATYPE::Vector3d data;
 	data.x = x;
@@ -600,7 +606,7 @@ Md2Object *Md2Player::setNewPiece(const string &md2Name,const string &textureNam
 	return setNewPiece(md2Name,textureName,data);
 }
 
-Md2Object *Md2Player::setNewPiece(float Width,float Height , const string &textureName)
+Md2Object *MarxWorld::setNewPiece(float Width,float Height , const string &textureName)
 {
 
 
@@ -624,7 +630,7 @@ Md2Object *Md2Player::setNewPiece(float Width,float Height , const string &textu
 	return obj;
 }
 
-Md2Object *Md2Player::setNewPiece(Md2Object* model)
+Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 {
 	Md2Object* obj = new Md2Object();
 	//_WorldPiece.push_back()
@@ -650,7 +656,7 @@ Md2Object *Md2Player::setNewPiece(Md2Object* model)
 }
 
 
-Md2Object *Md2Player::setNewPiece(float Width,float Height, const string &textureName,const string &textureAlpha)
+Md2Object *MarxWorld::setNewPiece(float Width,float Height, const string &textureName,const string &textureAlpha)
 {
 
 	
@@ -676,7 +682,7 @@ Md2Object *Md2Player::setNewPiece(float Width,float Height, const string &textur
 }
 
 
-void Md2Player::Save()
+void MarxWorld::Save()
 {
 	TiXmlDocument doc;  
 	TiXmlElement* msg;
@@ -737,7 +743,7 @@ void Md2Player::Save()
 	doc.SaveFile("text.xml");
 }
 
-bool Md2Player::Load()
+bool MarxWorld::Load()
 {
 	TiXmlDocument doc( "text.xml" );
 	bool loadOkay = doc.LoadFile();

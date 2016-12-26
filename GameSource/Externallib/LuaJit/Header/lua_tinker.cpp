@@ -9,12 +9,12 @@
 //#include "stdafx.h"
 extern "C"
 {
-	#include <lua.h>
-	#include <lualib.h>
-	#include <lauxlib.h>
+	#include "lua.h"
+	#include "lualib.h"
+	#include "lauxlib.h"
 }
 #include "lua_tinker.h"
-
+#include <string>
 #include "lua.h"
 /*---------------------------------------------------------------------------*/ 
 /* init                                                                      */ 

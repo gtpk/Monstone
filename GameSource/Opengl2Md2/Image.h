@@ -356,8 +356,6 @@ public:
 
 	ImageColortoAlpha (const ImageBuffer &ibuff,const ImageBuffer &aibuff);
 
-	~ImageColortoAlpha();
-
 };
 
 /////////////////////////////////////////////////////////////////////////////
@@ -431,7 +429,6 @@ public:
 		{
 			result = NULL;
 		}
-  		
 
 		return result;
 	}

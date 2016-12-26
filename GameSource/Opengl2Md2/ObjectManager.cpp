@@ -19,7 +19,7 @@ bool ObjectManager::PushMarxObject(const std::string _Name, MarxObject * pObj)
 	if(isExsistName(_Name))
 		return false;
 
-	printf("%s 가 성공적으로 등록 되었삼\n",_Name.c_str());
+	printf("%s 가 성공적으로 등록 되었습니다.\n",_Name.c_str());
 	m_ObjectNameList[_Name] = pObj;
 
 	pObj->SetName(_Name);
@@ -40,7 +40,7 @@ bool ObjectManager::isExsistName(const std::string _Name)
 
 bool ObjectManager::DeleteMarxObject(const std::string _Name)
 {
-	printf("%s 가 성공적으로 삭제 되었삼\n",_Name.c_str());
+	printf("%s 가 성공적으로 삭제 되었습니다.\n",_Name.c_str());
 	OBJECT_NAME_MAP_ITOR itor = m_ObjectNameList.find(_Name);
 	if(itor != m_ObjectNameList.end())
 	{
@@ -55,7 +55,7 @@ bool ObjectManager::ReplaceMarxObject(const std::string _Name, MarxObject * pObj
 	DeleteMarxObject(pObj->GetName());
 	PushMarxObject(_Name,pObj);
 
-	printf("%s가 변경되어 등록 되었삼\n",_Name.c_str());
+	printf("%s가 변경되어 등록 되었습니다.\n",_Name.c_str());
 
 	return true;
 }

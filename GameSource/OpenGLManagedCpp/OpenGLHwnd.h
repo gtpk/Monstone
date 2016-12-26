@@ -458,7 +458,7 @@ namespace WPFOpenGLLib
 					char str1[] = {"WPFOpenGLApp.exe"};
 
 
-					string LoaderPath  = ProjectLoader::getinstance().GetProjectPath();
+					string LoaderPath  = ProjectLoader::getinstance()->GetProjectPath();
 
 					bool isSelect ;
 					
@@ -471,13 +471,14 @@ namespace WPFOpenGLLib
 						selected = dialog->SelectedPath;
 					
 						MarshalString(selected,sModelname);
+						ProjectLoader::getinstance()->ProjectPath = sModelname;
 					}
 					
 					
-					char strDefaltPath[] = {"C:\\monstone\\GameResource\\hueteotl" };
+					char strDefaltPath[] = {"E:\\Monstone\\GameResource\\hueteotl" };
 					char* strDialogPath = (char*)Marshal::StringToHGlobalAnsi(selected).ToPointer();
 					char* strLoaderPath = (char*)LoaderPath.c_str();
-
+					
 					char *strs[2];
 					if(LoaderPath != "")	
 					{
@@ -499,12 +500,12 @@ namespace WPFOpenGLLib
 					
 
 					Opengl2md2::getInstance().Openflmd2init(argc,argv,m_hDC, m_hRC, m_hWnd);
-
+					
 					//프로젝트 파일 저장
-					ProjectLoader::getinstance().SaveProjectFile();
+					ProjectLoader::getinstance()->SaveProjectFile();
 
 					VolkesIterfaceTool* instance = new VolkesIterfaceTool();
-					Md2Player::getInstance().Volkes = (EXTERN::VolkesIterface*)instance;
+					MarxWorld::getInstance().Volkes = (EXTERN::VolkesIterface*)instance;
 
 					instance->OneTimeInit();
 				}
@@ -564,7 +565,7 @@ namespace WPFOpenGLLib
 			MarshalString(ModelName,sModelname);
 			MarshalString(TextureName,sTextureName);
 
-			Md2Player::getInstance().setNewPiece(sModelname,sTextureName);
+			MarxWorld::getInstance().setNewPiece(sModelname,sTextureName);
 			
 		}
 
@@ -575,7 +576,7 @@ namespace WPFOpenGLLib
 
 			MarshalString(TextureName,sTextureName);
 			
-			Md2Player::getInstance().setNewPiece(Width,Height,sTextureName);
+			MarxWorld::getInstance().setNewPiece(Width,Height,sTextureName);
 			
 		}
 
@@ -588,7 +589,7 @@ namespace WPFOpenGLLib
 			MarshalString(TextureName,sTextureName);
 			MarshalString(TextureAlpha,sTextureAlpha);
 			
-			Md2Player::getInstance().setNewPiece(Width,Height,sTextureName,sTextureAlpha);
+			MarxWorld::getInstance().setNewPiece(Width,Height,sTextureName,sTextureAlpha);
 			
 		}
 
@@ -609,12 +610,12 @@ namespace WPFOpenGLLib
 
 		void Save()
 		{
-			Md2Player::getInstance().Save();
+			MarxWorld::getInstance().Save();
 		}
 
 		void Load()
 		{
-			Md2Player::getInstance().Load();
+			MarxWorld::getInstance().Load();
 		}
 	};
 }
