@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
@@ -15,11 +16,9 @@
 #include "stdio.h"
 #include "../Opengl2Md2/Md2Object.h"
 #include "../Opengl2Md2/Md2Model.h"
-#include "../Opengl2Md2/MarxObject.h"
 #include "../Common/VolkesInterface.h"
 #include "../CLILogicCommon/VolkesInterfaceTool.h"
 #include "../Opengl2Md2/MarxWorld.h"
-#include "ObjectInterface.h"
 
 using namespace System;
 using namespace System::Windows;
@@ -57,20 +56,31 @@ property TYPE NAME\
 
 namespace LogicCommon
 {
-	public ref class ObjectTreeContator : public ObjectInterface
+	public ref class ObjectInterface : public INotifyPropertyChanged
 	{
-	private:
-		static ObjectTreeContator^ instance;
-		ObjectTreeContator()
+	protected:
+
+		Md2Object* root;
+		ObservableCollection<ObjectInterface^>^ _Children;
+		void OnPropertyChanged(String^ info)
 		{
-			instance = this;
+			PropertyChanged(this, gcnew PropertyChangedEventArgs(info));
 			_Children = gcnew ObservableCollection<ObjectInterface^>();
 		}
 
-		ObservableCollection<ObjectInterface^>^ _Children;
+		PROPERTYDEFINE(String^, TextureName);
+		PROPERTYDEFINE(String^, AlphaTextureName);
+		PROPERTYDEFINE(float, Scale);
+		PROPERTYDEFINE(int, CurrentName);
+		PROPERTYDEFINE(String^, ObjectName);
+		PROPERTYDEFINE(float, Width);
+		PROPERTYDEFINE(float, Height);
+		PROPERTYDEFINE(String^, ModelName);
+		PROPERTYDEFINE(Vector3D^, Rotation);
+		PROPERTYDEFINE(Vector3D^, Trance);
 
 		
-	public :
+	public:
 		property ObservableCollection<ObjectInterface^>^ Children
 		{
 			ObservableCollection<ObjectInterface^>^ get()
@@ -78,21 +88,35 @@ namespace LogicCommon
 				return _Children;
 			}
 		}
-		
+		virtual event PropertyChangedEventHandler^ PropertyChanged;
 
-		void setNewPiece(Md2Object* obj)
+		void SetMarxObject(Md2Object* obj)
 		{
-			ObjectInterface^ gen = gcnew ObjectInterface();
-			gen->SetMarxObject(obj);
-			Children->Add(gen);
+			root = obj;
+			CurrentName = obj->GetUniqNumber();
+			ObjectName = gcnew String(obj->GetName().c_str());
+			ModelName = gcnew String(obj->model()->getMd2name().c_str());
+
+			TextureName = gcnew String(obj->model()->getTextureName().c_str());
+
+			AlphaTextureName = gcnew String(obj->model()->getAlphaTextureName().c_str());
+
+			Scale = obj->model()->getScale();
+
+			Width = obj->model()->GetPieceWidth();
+
+			Height = obj->model()->GetPieceHeight();
+
+			Rotation = gcnew Vector3D(obj->getRotate()[0],
+				obj->getRotate()[1],
+				obj->getRotate()[2]);
+
+			Trance = gcnew Vector3D(obj->getTranslate()[0],
+				obj->getTranslate()[1],
+				obj->getTranslate()[2]);
+
 		}
 
-		static ObjectTreeContator^ GetInstance()
-		{
-			if (instance == nullptr)
-				instance = gcnew ObjectTreeContator();
-			return instance;
-		}
 	};
 
 }

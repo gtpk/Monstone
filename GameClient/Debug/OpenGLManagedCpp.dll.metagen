@@ -11,21 +11,26 @@ Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561
 	hash=None, flags=None
 Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
 Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Assembly WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
 	hash=None, flags=None
-Class LogicCommon.SelectObjectInterface: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class LogicCommon.ObjectInterface: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Interfaces:
     System.ComponentModel.INotifyPropertyChanged
   Properties:
+    System.Collections.ObjectModel.ObservableCollection`1[LogicCommon.ObjectInterface] Children 'get ' : 
     System.ValueType Trance 'get set' Vector3D IsBoxed : 
     System.ValueType Rotation 'get set' Vector3D IsBoxed : 
     System.String ModelName 'get set' : 
     Single Height 'get set' : 
     Single Width 'get set' : 
+    System.String ObjectName 'get set' : 
     Int32 CurrentName 'get set' : 
     Single Scale 'get set' : 
     System.String AlphaTextureName 'get set' : 
@@ -41,6 +46,8 @@ Class LogicCommon.SelectObjectInterface: AutoLayout, AnsiClass, Class, Public, B
     get_Scale(): PrivateScope, Public, HideBySig, SpecialName
     set_CurrentName(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_CurrentName(): PrivateScope, Public, HideBySig, SpecialName
+    set_ObjectName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ObjectName(): PrivateScope, Public, HideBySig, SpecialName
     set_Width(Single): PrivateScope, Public, HideBySig, SpecialName
     get_Width(): PrivateScope, Public, HideBySig, SpecialName
     set_Height(Single): PrivateScope, Public, HideBySig, SpecialName
@@ -51,8 +58,13 @@ Class LogicCommon.SelectObjectInterface: AutoLayout, AnsiClass, Class, Public, B
     get_Rotation(): PrivateScope, Public, HideBySig, SpecialName
     set_Trance(ValueType Vector3D IsBoxed): PrivateScope, Public, HideBySig, SpecialName
     get_Trance(): PrivateScope, Public, HideBySig, SpecialName
+    get_Children(): PrivateScope, Public, HideBySig, SpecialName
     add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
     remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    SetMarxObject(Md2Object*): PrivateScope, Public, HideBySig
+Class LogicCommon.SelectObjectInterface: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :LogicCommon.ObjectInterface
+  Methods:
     GetInstance(): PrivateScope, Public, Static, HideBySig
 Class LogicCommon.ProjectSettingValuesInterface: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   Interfaces:
@@ -66,6 +78,14 @@ Class LogicCommon.ProjectSettingValuesInterface: AutoLayout, AnsiClass, Class, P
     get_ProjectPath(): PrivateScope, Public, HideBySig, SpecialName
     add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
     remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    GetInstance(): PrivateScope, Public, Static, HideBySig
+Class LogicCommon.ObjectTreeContator: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :LogicCommon.ObjectInterface
+  Properties:
+    System.Collections.ObjectModel.ObservableCollection`1[LogicCommon.ObjectInterface] Children 'get ' : 
+  Methods:
+    get_Children(): PrivateScope, Public, HideBySig, SpecialName
+    setNewPiece(Md2Object*): PrivateScope, Public, HideBySig
     GetInstance(): PrivateScope, Public, Static, HideBySig
 Class WPFOpenGLLib.OpenGLHwnd: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Interop.HwndHost

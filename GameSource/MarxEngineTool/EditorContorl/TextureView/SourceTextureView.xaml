@@ -10,10 +10,7 @@
 
 	<Grid x:Name="LayoutRoot">
 		<Grid>
-			<Image x:Name="i_Targa"/>
-			<TextBlock x:Name="tb_Name" HorizontalAlignment="Left" TextWrapping="Wrap" Text="MarxEngine_c.tga" VerticalAlignment="Top" Foreground="White" Background="Black"/>
-			<Button Content="LoadFile" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Margin="70,124.04,0,0" Height="25.96"/>
-                                    
+			<Image x:Name="i_Targa"/>              
 		</Grid>
 	</Grid>
 </UserControl>

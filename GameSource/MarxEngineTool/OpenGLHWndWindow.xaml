@@ -11,282 +11,303 @@
         xmlns:CloseableTabItemDemo="clr-namespace:CloseableTabItemDemo"
         mc:Ignorable="d" x:Class="MarxEngineTool.OpenGLHWndWindow" Height="716" Width="1085"
         Loaded="Window_Loaded" KeyDown="Window_KeyDown" Title="Marx Engine" WindowStartupLocation="CenterScreen">
-	<Window.Resources>
-		<DataTemplate x:Key="BitmapSourceTemplate">
-			<StackPanel>
-				<Image Source="{Binding Mode=OneWay}" HorizontalAlignment="Left" Height="64" Width="64"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="PieceInfoTemplate">
-			<StackPanel>
-				<TextBlock Text="{Binding AlphaTextureFilePath}"/>
-				<TextBlock Text="{Binding Height}"/>
-				<TextBlock Text="{Binding TextureFilePath}"/>
-				<TextBlock Text="{Binding Width}"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="BitmapSourceTemplate1">
-			<StackPanel>
-				<Image Source="{Binding Mode=OneWay}" HorizontalAlignment="Left" Height="64" Width="64"/>
-			</StackPanel>
-		</DataTemplate>
-		<DataTemplate x:Key="PieceInfoTemplate1">
-			<Grid Height="100" MinWidth="50" MinHeight="50" Width="100">
-				<Image Source="{Binding BitmapSource}" HorizontalAlignment="Stretch" Height="Auto" Width="Auto" MinWidth="50" MinHeight="50" Margin="10"/>
-				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding TextureName}" VerticalAlignment="Top" Background="White" Foreground="Black"/>
-			</Grid>
-		</DataTemplate>
-		<ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
-			<WrapPanel IsItemsHost="True" Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-		</ItemsPanelTemplate>
-	</Window.Resources>
-	<Window.Triggers>
-		<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
-	</Window.Triggers>
-	<DockPanel Background="#FF252525">
-		<VisualStateManager.CustomVisualStateManager>
-			<ei:ExtendedVisualStateManager/>
-		</VisualStateManager.CustomVisualStateManager>
-		<VisualStateManager.VisualStateGroups>
-			<VisualStateGroup x:Name="VisualStateGroup" ei:ExtendedVisualStateManager.UseFluidLayout="True">
-				<VisualStateGroup.Transitions>
-					<VisualTransition GeneratedDuration="0:0:0.5" ei:ExtendedVisualStateManager.TransitionEffect="{x:Null}"/>
-				</VisualStateGroup.Transitions>
-				<VisualState x:Name="Full">
-					<Storyboard>
-						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="stackPanel">
-							<DiscreteObjectKeyFrame KeyTime="0">
-								<DiscreteObjectKeyFrame.Value>
-									<System:Double>0</System:Double>
-								</DiscreteObjectKeyFrame.Value>
-							</DiscreteObjectKeyFrame>
-						</ObjectAnimationUsingKeyFrames>
-						<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="dockPanel">
-							<EasingThicknessKeyFrame KeyTime="0" Value="-285,0,0,0"/>
-						</ThicknessAnimationUsingKeyFrames>
-						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="dockPanel1">
-							<DiscreteObjectKeyFrame KeyTime="0">
-								<DiscreteObjectKeyFrame.Value>
-									<System:Double>0</System:Double>
-								</DiscreteObjectKeyFrame.Value>
-							</DiscreteObjectKeyFrame>
-						</ObjectAnimationUsingKeyFrames>
-					</Storyboard>
-				</VisualState>
-				<VisualState x:Name="Normal"/>
-			</VisualStateGroup>
-		</VisualStateManager.VisualStateGroups>
-		<DockPanel x:Name="grid1" DockPanel.Dock="Top">
-			<Grid x:Name="grid" DockPanel.Dock="Top">
-				<Menu Margin="0" Background="#FF373737" Foreground="#FFADADAD">
-					<MenuItem Header="파일(_F)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333">
-						<MenuItem Header="새 프로젝트(_N)" Foreground="Black"/>
-						<Separator HorizontalAlignment="Left" Width="180.303333333333"/>
-						<MenuItem Header="새 맵 만들기_N)" Foreground="Black"/>
-						<MenuItem Header="불러오기(_S)" Foreground="Black"/>
-						<MenuItem Header="저장(_S)" Foreground="Black"/>
-						<MenuItem Header="종료(_X)" Foreground="Black"/>
-					</MenuItem>
-					<MenuItem Header="편집(_E)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333">
-						<MenuItem Header="실행취소(_D)" Foreground="Black" Margin="0"/>
-						<MenuItem Header="다시실행(_R)" Foreground="Black" Margin="0"/>
-						<Separator Margin="0"/>
-						<MenuItem Header="잘라내가(_X)" Foreground="Black" Margin="0"/>
-						<MenuItem Header="복사(_C)" Foreground="Black" Margin="0"/>
-						<MenuItem Header="붙여넣기(_V)" Foreground="Black" Margin="0"/>
-						<MenuItem Header="삭제(_Del)" Foreground="Black" Margin="0"/>
-					</MenuItem>
-					<MenuItem Header="모드(_M)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
-					<MenuItem Header="그리기(_D)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
-					<MenuItem Header="크기(_S)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
-					<MenuItem Header="툴(_T)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333">
-						<MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-						<MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-						<MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-						<MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-						<MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-						<MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-						<MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-						<MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-						<MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-					</MenuItem>
-					<MenuItem Header="게임(_G)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
-					<MenuItem Header="도움(_H)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
-				</Menu>
-				<StackPanel Margin="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-					<Button Content="S" HorizontalAlignment="Left" Height="23.55" VerticalAlignment="Top" Width="33">
-						<i:Interaction.Triggers>
-							<i:EventTrigger EventName="Click">
-								<ei:GoToStateAction StateName="Normal"/>
-							</i:EventTrigger>
-						</i:Interaction.Triggers>
-					</Button>
-					<Button Content="F" HorizontalAlignment="Left" Height="23.55" VerticalAlignment="Top" Width="33">
-						<i:Interaction.Triggers>
-							<i:EventTrigger EventName="Click">
-								<ei:GoToStateAction StateName="Full"/>
-							</i:EventTrigger>
-						</i:Interaction.Triggers>
-					</Button>
+    <Window.Resources>
+        <DataTemplate x:Key="BitmapSourceTemplate">
+            <StackPanel>
+                <Image Source="{Binding Mode=OneWay}" HorizontalAlignment="Left" Height="64" Width="64"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PieceInfoTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding AlphaTextureFilePath}"/>
+                <TextBlock Text="{Binding Height}"/>
+                <TextBlock Text="{Binding TextureFilePath}"/>
+                <TextBlock Text="{Binding Width}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="BitmapSourceTemplate1">
+            <StackPanel>
+                <Image Source="{Binding Mode=OneWay}" HorizontalAlignment="Left" Height="64" Width="64"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PieceInfoTemplate1">
+            <Grid Height="100" MinWidth="50" MinHeight="50" Width="100">
+                <Image Source="{Binding BitmapSource}" HorizontalAlignment="Stretch" Height="Auto" Width="Auto" MinWidth="50" MinHeight="50" Margin="10"/>
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding TextureName}" VerticalAlignment="Top" Background="White" Foreground="Black"/>
+            </Grid>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+            <WrapPanel IsItemsHost="True" Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        </ItemsPanelTemplate>
+        <HierarchicalDataTemplate x:Key="MarxObjectTreeViewModelTemplate" ItemsSource="{Binding Children}">
+            <StackPanel>
+                <CheckBox IsChecked="{Binding HasDummyChild, Mode=OneWay}"/>
+                <CheckBox IsChecked="{Binding IsExpanded}"/>
+                <CheckBox IsChecked="{Binding IsSelected}"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="MarxObjectTreeViewModelTemplate1" ItemsSource="{Binding Children}">
+            <StackPanel>
+                <CheckBox IsChecked="{Binding HasDummyChild, Mode=OneWay}"/>
+                <CheckBox IsChecked="{Binding IsExpanded}"/>
+                <CheckBox IsChecked="{Binding IsSelected}"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="ObjectInterfaceTemplate">
+            <StackPanel Orientation="Horizontal" Width="Auto">
+                <Viewbox Stretch="Fill" Height="25" Width="25">
+                    <local:SourceTextureView TgaImageUri="{Binding TextureName}" Height="150" Width="150"/>
+                </Viewbox>
+                <StackPanel Orientation="Horizontal" d:LayoutOverrides="Width">
+                    <TextBlock VerticalAlignment="Center"><Run Text="Name :"/><Run Text=" "/></TextBlock>
+                    <TextBlock Text="{Binding ObjectName}" VerticalAlignment="Center"/>
                 </StackPanel>
-			</Grid>
-			<DockPanel x:Name="stackPanel" Height="32" Margin="0" VerticalAlignment="Top" Background="#FF353535" DockPanel.Dock="Top" LastChildFill="False" >
-				<Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="22" Source="ImageAsset/icons/1373913501_Open.png" Stretch="Fill" Width="22"/>
-				</Button>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Margin="0" Source="ImageAsset/icons/Actions-document-save-as-icon.png" Stretch="Fill" Width="22" Height="22"/>
-				</Button>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="22" Source="ImageAsset/icons/Files-New-File-icon.png" Stretch="Fill" Width="22" HorizontalAlignment="Center"/>
-				</Button>
-				<Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/Edit-Cut-icon.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/Copy-icon.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/Paste-icon.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/Actions-edit-delete-icon.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/1373914895_to_do_list_cheked_all.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/1373915017_select_by_color.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/group-24.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/1373918230_object-rotate-right.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/1373918245_move.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="ImageAsset/icons/Actions-transform-scale-icon.png" Stretch="Fill" Width="24"/>
-				</Button>
-				<Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-				<Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-					<Image Height="24" Source="problem_of_existance_god_is_not_the_question_desktop_1920x1200_hd-wallpaper-605790_Images/배경.png" Stretch="Fill" Width="24"/>
-				</Button>
-			</DockPanel>
-			<DockPanel x:Name="grid2" Margin="0" DockPanel.Dock="Bottom" Height="Auto" Width="Auto">
-				<DockPanel x:Name="dockPanel" LastChildFill="False" Margin="0">
-					<TabControl Background="{x:Null}" Foreground="{x:Null}" Margin="0" MinWidth="200">
-						<TabItem Header="프로젝트" Background="#FF474747" Foreground="#FFC8C8C8" Margin="0">
-							<Grid Background="#FF525252">
-								<TreeView Margin="0">
-									<TreeViewItem Header="Stage1" IsExpanded="True">
-										<TreeViewItem Header="Intro" HorizontalAlignment="Left" Width="93.6766666666667"/>
-										<TreeViewItem Header="Town" HorizontalAlignment="Left" Width="93.677"/>
-										<TreeViewItem Header="MyHome" HorizontalAlignment="Left" Width="93.677"/>
-										<TreeViewItem Header="First Blood" HorizontalAlignment="Left" Width="93.677"/>
-									</TreeViewItem>
-								</TreeView>
-							</Grid>
-						</TabItem>
-						<TabItem Header="Md2" Background="#FF474747" Foreground="#FFC8C8C8" BorderBrush="#FF7E7E7E" Margin="0">
-							<Grid Background="#FF565656">
-								<StackPanel Margin="0" VerticalAlignment="Top">
-									<StackPanel Margin="2.929,0,4,0" Orientation="Vertical" Height="108.16">
-										<Grid Height="22.04" Margin="0,0,0,5">
-											<TextBox Margin="105.071,0,0,0" TextWrapping="Wrap"/>
-											<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="98"><Run Language="ko-kr" Text="이미지"/></TextBlock>
-										</Grid>
-										<Grid Height="22.04" Margin="0,0,0,5">
-											<TextBox Margin="105.071,0,0,0" TextWrapping="Wrap"/>
-											<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="98"><Run Language="ko-kr" Text="알파 이미지"/></TextBlock>
-										</Grid>
-										<Grid Height="22.04" Margin="0,0,0,5">
-											<TextBox Margin="105.071,0,0,0" TextWrapping="Wrap" Text=""/>
-											<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="98"><Run Language="ko-kr" Text="아이템 번호"/></TextBlock>
-										</Grid>
-										<Grid Height="22.04" Margin="0,0,0,5">
-											<TextBox Margin="105.071,0,0,0" TextWrapping="Wrap" Text="TextBox" IsEnabled="False"/>
-											<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="98"><Run Language="ko-kr" Text="텍스쳐"/></TextBlock>
-										</Grid>
-                                    
-									</StackPanel>
-									<Button Content="피스 추가" Height="52.04" Click="Button_Click_2" Margin="0,0,8,0"/>
-								</StackPanel>
-							</Grid>
-						</TabItem>
-					</TabControl>
-				</DockPanel>
-				<DockPanel x:Name="dockPanel1" Margin="0" DockPanel.Dock="Right" HorizontalAlignment="Right" MinWidth="210">
-					<TabControl HorizontalAlignment="Left" DockPanel.Dock="Right" MinWidth="270">
-						<TabItem Header="자산(Asset)">
-							<Grid Background="#FF252525" Margin="0" MinWidth="200">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="43*"/>
-									<RowDefinition Height="20*"/>
-								</Grid.RowDefinitions>
-								<Grid.DataContext>
-									<ViewModel:PieceListViewModel/>
-								</Grid.DataContext>
-								<Grid>
-									<ListBox x:Name="listBox" Background="{x:Null}" Margin="0,0,0,42.84" ItemTemplate="{DynamicResource PieceInfoTemplate1}" ItemsSource="{Binding pieceList}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxWidth="300">
-										<i:Interaction.Triggers>
-											<i:EventTrigger>
-												<i:InvokeCommandAction Command="{Binding Instance.Command, Mode=OneWay}" CommandParameter="Load"/>
-											</i:EventTrigger>
-											<i:EventTrigger EventName="SelectionChanged">
-												<i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="{Binding SelectedValue, ElementName=listBox}"/>
-											</i:EventTrigger>
-										</i:Interaction.Triggers>
-									</ListBox>
-									<Button Content="피스 추가" Margin="0" VerticalAlignment="Bottom" Height="42">
-										<i:Interaction.Triggers>
-											<i:EventTrigger EventName="Click">
-												<i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="MakePieceInfo"/>
-											</i:EventTrigger>
-										</i:Interaction.Triggers>
-									</Button>
-								</Grid>
-								<Image Grid.Row="1" Source="{Binding Instance.pieceSelection.BitmapSource}" Margin="0" Width="200"/>
-							</Grid>
-						</TabItem>
-						<TabItem Header="속성(_I)">
-							<Grid Background="#FFE5E5E5">
-								<local:PieceProperty/>
-							</Grid>
-						</TabItem>
-					</TabControl>
-				</DockPanel>
-				<TabControl VerticalAlignment="Top" DockPanel.Dock="Top">
-					<CloseableTabItemDemo:CloseableTabItem Header="CloseableTabItem" Margin="0">
-						<Grid Background="#FFE5E5E5"/>
-					</CloseableTabItemDemo:CloseableTabItem>
-					<CloseableTabItemDemo:CloseableTabItem Header="CloseableTabItem" Margin="0">
-						<Grid Background="#FFE5E5E5"/>
-					</CloseableTabItemDemo:CloseableTabItem>
-					<CloseableTabItemDemo:CloseableTabItem Header="CloseableTabItem" Margin="0">
-						<Grid Background="#FFE5E5E5"/>
-					</CloseableTabItemDemo:CloseableTabItem>
-					<CloseableTabItemDemo:CloseableTabItem Header="CloseableTabItem" Margin="0">
-						<Grid Background="#FFE5E5E5"/>
-					</CloseableTabItemDemo:CloseableTabItem>
-				</TabControl>
-				<Border x:Name="hwndPlaceholder" RenderTransformOrigin="0.5,0.5" Margin="0" >
-					<Border.RenderTransform>
-						<TransformGroup>
-							<SkewTransform/>
-							<RotateTransform/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</Border.RenderTransform>
-				</Border>
-			</DockPanel>
-		</DockPanel>
-       
-	</DockPanel>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="ObjectInterfaceTemplate1" ItemsSource="{Binding Children}">
+            <StackPanel Orientation="Horizontal">
+                <local:SourceTextureView x:Name="__" Height="20" Width="20" TgaImageUri="{Binding TextureName}"/>
+                <TextBlock Text="{Binding ObjectName}"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+    </Window.Triggers>
+    <DockPanel Background="#FF252525">
+        <VisualStateManager.CustomVisualStateManager>
+            <ei:ExtendedVisualStateManager/>
+        </VisualStateManager.CustomVisualStateManager>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup" ei:ExtendedVisualStateManager.UseFluidLayout="True">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.5" ei:ExtendedVisualStateManager.TransitionEffect="{x:Null}"/>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Full">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="stackPanel">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <System:Double>0</System:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="dockPanel">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="-285,0,0,0"/>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="dockPanel1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <System:Double>0</System:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Normal"/>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <DockPanel x:Name="grid1" DockPanel.Dock="Top">
+            <Grid x:Name="grid" DockPanel.Dock="Top">
+                <Menu Margin="0" Background="#FF373737" Foreground="#FFADADAD">
+                    <MenuItem Header="파일(_F)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333">
+                        <MenuItem Header="새 프로젝트(_N)" Foreground="Black"/>
+                        <Separator HorizontalAlignment="Left" Width="180.303333333333"/>
+                        <MenuItem Header="새 맵 만들기_N)" Foreground="Black"/>
+                        <MenuItem Header="불러오기(_S)" Foreground="Black"/>
+                        <MenuItem Header="저장(_S)" Foreground="Black"/>
+                        <MenuItem Header="종료(_X)" Foreground="Black"/>
+                    </MenuItem>
+                    <MenuItem Header="편집(_E)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333">
+                        <MenuItem Header="실행취소(_D)" Foreground="Black" Margin="0"/>
+                        <MenuItem Header="다시실행(_R)" Foreground="Black" Margin="0"/>
+                        <Separator Margin="0"/>
+                        <MenuItem Header="잘라내가(_X)" Foreground="Black" Margin="0"/>
+                        <MenuItem Header="복사(_C)" Foreground="Black" Margin="0"/>
+                        <MenuItem Header="붙여넣기(_V)" Foreground="Black" Margin="0"/>
+                        <MenuItem Header="삭제(_Del)" Foreground="Black" Margin="0"/>
+                    </MenuItem>
+                    <MenuItem Header="모드(_M)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
+                    <MenuItem Header="그리기(_D)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
+                    <MenuItem Header="크기(_S)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
+                    <MenuItem Header="툴(_T)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333">
+                        <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                        <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                        <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                        <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                        <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                        <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                        <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                        <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                        <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                    </MenuItem>
+                    <MenuItem Header="게임(_G)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
+                    <MenuItem Header="도움(_H)" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
+                </Menu>
+                <StackPanel Margin="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Button Content="S" HorizontalAlignment="Left" Height="23.55" VerticalAlignment="Top" Width="33">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <ei:GoToStateAction StateName="Normal"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button Content="F" HorizontalAlignment="Left" Height="23.55" VerticalAlignment="Top" Width="33">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <ei:GoToStateAction StateName="Full"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <DockPanel x:Name="stackPanel" Height="32" Margin="0" VerticalAlignment="Top" Background="#FF353535" DockPanel.Dock="Top" LastChildFill="False" >
+                <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="22" Source="ImageAsset/icons/1373913501_Open.png" Stretch="Fill" Width="22"/>
+                </Button>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Margin="0" Source="ImageAsset/icons/Actions-document-save-as-icon.png" Stretch="Fill" Width="22" Height="22"/>
+                </Button>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="22" Source="ImageAsset/icons/Files-New-File-icon.png" Stretch="Fill" Width="22" HorizontalAlignment="Center"/>
+                </Button>
+                <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/Edit-Cut-icon.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/Copy-icon.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/Paste-icon.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/Actions-edit-delete-icon.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/1373914895_to_do_list_cheked_all.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/1373915017_select_by_color.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/group-24.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/1373918230_object-rotate-right.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/1373918245_move.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="ImageAsset/icons/Actions-transform-scale-icon.png" Stretch="Fill" Width="24"/>
+                </Button>
+                <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                    <Image Height="24" Source="problem_of_existance_god_is_not_the_question_desktop_1920x1200_hd-wallpaper-605790_Images/배경.png" Stretch="Fill" Width="24"/>
+                </Button>
+            </DockPanel>
+            <DockPanel x:Name="grid2" Margin="0" DockPanel.Dock="Bottom" Height="Auto" Width="Auto">
+                <DockPanel x:Name="dockPanel" LastChildFill="False" Margin="0">
+                    <TabControl Background="{x:Null}" Foreground="{x:Null}" Margin="0" MinWidth="200">
+                        <TabItem Header="프로젝트" Background="#FF474747" Foreground="#FFC8C8C8" Margin="0">
+                            <TabItem.DataContext>
+                                <ViewModel:MarxObjectTreeViewModel/>
+                            </TabItem.DataContext>
+                            <Grid Background="#FF525252">
+
+                                <TreeView Margin="0" ItemTemplate="{DynamicResource ObjectInterfaceTemplate1}" ItemsSource="{Binding Children}">
+
+                                </TreeView>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Md2" Background="#FF474747" Foreground="#FFC8C8C8" BorderBrush="#FF7E7E7E" Margin="0">
+                            <Grid Background="#FF565656">
+                                <StackPanel Margin="0" VerticalAlignment="Top">
+                                    <StackPanel Margin="2.929,0,4,0" Orientation="Vertical" Height="108.16">
+                                        <Grid Height="22.04" Margin="0,0,0,5">
+                                            <TextBox Margin="105.071,0,0,0" TextWrapping="Wrap"/>
+                                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="98"><Run Language="ko-kr" Text="이미지"/></TextBlock>
+                                        </Grid>
+                                        <Grid Height="22.04" Margin="0,0,0,5">
+                                            <TextBox Margin="105.071,0,0,0" TextWrapping="Wrap"/>
+                                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="98"><Run Language="ko-kr" Text="알파 이미지"/></TextBlock>
+                                        </Grid>
+                                        <Grid Height="22.04" Margin="0,0,0,5">
+                                            <TextBox Margin="105.071,0,0,0" TextWrapping="Wrap" Text=""/>
+                                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="98"><Run Language="ko-kr" Text="아이템 번호"/></TextBlock>
+                                        </Grid>
+                                        <Grid Height="22.04" Margin="0,0,0,5">
+                                            <TextBox Margin="105.071,0,0,0" TextWrapping="Wrap" Text="TextBox" IsEnabled="False"/>
+                                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="98"><Run Language="ko-kr" Text="텍스쳐"/></TextBlock>
+                                        </Grid>
+
+                                    </StackPanel>
+                                    <Button Content="피스 추가" Height="52.04" Click="Button_Click_2" Margin="0,0,8,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </DockPanel>
+                <DockPanel x:Name="dockPanel1" Margin="0" DockPanel.Dock="Right" HorizontalAlignment="Right" MinWidth="210">
+                    <TabControl HorizontalAlignment="Left" DockPanel.Dock="Right" MinWidth="270">
+                        <TabItem Header="자산(Asset)">
+                            <Grid Background="#FF252525" Margin="0" MinWidth="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="43*"/>
+                                    <RowDefinition Height="20*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.DataContext>
+                                    <ViewModel:PieceListViewModel/>
+                                </Grid.DataContext>
+                                <Grid>
+                                    <ListBox x:Name="listBox" Background="{x:Null}" Margin="0,0,0,42.84" ItemTemplate="{DynamicResource PieceInfoTemplate1}" ItemsSource="{Binding pieceList}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxWidth="300">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger>
+                                                <i:InvokeCommandAction Command="{Binding Instance.Command, Mode=OneWay}" CommandParameter="Load"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="SelectionChanged">
+                                                <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="{Binding SelectedValue, ElementName=listBox}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </ListBox>
+                                    <Button Content="피스 추가" Margin="0" VerticalAlignment="Bottom" Height="42">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="MakePieceInfo"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Button>
+                                </Grid>
+                                <Image Grid.Row="1" Source="{Binding Instance.pieceSelection.BitmapSource}" Margin="0" Width="200"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="속성(_I)">
+                            <Grid Background="#FFE5E5E5">
+                                <local:PieceProperty/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </DockPanel>
+                <TabControl VerticalAlignment="Top" DockPanel.Dock="Top" Height="24.46">
+                    <CloseableTabItemDemo:CloseableTabItem Header="CloseableTabItem" Margin="0">
+                        <Grid Background="#FFE5E5E5"/>
+                    </CloseableTabItemDemo:CloseableTabItem>
+                </TabControl>
+                <Border x:Name="hwndPlaceholder" RenderTransformOrigin="0.5,0.5" Margin="0" >
+                    <Border.RenderTransform>
+                        <TransformGroup>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Border.RenderTransform>
+                </Border>
+            </DockPanel>
+        </DockPanel>
+
+    </DockPanel>
 </Window>

@@ -504,6 +504,7 @@ namespace WPFOpenGLLib
 					//프로젝트 파일 저장
 					ProjectLoader::getinstance()->SaveProjectFile();
 
+					//하위 프로젝트에서 CLI 접근할수있게 인터페이스 연결
 					VolkesIterfaceTool* instance = new VolkesIterfaceTool();
 					MarxWorld::getInstance().Volkes = (EXTERN::VolkesIterface*)instance;
 

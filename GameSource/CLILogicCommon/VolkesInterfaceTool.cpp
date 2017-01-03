@@ -6,9 +6,11 @@
 #include "../OpenGLManagedCpp/ProjectSettingValuesInterface.h"
 #include "../Opengl2Md2/Md2Object.h"
 #include "../Opengl2Md2/ProjectLoader.h"
+#include "../OpenGLManagedCpp/ObjectTreeContator.h"
 
 using LogicCommon::SelectObjectInterface;
 using LogicCommon::ProjectSettingValuesInterface;
+using LogicCommon::ObjectTreeContator;
 
 VolkesIterfaceTool::VolkesIterfaceTool()
 {
@@ -19,31 +21,16 @@ VolkesIterfaceTool::~VolkesIterfaceTool()
 
 }
 
+void VolkesIterfaceTool::setNewPiece(Md2Object* model)
+{
+	ObjectTreeContator::GetInstance()->setNewPiece(model);
+}
+
 bool VolkesIterfaceTool::SetSelection(Md2Object* obj)
 {
 	SelectObjectInterface^ data = SelectObjectInterface::GetInstance();
 
-	data->CurrentName = obj->getName();
-
-	data->ModelName = gcnew String( obj->model()->getMd2name().c_str() );
-
-	data->TextureName = gcnew String( obj->model()->getTextureName().c_str() );
-
-	data->AlphaTextureName = gcnew String( obj->model()->getAlphaTextureName().c_str() );
-
-	data->Scale = obj->model()->getScale();
-
-	data->Width = obj->model()->GetPieceWidth();
-
-	data->Height = obj->model()->GetPieceHeight();
-
-	data->Rotation = gcnew Vector3D(obj->getRotate()[0] ,
-									obj->getRotate()[1] ,
-									obj->getRotate()[2]);
-
-	data->Trance = gcnew Vector3D(  obj->getTranslate()[0] ,
-									obj->getTranslate()[1] ,
-									obj->getTranslate()[2]);
+	data->SetMarxObject(obj);
 
 	//data->ModelName = gcnew String( model->model()->getMd2name()->c_str() );
 

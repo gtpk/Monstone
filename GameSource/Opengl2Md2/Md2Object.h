@@ -60,7 +60,7 @@ public:
 
 	void setName(GLint name) { _currentName = name; }
 
-	int getName() { return _currentName; }
+	int GetUniqNumber() { return _currentName; }
 
 	void setRotate(vec3_t angle );
 

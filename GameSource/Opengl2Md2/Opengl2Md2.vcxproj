@@ -15,11 +15,15 @@
     <ClInclude Include="..\Externallib\FreeImage\Dist\FreeImage.h" />
     <ClInclude Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.h" />
     <ClInclude Include="Anorms.h" />
+    <ClInclude Include="AtlasObj.h" />
     <ClInclude Include="AttacheAble.h" />
+    <ClInclude Include="Bitmap.h" />
     <ClInclude Include="CommonDataType.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="Eventlistener.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="ImageLoader.h" />
+    <ClInclude Include="KardNameFactory.h" />
     <ClInclude Include="LuaManager.h" />
     <ClInclude Include="LuaScriptAttached.h" />
     <ClInclude Include="MarxObject.h" />
@@ -32,13 +36,18 @@
     <ClInclude Include="Opengl2md2.h" />
     <ClInclude Include="PieceModel.h" />
     <ClInclude Include="ProjectLoader.h" />
+    <ClInclude Include="Quad.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.cpp" />
     <ClCompile Include="AttacheAble.cpp" />
+    <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ImageLoader.cpp" />
+    <ClCompile Include="KardNameFactory.cpp" />
     <ClCompile Include="LuaManager.cpp" />
     <ClCompile Include="LuaScriptAttached.cpp" />
     <ClCompile Include="MarxObject.cpp" />
@@ -50,6 +59,8 @@
     <ClCompile Include="Opengl2md2.cpp" />
     <ClCompile Include="PieceModel.cpp" />
     <ClCompile Include="ProjectLoader.cpp" />
+    <ClCompile Include="Quad.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Stringformat.h" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>

@@ -49,6 +49,12 @@
     <Filter Include="MarxLua">
       <UniqueIdentifier>{5991752d-5ea1-4503-8a76-54e8ec897c1b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RenderEngine">
+      <UniqueIdentifier>{f75bc5b5-7de9-40f0-9c64-756f942a55f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderEngine\DataClass">
+      <UniqueIdentifier>{dee4992f-8005-4bea-b44e-7009a11f673e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Md2Model.h">
@@ -114,6 +120,24 @@
     <ClInclude Include="MarxWorld.h">
       <Filter>OpenGL\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KardNameFactory.h">
+      <Filter>RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AtlasObj.h">
+      <Filter>RenderEngine\DataClass</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageLoader.h">
+      <Filter>RenderEngine\DataClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>RenderEngine\DataClass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Md2Model.cpp">
@@ -163,6 +187,19 @@
     </ClCompile>
     <ClCompile Include="MarxWorld.cpp">
       <Filter>OpenGL\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad.cpp">
+      <Filter>RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KardNameFactory.cpp">
+      <Filter>RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="ImageLoader.cpp">
+      <Filter>RenderEngine\DataClass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

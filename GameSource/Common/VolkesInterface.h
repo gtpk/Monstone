@@ -16,7 +16,7 @@ namespace EXTERN
 
 	public:
 
-
+		virtual void setNewPiece(Md2Object* model) = 0;
 		virtual bool SetSelection(Md2Object* model) = 0;
 		virtual void OneTimeInit() = 0;
 

@@ -18,6 +18,7 @@
 #include "../Common/VolkesInterface.h"
 #include "../CLILogicCommon/VolkesInterfaceTool.h"
 #include "../Opengl2Md2/MarxWorld.h"
+#include "ObjectInterface.h"
 
 using namespace System;
 using namespace System::Windows;
@@ -54,7 +55,7 @@ property TYPE NAME\
 
 namespace LogicCommon
 {
-	public ref class SelectObjectInterface : public INotifyPropertyChanged
+	public ref class SelectObjectInterface : public ObjectInterface
 	{
 	private: 
 		static SelectObjectInterface^ instance;
@@ -63,29 +64,9 @@ namespace LogicCommon
 			instance = this;
 		}
 
-		
 
-		void OnPropertyChanged(String^ info)
-		{
-			PropertyChanged(this, gcnew PropertyChangedEventArgs(info));
-		}
-
-		PROPERTYDEFINE(String^,TextureName)
-		PROPERTYDEFINE(String^,AlphaTextureName)
-		PROPERTYDEFINE(float,Scale)
-		PROPERTYDEFINE(int,CurrentName)
-		PROPERTYDEFINE(float,Width)
-		PROPERTYDEFINE(float,Height)
-		PROPERTYDEFINE(String^,ModelName)
-		PROPERTYDEFINE(Vector3D^,Rotation)
-		PROPERTYDEFINE(Vector3D^,Trance)
-	
 
 	public:
-
-		virtual event PropertyChangedEventHandler^ PropertyChanged;
-
-
 		static SelectObjectInterface^ GetInstance()
 		{
 			if(instance == nullptr)

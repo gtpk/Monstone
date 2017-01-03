@@ -371,7 +371,7 @@ public:
 	static Image *createImage (const ImageBuffer &ibuff)
 	{
 		string ext;
-		Image *result;
+		Image *result = NULL;
 
 		// Extract file extension
 		const string &filename = ibuff.filename ();

@@ -48,7 +48,7 @@ namespace MarxEngineTool
             String value = (String)iobject.GetValue(TgaImageUriProperty);
 
 
-            control.tb_Name.Text = value;
+            //control.tb_Name.Text = value;
 
             if (value == "")
                 return;

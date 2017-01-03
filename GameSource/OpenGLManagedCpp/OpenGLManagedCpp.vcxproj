@@ -94,6 +94,7 @@
       <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml">
       <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
@@ -119,6 +120,7 @@
     <ClCompile Include="..\CLILogicCommon\VolkesInterfaceTool.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Helper.cpp" />
+    <ClCompile Include="ObjectInterface.cpp" />
     <ClCompile Include="ObjectTreeContator.cpp" />
     <ClCompile Include="OpenGLHwnd.cpp" />
     <ClCompile Include="OpenGLUserControl.cpp" />
@@ -132,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="..\CLILogicCommon\VolkesInterfaceTool.h" />
     <ClInclude Include="Helper.h" />
+    <ClInclude Include="ObjectInterface.h" />
     <ClInclude Include="ObjectTreeContator.h" />
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="OpenGLHwnd.h" />

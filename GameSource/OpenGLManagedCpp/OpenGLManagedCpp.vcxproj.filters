@@ -54,6 +54,9 @@
     <ClCompile Include="ObjectTreeContator.cpp">
       <Filter>CLI_CPP\for Tool</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectInterface.cpp">
+      <Filter>CLI_CPP\Intrface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLHwnd.h">
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="ObjectTreeContator.h">
       <Filter>CLI_CPP\for Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectInterface.h">
+      <Filter>CLI_CPP\Intrface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -12,32 +12,23 @@ namespace LogicTool
     public class PieceAddViewModel : ViewModelBase
     {
 
-
         public static PieceAddViewModel Instance
         {
             get;
             private set;
         }
-
-        private SelectObjectInterface m_piecemodel;
-
+        
         public SelectObjectInterface piecemodel
         {
             get
             {
-                return m_piecemodel;
-            }
-            set
-            {
-                m_piecemodel = value;
-                NotifyPropertyChanged("piecemodel");
+                return SelectObjectInterface.GetInstance();
             }
 
         }
 
         public PieceAddViewModel()
         {
-            piecemodel = SelectObjectInterface.GetInstance();
             piecemodel.PropertyChanged += new PropertyChangedEventHandler(piecemodel_PropertyChanged);
 
             Instance = this;

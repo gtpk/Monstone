@@ -11,7 +11,7 @@ public:
 	VolkesIterfaceTool();
 	~VolkesIterfaceTool();
 
-
+	void setNewPiece(Md2Object* model);
 	bool SetSelection(Md2Object* model);
 	void OneTimeInit();
 };
