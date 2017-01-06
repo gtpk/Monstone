@@ -2,10 +2,10 @@
 #include <random>
 #include <string>
 #include <vector>
-#include <hash_map>
-#include "Bitmap.h"
+#include <unordered_map>
 #include "ImageLoader.h"
 #include "AtlasObj.h"
+#include "Texture.h"
 
 #include "GL/glew.h"
 #include "GL/glut.h"
@@ -16,17 +16,12 @@ class KardNameFactory
 {
 private:
 
-	
-	//private static MediaPlayer m_Resualt;
 
-	hash_map<int, Bitmap*> GameImageResourece;
-	hash_map<int, Bitmap*> GameImageResourece_old;
-	vector<int> GameImageNames;
-	vector<ImageLoader*> GameImageLoader;
-	hash_map<int, bool> GameResizedImage;// = new hash_map<int, bool>();
+	vector<string> GameImageNames;
+	unordered_map<int, bool> GameResizedImage;// = new hash_map<int, bool>();
 
-	hash_map<string, int> Image_NameToNummap;// = new hash_map<string, int>();
-
+	unordered_map<string, int> Image_NameToNummap;// = new hash_map<string, int>();
+	ImageLoader* m_loader;
 
 	static KardNameFactory * m_KNF;
 
@@ -34,16 +29,16 @@ private:
 
 	int LoadingStatus;
 
-	GLuint textureName;
+	
 public:
-
+	GLuint textureName[3];
 	bool IsLoaded;
 
 	static bool IsFinishedGame;
 
 	int version;
 
-	hash_map<string, AtlasObj> AtlasList;
+	unordered_map<string, AtlasObj*> AtlasList;
 
 	bool isOneTimeInit = false;
 
@@ -68,14 +63,6 @@ public:
 	}
 	void SetGameResourceIamge(string _name);
 
-	Bitmap* SetDirectGameResourceIamge(string _name, int width, int height)
-	{
-		return NULL;
-	}
-
-	int GetGameResourceNumber(string _name);
-
-	void OneTimeInit();
 
 	void SetNextLoadingJob();
 
@@ -94,20 +81,11 @@ public:
 
 	bool IsReadForGame();
 
-	Bitmap* GetScaledBitmap(int number, bool isMyKard, int width, int height);
-
-	Bitmap* GetScaledBitmapTimeOutGame(int number, int width, int height);
-
-	Bitmap* GetScaledBitmapGame(int number, int width, int height);
-
-	Bitmap* GetScaledBitmapGame(string _string, int width, int height);
-
-	Bitmap* GetScaledBitmapGameForce(string _string, int width, int height);
 
 	void OneTimeInit();
 
 	void AtlasOpen(int FileName);
 
-	AtlasObj GetAtlasObj(string Name);
+	AtlasObj* GetAtlasObj(string Name);
 
 };

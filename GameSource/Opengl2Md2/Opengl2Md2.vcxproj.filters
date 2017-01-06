@@ -55,6 +55,15 @@
     <Filter Include="RenderEngine\DataClass">
       <UniqueIdentifier>{dee4992f-8005-4bea-b44e-7009a11f673e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RenderEngine\Animation">
+      <UniqueIdentifier>{dad8409e-2cdb-486a-9cf2-03b0e0865742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderEngine\BaseControl">
+      <UniqueIdentifier>{1d1d76f9-0325-4eb9-8e0d-60dbd849c208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderEngine\Interface">
+      <UniqueIdentifier>{37d42ee1-7a62-417a-b776-9f9bea88b597}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Md2Model.h">
@@ -120,9 +129,6 @@
     <ClInclude Include="MarxWorld.h">
       <Filter>OpenGL\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Quad.h">
-      <Filter>RenderEngine</Filter>
-    </ClInclude>
     <ClInclude Include="KardNameFactory.h">
       <Filter>RenderEngine</Filter>
     </ClInclude>
@@ -135,8 +141,41 @@
     <ClInclude Include="ImageLoader.h">
       <Filter>RenderEngine\DataClass</Filter>
     </ClInclude>
-    <ClInclude Include="Bitmap.h">
+    <ClInclude Include="Animation.h">
+      <Filter>RenderEngine\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="defAnimations.h">
+      <Filter>RenderEngine\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageControl.h">
+      <Filter>RenderEngine\BaseControl</Filter>
+    </ClInclude>
+    <ClInclude Include="PointF.h">
       <Filter>RenderEngine\DataClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>RenderEngine\DataClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>RenderEngine\BaseControl</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickEventArgs.h">
+      <Filter>RenderEngine\BaseControl</Filter>
+    </ClInclude>
+    <ClInclude Include="MotionEvent.h">
+      <Filter>RenderEngine\BaseControl</Filter>
+    </ClInclude>
+    <ClInclude Include="ExGameGraphicInfo.h">
+      <Filter>RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="IUIBase.h">
+      <Filter>RenderEngine\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IEventHandler.h">
+      <Filter>RenderEngine\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IRootUI.h">
+      <Filter>RenderEngine\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -188,18 +227,23 @@
     <ClCompile Include="MarxWorld.cpp">
       <Filter>OpenGL\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Quad.cpp">
-      <Filter>RenderEngine</Filter>
-    </ClCompile>
     <ClCompile Include="KardNameFactory.cpp">
       <Filter>RenderEngine</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>RenderEngine</Filter>
     </ClCompile>
-    <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="ImageLoader.cpp">
       <Filter>RenderEngine\DataClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>RenderEngine\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageControl.cpp">
+      <Filter>RenderEngine\BaseControl</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad.cpp">
+      <Filter>RenderEngine\BaseControl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

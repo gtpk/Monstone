@@ -14,15 +14,22 @@
     <ClInclude Include="..\Common\VolkesInterface.h" />
     <ClInclude Include="..\Externallib\FreeImage\Dist\FreeImage.h" />
     <ClInclude Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.h" />
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Anorms.h" />
     <ClInclude Include="AtlasObj.h" />
     <ClInclude Include="AttacheAble.h" />
-    <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="ClickEventArgs.h" />
     <ClInclude Include="CommonDataType.h" />
     <ClInclude Include="DataManager.h" />
+    <ClInclude Include="defAnimations.h" />
     <ClInclude Include="Eventlistener.h" />
+    <ClInclude Include="ExGameGraphicInfo.h" />
+    <ClInclude Include="IEventHandler.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="ImageControl.h" />
     <ClInclude Include="ImageLoader.h" />
+    <ClInclude Include="IRootUI.h" />
+    <ClInclude Include="IUIBase.h" />
     <ClInclude Include="KardNameFactory.h" />
     <ClInclude Include="LuaManager.h" />
     <ClInclude Include="LuaScriptAttached.h" />
@@ -32,20 +39,26 @@
     <ClInclude Include="Md2Object.h" />
     <ClInclude Include="MarxWorld.h" />
     <ClInclude Include="ModelInterface.h" />
+    <ClInclude Include="MotionEvent.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Opengl2md2.h" />
     <ClInclude Include="PieceModel.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="PointF.h" />
     <ClInclude Include="ProjectLoader.h" />
-    <ClInclude Include="Quad.h" />
+    <ClInclude Include="Quad.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.cpp" />
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AttacheAble.cpp" />
-    <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ImageControl.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="KardNameFactory.cpp" />
     <ClCompile Include="LuaManager.cpp" />
@@ -59,7 +72,9 @@
     <ClCompile Include="Opengl2md2.cpp" />
     <ClCompile Include="PieceModel.cpp" />
     <ClCompile Include="ProjectLoader.cpp" />
-    <ClCompile Include="Quad.cpp" />
+    <ClCompile Include="Quad.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Stringformat.h" />
     <ClCompile Include="Texture.cpp" />

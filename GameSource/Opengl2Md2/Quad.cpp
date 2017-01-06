@@ -1,5 +1,5 @@
 #include "Quad.h"
-
+#ifdef QUADUSE
 Quad::Quad()
 {
 
@@ -54,3 +54,4 @@ void Quad::InitTexture()
 Quad::~Quad()
 {
 }
+#endif
