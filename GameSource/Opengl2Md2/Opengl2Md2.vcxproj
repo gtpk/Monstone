@@ -14,6 +14,7 @@
     <ClInclude Include="..\Common\VolkesInterface.h" />
     <ClInclude Include="..\Externallib\FreeImage\Dist\FreeImage.h" />
     <ClInclude Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.h" />
+    <ClInclude Include="AnimatinonBase.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Anorms.h" />
     <ClInclude Include="AtlasObj.h" />
@@ -24,12 +25,22 @@
     <ClInclude Include="defAnimations.h" />
     <ClInclude Include="Eventlistener.h" />
     <ClInclude Include="ExGameGraphicInfo.h" />
+    <ClInclude Include="GameStadiumScreen.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="GridBar.h" />
+    <ClInclude Include="IContainer.h" />
     <ClInclude Include="IEventHandler.h" />
+    <ClInclude Include="IGameStage.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageControl.h" />
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="IRootUI.h" />
     <ClInclude Include="IUIBase.h" />
+    <ClInclude Include="LoadingScreen.h" />
+    <ClInclude Include="Penal.h" />
+    <ClInclude Include="RootUI.h" />
+    <ClInclude Include="StageManager.h" />
+    <ClInclude Include="UIBase.h" />
     <ClInclude Include="KardNameFactory.h" />
     <ClInclude Include="LuaManager.h" />
     <ClInclude Include="LuaScriptAttached.h" />
@@ -57,6 +68,7 @@
     <ClCompile Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AttacheAble.cpp" />
+    <ClCompile Include="ExGameGraphicInfo.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageControl.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
@@ -76,8 +88,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="Stringformat.h" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="UIBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataManager.inl" />

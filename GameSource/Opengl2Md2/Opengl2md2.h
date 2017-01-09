@@ -1,4 +1,4 @@
-
+#pragma once
 
 #include "GL/glew.h"
 #include "GL/glut.h"
@@ -8,7 +8,8 @@
 #include "CommonDataType.h"
 #include "../Common/VolkesInterface.h"
 #include "LuaManager.h"
-
+#include "GameStadiumScreen.h"
+#include "KardNameFactory.h"
 
 class Opengl2md2
 {
@@ -30,6 +31,8 @@ private :
 	MarxWorld *player;
 
 	COMMONDATATYPE::Vector3d rot;
+
+	GameStadiumScreen * render = NULL;
 
 	enum EnumNowAction
 	{

@@ -237,7 +237,7 @@ void	Opengl2md2::init ()
 	// Initialize camera input
 	rot.x = 0.0f;   eye.x = 0.0f;
 	rot.y = 0.0f;   eye.y = 0.0f;
-	rot.z = 0.0f;   eye.z = 8.0f;
+	rot.z = 0.0f;   eye.z = 0.0f;
 
 
 	player = new MarxWorld ();
@@ -256,7 +256,7 @@ void	Opengl2md2::init ()
 
 	SetForegroundWindow(inst->m_hWnd);
 
-
+	
 	//
 	// Initialize OpenGL
 	//
@@ -271,6 +271,10 @@ void	Opengl2md2::init ()
 	glEnable (GL_LIGHT0);
 
 	glCullFace (GL_BACK);
+
+	if (render == NULL)
+		render = new GameStadiumScreen();
+	render->onSurfaceCreated();
 }
 
 void Opengl2md2::MenuFunc (int button)
@@ -324,9 +328,9 @@ void	Opengl2md2::reshape (int w, int h)
 		inst->wheel*1.0 * inst->m_Width, 
 		inst->wheel*-1.0 * inst->m_Hight,
 		inst->wheel*1.0 * inst->m_Hight,
-		1.0, 10000.0);
+		-1, 10000.0);
 
-
+	;
 	//glOrtho(0, inst->wheel*inst->ratio,0, inst->wheel * ,-10,10000);
 	//glOrtho(0, inst->wheel*inst->ratio,0, inst->wheel,-10,10000);
 
@@ -337,7 +341,7 @@ void	Opengl2md2::reshape (int w, int h)
 
 	glMatrixMode (GL_MODELVIEW);
 	glLoadIdentity ();
-
+	inst->render->onSurfaceChanged(w, h);
 	//glutPostRedisplay ();
 }
 
@@ -577,6 +581,11 @@ void Opengl2md2::draw3D ()
 
 void Opengl2md2::draw2D ()
 {
+	begin2D();
+	inst->render->onDrawFrame();
+	end2D();
+
+
 	begin2D ();
 
 	glColor3f (1.0f, 1.0f, 1.0f);
@@ -588,8 +597,6 @@ void Opengl2md2::draw2D ()
 
 	currSkin.assign (currSkin, currSkin.find_last_of ('/') + 1,
 		currSkin.length ());
-
-	;
 
 	if (verbose > 0)
 	{
@@ -660,6 +667,8 @@ void Opengl2md2::draw2D ()
 
 
 	end2D ();
+
+	
 }
 
 void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //

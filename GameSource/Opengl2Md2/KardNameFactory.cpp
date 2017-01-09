@@ -6,10 +6,10 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
-
+#include "MarxWorld.h"
 
 bool KardNameFactory::IsFinishedGame = false;
-
+KardNameFactory* KardNameFactory::m_KNF = NULL;
 KardNameFactory::KardNameFactory()
 {
 	m_loader = new ImageLoader();
@@ -65,7 +65,7 @@ void KardNameFactory::OneTimeInit()
 	{
 		// 텍스쳐 포인터 설정
 		// 만약 atlas 늘릴꺼면 textureName 늘려야합니다!
-		glGenTextures(3, textureName);
+		//glGenTextures(3, textureName);
 		isOneTimeInit = true;
 	}
 
@@ -79,11 +79,13 @@ void KardNameFactory::OneTimeInit()
 	for (int i = 0; i <3; i++)
 	{
 		char buff[100];
-		snprintf(buff, sizeof(buff), "AtlasGen%d.png", i+1);
-		std::string buffAsStdStr = buff;
+		//MarxWorld::getInstance()._RootDirctory
+		snprintf(buff, sizeof(buff), "\\asset\\AtlasGen%d.png", i+1);
+		std::string buffAsStdStr = MarxWorld::getInstance()._RootDirctory +  buff;
 		//String.format("AtlasGen%d.png", i+1)
-		ImageBuffer ibuff(buffAsStdStr);
-		auto_ptr<Image> img(ImageFactory::createImage(ibuff));
+		//ImageBuffer ibuff(buffAsStdStr);
+		//auto_ptr<Image> img(ImageFactory::createImage(ibuff));
+		TextureManager::Inst()->LoadTexture(buffAsStdStr.c_str(), i+1,GL_RGBA8,GL_RGBA);
 	}
 	AtlasOpen(1);
 	AtlasOpen(2);
@@ -98,9 +100,43 @@ void KardNameFactory::OneTimeInit()
 void KardNameFactory::AtlasOpen(int FileName)
 {
 	char buff[101];
-	snprintf(buff, sizeof(buff), "AtlasGen%d.txt", FileName);
-	ifstream outFile(buff);
+	snprintf(buff, sizeof(buff), "\\asset\\AtlasGen%d.txt", FileName);
+	std::string buffAsStdStr = MarxWorld::getInstance()._RootDirctory + buff;
+
+	FILE* f = fopen(buffAsStdStr.c_str(), "r+");
 	char inputString[1001];
+	
+	while (fscanf(f, "%s", inputString) == 2)
+	{
+		AtlasObj* obj = new AtlasObj();
+		string Name(inputString);
+
+		char tempString[1001];
+		fscanf(f, "%s", tempString);
+		string temp(tempString);
+
+		obj->UV_X = std::stof(temp);
+		fscanf(f, "%s", tempString);
+		temp = string(tempString);
+		obj->UV_Y = std::stof(temp);
+
+		fscanf(f, "%s", tempString);
+		temp = string(tempString);
+		obj->UVB_X = std::stof(temp);
+		fscanf(f, "%s", tempString);
+		temp = string(tempString);
+		obj->UVB_Y = std::stof(temp);
+
+		fscanf(f, "%s", tempString);
+		temp = string(tempString);
+		obj->Width = std::stof(temp);
+		fscanf(f, "%s", tempString);
+		temp = string(tempString);
+		obj->Height = std::stof(temp);
+	}
+	/*
+	ifstream outFile(buffAsStdStr);
+	
 	while (!outFile.eof())
 	{ //한줄씩 읽기
 		outFile.getline(inputString, 1000);
@@ -127,12 +163,13 @@ void KardNameFactory::AtlasOpen(int FileName)
 		obj->Width = std::stof(temp);
 		getline(f, temp, ' ');
 		obj->Height = std::stof(temp);
-
+		getline(f, temp, '\n');
 		obj->TextureNum = FileName - 1;
 		AtlasList[Name] = obj;
 		printf("AtlasOpen-> ::|%s|::", Name);
 	}
-	printf("AtlasOpen %s", FileName);
+	*/
+	printf("AtlasOpen %d", FileName);
 
 }
 

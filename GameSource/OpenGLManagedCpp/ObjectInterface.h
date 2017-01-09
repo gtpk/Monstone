@@ -68,16 +68,16 @@ namespace LogicCommon
 			_Children = gcnew ObservableCollection<ObjectInterface^>();
 		}
 
-		PROPERTYDEFINE(String^, TextureName);
-		PROPERTYDEFINE(String^, AlphaTextureName);
-		PROPERTYDEFINE(float, Scale);
-		PROPERTYDEFINE(int, CurrentName);
-		PROPERTYDEFINE(String^, ObjectName);
-		PROPERTYDEFINE(float, Width);
-		PROPERTYDEFINE(float, Height);
-		PROPERTYDEFINE(String^, ModelName);
-		PROPERTYDEFINE(Vector3D^, Rotation);
-		PROPERTYDEFINE(Vector3D^, Trance);
+		PROPERTYDEFINE(String^, TextureName)
+		PROPERTYDEFINE(String^, AlphaTextureName)
+		PROPERTYDEFINE(float, Scale)
+		PROPERTYDEFINE(int, CurrentName)
+		PROPERTYDEFINE(String^, ObjectName)
+		PROPERTYDEFINE(float, Width)
+		PROPERTYDEFINE(float, Height)
+		PROPERTYDEFINE(String^, ModelName)
+		PROPERTYDEFINE(Vector3D^, Rotation)
+		PROPERTYDEFINE(Vector3D^, Trance)
 
 		
 	public:

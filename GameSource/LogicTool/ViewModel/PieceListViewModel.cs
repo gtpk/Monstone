@@ -87,9 +87,7 @@ namespace LogicTool.ViewModel
             if (isLoad)
                 return;
             isLoad = true;
-
-
-
+            
             DirectoryInfo di = new DirectoryInfo(
                 ProjectSettingValuesInterface.GetInstance().ProjectPath + @"\asset");
 

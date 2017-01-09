@@ -64,6 +64,15 @@
     <Filter Include="RenderEngine\Interface">
       <UniqueIdentifier>{37d42ee1-7a62-417a-b776-9f9bea88b597}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RenderEngine\Stage">
+      <UniqueIdentifier>{d0db2933-ed26-4cbe-8011-a356758eb419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderEngine\BaseControl\UI">
+      <UniqueIdentifier>{99a2ee3d-e7fc-467e-a9d3-2525a1abef0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderEngine\BaseControl\UI\Contaner">
+      <UniqueIdentifier>{4017c991-649a-4478-b9cb-98ed8d846d24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Md2Model.h">
@@ -147,9 +156,6 @@
     <ClInclude Include="defAnimations.h">
       <Filter>RenderEngine\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="ImageControl.h">
-      <Filter>RenderEngine\BaseControl</Filter>
-    </ClInclude>
     <ClInclude Include="PointF.h">
       <Filter>RenderEngine\DataClass</Filter>
     </ClInclude>
@@ -168,14 +174,50 @@
     <ClInclude Include="ExGameGraphicInfo.h">
       <Filter>RenderEngine</Filter>
     </ClInclude>
-    <ClInclude Include="IUIBase.h">
-      <Filter>RenderEngine\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="IEventHandler.h">
       <Filter>RenderEngine\Interface</Filter>
     </ClInclude>
     <ClInclude Include="IRootUI.h">
       <Filter>RenderEngine\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatinonBase.h">
+      <Filter>RenderEngine\BaseControl</Filter>
+    </ClInclude>
+    <ClInclude Include="UIBase.h">
+      <Filter>RenderEngine\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="StageManager.h">
+      <Filter>RenderEngine\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="IContainer.h">
+      <Filter>RenderEngine\BaseControl\UI\Contaner</Filter>
+    </ClInclude>
+    <ClInclude Include="GridBar.h">
+      <Filter>RenderEngine\BaseControl\UI\Contaner</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>RenderEngine\BaseControl\UI\Contaner</Filter>
+    </ClInclude>
+    <ClInclude Include="Penal.h">
+      <Filter>RenderEngine\BaseControl\UI\Contaner</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageControl.h">
+      <Filter>RenderEngine\BaseControl\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RootUI.h">
+      <Filter>RenderEngine\BaseControl\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="IUIBase.h">
+      <Filter>RenderEngine\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStadiumScreen.h">
+      <Filter>RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameStage.h">
+      <Filter>RenderEngine\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingScreen.h">
+      <Filter>RenderEngine\Stage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -239,11 +281,20 @@
     <ClCompile Include="Animation.cpp">
       <Filter>RenderEngine\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="ImageControl.cpp">
-      <Filter>RenderEngine\BaseControl</Filter>
-    </ClCompile>
     <ClCompile Include="Quad.cpp">
       <Filter>RenderEngine\BaseControl</Filter>
+    </ClCompile>
+    <ClCompile Include="UIBase.cpp">
+      <Filter>RenderEngine\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageControl.cpp">
+      <Filter>RenderEngine\BaseControl\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ExGameGraphicInfo.cpp">
+      <Filter>RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="StageManager.cpp">
+      <Filter>RenderEngine\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
