@@ -36,12 +36,18 @@ void ImageControl::OnDraw() {
 	// TODO Auto-generated method stub
 
 
-
+	
 	if (vertexBuffer == NULL)
 	{
 		//Log.e("OnDraw", TextureName);
 		return;
 	}
+	glFrontFace(GL_CW);
+	glEnable(GL_BLEND);
+	glEnable(GL_TEXTURE_2D);
+
+	glEnable(GL_ALPHA_TEST);
+
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -49,19 +55,22 @@ void ImageControl::OnDraw() {
 	glPushMatrix();
 
 	// Telling OpenGL to enable textures.
-	glEnable(GL_TEXTURE_2D);
-	glEnable(GL_BLEND);
-	glEnable(GL_ALPHA_TEST);
 
-	// Tell OpenGL where our texture is located.
-	glBindTexture(GL_TEXTURE_2D, KardNameFactory::GetKardNameFactory()->textureName[NowTextureId]);
+	
+	
+	
+	//glBindTexture(GL_TEXTURE_2D, KardNameFactory::GetKardNameFactory()->textureName[NowTextureId]);
 	// Telling OpenGL where our UV coordinates are.
+	
+
+	
+	
+	glVertexPointer(3, GL_FLOAT, 0, vertexBuffer);
 	glTexCoordPointer(2, GL_FLOAT, 0, textureBuffer);
 
-	glFrontFace(GL_CW);
 	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-	glVertexPointer(3, GL_FLOAT, 0, vertexBuffer);
-
+	// Tell OpenGL where our texture is located.
+	TextureManager::Inst()->BindTexture(NowTextureId);
 
 	float currentX = x;
 	float currentY = y;
@@ -156,11 +165,12 @@ void ImageControl::OnDraw() {
 	}
 
 	if (visiable == true)
-		glDrawElements(GL_TRIANGLE_STRIP, 6, GL_UNSIGNED_SHORT, index);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, index);
+	glPopMatrix();
 
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	glPopMatrix();
+	
 
 	// Telling OpenGL to enable textures.
 	glDisable(GL_TEXTURE_2D);
@@ -202,7 +212,7 @@ void ImageControl::setbeckgroundImage(string string)
 
 	NowTextureId = obj->TextureNum;
 
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 12; i++)
 		vertexBuffer[i] = vertices[i];
 
 	for (int i = 0; i < 8; i++)
@@ -240,7 +250,7 @@ void ImageControl::setbeckgroundImage(string string, float width, float height)
 
 	NowTextureId = obj->TextureNum;
 
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 12; i++)
 		vertexBuffer[i] = vertices[i];
 
 	for (int i = 0; i < 8; i++)

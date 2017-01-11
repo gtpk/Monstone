@@ -90,6 +90,7 @@ bool TextureManager::LoadTexture(const char* filename, const unsigned int texID,
 	//bind to the new texture ID
 	glBindTexture(GL_TEXTURE_2D, gl_texID);
 	//store the texture data for OpenGL use
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 	glTexImage2D(GL_TEXTURE_2D, level, internal_format, width, height,
 		border, image_format, GL_UNSIGNED_BYTE, bits);
 

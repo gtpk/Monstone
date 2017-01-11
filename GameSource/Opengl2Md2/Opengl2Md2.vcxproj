@@ -58,7 +58,7 @@
     <ClInclude Include="PointF.h" />
     <ClInclude Include="ProjectLoader.h" />
     <ClInclude Include="Quad.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Texture.h" />
@@ -85,7 +85,7 @@
     <ClCompile Include="PieceModel.cpp" />
     <ClCompile Include="ProjectLoader.cpp" />
     <ClCompile Include="Quad.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StageManager.cpp" />

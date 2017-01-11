@@ -11,16 +11,19 @@
 #include <cerrno>
 #include <cmath>
 #include <math.h>
+
+#include "Quad.h"
+
 using namespace std::chrono;
 
 class GameStadiumScreen
 {
 
-
+	test::Quad* m_quad;
 public :
 	GameStadiumScreen()
 	{
-
+		m_quad = new test::Quad();
 	}
 
 private :
@@ -29,20 +32,21 @@ private :
 public :
 	void onDrawFrame()
 	{
-		
+		glPushMatrix();
 		milliseconds ms = duration_cast< milliseconds >(system_clock::now().time_since_epoch());
 
 		long dt = ms.count() - ElpseTimer;
 		ElpseTimer = ms.count();
 		StageManager::GetGameGraphic()->GetGameStage()->onUpdate(dt);
-		glColor3f(0.0f, 0.0f, 0.0f);
-		glRasterPos2i(10, 400);
-		GameStadiumScreen::glPrintf("rpriewajirojawiorjower");
-		//glClear(GL_COLOR_BUFFER_BIT/* | GL_DEPTH_BUFFER_BIT*/);
+		glColor3f(1.0f, 1.0f, 1.0f);
+		glRasterPos2i(0, 0);
+		glClear(GL_COLOR_BUFFER_BIT/* | GL_DEPTH_BUFFER_BIT*/);
+		GameStadiumScreen::glPrintf("Now Playing KAD Engine");
 		glLoadIdentity();
 		
-		//m_quad.draw(gl);
+		//m_quad->draw();
 		StageManager::GetGameGraphic()->GetGameStage()->onDrawScreen();
+		glPopMatrix();
 	}
 
 	static int glPrintf(const char *format, ...)
@@ -70,19 +74,20 @@ public :
 
 	void onSurfaceChanged(int width, int height) 
 	{
-		// TODO Auto-generated method stub
-		//glViewport(0, 0, width, height);
-		//glMatrixMode(GL_PROJECTION);
-		//glLoadIdentity();
-		////GLU.gluPerspective(gl, 45.0f, (float) width / height, -20.0f, 30.0f);
-		//gluOrtho2D( 0, 480, 800, 0);
-		//glMatrixMode(GL_MODELVIEW);
-		//glLoadIdentity();
-		//
-		//Point GameSize;
-		//GameSize.x = width;
-		//GameSize.y = height;
-		//ExGameGraphicInfo::GetGameGraphic()->SetGameSize(GameSize);
+		
+		//TODO Auto-generated method stub
+		glViewport(0, 0, width, height);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		//GLU.gluPerspective(gl, 45.0f, (float) width / height, -20.0f, 30.0f);
+		gluOrtho2D( 0, 480, 800, 0);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		
+		Point GameSize;
+		GameSize.x = width;
+		GameSize.y = height;
+		ExGameGraphicInfo::GetGameGraphic()->SetGameSize(GameSize);
 
 	}
 
@@ -93,8 +98,8 @@ public :
 
 		//m_quad.InitTexture(gl, ExGameInfo.GetGameInfo().GetContext());
 		//glClearColor(0.87f, 0.87f, 0.87f, 0.0f);										// RGBA
-		//glEnable(GL_TEXTURE_2D);									// 텍스쳐 활성
-		//glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);	// ??	
+		glEnable(GL_TEXTURE_2D);									// 텍스쳐 활성
+		glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);	// ??	
 																//gl.glEnable(GL_LINE_SMOOTH);
 																//gl.glHint(GL_LINE_SMOOTH_HINT, GL_NICEST); 
 		KardNameFactory::GetKardNameFactory()->OneTimeInit();

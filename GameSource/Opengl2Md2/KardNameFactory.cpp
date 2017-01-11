@@ -68,28 +68,37 @@ void KardNameFactory::OneTimeInit()
 		//glGenTextures(3, textureName);
 		isOneTimeInit = true;
 	}
+	else
+		return;
 
 	// Matrix m = new Matrix();
 	// m.postScale(-1, 1);  //좌우 반전
 
 	//AssetManager assetManager = ExGameInfo.GetGameInfo().GetContext().getAssets();
 
-
+	glEnable(GL_TEXTURE_2D);
+	//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	//glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	bool isfailed = false;
 	for (int i = 0; i <3; i++)
 	{
 		char buff[100];
 		//MarxWorld::getInstance()._RootDirctory
 		snprintf(buff, sizeof(buff), "\\asset\\AtlasGen%d.png", i+1);
+		//snprintf(buff, sizeof(buff), "\\Asset\\AtlasGen%d.pcx", i + 1);
 		std::string buffAsStdStr = MarxWorld::getInstance()._RootDirctory +  buff;
-		//String.format("AtlasGen%d.png", i+1)
-		//ImageBuffer ibuff(buffAsStdStr);
-		//auto_ptr<Image> img(ImageFactory::createImage(ibuff));
-		TextureManager::Inst()->LoadTexture(buffAsStdStr.c_str(), i+1,GL_RGBA8,GL_RGBA);
+		//TextureManager::Inst()->LoadTexture(buffAsStdStr.c_str(), i+1,GL_RGBA8, GL_RGBA); 
+		//!!!! Warnning !!!!
+		// 인터레이스가 되어있으면 로딩이 안된다.
+		// 압축이 되어있어도 안된다!
+		TextureManager::Inst()->LoadTexture(buffAsStdStr.c_str(), i + 1,GL_RGBA,GL_RGBA);
+		//TextureManager::Inst()->LoadTexture(buffAsStdStr.c_str(), i + 1);
+		GLenum err = glGetError();
+		if (GL_NO_ERROR != err)
+			cerr << "KAD - OpenGL Error: " << gluErrorString(err)
+			<< " [Texture::Texture]" << endl;
+		AtlasOpen(i+1);
 	}
-	AtlasOpen(1);
-	AtlasOpen(2);
-	AtlasOpen(3);
 	//AtlasOpen(4);
 
 
@@ -100,13 +109,13 @@ void KardNameFactory::OneTimeInit()
 void KardNameFactory::AtlasOpen(int FileName)
 {
 	char buff[101];
-	snprintf(buff, sizeof(buff), "\\asset\\AtlasGen%d.txt", FileName);
+	snprintf(buff, sizeof(buff), "\\Asset\\AtlasGen%d.txt", FileName);
 	std::string buffAsStdStr = MarxWorld::getInstance()._RootDirctory + buff;
 
 	FILE* f = fopen(buffAsStdStr.c_str(), "r+");
 	char inputString[1001];
 	
-	while (fscanf(f, "%s", inputString) == 2)
+	while (fscanf(f, "%s", inputString) != EOF)
 	{
 		AtlasObj* obj = new AtlasObj();
 		string Name(inputString);
@@ -118,14 +127,14 @@ void KardNameFactory::AtlasOpen(int FileName)
 		obj->UV_X = std::stof(temp);
 		fscanf(f, "%s", tempString);
 		temp = string(tempString);
-		obj->UV_Y = std::stof(temp);
+		obj->UVB_Y = 1-std::stof(temp);
 
 		fscanf(f, "%s", tempString);
 		temp = string(tempString);
 		obj->UVB_X = std::stof(temp);
 		fscanf(f, "%s", tempString);
 		temp = string(tempString);
-		obj->UVB_Y = std::stof(temp);
+		obj->UV_Y = 1-std::stof(temp);
 
 		fscanf(f, "%s", tempString);
 		temp = string(tempString);
@@ -133,6 +142,9 @@ void KardNameFactory::AtlasOpen(int FileName)
 		fscanf(f, "%s", tempString);
 		temp = string(tempString);
 		obj->Height = std::stof(temp);
+		//printf("AtlasOpen-> ::|%s|::\n", Name.c_str());
+		obj->TextureNum = FileName;
+		AtlasList[Name] = obj;
 	}
 	/*
 	ifstream outFile(buffAsStdStr);
@@ -169,11 +181,14 @@ void KardNameFactory::AtlasOpen(int FileName)
 		printf("AtlasOpen-> ::|%s|::", Name);
 	}
 	*/
-	printf("AtlasOpen %d", FileName);
+	printf("AtlasOpen %d\n", FileName);
 
 }
 
 AtlasObj* KardNameFactory::GetAtlasObj(string Name)
 {
+	if (AtlasList[Name] == NULL)
+		OneTimeInit();
+	printf("Atlasfind %s \n", Name.c_str());
 	return AtlasList[Name];
 }

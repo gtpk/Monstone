@@ -261,7 +261,7 @@ void	Opengl2md2::init ()
 	// Initialize OpenGL
 	//
 
-	glClearColor (0.5f, 0.5f,0.5f, 1.0f);
+	glClearColor (1.0f, 1.0f, 1.0f, 1.0f);
 	glShadeModel (GL_SMOOTH);
 
 	glEnable (GL_DEPTH_TEST);
@@ -296,11 +296,19 @@ void Opengl2md2::MenuFunc (int button)
 void	Opengl2md2::reshape (int w, int h)
 {
 
+
 	if (h == 0)
 		h = 1;
+	glMatrixMode(GL_PROJECTION);
+
+	inst->render->onSurfaceChanged(w, h);
 
 	inst->m_Width = w;
 	inst->m_Hight = h;
+
+	return;
+
+	
 	//wglMakeCurrent(inst->m_hDC, inst->m_hRC);
 	glViewport (0, 0, static_cast<GLsizei>(w), static_cast<GLsizei>(h));
 
@@ -308,7 +316,7 @@ void	Opengl2md2::reshape (int w, int h)
 	GLfloat HeightFactor = (GLfloat)h / (GLfloat)300; 
 
 
-	glMatrixMode (GL_PROJECTION);
+	
 	glLoadIdentity ();
 
 
@@ -341,7 +349,7 @@ void	Opengl2md2::reshape (int w, int h)
 
 	glMatrixMode (GL_MODELVIEW);
 	glLoadIdentity ();
-	inst->render->onSurfaceChanged(w, h);
+	//
 	//glutPostRedisplay ();
 }
 
@@ -390,7 +398,7 @@ void	Opengl2md2::begin2D ()
 	glPushMatrix ();
 
 	glLoadIdentity ();
-	glOrtho (0, m_Width, 0, m_Hight, -1.0f, 1.0f);
+	glOrtho (0, 480, 0, 800, -1.0f, 1.0f);
 
 	glMatrixMode (GL_MODELVIEW);
 	glLoadIdentity ();
@@ -582,9 +590,10 @@ void Opengl2md2::draw3D ()
 void Opengl2md2::draw2D ()
 {
 	begin2D();
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	inst->render->onDrawFrame();
 	end2D();
-
 
 	begin2D ();
 
