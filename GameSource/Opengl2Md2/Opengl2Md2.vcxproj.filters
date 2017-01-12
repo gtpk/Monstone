@@ -73,6 +73,9 @@
     <Filter Include="RenderEngine\BaseControl\UI\Contaner">
       <UniqueIdentifier>{4017c991-649a-4478-b9cb-98ed8d846d24}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RenderEngine\BaseControl\UI\CutomObject">
+      <UniqueIdentifier>{f818c3c2-4632-4cec-9be3-2344eef128ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Md2Model.h">
@@ -219,6 +222,12 @@
     <ClInclude Include="LoadingScreen.h">
       <Filter>RenderEngine\Stage</Filter>
     </ClInclude>
+    <ClInclude Include="Snumber.h">
+      <Filter>RenderEngine\BaseControl\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="KingControl.h">
+      <Filter>RenderEngine\BaseControl\UI\CutomObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Md2Model.cpp">
@@ -295,6 +304,9 @@
     </ClCompile>
     <ClCompile Include="StageManager.cpp">
       <Filter>RenderEngine\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="KingControl.cpp">
+      <Filter>RenderEngine\BaseControl\UI\CutomObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

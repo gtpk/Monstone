@@ -261,7 +261,7 @@ void	Opengl2md2::init ()
 	// Initialize OpenGL
 	//
 
-	glClearColor (1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor (0.0f, 0.0f, 0.0f, 0.0f);
 	glShadeModel (GL_SMOOTH);
 
 	glEnable (GL_DEPTH_TEST);
@@ -332,9 +332,9 @@ void	Opengl2md2::reshape (int w, int h)
 
 	inst->ratio = w / static_cast<GLfloat>(h);
 
-	glOrtho(inst->wheel*-1.0 * inst->m_Width,
+	glOrtho(0,
 		inst->wheel*1.0 * inst->m_Width, 
-		inst->wheel*-1.0 * inst->m_Hight,
+		0,
 		inst->wheel*1.0 * inst->m_Hight,
 		-1, 10000.0);
 
@@ -398,7 +398,7 @@ void	Opengl2md2::begin2D ()
 	glPushMatrix ();
 
 	glLoadIdentity ();
-	glOrtho (0, 480, 0, 800, -1.0f, 1.0f);
+	glOrtho (0, m_Width, 0, m_Hight, -1.0f, 1.0f);
 
 	glMatrixMode (GL_MODELVIEW);
 	glLoadIdentity ();
@@ -589,13 +589,14 @@ void Opengl2md2::draw3D ()
 
 void Opengl2md2::draw2D ()
 {
-	begin2D();
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	inst->render->onDrawFrame();
-	end2D();
+	//begin2D();
+	//glColor3f(1.0f, 1.0f, 1.0f);
+	
+	//end2D();
 
 	begin2D ();
+	
+	inst->render->onDrawFrame();
 
 	glColor3f (1.0f, 1.0f, 1.0f);
 
@@ -720,8 +721,8 @@ void Opengl2md2::SelectObjects(GLint x, GLint y)
 	glRenderMode(GL_SELECT);
 	glLoadIdentity();
 	gluPickMatrix(x, viewport[3]-y, 2, 2, viewport);
-	glOrtho(inst->wheel*-1.0 * inst->m_Width, inst->wheel*1.0 * inst->m_Width, 
-		inst->wheel*-1.0 * inst->m_Hight, inst->wheel*1.0 * inst->m_Hight, -10.0, 10000.0);
+	glOrtho(0, inst->m_Width, 
+		0, inst->m_Hight, -10.0, 10000.0);
 	glMatrixMode(GL_MODELVIEW);
 	draw3D();
 	glLoadIdentity();
@@ -745,13 +746,15 @@ void Opengl2md2::SelectObjects(GLint x, GLint y)
 void Opengl2md2::display ()
 {
 	//wglMakeCurrent(inst->m_hDC, inst->m_hRC);
-
+	glClear(GL_COLOR_BUFFER_BIT/* | GL10.GL_DEPTH_BUFFER_BIT*/);
 	inst->gameLogic ();
 
+	glPushMatrix();
 	inst->draw3D ();
-
+	glPopMatrix();
+	glPushMatrix();
 	inst->draw2D ();
-
+	glPopMatrix();
 	//glutSwapBuffers ();
 	//SwapBuffers(inst->m_hDC);
 	//wglMakeCurrent(NULL,NULL);
@@ -929,10 +932,11 @@ void	Opengl2md2::specialKeyUp (int key, int x, int y)
 
 void	Opengl2md2::mouseMotion (int x, int y)
 {
+	const float senstive = 1;
 
 	//게임에서의 마우스 포인터 위치
-	float gamemouseX = (x - inst->m_Width/2 )*0.01;
-	float gamemouseY =  (inst->m_Hight/2 - y  )*0.01;
+	float gamemouseX = (x - inst->m_Width/2 )*senstive;
+	float gamemouseY =  (inst->m_Hight/2 - y  )*senstive;
 
 	inst->a_mouse.x = inst->eye.x + gamemouseX;
 	inst->a_mouse.y = inst->eye.x + gamemouseY;
@@ -948,8 +952,8 @@ void	Opengl2md2::mouseMotion (int x, int y)
 		if (inst->keyboard.special[VK_SPACE] == true )
 		{
 			// Translation
-			inst->eye.x = inst->old_trance[0] + ((inst->mouse.x - x)*0.01);
-			inst->eye.y = inst->old_trance[1] + ((y - inst->mouse.y )*0.01);
+			inst->eye.x = inst->old_trance[0] + ((inst->mouse.x - x)*senstive);
+			inst->eye.y = inst->old_trance[1] + ((y - inst->mouse.y )*senstive);
 		}
 		else
 		{
@@ -960,8 +964,8 @@ void	Opengl2md2::mouseMotion (int x, int y)
 			if(inst->emTrancelate == EM_TRANCELATE)
 			{
 				// Rotation
-				inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*0.01);
-				inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*0.01);
+				inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*senstive);
+				inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*senstive);
 				inst->player->setTranslate(inst->trance);
 
 			}
@@ -1010,7 +1014,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 
 				GLfloat distance = sqrt(powx + powy);
 
-				inst->scale = distance * 0.1;
+				inst->scale = distance * senstive;
 
 				inst->player->setScale(inst->scale);
 

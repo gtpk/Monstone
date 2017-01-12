@@ -10,5 +10,5 @@ public :
 	virtual void OnTouch(UIBase* sender, ClickEventArgs e)=0;
 	virtual void OnShow()=0;
 	virtual void onClose()=0;
-	virtual void onUpdate(long dt)=0;
+	virtual void onUpdate(long long dt)=0;
 };

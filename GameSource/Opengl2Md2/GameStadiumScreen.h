@@ -27,21 +27,26 @@ public :
 	}
 
 private :
-	long ElpseTimer = 0;
+	long long ElpseTimer = 0;
 
 public :
 	void onDrawFrame()
 	{
 		glPushMatrix();
+		
+		//glOrtho(0, 480, 0, 800, -1.0f, 1.0f);
+
 		milliseconds ms = duration_cast< milliseconds >(system_clock::now().time_since_epoch());
 
-		long dt = ms.count() - ElpseTimer;
+		long long dt = ms.count() - ElpseTimer;
+		if (dt < 0)
+			dt = 0;
 		ElpseTimer = ms.count();
+		glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		StageManager::GetGameGraphic()->GetGameStage()->onUpdate(dt);
-		glColor3f(1.0f, 1.0f, 1.0f);
+		
 		glRasterPos2i(0, 0);
-		glClear(GL_COLOR_BUFFER_BIT/* | GL_DEPTH_BUFFER_BIT*/);
-		GameStadiumScreen::glPrintf("Now Playing KAD Engine");
+		//glClear(GL_COLOR_BUFFER_BIT/* | GL_DEPTH_BUFFER_BIT*/);
 		glLoadIdentity();
 		
 		//m_quad->draw();
@@ -80,7 +85,12 @@ public :
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		//GLU.gluPerspective(gl, 45.0f, (float) width / height, -20.0f, 30.0f);
-		gluOrtho2D( 0, 480, 800, 0);
+		//gluOrtho2D( 0, 480, 800, 0);
+		glOrtho(0,
+			width,
+			0,
+			height,
+			-1, 10000.0);
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		

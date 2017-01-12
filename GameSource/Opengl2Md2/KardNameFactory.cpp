@@ -77,8 +77,26 @@ void KardNameFactory::OneTimeInit()
 	//AssetManager assetManager = ExGameInfo.GetGameInfo().GetContext().getAssets();
 
 	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_ALPHA_TEST);
+	//  glAlphaFunc(GL_NOTEQUAL, 0);
+	//glBlendFunc(GL_SRC_ALPHA,GL_ZERO);
+
+	//glBlendFunc(GL_DST_COLOR, GL_ONE);
+
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+
 	//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	//glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+
+	
+
 	bool isfailed = false;
 	for (int i = 0; i <3; i++)
 	{
@@ -91,16 +109,21 @@ void KardNameFactory::OneTimeInit()
 		//!!!! Warnning !!!!
 		// 인터레이스가 되어있으면 로딩이 안된다.
 		// 압축이 되어있어도 안된다!
-		TextureManager::Inst()->LoadTexture(buffAsStdStr.c_str(), i + 1,GL_RGBA,GL_RGBA);
+		//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		TextureManager::Inst()->LoadTexture(buffAsStdStr.c_str(), i , GL_BGRA, GL_RGBA8);
 		//TextureManager::Inst()->LoadTexture(buffAsStdStr.c_str(), i + 1);
 		GLenum err = glGetError();
+		printf("Texture Load %s\n", buff);
 		if (GL_NO_ERROR != err)
 			cerr << "KAD - OpenGL Error: " << gluErrorString(err)
 			<< " [Texture::Texture]" << endl;
-		AtlasOpen(i+1);
+		AtlasOpen(i);
 	}
 	//AtlasOpen(4);
-
+	glDisable(GL_ALPHA_TEST);
+	glDisable(GL_BLEND);
+	glDisable(GL_TEXTURE_2D);
 
 	IsLoaded = true;
 }
@@ -109,7 +132,7 @@ void KardNameFactory::OneTimeInit()
 void KardNameFactory::AtlasOpen(int FileName)
 {
 	char buff[101];
-	snprintf(buff, sizeof(buff), "\\Asset\\AtlasGen%d.txt", FileName);
+	snprintf(buff, sizeof(buff), "\\Asset\\AtlasGen%d.txt", FileName+1);
 	std::string buffAsStdStr = MarxWorld::getInstance()._RootDirctory + buff;
 
 	FILE* f = fopen(buffAsStdStr.c_str(), "r+");
@@ -181,7 +204,7 @@ void KardNameFactory::AtlasOpen(int FileName)
 		printf("AtlasOpen-> ::|%s|::", Name);
 	}
 	*/
-	printf("AtlasOpen %d\n", FileName);
+	//printf("AtlasOpen %d\n", FileName);
 
 }
 
@@ -189,6 +212,6 @@ AtlasObj* KardNameFactory::GetAtlasObj(string Name)
 {
 	if (AtlasList[Name] == NULL)
 		OneTimeInit();
-	printf("Atlasfind %s \n", Name.c_str());
+	//printf("Atlasfind %s \n", Name.c_str());
 	return AtlasList[Name];
 }

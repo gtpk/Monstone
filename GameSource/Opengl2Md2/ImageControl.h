@@ -45,7 +45,7 @@ public:
 
 	string Name;
 
-	int NowTextureId = 0;
+	int NowTextureId = 1;
 
 	bool isWidthPercent;
 	bool isHeightPercent;

@@ -168,7 +168,7 @@ public:
 	}
 
 public:
-	void onUpdate(long dt)
+	void onUpdate(long long dt)
 	{
 		// TODO Auto-generated method stub
 

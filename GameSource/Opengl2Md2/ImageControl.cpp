@@ -68,7 +68,7 @@ void ImageControl::OnDraw() {
 	glVertexPointer(3, GL_FLOAT, 0, vertexBuffer);
 	glTexCoordPointer(2, GL_FLOAT, 0, textureBuffer);
 
-	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+	//glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	// Tell OpenGL where our texture is located.
 	TextureManager::Inst()->BindTexture(NowTextureId);
 
@@ -163,7 +163,7 @@ void ImageControl::OnDraw() {
 		}
 		iter++;
 	}
-
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	if (visiable == true)
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, index);
 	glPopMatrix();
@@ -176,7 +176,7 @@ void ImageControl::OnDraw() {
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_BLEND);
 	glDisable(GL_ALPHA_TEST);
-	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	//glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
 

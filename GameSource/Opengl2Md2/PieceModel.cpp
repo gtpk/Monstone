@@ -27,11 +27,16 @@ PieceModel::PieceModel(float Width,float Height)
 	m_Height = Height;
 	m_Width = Width;
 	_scale = 1.0f;
-	x1 = m_Width/2 * _scale;
-	y1 = m_Height/2* _scale;
+	x1 = m_Width * _scale;
+	y1 = m_Height* _scale;
 	x2 = (-1 * m_Width) / 2 * _scale;
 	y2 = (-1 * m_Height)  / 2 * _scale;
 	
+	x1 = m_Width ;
+	y1 = m_Height;
+	x2 = (-1 * m_Width) ;
+	y2 = (-1 * m_Height);
+
 }
 
 void PieceModel::SetPieceSize(float Width,float Height)
@@ -43,6 +48,11 @@ void PieceModel::SetPieceSize(float Width,float Height)
 	y1 = m_Height/2* _scale;
 	x2 = (-1 * m_Width) / 2 * _scale;
 	y2 = (-1 * m_Height)  / 2 * _scale;
+
+	x1 = m_Width;
+	y1 = m_Height;
+	x2 = (-1 * m_Width);
+	y2 = (-1 * m_Height);
 }
 
 bool PieceModel::loadTexture (const string &filename)

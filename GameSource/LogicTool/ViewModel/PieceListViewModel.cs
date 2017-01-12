@@ -242,9 +242,9 @@ namespace LogicTool.ViewModel
                 PieceInfo m = pieceSelection;
 
                 if (m.AlphaTextureFileName == "" || m.AlphaTextureFileName == m.TextureName)
-                    OpenGl2Md2.SetNewPiece(((float)m.Width / 100), ((float)m.Height / 100), m.TextureName);
+                    OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName);
                 else
-                    OpenGl2Md2.SetNewPiece(((float)m.Width / 100), ((float)m.Height / 100), m.TextureName, m.AlphaTextureFileName);
+                    OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName, m.AlphaTextureFileName);
                 
             }
             else if (param is PieceInfo)
