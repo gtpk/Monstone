@@ -240,11 +240,20 @@ namespace LogicTool.ViewModel
                     return;
 
                 PieceInfo m = pieceSelection;
+                string TextureName = m.TextureName;
+                int pos = TextureName.LastIndexOf('.');
+                string extestion = TextureName.Substring(pos);
 
                 if (m.AlphaTextureFileName == "" || m.AlphaTextureFileName == m.TextureName)
                     OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName);
                 else
-                    OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName, m.AlphaTextureFileName);
+                {
+                    if(extestion == ".png")
+                        OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName);
+                    else
+                        OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName, m.AlphaTextureFileName);
+                }
+                    
                 
             }
             else if (param is PieceInfo)

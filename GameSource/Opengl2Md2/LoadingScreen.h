@@ -6,14 +6,12 @@
 class LoadingScreen : public IGameStage
 {
 public:
-	ImageControl* LoadingScreenImage;
-	ImageControl* Goimage;
-	Snumber* numbertest;
+
 	int LoadingPersent;
 
 	long long dt_timesleep = 2000;
 
-	KingControl* King[10];
+	KingControl* King;
 public :
 	LoadingScreen()
 	{
@@ -41,13 +39,7 @@ public :
 	{
 		
 		
-		LoadingScreenImage->OnDraw();
-		Goimage->OnDraw();
-		for (int i = 0; i < 10; i++)
-		{
-			King[i]->OnDraw();
-		}
-		numbertest->OnDraw();
+		King->OnDraw();
 	}
 	//void onDrawScreen()
 	//{
@@ -76,18 +68,9 @@ public:
 	{
 		//KardNameFactory.GetKardNameFactory().StopBackgroundSound();
 
-		LoadingScreenImage = CreateImageControl("go_01", "go_01", 300, 300);
-		Goimage = CreateImageControl("gapu_01", "gapu_01",0, 300);
-		for (int i = 0; i < 10; i++)
-		{
-			King[i] = new KingControl();
-			King[i]->x = 0+ (110*i);
-			King[i]->y = 0;
-		}
-		numbertest = new Snumber();
-		numbertest->x = 150;
-		numbertest->y = 150;
-		numbertest->setNumber(123456789);
+		King = new KingControl();
+		King->x = 0;
+		King->y = 0;
 		//King->
 		//LoadingScreenImage->SetAnimation(LoadingScreenImage->CreateAlphaAnimation(255, 0, dt_timesleep, 0, AnimationType::LinearEaseIn));
 		//LoadingScreenImage->AnimationPlay();
@@ -105,10 +88,8 @@ public:
 	void onUpdate(long long dt) 
 	{
 		// TODO Auto-generated method stub
-		for (int i = 0; i < 10; i++)
-		{
-			King[i]->onUpdate(dt);
-		}
+		King->onUpdate(dt);
+
 		dt_timesleep -= dt;
 		if (dt_timesleep < 0)
 		{

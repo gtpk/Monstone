@@ -253,6 +253,7 @@ void	Opengl2md2::init ()
 	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 4, "뒤로 보내기");
 	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 5, "삭제");
 	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 6, "복제");
+	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 7, "세트로 내보내기");
 
 	SetForegroundWindow(inst->m_hWnd);
 
@@ -1120,6 +1121,8 @@ void	Opengl2md2::mouseMotion (int x, int y)
 	//glutPostRedisplay ();
 }
 
+
+
 void Opengl2md2::menuSelect(HMENU menu, int idx)
 {
 	if (menu == 0)
@@ -1150,6 +1153,8 @@ void Opengl2md2::menuSelect(HMENU menu, int idx)
 		case 6:
 			inst->player->duplicateSelectPiece();
 			break;
+		case 7:
+			inst->player->CreateSet();
 		default:
 			break;
 		}

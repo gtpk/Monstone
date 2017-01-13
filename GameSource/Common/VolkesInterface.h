@@ -6,6 +6,16 @@
 
 namespace EXTERN
 {
+	enum ActionType {
+		AddNew,
+		Delete,
+		Select,
+	};
+	class Action {
+		ActionType Type;
+		void* obj;
+	};
+
 	class VolkesIterface
 	{
 	public:
@@ -15,8 +25,10 @@ namespace EXTERN
 
 
 	public:
-
+		virtual string SaveUrl() = 0;
+		virtual void setNewPiece(Md2Object* mother, Md2Object* model) = 0;
 		virtual void setNewPiece(Md2Object* model) = 0;
+		virtual void DeletePiece(Md2Object* model) = 0;
 		virtual bool SetSelection(Md2Object* model) = 0;
 		virtual void OneTimeInit() = 0;
 

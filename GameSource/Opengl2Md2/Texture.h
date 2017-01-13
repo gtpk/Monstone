@@ -23,7 +23,9 @@
 #include <windows.h>
 #endif // _WIN32
 
-#include <GL/gl.h>
+#include <gl/gl.h>
+#include <gl/glu.h>
+
 #include <memory>
 #include <stdexcept>
 #include <string>

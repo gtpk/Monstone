@@ -18,6 +18,7 @@
 #include "../Opengl2Md2/Opengl2md2.h"
 #include "../Opengl2Md2/ProjectLoader.h"
 #include "../CLILogicCommon/VolkesInterfaceTool.h"
+#include "SelectObjectInterface.h"
 //#pragma comment(lib, "opengl32.lib")
 
 
@@ -590,7 +591,15 @@ namespace WPFOpenGLLib
 			MarshalString(TextureName,sTextureName);
 			MarshalString(TextureAlpha,sTextureAlpha);
 			
-			MarxWorld::getInstance().setNewPiece(Width,Height,sTextureName,sTextureAlpha);
+			if (LogicCommon::SelectObjectInterface::GetInstance()->isUnable == true)
+			{
+				MarxWorld::getInstance().setNewPiece(Width, Height, sTextureName, sTextureAlpha);
+			}
+			else
+			{
+				MarxWorld::getInstance().setNewPiece(LogicCommon::SelectObjectInterface::GetInstance()->root,Width, Height, sTextureName, sTextureAlpha);
+			}
+			
 			
 		}
 
@@ -616,7 +625,22 @@ namespace WPFOpenGLLib
 
 		void Load()
 		{
-			MarxWorld::getInstance().Load();
+			bool isSelect;
+
+			string sModelname;
+			String^ selected1;
+			
+			OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
+			openFileDialog1->Filter = "Stage Files|*.xml";
+			openFileDialog1->Title = "Select a Cursor File";
+			// Show the Dialog.
+			// If the user clicked OK in the dialog and
+			// a .CUR file was selected, open it.
+			isSelect = (openFileDialog1->ShowDialog() == DialogResult::OK);
+			selected1 = openFileDialog1->FileName;
+
+			MarshalString(selected1, sModelname);
+			MarxWorld::getInstance().Load(sModelname);
 		}
 	};
 }

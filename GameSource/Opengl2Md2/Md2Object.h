@@ -1,28 +1,31 @@
-
 #ifndef __MD2OBJECT_H__
 #define __MD2OBJECT_H__
 #include "../Externallib/LuaJit/Header/lua.hpp"
 #include "../Externallib/LuaJit/Header/lua_tinker.h"
 
+#include <gl/gl.h>
+// glu.h for gluViewport
+#include <gl/glu.h>
 #include <vector>
 #include <string>
 #include <map>
+#include <list>
 #include "MarxObject.h"
 #include "Texture.h"
 #include "ModelInterface.h"
 #include "Md2Model.h"
-
-
+#include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
 using std::map;
 using std::vector;
 using std::string;
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // class Md2Object -- MD2 Object Class.
 //
 /////////////////////////////////////////////////////////////////////////////
+
+
 
 class Md2Object : public MarxObject
 {
@@ -33,6 +36,8 @@ public:
 		kDrawImmediate = 0,
 		kDrawGLcmds,
 	};
+
+	
 
 public:
 	// Constructor/destructor
@@ -56,9 +61,7 @@ public:
 	float getScale () {return _scale; }
 	void setAnim (const string &name);
 
-	
-
-	void setName(GLint name) { _currentName = name; }
+	void setName(GLint name);
 
 	int GetUniqNumber() { return _currentName; }
 
@@ -126,6 +129,18 @@ public:
 	vec3_t m_rotation;
 	vec3_t m_translate;
 
+	/* // Child Object */
+	void setNewPiece(Md2Object* obj);
+
+	Md2Object* setSelectObj(int number);
+
+	void Save(TiXmlElement * MapPieces);
+	void Load(Md2Object* mother,TiXmlNode * MapPieces);
+private:
+	std::list<Md2Object*> child;
+
+	
+
 private:
 	// Member variables
 	Md2ModelSPtr _model;
@@ -136,12 +151,11 @@ private:
 
 	float _percent;
 	float _scale;
+	// 번호 이름은 절대 외부 접근 금지
 	int _currentName;
 
 	// Animation data
 	const Md2Anim_t *_animInfo;
 	string _currentAnim;
 };
-
-
-#endif // __MD2_H__
+#endif

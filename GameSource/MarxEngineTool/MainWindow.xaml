@@ -5,9 +5,7 @@
     <Grid>
         <Viewbox x:Name="problem_of_existance_god_is_not_the_question_desktop_1920x1200_hd_wallpaper_605790" ClipToBounds="True" HorizontalAlignment="Left" Height="600" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="970">
             <Grid Height="1200" Width="1920">
-                <Image x:Name="배경" Source="problem_of_existance_god_is_not_the_question_desktop_1920x1200_hd-wallpaper-605790_Images\배경.png"/>
                 <TextBlock x:Name="Marx_Engine" Foreground="#FFFFFFFF" FontSize="125" FontFamily="Arno Pro" IsHyphenationEnabled="True" LineStackingStrategy="BlockLineHeight" LineHeight="125" TextAlignment="Left" TextWrapping="Wrap" Text="Marx Engine" Margin="78.5,405.5,0,0" HorizontalAlignment="Left" Width="828" Height="147" VerticalAlignment="Top"/>
-                <TextBlock x:Name="for_Capitalism" Foreground="#FFFFFFFF" FontSize="50" FontFamily="Arno Pro" IsHyphenationEnabled="True" LineStackingStrategy="BlockLineHeight" LineHeight="50" TextAlignment="Left" TextWrapping="Wrap" Text="for Capitalism" Margin="500.5,552.5,284.5,526.5"/>
             </Grid>
         </Viewbox>
         <Grid x:Name="grid" RenderTransformOrigin="0.5,0.5">

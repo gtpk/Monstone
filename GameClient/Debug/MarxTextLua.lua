@@ -21,7 +21,7 @@ end
 
 duration = 0;
 revers = true;
-speed = 0.02;
+speed = 1;
 
 -- 0 위 1 오른쪽 2 아래 3왼쪽
 KeyDownValue = { 0,0,0,0 };
@@ -80,16 +80,16 @@ function frameMove(elapsedtime)
 	
 
 
-  if( MarxObject4 ~= nil) then
+  if( MarxObject3 ~= nil) then
   	if(revers == true) then
-		MarxObject4:setTranslate(0,speed*-1,0);
+		MarxObject3:setTranslate(0,speed*-1,0);
 	elseif( revers == false) then
-		MarxObject4:setTranslate(0,speed,0);
+		MarxObject3:setTranslate(0,speed,0);
 	end
 	
 	duration = duration + speed;
 	
-	if(duration > 0.20) then
+	if(duration > 50) then
 		if(revers == false) then
 			revers = true;
 		elseif(revers == true) then

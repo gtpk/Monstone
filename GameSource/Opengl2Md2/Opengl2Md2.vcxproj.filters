@@ -313,5 +313,6 @@
     <None Include="DataManager.inl">
       <Filter>Resource</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

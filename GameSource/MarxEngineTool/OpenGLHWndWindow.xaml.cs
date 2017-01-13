@@ -52,10 +52,10 @@ namespace MarxEngineTool
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("저장 하시겠습니까?", "저장", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("저장후 종료 하시겠습니까? \n아니오를 선택할경우 모든 데이터가 삭제 됩니다!", "저장", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes)
             {
-                base.OnClosing(e);
+                
 
                 if (!e.Cancel)
                 {
@@ -66,6 +66,8 @@ namespace MarxEngineTool
                         OpenGl2Md2.Save();
                     }
                 }
+
+                base.OnClosing(e);
             }
             else if (result == MessageBoxResult.No)
             {
@@ -79,7 +81,12 @@ namespace MarxEngineTool
                         updateTimer = null;
                     }
                 }
-            }           
+            }
+            else if (result == MessageBoxResult.Cancel)
+            {
+                e.Cancel = true;
+                //base.OnClosing(e);
+            }
         }
 
         private void updateTimer_Tick(object sender, EventArgs e)
@@ -149,5 +156,10 @@ namespace MarxEngineTool
         	OpenGl2Md2.SetNewPiece(5,5, "wall_001(2).tga");
         }
 
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+
+            OpenGl2Md2.Load();
+        }
     }
 }

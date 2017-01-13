@@ -21,14 +21,48 @@ VolkesIterfaceTool::~VolkesIterfaceTool()
 
 }
 
+void VolkesIterfaceTool::setNewPiece(Md2Object* mother, Md2Object* model)
+{
+	ObjectTreeContator::GetInstance()->setNewPiece(mother,model);
+}
 void VolkesIterfaceTool::setNewPiece(Md2Object* model)
 {
 	ObjectTreeContator::GetInstance()->setNewPiece(model);
 }
 
+void VolkesIterfaceTool::DeletePiece(Md2Object* model)
+{
+	SelectObjectInterface^ data = SelectObjectInterface::GetInstance();
+	if (data->root == model)
+		data->SetMarxObject(NULL);
+
+	ObjectTreeContator::GetInstance()->DeletePiece(model);
+}
+
+string VolkesIterfaceTool::SaveUrl()
+{
+	string sModelname;
+	// Displays a SaveFileDialog so the user can save the Image
+	// assigned to Button2.
+	SaveFileDialog ^ saveFileDialog1 = gcnew SaveFileDialog();
+	saveFileDialog1->Filter =
+		"xml SetFile|*.xml";
+	saveFileDialog1->Title = "Save an Image File";
+	saveFileDialog1->ShowDialog();
+	String^ selected1 = saveFileDialog1->FileName;
+
+	using namespace Runtime::InteropServices;
+	const char* chars =
+		(const char*)(Marshal::StringToHGlobalAnsi(selected1)).ToPointer();
+	sModelname = chars;
+	Marshal::FreeHGlobal(IntPtr((void*)chars));
+	return sModelname;
+}
+
 bool VolkesIterfaceTool::SetSelection(Md2Object* obj)
 {
 	SelectObjectInterface^ data = SelectObjectInterface::GetInstance();
+
 
 	data->SetMarxObject(obj);
 

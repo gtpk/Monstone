@@ -21,6 +21,7 @@
 #include <vector>
 #include <list>
 #include <string>
+#include <map>
 
 #include "Md2Model.h"
 #include "Md2Object.h"
@@ -92,8 +93,10 @@ public:
 	Md2Object *setNewPiece(const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye);
 	Md2Object *setNewPieceChar(const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye);
 	Md2Object *setNewPiece(const string &md2Name,const string &textureName,float x =0,float y=0,float z=0);
+
 	Md2Object *setNewPiece(float Width,float Height, const string &textureName);
-	Md2Object *setNewPiece(float Width,float Height, const string &textureName,const string &textureAlpha);
+	Md2Object *setNewPiece(float Width,float Height, const string &textureName,const string &textureAlpha, bool isAbsolute = false);
+	Md2Object *setNewPiece(Md2Object* model,float Width, float Height, const string &textureName, const string &textureAlpha);
 	Md2Object *setNewPiece(Md2Object* model);
 
 	Md2Object *getSelectObj();
@@ -107,6 +110,7 @@ public:
 
 	void deleteSelectPiece();
 	void duplicateSelectPiece();
+	void CreateSet();
 
 	const string &name () const { return _name; }
 	const string &currentSkin () const { return _currentSkin; }
@@ -117,10 +121,18 @@ public:
 
 	void Save();
 
-	bool Load();
+	bool Load(string str);
 
+	
+
+	bool isExsistNumber(int number);
+	bool UseNumber(int number);
+	bool UnUseNumber(int number);
+	int getNumber();
 private:
 	// Member variables
+	std::map<int, bool> CheckMap;
+	int _NextID;
 
 	std::list<Md2Object*> _WorldPiece;
 	//std::vector<Md2ModelSPtr> _WorldPieceMash;
@@ -135,7 +147,7 @@ private:
 	string _currentAnim;
 
 	
-	int _NextID;
+	
 	int _Bottompos;
 
 	int _SelectID;

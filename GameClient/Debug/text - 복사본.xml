@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<MinMonstersMap name="Example" RootFolder="E:\Monstone\NewProject">
+    <MapPieces>
+        <Piece Name="101" TextureName="E:\Monstone\NewProject\asset\world_gn02_c.pcx" AlphaTexture="E:\Monstone\NewProject\asset\world_gn02_a.pcx" ModelName="" MARXOBJECT_TYP_ENUM="4" Scale="0.1" Tranceratex="838" Tranceratey="519" Tranceratez="0" Rotationx="0" Rotationy="90" Rotationz="90" Width="322" Height="384">
+            <Child>
+                <Piece Name="102" TextureName="E:\Monstone\NewProject\asset\world_gn04_c.pcx" AlphaTexture="E:\Monstone\NewProject\asset\world_gn04_a.pcx" ModelName="" MARXOBJECT_TYP_ENUM="4" Scale="0.1" Tranceratex="-21" Tranceratey="311" Tranceratez="0" Rotationx="0" Rotationy="90" Rotationz="90" Width="126" Height="64">
+                    <Child>
+                        <Piece Name="103" TextureName="E:\Monstone\NewProject\asset\world_gn04_c.pcx" AlphaTexture="E:\Monstone\NewProject\asset\world_gn04_a.pcx" ModelName="" MARXOBJECT_TYP_ENUM="4" Scale="0.1" Tranceratex="163" Tranceratey="-596" Tranceratez="0" Rotationx="0" Rotationy="90" Rotationz="90" Width="126" Height="64">
+                            <Child />
+                        </Piece>
+                    </Child>
+                </Piece>
+            </Child>
+        </Piece>
+    </MapPieces>
+</MinMonstersMap>

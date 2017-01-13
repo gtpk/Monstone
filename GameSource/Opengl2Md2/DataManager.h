@@ -18,6 +18,7 @@
 #ifndef __DATAMANAGER_H__
 #define __DATAMANAGER_H__
 
+#include <gl/GL.h>
 #include <stdexcept>
 #include <string>
 #include <map>

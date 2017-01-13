@@ -163,7 +163,7 @@
             </Grid>
             <DockPanel x:Name="stackPanel" Height="32" Margin="0" VerticalAlignment="Top" Background="#FF353535" DockPanel.Dock="Top" LastChildFill="False" >
                 <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0" Click="Button_Click_4">
                     <Image Height="22" Source="ImageAsset/icons/1373913501_Open.png" Stretch="Fill" Width="22"/>
                 </Button>
                 <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
@@ -205,10 +205,6 @@
                 <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
                     <Image Height="24" Source="ImageAsset/icons/Actions-transform-scale-icon.png" Stretch="Fill" Width="24"/>
                 </Button>
-                <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-                <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-                    <Image Height="24" Source="problem_of_existance_god_is_not_the_question_desktop_1920x1200_hd-wallpaper-605790_Images/배경.png" Stretch="Fill" Width="24"/>
-                </Button>
             </DockPanel>
             <DockPanel x:Name="grid2" Margin="0" DockPanel.Dock="Bottom" Height="Auto" Width="Auto">
                 <DockPanel x:Name="dockPanel" LastChildFill="False" Margin="0">
@@ -218,10 +214,15 @@
                                 <ViewModel:MarxObjectTreeViewModel/>
                             </TabItem.DataContext>
                             <Grid Background="#FF525252">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25*"/>
+                                    <RowDefinition Height="573*"/>
+                                </Grid.RowDefinitions>
 
-                                <TreeView Margin="0" ItemTemplate="{DynamicResource ObjectInterfaceTemplate1}" ItemsSource="{Binding Children}">
-
-                                </TreeView>
+                                <TreeView Margin="0" ItemTemplate="{DynamicResource ObjectInterfaceTemplate1}" ItemsSource="{Binding Children}" Grid.Row="1"/>
+                                <Grid/>
+                                <TextBox x:Name="textBox" Margin="0,0,70,0" TextWrapping="Wrap"/>
+                                <Button x:Name="button" Content="Search" HorizontalAlignment="Right" Margin="0" Width="70" d:LayoutOverrides="Height"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Md2" Background="#FF474747" Foreground="#FFC8C8C8" BorderBrush="#FF7E7E7E" Margin="0">
@@ -292,11 +293,6 @@
                         </TabItem>
                     </TabControl>
                 </DockPanel>
-                <TabControl VerticalAlignment="Top" DockPanel.Dock="Top" Height="24.46">
-                    <CloseableTabItemDemo:CloseableTabItem Header="CloseableTabItem" Margin="0">
-                        <Grid Background="#FFE5E5E5"/>
-                    </CloseableTabItemDemo:CloseableTabItem>
-                </TabControl>
                 <Border x:Name="hwndPlaceholder" RenderTransformOrigin="0.5,0.5" Margin="0" >
                     <Border.RenderTransform>
                         <TransformGroup>

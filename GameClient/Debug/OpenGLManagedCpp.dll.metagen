@@ -23,6 +23,9 @@ Class LogicCommon.ObjectInterface: AutoLayout, AnsiClass, Class, Public, BeforeF
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Interfaces:
     System.ComponentModel.INotifyPropertyChanged
+  Fields:
+    Md2Object* root : Public
+    Boolean isUnable : Public
   Properties:
     System.Collections.ObjectModel.ObservableCollection`1[LogicCommon.ObjectInterface] Children 'get ' : 
     System.ValueType Trance 'get set' Vector3D IsBoxed : 
@@ -61,6 +64,8 @@ Class LogicCommon.ObjectInterface: AutoLayout, AnsiClass, Class, Public, BeforeF
     get_Children(): PrivateScope, Public, HideBySig, SpecialName
     add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
     remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    setNewPiece(Md2Object*, Md2Object*): PrivateScope, Public, HideBySig
+    DeletePiece(Md2Object*): PrivateScope, Public, HideBySig
     SetMarxObject(Md2Object*): PrivateScope, Public, HideBySig
 Class LogicCommon.SelectObjectInterface: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :LogicCommon.ObjectInterface
@@ -85,6 +90,8 @@ Class LogicCommon.ObjectTreeContator: AutoLayout, AnsiClass, Class, Public, Befo
     System.Collections.ObjectModel.ObservableCollection`1[LogicCommon.ObjectInterface] Children 'get ' : 
   Methods:
     get_Children(): PrivateScope, Public, HideBySig, SpecialName
+    DeletePiece(Md2Object*): PrivateScope, Public, HideBySig
+    setNewPiece(Md2Object*, Md2Object*): PrivateScope, Public, HideBySig
     setNewPiece(Md2Object*): PrivateScope, Public, HideBySig
     GetInstance(): PrivateScope, Public, Static, HideBySig
 Class WPFOpenGLLib.OpenGLHwnd: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

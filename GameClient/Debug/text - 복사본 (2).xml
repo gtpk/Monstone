@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<MinMonstersMap name="Example" RootFolder="E:\Monstone\NewProject">
+    <MapPieces>
+        <Piece Name="101" TextureName="E:\Monstone\NewProject\asset\world_gn06_c.pcx" AlphaTexture="E:\Monstone\NewProject\asset\world_gn06_a.pcx" ModelName="" MARXOBJECT_TYP_ENUM="4" Scale="0.1" Tranceratex="1068" Tranceratey="644" Tranceratez="0" Rotationx="0" Rotationy="90" Rotationz="90" Width="90" Height="100">
+            <Child>
+                <Piece Name="102" TextureName="E:\Monstone\NewProject\asset\world_gn08_c.pcx" AlphaTexture="E:\Monstone\NewProject\asset\world_gn08_a.pcx" ModelName="" MARXOBJECT_TYP_ENUM="4" Scale="0.1" Tranceratex="-280" Tranceratey="-11" Tranceratez="0" Rotationx="0" Rotationy="90" Rotationz="90" Width="108" Height="182">
+                    <Child>
+                        <Piece Name="103" TextureName="E:\Monstone\NewProject\asset\world_gn07_c.pcx" AlphaTexture="E:\Monstone\NewProject\asset\world_gn07_a.pcx" ModelName="" MARXOBJECT_TYP_ENUM="4" Scale="0.1" Tranceratex="-234" Tranceratey="21" Tranceratez="0" Rotationx="0" Rotationy="90" Rotationz="90" Width="52" Height="90">
+                            <Child />
+                        </Piece>
+                    </Child>
+                </Piece>
+            </Child>
+        </Piece>
+        <Piece Name="104" TextureName="E:\Monstone\NewProject\asset\world_gp01_c.pcx" AlphaTexture="E:\Monstone\NewProject\asset\world_gp01_a.pcx" ModelName="" MARXOBJECT_TYP_ENUM="4" Scale="0.1" Tranceratex="1262" Tranceratey="67" Tranceratez="0" Rotationx="0" Rotationy="90" Rotationz="90" Width="802" Height="518">
+            <Child>
+                <Piece Name="105" TextureName="E:\Monstone\NewProject\asset\world_gn05_c.pcx" AlphaTexture="E:\Monstone\NewProject\asset\world_gn05_a.pcx" ModelName="" MARXOBJECT_TYP_ENUM="4" Scale="0.1" Tranceratex="-45" Tranceratey="325" Tranceratez="0" Rotationx="0" Rotationy="90" Rotationz="90" Width="222" Height="132">
+                    <Child>
+                        <Piece Name="106" TextureName="E:\Monstone\NewProject\asset\world_gn04_c.pcx" AlphaTexture="E:\Monstone\NewProject\asset\world_gn04_a.pcx" ModelName="" MARXOBJECT_TYP_ENUM="4" Scale="0.1" Tranceratex="-453" Tranceratey="-155" Tranceratez="0" Rotationx="0" Rotationy="90" Rotationz="90" Width="126" Height="64">
+                            <Child />
+                        </Piece>
+                    </Child>
+                </Piece>
+            </Child>
+        </Piece>
+    </MapPieces>
+</MinMonstersMap>

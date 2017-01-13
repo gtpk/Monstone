@@ -13,6 +13,13 @@ MarxObject::MarxObject(MARXOBJECT_TYP_ENUM type)
 MarxObject::~MarxObject(void)
 {
 	m_ObjectManager->DeleteMarxObject(m_name);
+	VEC_ATTACH::iterator _itor = m_AttachChild.begin();
+	while (_itor != m_AttachChild.end())
+	{
+		AttacheAble* obj = *_itor;
+		_itor = m_AttachChild.erase(_itor);
+		delete(obj);
+	}
 }
 
 bool MarxObject::OnAttech(AttacheAble* _pattachable)

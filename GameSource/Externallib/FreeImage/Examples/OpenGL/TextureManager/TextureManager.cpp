@@ -125,7 +125,7 @@ bool TextureManager::BindTexture(const unsigned int texID)
 	//if this texture ID mapped, bind it's texture as current
 	if (m_texID.find(texID) != m_texID.end()) {
 		glBindTexture(GL_TEXTURE_2D, m_texID[texID]);
-		printf("REQ ID %d ==> Texture %d \n", texID, m_texID[texID]);
+		//printf("REQ ID %d ==> Texture %d \n", texID, m_texID[texID]);
 	}
 		
 	//otherwise, binding failed

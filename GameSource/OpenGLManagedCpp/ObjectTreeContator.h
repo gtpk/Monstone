@@ -79,12 +79,42 @@ namespace LogicCommon
 			}
 		}
 		
+		void DeletePiece(Md2Object* model)
+		{
+			for each (ObjectInterface^ var in Children)
+			{
+				if (var->root == model)
+				{
+					Children->Remove(var);
+					return;
+				}
+			}
+		}
 
 		void setNewPiece(Md2Object* obj)
 		{
 			ObjectInterface^ gen = gcnew ObjectInterface();
 			gen->SetMarxObject(obj);
 			Children->Add(gen);
+		}
+
+		void setNewPiece(Md2Object* mother,Md2Object* obj)
+		{
+			ObjectInterface^ gen = gcnew ObjectInterface();
+			gen->SetMarxObject(obj);
+
+			for each (ObjectInterface^ var in Children)
+			{
+				if (var->root == mother)
+				{
+					var->Children->Add(gen);
+					return;
+				}
+				else
+				{
+					var->setNewPiece(mother, obj);
+				}
+			}
 		}
 
 		static ObjectTreeContator^ GetInstance()

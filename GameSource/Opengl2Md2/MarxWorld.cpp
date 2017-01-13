@@ -106,6 +106,39 @@ MarxWorld::~MarxWorld ()
 {
 }
 
+int MarxWorld::getNumber()
+{
+	while(isExsistNumber(_NextID))
+		_NextID++;
+	int value = _NextID;
+	_NextID++;
+	return value;
+}
+bool MarxWorld::UnUseNumber(int number)
+{
+	CheckMap[number] = false;
+	std::map<int, bool>::iterator _f = CheckMap.find(number);
+	if (_f != CheckMap.end())
+	{
+		CheckMap.erase(_f);
+	}
+	return true;
+}
+bool MarxWorld::UseNumber(int number)
+{
+	if (isExsistNumber(number))
+	{
+		return false;
+	}
+	CheckMap[number] = true;
+}
+bool MarxWorld::isExsistNumber(int number)
+{
+	std::map<int, bool>::iterator _f = CheckMap.find(number);
+	if (_f != CheckMap.end())
+		return CheckMap[number]; //존재 해도 데이터가 true일수있다.
+	return false;
+}
 
 // --------------------------------------------------------------------------
 // Md2Player::drawPlayerItp
@@ -163,8 +196,16 @@ void MarxWorld::drawPlayerFrame (int frame, Md2Object::Md2RenderMode renderMode)
 
 void MarxWorld::setSelectObj(int number) 
 {
+	Md2Object* node = getSelectObj();
+	if(node != NULL)
+		node->setSelect(false);
+
 	_SelectID = number; 
 
+	if (_SelectID == -1)
+	{
+		Volkes->SetSelection(NULL);
+	}
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
 
@@ -180,6 +221,13 @@ void MarxWorld::setSelectObj(int number)
 		else
 		{
 			node->setSelect(false);
+			node = node->setSelectObj(number);
+			if (node != NULL)
+			{
+				node->setSelect(true);
+				if (Volkes != NULL)
+					Volkes->SetSelection(node);
+			}
 		}
 	}
 }
@@ -230,6 +278,15 @@ void MarxWorld::setScale (GLfloat scale)
 		{
 			if(node->GetUniqNumber() == _SelectID)
 				model->setScale(scale);
+			else
+			{
+				node = node->setSelectObj(_SelectID);
+				if (node != NULL)
+				{
+					if (Volkes != NULL)
+						Volkes->SetSelection(node);
+				}
+			}
 		}
 	}
 }
@@ -258,6 +315,14 @@ void MarxWorld::setSkin (const string &name)
 		{
 			if(node->GetUniqNumber() == _SelectID)
 				model->setTexture (name);
+			else
+			{
+				node = node->setSelectObj(_SelectID);
+				if (node != NULL)
+				{
+					node->model()->setTexture(name);
+				}
+			}
 		}
 	}
 
@@ -310,6 +375,14 @@ void MarxWorld::setRotate(vec3_t angle)
 		{
 			node->setRotate (angle);
 		}
+		else
+		{
+			node = node->setSelectObj(_SelectID);
+			if (node != NULL)
+			{
+				node->setRotate(angle);
+			}
+		}
 	}
 }
 
@@ -324,6 +397,14 @@ void MarxWorld::setTranslate(vec3_t trance )
 		if(node->GetUniqNumber() == _SelectID)
 		{
 			node->setTranslate (trance);
+		}
+		else
+		{
+			node = node->setSelectObj(_SelectID);
+			if (node != NULL)
+			{
+				node->setTranslate(trance);
+			}
 		}
 	}
 
@@ -341,6 +422,14 @@ Md2Object * MarxWorld::getSelectObj()
 		if(node->GetUniqNumber() == _SelectID)
 		{
 			return node;
+		}
+		else
+		{
+			node = node->setSelectObj(_SelectID);
+			if (node != NULL)
+			{
+				return node;
+			}
 		}
 	}
 	return NULL;
@@ -627,6 +716,9 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height , const string &textu
 	
 	_WorldPiece.push_back(obj);
 	Volkes->setNewPiece(obj);
+	LuaScriptAttached * attach = new LuaScriptAttached();
+
+	obj->OnAttech(attach);
 	return obj;
 }
 
@@ -651,24 +743,28 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 	
 	_WorldPiece.push_back(obj);
 	Volkes->setNewPiece(obj);
+	LuaScriptAttached * attach = new LuaScriptAttached();
+
+	obj->OnAttech(attach);
+
 	return obj;
 
 }
 
 
-Md2Object *MarxWorld::setNewPiece(float Width,float Height, const string &textureName,const string &textureAlpha)
+Md2Object *MarxWorld::setNewPiece(float Width,float Height, const string &textureName,const string &textureAlpha, bool isAbsolute)
 {
 
 	
 	Md2Object* obj = new Md2Object();
 	obj->setName(_NextID);
 	_NextID++;
-	obj->setModel (Width,Height,textureName,textureAlpha );
+	obj->setModel (Width,Height,textureName,textureAlpha, isAbsolute);
 	obj->setRotate(0,90,90);
 	obj->setScale(0.1);
 	obj->setTranslate(
-		Opengl2md2::getInstance().eye.x,
-		Opengl2md2::getInstance().eye.y,
+		Width/2,
+		Height/2,
 		(_NextID-1100));
 
 	
@@ -682,6 +778,62 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height, const string &textur
 	return obj;
 }
 
+Md2Object *MarxWorld::setNewPiece(Md2Object* model, float Width, float Height, const string &textureName, const string &textureAlpha)
+{
+
+	Md2Object* obj = new Md2Object();
+	obj->setName(_NextID);
+	_NextID++;
+	obj->setModel(Width, Height, textureName, textureAlpha);
+	obj->setRotate(0, 90, 90);
+	obj->setScale(0.1);
+	obj->setTranslate(
+		Opengl2md2::getInstance().eye.x,
+		Opengl2md2::getInstance().eye.y,
+		(_NextID - 1100));
+	// 알리기
+	Volkes->setNewPiece(model,obj);
+
+	LuaScriptAttached * attach = new LuaScriptAttached();
+	obj->OnAttech(attach);
+	model->setNewPiece(obj);
+	return obj;
+}
+
+
+void MarxWorld::CreateSet()
+{
+	TiXmlDocument doc;
+	TiXmlElement* msg;
+
+	//문서 설정
+	TiXmlDeclaration* decl = new TiXmlDeclaration("1.0", "", "");
+
+	doc.LinkEndChild(decl);
+	// Root 만들자
+	TiXmlElement * root = new TiXmlElement("MinMonstersMap");
+	doc.LinkEndChild(root);
+
+	root->SetAttribute("name", "Example");
+	root->SetAttribute("RootFolder", _RootDirctory.c_str());
+
+	//경고 문구삽입
+	//TiXmlComment * comment = new TiXmlComment();
+	//comment->SetValue("자동 완성된 코드 이므로 직접 수정 하지 마시오." );  
+	//root->LinkEndChild( comment );
+
+	TiXmlElement * MapPieces = new TiXmlElement("MapPieces");
+	root->LinkEndChild(MapPieces);
+
+	getSelectObj()->Save(MapPieces);
+
+	if (Volkes != NULL)
+	{
+		doc.SaveFile(Volkes->SaveUrl().c_str());
+	}
+	
+	
+}
 
 void MarxWorld::Save()
 {
@@ -713,45 +865,29 @@ void MarxWorld::Save()
 
 		for(;md2begin != md2End ; md2begin++)
 		{
-
 			Md2Object* node = ((Md2Object*)*md2begin);	
+			node->Save(MapPieces);
 
-			TiXmlElement * Piece;
-			Piece = new TiXmlElement( "Piece" );  
-			MapPieces->LinkEndChild( Piece );  
-			Piece->SetAttribute("Name", node->GetUniqNumber());
-			Piece->SetAttribute("TextureName", node->model()->getTextureName().c_str());
-			Piece->SetAttribute("ModelName",node->model()->getMd2name().c_str());
-			Piece->SetDoubleAttribute("Scale",node->scale());
-			//Piece->SetDoubleAttribute("x",node.get);
-
-			TiXmlElement * Trancerate;
-			Trancerate = new TiXmlElement( "Trancerate" );
-			Piece->LinkEndChild(Trancerate);
-			Trancerate->SetDoubleAttribute("x", node->m_translate[0]);
-			Trancerate->SetDoubleAttribute("y", node->m_translate[1]);
-			Trancerate->SetDoubleAttribute("z", node->m_translate[2]);
-
-			TiXmlElement * Rotation;
-			Rotation = new TiXmlElement( "Rotation" );
-			Piece->LinkEndChild(Rotation);
-			Rotation->SetDoubleAttribute("x", node->m_rotation[0]);
-			Rotation->SetDoubleAttribute("y", node->m_rotation[1]);
-			Rotation->SetDoubleAttribute("z", node->m_rotation[2]);
 		}	
 	}
 
-	doc.SaveFile("text.xml");
+	if (Volkes != NULL)
+	{
+		doc.SaveFile(Volkes->SaveUrl().c_str());
+	}
 }
 
-bool MarxWorld::Load()
+
+
+bool MarxWorld::Load(string str)
 {
-	TiXmlDocument doc( "text.xml" );
+	TiXmlDocument doc(str.c_str());
 	bool loadOkay = doc.LoadFile();
 
 	if ( !loadOkay )
 	{
 		// 파일이 없음..!!
+		printf("File Not Found %s\n", str.c_str());
 		return false ;
 		//printf( "Could not load test file 'demotest.xml'. Error='%s'. Exiting.\n", doc.ErrorDesc() );
 	}
@@ -783,73 +919,84 @@ bool MarxWorld::Load()
 		for(; Piece!=NULL ;Piece = Piece->NextSibling())
 		{ 
 			int name=101;
+			MARXOBJECT_TYP_ENUM type;
 			float Scale = 0.1;
-			
+			float width;
+			float height;
 		
 			TiXmlElement* pelement = Piece->ToElement();
+
 			pelement->Attribute("Name",&name);
 			const char* TextureName = pelement->Attribute("TextureName");
+			const char* AlphaTexture = pelement->Attribute("AlphaTexture");
 			const char* Md2Name = pelement->Attribute("ModelName");
-
+			int i_type = 0;
+			pelement->Attribute("MARXOBJECT_TYP_ENUM", &i_type);
+			type = (MARXOBJECT_TYP_ENUM)i_type;
 			pelement->QueryFloatAttribute("Scale",&Scale);
+			pelement->QueryFloatAttribute("Width", &width);
+			pelement->QueryFloatAttribute("Height", &height);
 
-			
-			
 			vec3_t m_translate;
 
-			TiXmlNode* Trancerate = Piece->FirstChild("Trancerate");
-			TiXmlElement* pTracerate = Trancerate->ToElement();
-			pTracerate->QueryFloatAttribute("x",&m_translate[0]);
-			pTracerate->QueryFloatAttribute("y",&m_translate[1]);
-			pTracerate->QueryFloatAttribute("z",&m_translate[2]);
+			//TiXmlNode* Trancerate = Piece->FirstChild("Trancerate");
+			//TiXmlElement* pTracerate = Trancerate->ToElement();
+			pelement->QueryFloatAttribute("Tranceratex",&m_translate[0]);
+			pelement->QueryFloatAttribute("Tranceratey",&m_translate[1]);
+			pelement->QueryFloatAttribute("Tranceratez",&m_translate[2]);
 
 			vec3_t m_rotation;
-			TiXmlNode* Rotation = Piece->FirstChild("Rotation");
-			TiXmlElement* pRotation = Rotation->ToElement();
-			pRotation->QueryFloatAttribute("x",&m_rotation[0]);
-			pRotation->QueryFloatAttribute("y",&m_rotation[1]);
-			pRotation->QueryFloatAttribute("z",&m_rotation[2]);
+			//TiXmlNode* Rotation = Piece->FirstChild("Rotation");
+			//TiXmlElement* pRotation = Rotation->ToElement();
+			pelement->QueryFloatAttribute("Rotationx",&m_rotation[0]);
+			pelement->QueryFloatAttribute("Rotationy",&m_rotation[1]);
+			pelement->QueryFloatAttribute("Rotationz",&m_rotation[2]);
 
-
-			std::ifstream pieceifs;
-
-			string path = Md2Name;
-			pieceifs.open (path.c_str (), std::ios::binary);
-
-			if (pieceifs.fail ())
+			if (type == MARXOBJECT_TYP_ENUM::MARX_OBJECT_MD2_MODEL)
 			{
-				pieceifs.close ();
-				continue;
-			}
-			/*
-			else
-			{
-				// 메시 불러오기
-				Model = Md2ModelSPtr(new Md2Model (path));
-				_WorldPieceMash.push_back( Model );
+				std::ifstream pieceifs;
 
-				// 텍스쳐 불러오기
-				if(Model->setTexture(TextureName) == false)
+				string path = Md2Name;
+				pieceifs.open(path.c_str(), std::ios::binary);
+
+				if (pieceifs.fail())
 				{
-					Model->loadTexture(TextureName);
-					Model->setTexture (TextureName);
-				}		
+					pieceifs.close();
+					continue;
+				}
+				GLfloat pos = -10;
+
+				Md2Object* obj = new Md2Object();
+				//_WorldPiece.push_back()
+				obj->setName(name);
+				obj->setModel(path, TextureName);
+				obj->setRotate(m_rotation[0], m_rotation[1], m_rotation[2]);
+				obj->setTranslate(m_translate[0], m_translate[1], m_translate[2]);
+				obj->setScale(Scale);
+				_WorldPiece.push_back(obj);
+			}
+			else if (type == MARXOBJECT_TYP_ENUM::MARX_OBJECT_MD2_OBJECT)
+			{
+				//MarxWorld::getInstance()._RootDirctory
+				string TextureName_str = TextureName;
+				TextureName_str = TextureName_str.substr(
+					string(MarxWorld::getInstance()._RootDirctory + "\\asset\\").length(), TextureName_str.length());
+				string AlphaTexture_str = AlphaTexture;
+				AlphaTexture_str = AlphaTexture_str.substr(
+					string(MarxWorld::getInstance()._RootDirctory + "\\asset\\").length(), AlphaTexture_str.length());
+				printf("%s / %s\n", TextureName_str.c_str(), AlphaTexture_str.c_str());
+				Md2Object* obj = setNewPiece(width, height, TextureName_str.c_str(), AlphaTexture_str.c_str());
+				obj->setName(name);
+				obj->setRotate(m_rotation[0], m_rotation[1], m_rotation[2]);
+				obj->setTranslate(m_translate[0], m_translate[1], m_translate[2]);
+				obj->setScale(Scale);
+				obj->Load(obj,Piece);
 			}
 
-			*/
 			// 모델이 불러졌는지 확인하고 없으면 에러
 			
 
-			GLfloat pos = -10;
-
-			Md2Object* obj = new Md2Object();
-			//_WorldPiece.push_back()
-			obj->setName(name);
-			obj->setModel (path,TextureName);
-			obj->setRotate(m_rotation[0],m_rotation[1],m_rotation[2]);
-			obj->setTranslate(m_translate[0],m_translate[1],m_translate[2]);
-			obj->setScale(Scale);
-			_WorldPiece.push_back(obj);
+			
 		}	
 	}
 	
