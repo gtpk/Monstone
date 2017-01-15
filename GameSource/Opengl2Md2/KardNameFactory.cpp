@@ -86,8 +86,8 @@ void KardNameFactory::OneTimeInit()
 	//glBlendFunc(GL_DST_COLOR, GL_ONE);
 
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
@@ -169,6 +169,7 @@ void KardNameFactory::AtlasOpen(int FileName)
 		obj->TextureNum = FileName;
 		AtlasList[Name] = obj;
 	}
+	fclose(f);
 	/*
 	ifstream outFile(buffAsStdStr);
 	

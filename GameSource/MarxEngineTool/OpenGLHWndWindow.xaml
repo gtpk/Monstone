@@ -70,6 +70,13 @@
                 <TextBlock Text="{Binding ObjectName}"/>
             </StackPanel>
         </HierarchicalDataTemplate>
+        <DataTemplate x:Key="PieceInfoTemplate2">
+            <StackPanel>
+                <Image Source="{Binding BitmapSource}" HorizontalAlignment="Left" Width="50" Height="50"/>
+                <TextBlock Text="{Binding TextureFilePath}"/>
+                <TextBlock Text="{Binding TextureName}"/>
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
@@ -215,14 +222,14 @@
                             </TabItem.DataContext>
                             <Grid Background="#FF525252">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="25*"/>
-                                    <RowDefinition Height="573*"/>
+                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
 
-                                <TreeView Margin="0" ItemTemplate="{DynamicResource ObjectInterfaceTemplate1}" ItemsSource="{Binding Children}" Grid.Row="1"/>
-                                <Grid/>
-                                <TextBox x:Name="textBox" Margin="0,0,70,0" TextWrapping="Wrap"/>
-                                <Button x:Name="button" Content="Search" HorizontalAlignment="Right" Margin="0" Width="70" d:LayoutOverrides="Height"/>
+                                <TreeView Margin="0,25.04,0,0" ItemTemplate="{DynamicResource ObjectInterfaceTemplate1}" ItemsSource="{Binding Children}"/>
+                                <Grid Height="25" Margin="0,0.02,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height">
+                                    <TextBox x:Name="textBox" Margin="0,0,70,0" TextWrapping="Wrap"/>
+                                    <Button x:Name="button" Content="Search" HorizontalAlignment="Right" Margin="0" Width="70" d:LayoutOverrides="Height"/>
+                                </Grid>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Md2" Background="#FF474747" Foreground="#FFC8C8C8" BorderBrush="#FF7E7E7E" Margin="0">
@@ -289,6 +296,37 @@
                         <TabItem Header="속성(_I)">
                             <Grid Background="#FFE5E5E5">
                                 <local:PieceProperty/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="아틀라스 자산들" Margin="-2,-2,-2,-1">
+                            <Grid Background="#FF252525" Margin="0" MinWidth="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="43*"/>
+                                    <RowDefinition Height="20*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.DataContext>
+                                    <ViewModel:KADAtalsViewModel/>
+                                </Grid.DataContext>
+                                <Grid>
+                                    <ListBox x:Name="listBox1" Background="{x:Null}" Margin="0,0,0,42.84" ItemTemplate="{DynamicResource PieceInfoTemplate2}" ItemsSource="{Binding pieceList}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxWidth="300">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger SourceName="listBox1">
+                                                <i:InvokeCommandAction Command="{Binding Instance.Command, Mode=OneWay}" CommandParameter="Load"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="SelectionChanged" SourceName="listBox1" SourceObject="{Binding ElementName=listBox1}">
+                                                <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="{Binding SelectedValue, ElementName=listBox1}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </ListBox>
+                                    <Button Content="피스 추가" Margin="0" VerticalAlignment="Bottom" Height="42">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="MakePieceInfo"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Button>
+                                </Grid>
+                                <Image Grid.Row="1" Source="{Binding Instance.pieceSelection.BitmapSource}" Margin="0" Width="200"/>
                             </Grid>
                         </TabItem>
                     </TabControl>

@@ -101,6 +101,7 @@ Class WPFOpenGLLib.OpenGLHwnd: AutoLayout, AnsiClass, Class, Public, BeforeField
     SetNewPiece(Single, Single, String, String): PrivateScope, Public, HideBySig
     SetNewPiece(Single, Single, String): PrivateScope, Public, HideBySig
     SetNewPiece(String, String): PrivateScope, Public, HideBySig
+    SetNewPiece(String): PrivateScope, Public, HideBySig
     DrawingCall(): PrivateScope, Public, HideBySig
     Save(): PrivateScope, Public, HideBySig
     Load(): PrivateScope, Public, HideBySig

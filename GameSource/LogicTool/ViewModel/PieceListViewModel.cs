@@ -64,7 +64,7 @@ namespace LogicTool.ViewModel
 
         private readonly BackgroundWorker worker = new BackgroundWorker();
 
-        public WPFOpenGLLib.OpenGLHwnd OpenGl2Md2;
+        public WPFOpenGLLib.OpenGLHwnd m_OpenGl2Md2;
 
         
         public PieceListViewModel()
@@ -245,13 +245,13 @@ namespace LogicTool.ViewModel
                 string extestion = TextureName.Substring(pos);
 
                 if (m.AlphaTextureFileName == "" || m.AlphaTextureFileName == m.TextureName)
-                    OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName);
+                    m_OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName);
                 else
                 {
                     if(extestion == ".png")
-                        OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName);
+                        m_OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName);
                     else
-                        OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName, m.AlphaTextureFileName);
+                        m_OpenGl2Md2.SetNewPiece(((float)m.Width), ((float)m.Height), m.TextureName, m.AlphaTextureFileName);
                 }
                     
                 

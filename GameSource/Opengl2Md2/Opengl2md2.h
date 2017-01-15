@@ -79,7 +79,7 @@ private :
 	vector<string> animList;
 
 
-	
+	GLfloat ViewScale = 1;
 
 	Opengl2md2();
 
@@ -122,7 +122,7 @@ public :
 	static void specialKeyUp (int key, int x, int y);
 	static void mouseMotion (int x, int y);
 	static void mouseButton (int button, int state, int x, int y);
-	static void WhellScrolle (int x,int y);
+	static void WhellScrolle (int PressKey, short Wheel);
 	static void idleVisible ();
 	static void windowStatus (int state);
 	static void menuSelect(HMENU menu, int idx);

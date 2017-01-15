@@ -1,4 +1,5 @@
 #pragma once
+#include <Windows.h>
 
 #include <string>
 #include <vector>
@@ -89,7 +90,7 @@ public:
 
 	virtual void eventReceived(UIBase* sender, ClickEventArgs e) { }
 
-	void OnDraw();
+	void OnDraw(bool isSelect = false);
 
 	void setbeckgroundImage(string string);
 

@@ -403,6 +403,16 @@ void	Opengl2md2::begin2D ()
 
 	glMatrixMode (GL_MODELVIEW);
 	glLoadIdentity ();
+	glEnable(GL_ALPHA_TEST); //튜명 태스트 통과
+	glEnable(GL_BLEND);
+	glEnable(GL_TEXTURE_2D);
+	glHint(GL_POINT_SMOOTH_HINT, GL_NICEST );
+	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST );
+	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST );
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 }
 
 
@@ -414,6 +424,10 @@ void	Opengl2md2::begin2D ()
 
 void	Opengl2md2::end2D ()
 {
+	glDisable(GL_ALPHA_TEST);
+	glDisable(GL_TEXTURE_2D);
+
+	glDisable(GL_BLEND);
 	glMatrixMode (GL_PROJECTION);
 	glPopMatrix ();
 	glMatrixMode (GL_MODELVIEW);
@@ -508,7 +522,7 @@ void Opengl2md2::draw3D ()
 	// Clear window
 	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	glLoadIdentity ();
-
+	
 
 	// Perform camera transformations
 
@@ -517,10 +531,11 @@ void Opengl2md2::draw3D ()
 	glRotated (rot.z, 0.0f, 0.0f, 1.0f);
 
 	glTranslated (-eye.x, -eye.y, -eye.z);
-
+	glScaled(inst->ViewScale, inst->ViewScale,1);
 	glEnable (GL_DEPTH_TEST);
-	//glEnable( GL_BLEND );
-
+	glEnable(GL_ALPHA_TEST); //튜명 태스트 통과
+	glEnable( GL_BLEND );
+	glAlphaFunc(GL_NOTEQUAL, 0); //뒤에 투명으로 투과
 	if (bLightGL)
 		glEnable (GL_LIGHTING);
 
@@ -529,8 +544,9 @@ void Opengl2md2::draw3D ()
 
 	// Draw objects
 
-
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	//glRotatef( angle, 0.0, 1.0, 0.0 );
+
 	player->drawPlayerItp (bAnimated,
 		static_cast<Md2Object::Md2RenderMode>(renderMode));
 
@@ -539,7 +555,7 @@ void Opengl2md2::draw3D ()
 
 
 
-
+	glDisable(GL_ALPHA_TEST);
 	glDisable (GL_TEXTURE_2D);
 	glDisable (GL_DEPTH_TEST);
 	glDisable (GL_LIGHTING);
@@ -661,7 +677,7 @@ void Opengl2md2::draw2D ()
 		glRasterPos2i (m_Width -150, m_Hight - 35);
 		glPrintf ("Eye Position Y: %f" ,inst->eye.y);
 		glRasterPos2i (m_Width -150, m_Hight - 50);
-		glPrintf ("Eye Position Z: %f" , inst->eye.z);
+		glPrintf ("ViewScale : %f" , inst->ViewScale);
 
 		glRasterPos2i (m_Width -150, m_Hight - 80);
 		glPrintf ("Game Mouse X: %f" , inst->a_mouse.x);
@@ -684,6 +700,9 @@ void Opengl2md2::draw2D ()
 
 void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
 {
+	if (inst->keyboard.special[VK_SPACE] == true)
+		return;
+
 	if(hits ==0)
 	{
 		SelectObjectNum = -1;
@@ -933,7 +952,9 @@ void	Opengl2md2::specialKeyUp (int key, int x, int y)
 
 void	Opengl2md2::mouseMotion (int x, int y)
 {
-	const float senstive = 1;
+	float senstive = 1;
+	if(inst->ViewScale != 0)
+		senstive = 1 / inst->ViewScale;
 
 	//게임에서의 마우스 포인터 위치
 	float gamemouseX = (x - inst->m_Width/2 )*senstive;
@@ -946,7 +967,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 	// Zoom
 	if(inst->bIsMouse_Mid_Down == true)
 	{
-		inst->eye.z += (x - inst->mouse.x) * 0.1;
+		
 	}
 	if(inst->bIsMouse_Left_Down == true)
 	{
@@ -968,7 +989,6 @@ void	Opengl2md2::mouseMotion (int x, int y)
 				inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*senstive);
 				inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*senstive);
 				inst->player->setTranslate(inst->trance);
-
 			}
 			else if( inst->emTrancelate == EM_ROTAION)
 			{
@@ -1192,9 +1212,20 @@ void Opengl2md2::mouseButton (int button, int state, int x, int y)
 }
 
 
-void Opengl2md2::WhellScrolle (int x,int y)
+void Opengl2md2::WhellScrolle (int PressKey, short Wheel)
 {
-
+	//if(Wheel > 0)
+	if (Wheel / 120 > 1)
+	{
+		inst->ViewScale -= (Wheel % 120)*0.01;
+		//inst->eye.z -= (Wheel % 120);
+	}
+	else
+	{
+		inst->ViewScale += (Wheel / 120)*0.01;
+		//inst->eye.z += (Wheel / 120);
+	}
+	
 
 }
 

@@ -60,26 +60,30 @@ bool ObjectManager::ReplaceMarxObject(const std::string _Name, MarxObject * pObj
 	return true;
 }
 
+
 bool ObjectManager::ObjectdefaultName(MarxObject * pObj)
 {
-	int duplicate = 0;
-	std::string UntitleName;
-
-	int _size = m_ObjectNameList.size();
-	UntitleName = format("MarxObject%d",_size);
-
-	while(true)
-	{
-		if(PushMarxObject(UntitleName,pObj) == false)
-		{
-			duplicate++;
-			UntitleName = format("MarxObject%d(%d)",m_ObjectNameList.size(),duplicate);
-		}
-		else
-		{
-			pObj->SetName(UntitleName);
-			return true;
-		}
-	}
+	//이 이름으로 객체를 찾을순 없다!
+	pObj->SetName("(MarxObject)");
+	return true;
+	//int duplicate = 0;
+	//std::string UntitleName;
+	//
+	//int _size = m_ObjectNameList.size();
+	//UntitleName = format("MarxObject%d",_size);
+	//
+	//while(true)
+	//{
+	//	if(PushMarxObject(UntitleName,pObj) == false)
+	//	{
+	//		duplicate++;
+	//		UntitleName = format("MarxObject%d(%d)",m_ObjectNameList.size(),duplicate);
+	//	}
+	//	else
+	//	{
+	//		pObj->SetName(UntitleName);
+	//		return true;
+	//	}
+	//}
 }
 

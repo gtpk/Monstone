@@ -97,6 +97,7 @@ public:
 	Md2Object *setNewPiece(float Width,float Height, const string &textureName);
 	Md2Object *setNewPiece(float Width,float Height, const string &textureName,const string &textureAlpha, bool isAbsolute = false);
 	Md2Object *setNewPiece(Md2Object* model,float Width, float Height, const string &textureName, const string &textureAlpha);
+	Md2Object *setNewPiece(const string &textureName);
 	Md2Object *setNewPiece(Md2Object* model);
 
 	Md2Object *getSelectObj();

@@ -119,7 +119,8 @@ namespace MarxEngineTool
  
             // ... and attach it to the placeholder control:
             hwndPlaceholder.Child = host;
-            PieceListViewModel.Instance.OpenGl2Md2 = this.OpenGl2Md2;
+            PieceListViewModel.Instance.m_OpenGl2Md2 = this.OpenGl2Md2;
+            KADAtalsViewModel.Instance.m_OpenGl2Md2 = this.OpenGl2Md2;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

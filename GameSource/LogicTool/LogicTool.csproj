@@ -56,12 +56,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Model\AtlasObj.cs" />
     <Compile Include="Model\CSPieceModel.cs" />
     <Compile Include="Model\ObjectInterface.cs" />
     <Compile Include="Model\PieceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="TargaImageControl\TargaImage.cs" />
+    <Compile Include="ViewModel\KADAtalsViewModel.cs" />
     <Compile Include="ViewModel\MarxObjectTreeViewModel.cs" />
     <Compile Include="ViewModel\PieceAddViewModel.cs" />
     <Compile Include="ViewModel\PieceCommand.cs" />

@@ -3,9 +3,6 @@
 #include "../Externallib/LuaJit/Header/lua.hpp"
 #include "../Externallib/LuaJit/Header/lua_tinker.h"
 
-#include <gl/gl.h>
-// glu.h for gluViewport
-#include <gl/glu.h>
 #include <vector>
 #include <string>
 #include <map>
@@ -15,6 +12,8 @@
 #include "ModelInterface.h"
 #include "Md2Model.h"
 #include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
+#include "AtlasObj.h"
+//#include "ImageControl.h"
 using std::map;
 using std::vector;
 using std::string;
@@ -24,8 +23,7 @@ using std::string;
 // class Md2Object -- MD2 Object Class.
 //
 /////////////////////////////////////////////////////////////////////////////
-
-
+class ImageControl ;
 
 class Md2Object : public MarxObject
 {
@@ -43,6 +41,7 @@ public:
 	// Constructor/destructor
 	Md2Object ();
 	Md2Object (ModelInteface *model);
+	Md2Object(string ObjName);
 	~Md2Object ();
 
 public:
@@ -60,6 +59,10 @@ public:
 	void setScale (float scale) { _scale = scale; }
 	float getScale () {return _scale; }
 	void setAnim (const string &name);
+
+	void SetAtlasObj(string ObjName);
+	
+	ImageControl* m_obj = NULL;
 
 	void setName(GLint name);
 

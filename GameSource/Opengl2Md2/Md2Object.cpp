@@ -14,7 +14,7 @@
 #include "Md2Object.h"
 #include "ProjectLoader.h"
 #include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
-
+#include "ImageControl.h"
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -32,7 +32,7 @@ using std::endl;
 // --------------------------------------------------------------------------
 
 Md2Object::Md2Object ()
-	: _model (NULL), _currFrame (0), _nextFrame (0),
+	: _model (NULL), _currFrame (0), _nextFrame (0), m_obj(NULL),
 	_interp (0.0f), _percent (0.0f), _scale (1.0f), MarxObject(MARX_OBJECT_MD2_OBJECT)
 {
 	
@@ -40,13 +40,19 @@ Md2Object::Md2Object ()
 
 
 Md2Object::Md2Object (ModelInteface *model)
-	: _model (model), _currFrame (0), _nextFrame (0),
+	: _model (model), _currFrame (0), _nextFrame (0), m_obj(NULL),
 	_interp (0.0f), _percent (0.0f), _scale (1.0f), MarxObject(MARX_OBJECT_MD2_OBJECT)
 {
 
 	setModel (model);
 }
 
+Md2Object::Md2Object(string ObjName)
+	: _model(NULL), _currFrame(0), _nextFrame(0), m_obj(NULL),
+	_interp(0.0f), _percent(0.0f), _scale(1.0f), MarxObject(MARX_OBJECT_MD2_OBJECT)
+{
+	SetAtlasObj(ObjName);
+}
 
 // --------------------------------------------------------------------------
 // Md2Object::~Md2Object
@@ -73,10 +79,15 @@ void Md2Object::setName(GLint name)
 	if (!MarxWorld::getInstance().UseNumber(name))
 	{
 		name = MarxWorld::getInstance().getNumber();
+		MarxWorld::getInstance().UseNumber(name);
 	}
 	_currentName = name; 
 }
 
+void Md2Object::SetAtlasObj(string ObjName)
+{
+	m_obj = new ImageControl(ObjName);
+}
 
 // --------------------------------------------------------------------------
 // Md2Object::drawObjectItp
@@ -87,57 +98,61 @@ void Md2Object::setName(GLint name)
 void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 {
 
-	if(!_model.get())
-		return;
-
 	glPushName(_currentName);
-	glPushMatrix ();
+	glPushMatrix();
 
 	// Axis rotation
-	
-	glTranslatef(m_translate[0],m_translate[1],m_translate[2]);
 
-	glRotatef (-90.0f, 1.0f, 0.0f, 0.0f);
-	glRotatef (-90.0f, 0.0f, 0.0f, 1.0f);
+	glTranslatef(m_translate[0], m_translate[1], m_translate[2]);
 
-	
-
-	glRotatef (m_rotation[0] , 1.0f, 0.0f, 0.0f);
-	glRotatef (m_rotation[1] , 0.0f, 1.0f, 0.0f);
-	glRotatef (m_rotation[2] , 0.0f, 0.0f, 1.0f);
+	glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
+	glRotatef(-90.0f, 0.0f, 0.0f, 1.0f);
 
 
-	
-	// Set model scale factor
-	_model->setScale (_scale);
 
-	glPushAttrib (GL_POLYGON_BIT);
-	glFrontFace (GL_CW);
+	glRotatef(m_rotation[0], 1.0f, 0.0f, 0.0f);
+	glRotatef(m_rotation[1], 0.0f, 1.0f, 0.0f);
+	glRotatef(m_rotation[2], 0.0f, 0.0f, 1.0f);
 
-	//glScalef(_scale,_scale,_scale);
-
-	//_model->renderSelectFrameImmediate();
-
-	// Render the model
-	switch (renderMode)
+	if (m_obj != NULL)
 	{
-	case kDrawImmediate:
+		//if (getSelect() == true)
+		//	m_obj->OnDraw(true);
 		
-		if(getSelect() == true)
-			_model->renderSelectFrameImmediate();
-		_model->drawModelItpImmediate (_currFrame, _nextFrame, _interp);
-		
-		break;
-
-	case kDrawGLcmds:
-		_model->drawModelItpWithGLcmds (_currFrame, _nextFrame, _interp);
-		break;
+		m_obj->OnDraw();
 	}
+	if (_model.get())
+	{
+		// Set model scale factor
+		_model->setScale(_scale);
 
 
-	
-	
+		glPushAttrib(GL_POLYGON_BIT);
+		glFrontFace(GL_CW);
 
+		//glScalef(_scale,_scale,_scale);
+
+		//_model->renderSelectFrameImmediate();
+
+		// Render the model
+
+
+		switch (renderMode)
+		{
+		case kDrawImmediate:
+
+			if (getSelect() == true)
+				_model->renderSelectFrameImmediate();
+			_model->drawModelItpImmediate(_currFrame, _nextFrame, _interp);
+
+			break;
+
+		case kDrawGLcmds:
+			_model->drawModelItpWithGLcmds(_currFrame, _nextFrame, _interp);
+			break;
+		}
+		glPopAttrib();
+	}
 	
 	if (animated)
 	{
@@ -156,7 +171,7 @@ void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 		_iter++;
 	}
 	// GL_POLYGON_BIT
-	glPopAttrib();
+	//glPopAttrib();
 
 	glPopMatrix();
 
@@ -187,28 +202,37 @@ void Md2Object::drawObjectFrame (int frame, Md2RenderMode renderMode)
 	glRotatef (m_rotation[1] , 0.0f, 1.0f, 0.0f);
 	glRotatef (m_rotation[2] , 0.0f, 0.0f, 1.0f);
 
-	// Set model scale factor
-	_model->setScale (_scale);
 
 	glPushAttrib (GL_POLYGON_BIT);
 	glFrontFace (GL_CW);
 
-
-	// Render the model
-	switch (renderMode)
+	if (m_obj == NULL)
 	{
-	case kDrawImmediate:
 
-		if(getSelect() == true)
-			_model->renderSelectFrameImmediate();
-		_model->renderFrameImmediate (frame);
+		// Set model scale factor
+		_model->setScale(_scale);
+		// Render the model
+		switch (renderMode)
+		{
+		case kDrawImmediate:
+
+			if(getSelect() == true)
+				_model->renderSelectFrameImmediate();
+			_model->renderFrameImmediate (frame);
 		
-		break;
+			break;
 
-	case kDrawGLcmds:
-		_model->renderFrameWithGLcmds (frame);
-		break;
+		case kDrawGLcmds:
+			_model->renderFrameWithGLcmds (frame);
+			break;
+		}
 	}
+	else
+	{
+		m_obj->OnDraw();
+	}
+
+
 
 	
 	// GL_POLYGON_BIT

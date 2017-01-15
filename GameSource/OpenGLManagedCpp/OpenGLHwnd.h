@@ -119,7 +119,7 @@ namespace WPFOpenGLLib
 			case WM_MOUSEWHEEL:
 				{
 					//Opengl2md2::mouseButton(GLUT_MIDDLE_BUTTON,GLUT_UP,LOWORD(_lParam),HIWORD(_lParam));
-					Opengl2md2::WhellScrolle(LOWORD(_lParam),HIWORD(_lParam));
+					Opengl2md2::WhellScrolle(LOWORD(_wParam),HIWORD(_wParam));
 					return 0;
 				}
 		    case WM_MOUSEACTIVATE:
@@ -557,7 +557,18 @@ namespace WPFOpenGLLib
 		}
 
 
-		public :
+	public :
+		void SetNewPiece(String^ sprite)
+		{
+			//Opengl2md2::getInstance().SetNewPiece();
+			string ssprite;
+
+			MarshalString(sprite, ssprite);
+
+			MarxWorld::getInstance().setNewPiece(ssprite);
+
+		}
+
 		void SetNewPiece(String^ ModelName, String ^ TextureName)
 		{
 			//Opengl2md2::getInstance().SetNewPiece();

@@ -32,7 +32,7 @@ ImageControl::ImageControl(string ObjName, float width, float height) : MarxObje
 
 
 
-void ImageControl::OnDraw() {
+void ImageControl::OnDraw(bool isSelect) {
 	// TODO Auto-generated method stub
 
 
@@ -43,10 +43,7 @@ void ImageControl::OnDraw() {
 		return;
 	}
 	glFrontFace(GL_CW);
-	glEnable(GL_BLEND);
-	glEnable(GL_TEXTURE_2D);
-
-	glEnable(GL_ALPHA_TEST);
+	
 
 
 	glEnableClientState(GL_VERTEX_ARRAY);
@@ -63,7 +60,8 @@ void ImageControl::OnDraw() {
 	// Telling OpenGL where our UV coordinates are.
 	
 
-	
+	if(isSelect)
+		glBegin(GL_LINES);
 	
 	glVertexPointer(3, GL_FLOAT, 0, vertexBuffer);
 	glTexCoordPointer(2, GL_FLOAT, 0, textureBuffer);
@@ -163,19 +161,23 @@ void ImageControl::OnDraw() {
 		}
 		iter++;
 	}
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	if (visiable == true)
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, index);
 	glPopMatrix();
+
+
+	if (isSelect)
+		glDisable(GL_LINES);
 
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	
 
 	// Telling OpenGL to enable textures.
-	glDisable(GL_TEXTURE_2D);
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+	
 	//glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 }
 

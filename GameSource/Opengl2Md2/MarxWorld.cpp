@@ -722,6 +722,33 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height , const string &textu
 	return obj;
 }
 
+Md2Object *MarxWorld::setNewPiece(const string &textureName)
+{
+
+
+	Md2Object* obj = new Md2Object();
+	//_WorldPiece.push_back()
+	obj->setName(_NextID);
+	_NextID++;
+	obj->SetAtlasObj(textureName);
+	obj->setRotate(0, 90, 90);
+	obj->setScale(0.1);
+
+	obj->setTranslate(
+		Opengl2md2::getInstance().eye.x,
+		Opengl2md2::getInstance().eye.y,
+		(_NextID - 1100));
+	//obj->setTranslate(Opengl2md2::getInstance().eye.x,Opengl2md2::getInstance().eye.y,Opengl2md2::getInstance().eye.z);
+
+
+	_WorldPiece.push_back(obj);
+	Volkes->setNewPiece(obj);
+	LuaScriptAttached * attach = new LuaScriptAttached();
+
+	obj->OnAttech(attach);
+	return obj;
+}
+
 Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 {
 	Md2Object* obj = new Md2Object();

@@ -23,7 +23,6 @@
 #include <windows.h>
 #endif // _WIN32
 
-#include <GL/gl.h>
 #include <stdexcept>
 #include <iostream>
 #include <fstream>

@@ -134,18 +134,24 @@ namespace LogicCommon
 				isUnable = false;
 			}
 			CurrentName = obj->GetUniqNumber();
+			//if(obj != m_obj)
 			ObjectName = gcnew String(obj->GetName().c_str());
-			ModelName = gcnew String(obj->model()->getMd2name().c_str());
 
-			TextureName = gcnew String(obj->model()->getTextureName().c_str());
+			if (obj->model() != NULL)
+			{
+				ModelName = gcnew String(obj->model()->getMd2name().c_str());
 
-			AlphaTextureName = gcnew String(obj->model()->getAlphaTextureName().c_str());
+				TextureName = gcnew String(obj->model()->getTextureName().c_str());
 
-			Scale = obj->model()->getScale();
+				AlphaTextureName = gcnew String(obj->model()->getAlphaTextureName().c_str());
 
-			Width = obj->model()->GetPieceWidth();
+				Scale = obj->model()->getScale();
 
-			Height = obj->model()->GetPieceHeight();
+				Width = obj->model()->GetPieceWidth();
+
+				Height = obj->model()->GetPieceHeight();
+			}
+			
 
 			Rotation = gcnew Vector3D(obj->getRotate()[0],
 				obj->getRotate()[1],

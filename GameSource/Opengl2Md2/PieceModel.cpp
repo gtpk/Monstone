@@ -88,33 +88,6 @@ bool PieceModel::loadTexture (const string &filename , const string &alphafilena
 	}
 
 	return (!tex->fail ());
-	/*
-	// Get texture manager
-	Texture2DManager *texMgr = Texture2DManager::getInstance ();
-
-	// load the texture
-	Texture2D *tex = texMgr->load (filename);
-
-	if (!tex->fail ())
-	{
-		if(_skinIds.find(filename) == _skinIds.end())
-			_skinIds.insert (SkinMap::value_type (filename, tex));
-	}
-
-	if(tex->fail ())
-		return false;
-
-	// load the texture
-	Texture2D *alphatex = texMgr->load (alphafilename);
-
-	if (!alphatex->fail ())
-	{
-		if(_skinIds.find(alphafilename) == _skinIds.end())
-			_skinIds.insert (SkinMap::value_type (alphafilename, alphatex));
-	}
-	
-	return (!alphatex->fail ());
-	*/
 }
 
 
@@ -151,34 +124,6 @@ bool PieceModel::setTexture (const string &filename, const string &alphafilename
 		_tex = NULL;
 		return false;
 	}
-	
-	/*
-	SkinMap::iterator itor;
-	itor = _skinIds.find (filename );
-
-	if (itor != _skinIds.end ())
-	{
-		_tex = itor->second;
-	}
-	else
-	{
-		_tex = NULL;
-		return false;
-	}
-
-	itor = _skinIds.find (alphafilename);
-
-	if (itor != _skinIds.end ())
-	{
-		_alphatex = itor->second;
-		
-	}
-	else
-	{
-		_alphatex = NULL;
-		return false;
-	}*/
-
 	return true;
 }
 
@@ -237,7 +182,7 @@ void PieceModel::RenderPiece()
 	// Bind to model's texture
 	
 	glDisable(GL_DEPTH_TEST);
-	glEnable(GL_BLEND);
+	//glEnable(GL_BLEND);
 
 	
 	//glBlendFunc(GL_ONE_MINUS_DST_COLOR ,GL_ZERO);
@@ -263,169 +208,12 @@ void PieceModel::RenderPiece()
 		//glDisable(GL_LINES);
 	glEnd();
 
-	glDisable(GL_BLEND);
+	//glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 
-	/*
-	glBlendFunc(GL_ONE, GL_ONE);
-
-	if (_tex)
-	{
-		_tex->bind ();
-	}
-	else
-	{
-		glDisable(GL_BLEND);
-		glEnable(GL_DEPTH_TEST);
-		return;
-	}
-
-	glBegin(GL_TRIANGLE_STRIP); 
-
-		glTexCoord2f(0,0); 
-		glVertex3f(x2+2, y2,0); 
-
-		glTexCoord2f(0,1);
-		glVertex3f(x2+2, y1,0); 
-
-		glTexCoord2f(1,0);
-		glVertex3f(x1+2, y2,0);
-
-		glTexCoord2f(1,1);
-		glVertex3f(x1+2, y1,0);
-
-		//glDisable(GL_LINES);
-	glEnd();
-	
-
-	glDisable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
-
-	int number= 0;
-
-	
-	int options[15] ;
-
-	int vecnum = 0;
-	
-	options[vecnum++] = GL_ZERO;
-	options[vecnum++] = GL_ONE;
-	options[vecnum++] = GL_DST_COLOR;
-	options[vecnum++] = GL_SRC_COLOR;
-	options[vecnum++] = GL_SRC_ALPHA_SATURATE;
-	options[vecnum++] = GL_SRC_ALPHA;
-	options[vecnum++] = GL_DST_ALPHA;
-	options[vecnum++] = GL_ONE_MINUS_DST_COLOR;
-	options[vecnum++] = GL_ONE_MINUS_SRC_COLOR;
-	options[vecnum++] = GL_ONE_MINUS_SRC_ALPHA;
-	options[vecnum++] = GL_ONE_MINUS_DST_ALPHA;
-	
-	//options[vecnum++] = GL_SRC2_RGB;
-	//options[vecnum++] = GL_CONSTANT_COLOR;
-	
-
-
-	//RenderPiece(GL_DST_COLOR,GL_ZERO,GL_ONE,GL_ONE,number++);
-	//RenderPiece(GL_ONE_MINUS_SRC_COLOR,GL_ZERO ,GL_ONE_MINUS_DST_COLOR, GL_ONE_MINUS_SRC_COLOR,number++);
-	
-	//for(int i = 0; i<10; i++)
-		//for(int ia = 0; ia<vecnum; ia++)
-			//for(int ib = 0; ib<vecnum; ib++)
-				//for(int ic = 0; ic<vecnum; ic++)
-	
-	for(int i = 0; i<vecnum; i++)
-		for(int ia = 0; ia<vecnum; ia++)
-			for(int ib = 0; ib<vecnum; ib++)
-				for(int ic = 0; ic<vecnum; ic++)
-					RenderPiece(options[i],options[ia] ,options[ib], options[ic],number++);
-		*/
 }
 
 void PieceModel::RenderPiece(int value, int value2,int value3,int value4,int count)
 {
-	/*
-	glDisable(GL_TEXTURE_2D);
 
-	glColor3f(0.5, 0.5, 0.5);   
-	glBegin(GL_POLYGON);         //사각형
-		glVertex3f(-10.5, -10.5, 0.0);
-		glVertex3f(10.5, -10.5, 0.0);   
-		glVertex3f(10.5, 10.5, 0.0);   
-		glVertex3f(-10.5, 10.5, 0.0);      
-	glEnd( );
-	glEnable(GL_TEXTURE_2D);
-	return;
-	*   /
-
-	int raw,cell;
-
-	raw = count/11;
-	cell = count%11;
-		
-	glEnable(GL_DEPTH_TEST);
-	glColor4f(1,1,1,0.5);
-	glBegin(GL_TRIANGLE_STRIP);
-		glVertex3f(x2+ (raw*(x2 -x1)), y2+(cell*(y1-y2)),0); 
-		glVertex3f(x2+ (raw*(x2 -x1)), y1+(cell*(y1-y2)),0); 
-		glVertex3f(x1+ (raw*(x2 -x1)), y2+(cell*(y1-y2)),0);
-		glVertex3f(x1+ (raw*(x2 -x1)), y1+(cell*(y1-y2)),0);
-	glEnd();
-
-	glDisable(GL_DEPTH_TEST);
-	glEnable(GL_BLEND);
-
-	// Bind to model's texture
-	glBlendFunc(value ,value2);
-
-	if (_alphatex) 
-		_alphatex->bind ();
-	
-	glBegin(GL_TRIANGLE_STRIP); 
-	//glAlphaFunc(GL_LESS
-
-		glTexCoord2f(0,0); 
-		glVertex3f(x2+ (raw*(x2 -x1)), y2+(cell*(y1-y2)),0); 
-
-		glTexCoord2f(0,1);
-		glVertex3f(x2+ (raw*(x2 -x1)), y1+(cell*(y1-y2)),0); 
-
-		glTexCoord2f(1,0);
-		glVertex3f(x1+ (raw*(x2 -x1)), y2+(cell*(y1-y2)),0);
-
-		glTexCoord2f(1,1);
-		glVertex3f(x1+ (raw*(x2 -x1)), y1+(cell*(y1-y2)),0);
-
-	glEnd();
-
-	
-	//glDisable(GL_DEPTH_TEST);
-	glBlendFunc(value3, value4);
-	
-	if (_tex)
-		_tex->bind ();
-
-	glBegin(GL_TRIANGLE_STRIP); 
-
-		glTexCoord2f(0,0); 
-		glVertex3f(x2 + (raw*(x2 -x1)), y2+(cell*(y1-y2)),0); 
-
-		glTexCoord2f(0,1);
-		glVertex3f(x2+ (raw*(x2 -x1)), y1+(cell*(y1-y2)),0); 
-
-		glTexCoord2f(1,0);
-		glVertex3f(x1+ (raw*(x2 -x1)), y2+(cell*(y1-y2)),0);
-
-		glTexCoord2f(1,1);
-		glVertex3f(x1+ (raw*(x2 -x1)), y1+(cell*(y1-y2)),0);
-
-	glEnd();
-	//glBlendFunc(GL_ZERO, GL_ZERO);
-	
-	glDisable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
-	
-
-	glColor3f(1.0f,1.0f,1.0f);
-	//glBindTexture (GL_TEXTURE_2D, 0);
-	*/
 }

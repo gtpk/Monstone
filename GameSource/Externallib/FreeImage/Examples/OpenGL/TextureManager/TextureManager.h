@@ -10,7 +10,7 @@
 #define TextureManager_H
 
 #include <windows.h>
-#include <gl/gl.h>
+#include "../../../../../Opengl2Md2/GL/glew.h"
 #include "../../../Dist/FreeImage.h"
 #include <map>
 
