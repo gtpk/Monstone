@@ -17,9 +17,15 @@
 #include "defAnimations.h"
 #include "AnimatinonBase.h"
 #include "PointF.h"
+#include "IContainer.h"
 
 using namespace std;
-class ImageControl : public UIBase, public IEventHandler<ClickEventArgs> , MarxObject , public AnimationBase
+class ImageControl : 
+	public UIBase,
+	public IEventHandler<ClickEventArgs> ,
+	MarxObject , 
+	public AnimationBase,
+	public IContainer
 {
 public:
 	GLfloat vertexBuffer[15] = {
@@ -51,9 +57,10 @@ public:
 	bool isWidthPercent;
 	bool isHeightPercent;
 
+	bool NotExsistImage = true;
 	int Aligen;
 
-
+	float zindex = 0;
 
 
 	bool IsVerticalReverse = false;
@@ -71,9 +78,29 @@ public:
 		IsVerticalReverse = isVerticalReverse;
 	}
 
+protected:
+	vector<ImageControl*> m_Child;
+
+public:
+
+public:
+	void addChild(ImageControl* child)
+	{
+		m_Child.push_back(child);
+	}
+
+	virtual vector<ImageControl*> getAllChild();
 
 
-	
+
+public:
+	// Note! 리스트에서만 지워진다. 객체는 지우지 않는다!
+	void Remove(ImageControl* child);
+
+public:
+	bool AllAnimationFinished();
+
+public:
 
 	/////////////////////////////////////////////////////////////////
 	/*  UIBase를 구현하기위하여 사용하는 변수들                                                    */
@@ -92,8 +119,13 @@ public:
 
 	void OnDraw(bool isSelect = false);
 
+	
+
 	void setbeckgroundImage(string string);
 
 	void setbeckgroundImage(string string, float width, float height);
+
+
+	void OnActualDraw();
 
 };

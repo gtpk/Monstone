@@ -38,6 +38,7 @@
     <ClInclude Include="IUIBase.h" />
     <ClInclude Include="KingControl.h" />
     <ClInclude Include="LoadingScreen.h" />
+    <ClInclude Include="Momo.h" />
     <ClInclude Include="Penal.h" />
     <ClInclude Include="RootUI.h" />
     <ClInclude Include="Snumber.h" />

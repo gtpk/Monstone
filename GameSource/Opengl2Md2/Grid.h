@@ -7,7 +7,7 @@
 #include "AnimatinonBase.h"
 #include <algorithm>
 using namespace std;
-class Grid : public ImageControl , IContainer
+class Grid : public ImageControl
 {
 
 public :
@@ -21,12 +21,8 @@ public :
 	vector<float> m_gridbar_ver;
 
 private :
-	vector<ImageControl*> m_Child;
 	Point GridSize;
 
-public :
-	vector<ImageControl*> getAll_Child;
-	bool IsChanged = false;
 
 public :
 	Grid()
@@ -51,60 +47,17 @@ public :
 	}
 
 
-public :
-	void addChild(ImageControl* child)
-	{
-		IsChanged = true;
-		m_Child.push_back(child);
-	}
+
 
 public:
 
 	virtual void eventReceived(UIBase* sender, ClickEventArgs e) { }
 
-
-
 public :
-	vector<ImageControl*> getAllChild()
-	{
-
-		if (IsChanged == true)
-		{
-			IsChanged = false;
-			getAll_Child.clear();
-
-			//getAll_Child = new vector<ImageControl>();
-			vector<ImageControl*>::iterator iter = m_Child.begin();
-			while (iter != m_Child.end())
-			{
-				ImageControl* contator = (ImageControl*)*iter;
-				IContainer* _IContainer = dynamic_cast<IContainer*>(contator);
-				if (_IContainer != NULL)
-				{
-					vector<ImageControl*> coninside = _IContainer->getAllChild();
-					vector<ImageControl*>::iterator iter2 = coninside.begin();
-					while (iter2 != coninside.end())
-					{
-						getAll_Child.push_back((ImageControl*)*iter2);
-						iter2++;
-					}
-				}
-				else if (dynamic_cast<ImageControl*>(contator) != NULL)
-				{
-					getAll_Child.push_back((ImageControl*)contator);
-				}
-				else
-				{
-					iter++;
-				}
-			}
-		}
-
-		return getAll_Child;
-	}
+	
 
 
-	void OnDraw() 
+	void OnDraw(bool isSelect = false)
 	{
 		vector<ImageControl*> child = getAllChild();
 		vector<ImageControl*>::iterator itor = child.begin();
@@ -225,47 +178,14 @@ public :
 					GridControl->OnDraw();
 				}
 			}
+			itor++;
 		}
-		itor++;
+		
 	}
 
 
 
 
-
-public :
-	// Note! 리스트에서만 지워진다. 객체는 지우지 않는다!
-	void Remove(ImageControl* child)
-	{
-		vector<ImageControl*>::iterator iter = m_Child.begin();
-		while (iter != m_Child.end())
-		{
-			ImageControl* contator = (ImageControl*)*iter;
-
-			if (contator == child)
-			{
-				iter = m_Child.erase(iter);
-				return;
-			}
-			iter++;	
-		}
-	}
-
-public :
-	bool AllAnimationFinished()
-	{
-	
-		vector<ImageControl*>::iterator iter = m_Child.begin();
-		while (iter != m_Child.end())
-		{
-			ImageControl* GridControl = (ImageControl*)*iter;
-			if (GridControl->AnimationisEnded() == false)
-				return false;
-		}
-
-		return true;
-
-	}
 
 
 };

@@ -535,13 +535,14 @@ void Opengl2md2::draw3D ()
 	glEnable (GL_DEPTH_TEST);
 	glEnable(GL_ALPHA_TEST); //튜명 태스트 통과
 	glEnable( GL_BLEND );
-	glAlphaFunc(GL_NOTEQUAL, 0); //뒤에 투명으로 투과
+	glAlphaFunc(GL_GREATER, 0); //뒤에 투명으로 투과
+
 	if (bLightGL)
 		glEnable (GL_LIGHTING);
 
 	if (bTextured)
 		glEnable (GL_TEXTURE_2D);
-
+	glFrontFace(GL_CW);
 	// Draw objects
 
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -554,12 +555,12 @@ void Opengl2md2::draw3D ()
 	//    static_cast<Md2Object::Md2RenderMode>(renderMode));
 
 
-
+	glDisable(GL_BLEND);
 	glDisable(GL_ALPHA_TEST);
 	glDisable (GL_TEXTURE_2D);
 	glDisable (GL_DEPTH_TEST);
 	glDisable (GL_LIGHTING);
-
+	
 
 	if(emTrancelate == EM_ROTAION && inst->bIsMouse_Left_Down)
 	{
@@ -612,7 +613,8 @@ void Opengl2md2::draw2D ()
 	//end2D();
 
 	begin2D ();
-	
+
+
 	inst->render->onDrawFrame();
 
 	glColor3f (1.0f, 1.0f, 1.0f);

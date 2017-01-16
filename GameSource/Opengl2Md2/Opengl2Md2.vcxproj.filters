@@ -228,6 +228,9 @@
     <ClInclude Include="KingControl.h">
       <Filter>RenderEngine\BaseControl\UI\CutomObject</Filter>
     </ClInclude>
+    <ClInclude Include="Momo.h">
+      <Filter>RenderEngine\BaseControl\UI\CutomObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Md2Model.cpp">

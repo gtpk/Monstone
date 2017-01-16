@@ -46,6 +46,8 @@ public:
 
 public:
 	// Public interface
+	void CopyDeepObj(Md2Object* obj);
+
 	void drawObjectItp (bool animated, Md2RenderMode renderMode);
 	void drawObjectFrame (int frame, Md2RenderMode renderMode);
 	void animate (int startFrame, int endFrame, float percent);
@@ -54,7 +56,9 @@ public:
 	bool setModel (ModelInteface *model);
 	bool setModel (const string &Modelname,const string &filename);
 	//bool setModel (float Width,float Height, const string &textureName,const string &textureAlpha);
-	bool setModel (float Width,float Height, const string &textureName,const string &textureAlpha, bool isAbsolute = false );
+	bool setModel (float Width,float Height, string textureName,string textureAlpha, bool isAbsolute = false );
+	string m_textureName;
+	string m_textureAlpha;
 	bool setModel (float Width,float Height, const string &textureName);
 	void setScale (float scale) { _scale = scale; }
 	float getScale () {return _scale; }
@@ -136,7 +140,7 @@ public:
 	void setNewPiece(Md2Object* obj);
 
 	Md2Object* setSelectObj(int number);
-
+	void deleteSelectPiece(int _SelectID);
 	void Save(TiXmlElement * MapPieces);
 	void Load(Md2Object* mother,TiXmlNode * MapPieces);
 private:

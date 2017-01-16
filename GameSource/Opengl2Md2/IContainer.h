@@ -9,7 +9,7 @@ public :
 
 	virtual std::vector<ImageControl*>  getAllChild() =0;
 
-	virtual void OnDraw() =0;
+	virtual void OnDraw(bool isSelect = false) =0;
 
 	virtual void Remove(ImageControl* child)=0;
 

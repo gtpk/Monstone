@@ -63,7 +63,7 @@ public:
 
 
 
-	EXTERN::VolkesIterface* Volkes;
+	EXTERN::VolkesIterface* Volkes = NULL;
 
 	static MarxWorld& getInstance()
 	{
@@ -99,6 +99,8 @@ public:
 	Md2Object *setNewPiece(Md2Object* model,float Width, float Height, const string &textureName, const string &textureAlpha);
 	Md2Object *setNewPiece(const string &textureName);
 	Md2Object *setNewPiece(Md2Object* model);
+
+	Md2Object *MakePiece(Md2Object* model);
 
 	Md2Object *getSelectObj();
 

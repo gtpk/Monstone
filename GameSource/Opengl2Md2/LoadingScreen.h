@@ -3,7 +3,9 @@
 #include "ImageControl.h"
 #include "KingControl.h"
 #include "Snumber.h"
-class LoadingScreen : public IGameStage
+#include "Penal.h"
+
+class LoadingScreen : public IGameStage , public Penal
 {
 public:
 
@@ -38,8 +40,8 @@ public :
 	void onDrawScreen()
 	{
 		
-		
-		King->OnDraw();
+		OnDraw(false);
+		//King->OnDraw();
 	}
 	//void onDrawScreen()
 	//{
@@ -71,6 +73,7 @@ public:
 		King = new KingControl();
 		King->x = 0;
 		King->y = 0;
+		addChild(King);
 		//King->
 		//LoadingScreenImage->SetAnimation(LoadingScreenImage->CreateAlphaAnimation(255, 0, dt_timesleep, 0, AnimationType::LinearEaseIn));
 		//LoadingScreenImage->AnimationPlay();

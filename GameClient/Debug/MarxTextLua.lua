@@ -33,22 +33,22 @@ function frameMove(elapsedtime)
 	local keydowning = false;
 	
 	if(KeyDownValue[1] == 1)then
-		MainCharacter:setTranslate(0,0.1,0);
+		MainCharacter:setTranslate(0,1,0);
 		rotation = 270;
 		keydowning = true;
 	end
 	if(KeyDownValue[2] == 1)then
-		MainCharacter:setTranslate(0,-0.1,0);
+		MainCharacter:setTranslate(0,-1,0);
 		rotation = 90;
 		keydowning = true;
 	end
 	if(KeyDownValue[3] == 1)then
-		MainCharacter:setTranslate(-0.1,0,0);
+		MainCharacter:setTranslate(-1,0,0);
 		rotation = 360;
 		keydowning = true;
 	end
 	if(KeyDownValue[4] == 1)then
-		MainCharacter:setTranslate(0.1,0,0);
+		MainCharacter:setTranslate(1,0,0);
 		rotation = 180;
 		keydowning = true;
 	end

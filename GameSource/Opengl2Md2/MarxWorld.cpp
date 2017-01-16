@@ -74,7 +74,7 @@ throw (std::runtime_error)
 
 	ObjectManager* m_ObjectManager = ObjectManager::GetInstance();
 
-
+	Volkes = NULL;
 	//Md2Object * obj = setNewPiece("chr_01.md2", "chr_01.tga", Opengl2md2::getInstance().eye);
 	//
 	//if (obj != NULL)
@@ -150,9 +150,8 @@ void MarxWorld::drawPlayerItp (bool animated, Md2Object::Md2RenderMode renderMod
 {
 	
 	Md2Iter md2begin = _WorldPiece.begin();
-	Md2Iter md2End = _WorldPiece.end();
 
-	for(; md2begin != md2End ;  ++md2begin)
+	for(; md2begin != _WorldPiece.end();  md2begin++)
 	{
 		Md2Object* node = (Md2Object*)*md2begin;
 
@@ -204,7 +203,8 @@ void MarxWorld::setSelectObj(int number)
 
 	if (_SelectID == -1)
 	{
-		Volkes->SetSelection(NULL);
+		if (Volkes != NULL)
+			Volkes->SetSelection(NULL);
 	}
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
@@ -525,6 +525,10 @@ void MarxWorld::deleteSelectPiece()
 
 			return;
 		}
+		else
+		{
+			node->deleteSelectPiece(_SelectID);
+		}
 		md2begin++;
 
 	}
@@ -541,24 +545,8 @@ void MarxWorld::setSelectionCopy()
 void MarxWorld::setSelectionPaste()
 {
 	m_copycount++;
-	Md2Iter md2begin = _WorldPiece.begin();
-	Md2Iter md2End = _WorldPiece.end();
-	for(; md2begin != md2End ; )
-	{
-		Md2Object* node = ((Md2Object*)*md2begin);
-
-		std::vector<int>::iterator  Cid = m_CopyID.begin();
-		std::vector<int>::iterator  Eid = m_CopyID.end();
-		for(; Cid != Eid ; )
-		{
-			if(node->GetUniqNumber() == *Cid)
-			{
-				setNewPiece(node);
-			}
-			Cid++;
-		}
-		md2begin++;
-	}
+	Md2Object* node = getSelectObj();
+	setNewPiece(node);
 	
 	
 
@@ -621,7 +609,8 @@ Md2Object *MarxWorld::setNewPiece(const string &dirname,const string &md2Name,co
 	// 피스는 에니메이션이 없다고 가정한다.
 	//_currentSkin = Model->skins().begin ()->first;
 	//_currentAnim = obj->currentAnim ();
-	Volkes->setNewPiece(obj);
+	if(Volkes != NULL)
+		Volkes->setNewPiece(obj);
 	return obj;
 }
 
@@ -682,7 +671,8 @@ Md2Object *MarxWorld::setNewPieceChar(const string &md2Name, const string &textu
 	obj->setTranslate(eye.x+5,eye.y+5,(_NextID-1200));
 
 	_WorldPiece.push_back(obj);
-	Volkes->setNewPiece(obj);
+	if (Volkes != NULL)
+		Volkes->setNewPiece(obj);
 	return obj;
 }
 
@@ -715,7 +705,8 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height , const string &textu
 
 	
 	_WorldPiece.push_back(obj);
-	Volkes->setNewPiece(obj);
+	if (Volkes != NULL)
+		Volkes->setNewPiece(obj);
 	LuaScriptAttached * attach = new LuaScriptAttached();
 
 	obj->OnAttech(attach);
@@ -754,7 +745,26 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 	Md2Object* obj = new Md2Object();
 	//_WorldPiece.push_back()
 	
-	obj->setModel (model->model());
+	if (model->model() != NULL)
+	{
+		Md2Model* md2 = dynamic_cast<Md2Model*>(model->model());
+		if (md2 != NULL)
+		{
+			obj->setModel(model->model());
+		}
+		else
+		{
+			PieceModel* piece = dynamic_cast<PieceModel*>(model->model());
+			if (piece != NULL)
+			{
+				obj->setModel(piece->GetPieceWidth(),piece->GetPieceHeight(),
+					model->m_textureName, model->m_textureAlpha);
+			}
+		}
+		
+	}
+	else
+		obj->SetAtlasObj(model->m_obj->TextureName);
 
 	obj->setName(_NextID);
 	_NextID++;
@@ -766,10 +776,11 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 
 	
 	obj->setRotate(0,90,model->getRotate()[2]);
-	
+	model->CopyDeepObj(obj);
 	
 	_WorldPiece.push_back(obj);
-	Volkes->setNewPiece(obj);
+	if (Volkes != NULL)
+		Volkes->setNewPiece(obj);
 	LuaScriptAttached * attach = new LuaScriptAttached();
 
 	obj->OnAttech(attach);
@@ -777,7 +788,26 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 	return obj;
 
 }
+Md2Object *MarxWorld::MakePiece(Md2Object* model)
+{
+	Md2Object* obj = new Md2Object();
+	//_WorldPiece.push_back()
 
+	if (model->model() != NULL)
+		obj->setModel(model->model());
+	else
+		obj->SetAtlasObj(model->m_obj->TextureName);
+
+	obj->setName(_NextID);
+	_NextID++;
+
+	obj->setTranslate(model->getTranslate());
+	obj->setRotate(0, 90, model->getRotate()[2]);
+	model->CopyDeepObj(obj);
+	LuaScriptAttached * attach = new LuaScriptAttached();
+	obj->OnAttech(attach);
+	return obj;
+}
 
 Md2Object *MarxWorld::setNewPiece(float Width,float Height, const string &textureName,const string &textureAlpha, bool isAbsolute)
 {
@@ -796,7 +826,8 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height, const string &textur
 
 	
 	_WorldPiece.push_back(obj);
-	Volkes->setNewPiece(obj);
+	if (Volkes != NULL)
+		Volkes->setNewPiece(obj);
 	LuaScriptAttached * attach = new LuaScriptAttached();
 
 	obj->OnAttech(attach);
@@ -819,7 +850,8 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model, float Width, float Height, c
 		Opengl2md2::getInstance().eye.y,
 		(_NextID - 1100));
 	// 알리기
-	Volkes->setNewPiece(model,obj);
+	if (Volkes != NULL)
+		Volkes->setNewPiece(model,obj);
 
 	LuaScriptAttached * attach = new LuaScriptAttached();
 	obj->OnAttech(attach);

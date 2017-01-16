@@ -292,6 +292,12 @@ LRESULT CALLBACK WndProc(HWND _hWnd, UINT _msg, WPARAM _wParam, LPARAM _lParam)
 		Opengl2md2::menuSelect((HMENU)_lParam, _wParam);
 		return 0;
 	}
+	case WM_DESTROY:
+	{
+		PostQuitMessage(0);
+		return 0;
+	}
+	break;
 	default:
 		return DefWindowProc(_hWnd, _msg, _wParam, _lParam);
 	}

@@ -89,6 +89,45 @@ void Md2Object::SetAtlasObj(string ObjName)
 	m_obj = new ImageControl(ObjName);
 }
 
+void Md2Object::CopyDeepObj(Md2Object* obj)
+{
+	std::list<Md2Object*>::iterator md2begin = child.begin();
+	std::list<Md2Object*>::iterator md2End = child.end();
+	for (; md2begin != md2End; )
+	{
+		Md2Object* node = ((Md2Object*)*md2begin);
+		
+		Md2Object* childnode = MarxWorld::getInstance().MakePiece(node);
+		obj->child.push_back(childnode);
+		node->CopyDeepObj(childnode);
+		md2begin++;
+
+	}
+}
+
+void Md2Object::deleteSelectPiece(int _SelectID)
+{
+	std::list<Md2Object*>::iterator md2begin = child.begin();
+	std::list<Md2Object*>::iterator md2End = child.end();
+	for (; md2begin != md2End; )
+	{
+		Md2Object* node = ((Md2Object*)*md2begin);
+		if (node->GetUniqNumber() == _SelectID)
+		{
+			delete node;
+			md2begin = child.erase(md2begin);
+
+			return;
+		}
+		else
+		{
+			node->deleteSelectPiece(_SelectID);
+		}
+		md2begin++;
+
+	}
+}
+
 // --------------------------------------------------------------------------
 // Md2Object::drawObjectItp
 //
@@ -116,9 +155,9 @@ void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 
 	if (m_obj != NULL)
 	{
-		//if (getSelect() == true)
-		//	m_obj->OnDraw(true);
-		
+		if (getSelect() == true)
+			m_obj->OnDraw(true);
+		m_obj->zindex = m_translate[2];
 		m_obj->OnDraw();
 	}
 	if (_model.get())
@@ -358,11 +397,13 @@ bool Md2Object::setModel (const string &Modelname,const string &filename)
 // Attach mesh model to object.
 // --------------------------------------------------------------------------
 
-bool Md2Object::setModel (float Width,float Height, const string &textureName,const string &textureAlpha, bool isAbsolute)
+bool Md2Object::setModel (float Width,float Height, string textureName,
+	string textureAlpha, bool isAbsolute)
 {
 	Md2ModelSPtr Model;
 	Model = Md2ModelSPtr(new PieceModel (Width,Height));
-	
+	m_textureName = textureName.c_str();
+	m_textureAlpha =  textureAlpha.c_str();
 	string TexturePath;
 	if(isAbsolute == false )
 	{

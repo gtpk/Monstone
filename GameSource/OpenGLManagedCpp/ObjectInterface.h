@@ -116,6 +116,10 @@ namespace LogicCommon
 					Children->Remove(var);
 					return;
 				}
+				else
+				{
+					var->DeletePiece(model);
+				}
 			}
 		}
 

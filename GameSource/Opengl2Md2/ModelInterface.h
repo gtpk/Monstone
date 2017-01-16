@@ -16,7 +16,6 @@ struct Md2Anim_t
 	int end;    // last frame index
 };
 
-
 class ModelInteface
 {
 public:
