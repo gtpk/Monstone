@@ -47,11 +47,14 @@ private :
 	bool bAnimated;
 	EnumNowAction emTrancelate;
 	bool bSelectMode;
+	bool Close2d = false;
 
 	bool bIsMouse_Mid_Down;
 	bool bIsMouse_Left_Down;
 	bool bIsMouse_Right_Down;
 
+
+	bool isRealGameRun = false;
 	int verbose;
 	int renderMode;
 	int frameRate;
@@ -105,6 +108,7 @@ public :
 	static void skinMenu (int item);
 	void shutdownApp ();
 	void init ();
+	void StartGame();
 	static void reshape (int w, int h);
 
 	void updateTimer (COMMONDATATYPE::glut_timer_t *t);
@@ -130,6 +134,7 @@ public :
 public:
 
 	int Openflmd2init(int argc, char *argv[], HDC hdc, HGLRC hRC,HWND hwnd);
+	int Monstoneinit(int argc, char *argv[], HDC hdc, HGLRC hRC, HWND hwnd);
 	int	buildSkinMenu (const Md2Model::SkinMap &skinMap);
 	int	buildSelectMenu (const Md2Model::SkinMap &skinMap);
 	int	buildAnimMenu (const Md2Model::AnimMap &animMap);

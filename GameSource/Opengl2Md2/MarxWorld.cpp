@@ -39,7 +39,7 @@
 #include "../Common/VolkesInterface.h"
 #include "ProjectLoader.h"
 #include "LuaScriptAttached.h"
-
+#include "ObjectNumberingMananger.h"
 #include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
 
 //#include "Opengl2md2.h"
@@ -66,7 +66,7 @@ MarxWorld *MarxWorld::inst = NULL;
 
 MarxWorld::MarxWorld()
 throw (std::runtime_error)
-	: _playerMesh(NULL), _weaponMesh(NULL), MAX_PIECE(20), _NextID(101), _Bottompos(99)
+	: _playerMesh(NULL), _weaponMesh(NULL), MAX_PIECE(20), _Bottompos(99)
 {
 	_RootDirctory = ProjectLoader::getinstance()->GetProjectPath();
 
@@ -106,39 +106,7 @@ MarxWorld::~MarxWorld ()
 {
 }
 
-int MarxWorld::getNumber()
-{
-	while(isExsistNumber(_NextID))
-		_NextID++;
-	int value = _NextID;
-	_NextID++;
-	return value;
-}
-bool MarxWorld::UnUseNumber(int number)
-{
-	CheckMap[number] = false;
-	std::map<int, bool>::iterator _f = CheckMap.find(number);
-	if (_f != CheckMap.end())
-	{
-		CheckMap.erase(_f);
-	}
-	return true;
-}
-bool MarxWorld::UseNumber(int number)
-{
-	if (isExsistNumber(number))
-	{
-		return false;
-	}
-	CheckMap[number] = true;
-}
-bool MarxWorld::isExsistNumber(int number)
-{
-	std::map<int, bool>::iterator _f = CheckMap.find(number);
-	if (_f != CheckMap.end())
-		return CheckMap[number]; //존재 해도 데이터가 true일수있다.
-	return false;
-}
+
 
 // --------------------------------------------------------------------------
 // Md2Player::drawPlayerItp
@@ -596,8 +564,7 @@ Md2Object *MarxWorld::setNewPiece(const string &dirname,const string &md2Name,co
 
 	Md2Object* obj = new Md2Object();
 	//_WorldPiece.push_back()
-	obj->setName(_NextID);
-	_NextID++;
+	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 	obj->setModel (path,textureName);
 	obj->setRotate(0,90,90);
 	obj->setTranslate(0,pos,pos/2);
@@ -631,8 +598,7 @@ Md2Object *MarxWorld::setNewPiece(const string &md2Name, const string &textureNa
 
 	Md2Object* obj = new Md2Object();
 	//_WorldPiece.push_back()
-	obj->setName(_NextID);
-	_NextID++;
+	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 	obj->setModel(path, textureName);
 	obj->setRotate(0, 90, 90);
 	obj->setTranslate(0, pos, pos / 2);
@@ -663,12 +629,11 @@ Md2Object *MarxWorld::setNewPieceChar(const string &md2Name, const string &textu
 
 	Md2Object* obj = new Md2Object();
 	//_WorldPiece.push_back()
-	obj->setName(_NextID);
-	_NextID++;
+	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 	obj->setModel (md2Name,textureName);
 	obj->setRotate(0,90,90);
 	obj->setScale(0.025);
-	obj->setTranslate(eye.x+5,eye.y+5,(_NextID-1200));
+	obj->setTranslate(eye.x+5,eye.y+5,0);
 
 	_WorldPiece.push_back(obj);
 	if (Volkes != NULL)
@@ -691,8 +656,7 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height , const string &textu
 
 	Md2Object* obj = new Md2Object();
 	//_WorldPiece.push_back()
-	obj->setName(_NextID);
-	_NextID++;
+	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 	obj->setModel (Width,Height,textureName);
 	obj->setRotate(0,90,90);
 	obj->setScale(0.1);
@@ -700,7 +664,7 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height , const string &textu
 	obj->setTranslate(
 		Opengl2md2::getInstance().eye.x,
 		Opengl2md2::getInstance().eye.y,
-		(_NextID-1100));
+		0);
 	//obj->setTranslate(Opengl2md2::getInstance().eye.x,Opengl2md2::getInstance().eye.y,Opengl2md2::getInstance().eye.z);
 
 	
@@ -719,8 +683,7 @@ Md2Object *MarxWorld::setNewPiece(const string &textureName)
 
 	Md2Object* obj = new Md2Object();
 	//_WorldPiece.push_back()
-	obj->setName(_NextID);
-	_NextID++;
+	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 	obj->SetAtlasObj(textureName);
 	obj->setRotate(0, 90, 90);
 	obj->setScale(0.1);
@@ -728,7 +691,7 @@ Md2Object *MarxWorld::setNewPiece(const string &textureName)
 	obj->setTranslate(
 		Opengl2md2::getInstance().eye.x,
 		Opengl2md2::getInstance().eye.y,
-		(_NextID - 1100));
+		0);
 	//obj->setTranslate(Opengl2md2::getInstance().eye.x,Opengl2md2::getInstance().eye.y,Opengl2md2::getInstance().eye.z);
 
 
@@ -766,13 +729,12 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 	else
 		obj->SetAtlasObj(model->m_obj->TextureName);
 
-	obj->setName(_NextID);
-	_NextID++;
+	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 
 	obj->setTranslate(
 		Opengl2md2::getInstance().eye.x + m_copycount*0.1,
 		Opengl2md2::getInstance().eye.y + m_copycount*0.1,
-		(_NextID-1100));
+		0);
 
 	
 	obj->setRotate(0,90,model->getRotate()[2]);
@@ -798,8 +760,7 @@ Md2Object *MarxWorld::MakePiece(Md2Object* model)
 	else
 		obj->SetAtlasObj(model->m_obj->TextureName);
 
-	obj->setName(_NextID);
-	_NextID++;
+	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 
 	obj->setTranslate(model->getTranslate());
 	obj->setRotate(0, 90, model->getRotate()[2]);
@@ -814,15 +775,14 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height, const string &textur
 
 	
 	Md2Object* obj = new Md2Object();
-	obj->setName(_NextID);
-	_NextID++;
+	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 	obj->setModel (Width,Height,textureName,textureAlpha, isAbsolute);
 	obj->setRotate(0,90,90);
 	obj->setScale(0.1);
 	obj->setTranslate(
 		Width/2,
 		Height/2,
-		(_NextID-1100));
+		0);
 
 	
 	_WorldPiece.push_back(obj);
@@ -840,15 +800,14 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model, float Width, float Height, c
 {
 
 	Md2Object* obj = new Md2Object();
-	obj->setName(_NextID);
-	_NextID++;
+	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 	obj->setModel(Width, Height, textureName, textureAlpha);
 	obj->setRotate(0, 90, 90);
 	obj->setScale(0.1);
 	obj->setTranslate(
 		Opengl2md2::getInstance().eye.x,
 		Opengl2md2::getInstance().eye.y,
-		(_NextID - 1100));
+		0);
 	// 알리기
 	if (Volkes != NULL)
 		Volkes->setNewPiece(model,obj);
@@ -907,7 +866,6 @@ void MarxWorld::Save()
 	TiXmlElement * root = new TiXmlElement( "MinMonstersMap" );  
 	doc.LinkEndChild( root ); 
 
-	root->SetAttribute("name","Example");
 	root->SetAttribute("RootFolder",_RootDirctory.c_str());
 
 	//경고 문구삽입

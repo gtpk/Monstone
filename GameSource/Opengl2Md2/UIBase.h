@@ -65,9 +65,9 @@ public:
 	float getHeight() { return m_Size.y; }
 
 
-	void SetWidth(float width); //@Override
+	virtual void SetWidth(float width); //@Override
 
-	void SetHeight(float height); //@Override
+	virtual void SetHeight(float height); //@Override
 
 
 	bool isPrang(MotionEvent e, int pointCount);

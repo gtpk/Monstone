@@ -65,7 +65,7 @@ public :
 	float mEndValue;
 	long long mDuration = 0;
 	long long mDelay = 0;
-	system_clock::time_point mSaveStartTime;
+	long long mSaveStartTime;
 	bool mFinish = false;
 	bool mRepeat = false;
 	Type mType;

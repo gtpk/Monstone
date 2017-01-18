@@ -98,7 +98,7 @@ void KardNameFactory::OneTimeInit()
 	
 
 	bool isfailed = false;
-	for (int i = 0; i <3; i++)
+	for (int i = 0; i <2; i++)
 	{
 		char buff[100];
 		//MarxWorld::getInstance()._RootDirctory

@@ -37,8 +37,9 @@
     <ClInclude Include="IRootUI.h" />
     <ClInclude Include="IUIBase.h" />
     <ClInclude Include="KingControl.h" />
-    <ClInclude Include="LoadingScreen.h" />
+    <ClInclude Include="MainScreen.h" />
     <ClInclude Include="Momo.h" />
+    <ClInclude Include="ObjectNumberingMananger.h" />
     <ClInclude Include="Penal.h" />
     <ClInclude Include="RootUI.h" />
     <ClInclude Include="Snumber.h" />
@@ -79,18 +80,22 @@
     <ClCompile Include="KardNameFactory.cpp" />
     <ClCompile Include="LuaManager.cpp" />
     <ClCompile Include="LuaScriptAttached.cpp" />
+    <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="MarxObject.cpp" />
     <ClCompile Include="MashManager.cpp" />
     <ClCompile Include="Md2Model.cpp" />
     <ClCompile Include="Md2Object.cpp" />
     <ClCompile Include="MarxWorld.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="ObjectNumberingMananger.cpp" />
     <ClCompile Include="Opengl2md2.cpp" />
+    <ClCompile Include="Penal.cpp" />
     <ClCompile Include="PieceModel.cpp" />
     <ClCompile Include="ProjectLoader.cpp" />
     <ClCompile Include="Quad.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="RootUI.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="Stringformat.h" />
@@ -98,7 +103,6 @@
     <ClCompile Include="UIBase.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
     <None Include="DataManager.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

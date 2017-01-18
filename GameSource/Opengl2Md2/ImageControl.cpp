@@ -30,6 +30,45 @@ ImageControl::ImageControl(string ObjName, float width, float height) : MarxObje
 
 }
 
+//@Override
+void ImageControl::SetWidth(float width)
+{
+	m_Size.x = (int)width;
+
+	float vertices[] = {
+		0.0f	, m_Size.y	, 0.0f, // 0, Left Top
+		m_Size.x	, m_Size.y	, 0.0f,	// 1, Right Top
+		m_Size.x	, 0.0f	, 0.0f,	// 2, Right Bottom
+		0.0f	, 0.0f	, 0.0f,	// 3, Left Bottom
+	};
+
+	for (int i = 0; i < 12; i++)
+		vertexBuffer[i] = vertices[i];
+}
+
+//@Override
+void ImageControl::SetHeight(float height)
+{
+
+	if (m_Size.y == height)
+		return;
+
+	if (m_Size.x == 0)
+		m_Size.x = getWidth();
+
+	m_Size.y = (int)height;
+
+	float vertices[] = {
+		0.0f	, m_Size.y	, 0.0f, // 0, Left Top
+		m_Size.x	, m_Size.y	, 0.0f,	// 1, Right Top
+		m_Size.x	, 0.0f	, 0.0f,	// 2, Right Bottom
+		0.0f	, 0.0f	, 0.0f,	// 3, Left Bottom
+	};
+
+	for (int i = 0; i < 12; i++)
+		vertexBuffer[i] = vertices[i];
+}
+
 
 
 void ImageControl::OnDraw(bool isSelect) {
@@ -67,7 +106,7 @@ void ImageControl::OnDraw(bool isSelect) {
 	glVertexPointer(3, GL_FLOAT, 0, vertexBuffer);
 	glTexCoordPointer(2, GL_FLOAT, 0, textureBuffer);
 	TextureManager::Inst()->BindTexture(NowTextureId);
-
+	glColor4f(transparent / 255, transparent / 255, transparent / 255, transparent / 255);
 
 	//glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	// Tell OpenGL where our texture is located.
@@ -82,26 +121,38 @@ void ImageControl::OnDraw(bool isSelect) {
 		Animation* _ani = (Animation*)*iter;
 
 		if (_ani->mType == Type::TranslateX) {
-			currentX = _ani->getCurrentValue((system_clock::now() - _ani->mSaveStartTime).count());
+			currentX = _ani->getCurrentValue(system_clock::now().time_since_epoch().count()/100000 - _ani->mSaveStartTime);
 			if (_ani->mDelay != 0)
+			{
+				iter++;
 				continue;
+			}
 		}
 		else if (_ani->mType == Type::TranslateY) {
-			currentY = _ani->getCurrentValue((system_clock::now() - _ani->mSaveStartTime).count());
+			currentY = _ani->getCurrentValue(system_clock::now().time_since_epoch().count()/100000 - _ani->mSaveStartTime);
 			if (_ani->mDelay != 0)
+			{
+				iter++;
 				continue;
+			}
 		}
 		else if (_ani->mType == Type::PositionX) {
-			currentX = _ani->getCurrentValue((system_clock::now() - _ani->mSaveStartTime).count());
+			currentX = _ani->getCurrentValue(system_clock::now().time_since_epoch().count()/100000 - _ani->mSaveStartTime);
 			if (_ani->mDelay != 0)
+			{
+				iter++;
 				continue;
+			}
 			x = (int)currentX;
 
 		}
 		else if (_ani->mType == Type::PositionY) {
-			currentY = _ani->getCurrentValue((system_clock::now() - _ani->mSaveStartTime).count());
+			currentY = _ani->getCurrentValue(system_clock::now().time_since_epoch().count()/100000 - _ani->mSaveStartTime);
 			if (_ani->mDelay != 0)
+			{
+				iter++;
 				continue;
+			}
 			y = (int)currentY;
 		}
 		iter++;
@@ -109,8 +160,8 @@ void ImageControl::OnDraw(bool isSelect) {
 
 
 	glTranslatef(currentX, currentY, zindex);
-
-
+	glScalef(ScaleX, ScaleY, 0);
+	glRotatef(m_rotate, 0, 0, 1);
 	float dw;
 	float dh;
 
@@ -123,9 +174,12 @@ void ImageControl::OnDraw(bool isSelect) {
 		Animation* _ani = (Animation*)*iter;
 
 		if (_ani->mType == Type::ScaleX) {
-			float ScaleY = _ani->getCurrentValue((system_clock::now() - _ani->mSaveStartTime).count());
+			float ScaleY = _ani->getCurrentValue(system_clock::now().time_since_epoch().count()/100000 - _ani->mSaveStartTime);
 			if (_ani->mDelay != 0)
+			{
+				iter++;
 				continue;
+			}		
 			//m.postScale(ScaleY, 1,dw,dh);
 			glTranslatef(dw, dh, zindex);
 			glScalef(ScaleY, 1, 0);
@@ -133,33 +187,45 @@ void ImageControl::OnDraw(bool isSelect) {
 			//m.postTranslate(x,y);
 		}
 		else if (_ani->mType == Type::ScaleY) {
-			float ScaleY = _ani->getCurrentValue((system_clock::now() - _ani->mSaveStartTime).count());
+			float ScaleY = _ani->getCurrentValue(system_clock::now().time_since_epoch().count()/100000 - _ani->mSaveStartTime);
 			if (_ani->mDelay != 0)
+			{
+				iter++;
 				continue;
+			}
 			glTranslatef(dw, dh, zindex);
 			glScalef(1, ScaleY, 0);
 			glTranslatef(dw *-1, dh *-1, zindex);
 		}
 		else if (_ani->mType == Type::ScaleXY) {
-			float ScaleXY = _ani->getCurrentValue((system_clock::now() - _ani->mSaveStartTime).count());
+			float ScaleXY = _ani->getCurrentValue(system_clock::now().time_since_epoch().count()/100000 - _ani->mSaveStartTime);
 			if (_ani->mDelay != 0)
+			{
+				iter++;
 				continue;
+			}
 			glTranslatef(dw, dh, zindex);
 			glScalef(ScaleXY, ScaleXY, 0);
 			glTranslatef(dw *-1, dh *-1, zindex);
 		}
 		else if (_ani->mType == Type::Alpha) {
-			float alpha = _ani->getCurrentValue((system_clock::now() - _ani->mSaveStartTime).count());
+			float alpha = _ani->getCurrentValue(system_clock::now().time_since_epoch().count()/100000 - _ani->mSaveStartTime);
 			if (_ani->mDelay != 0)
+			{
+				iter++;
 				continue;
+			}
 			glColor4f(alpha / 255, alpha / 255, alpha / 255, alpha / 255);
 		}
 		else if (_ani->mType == Type::Rotate) {
-			float rotate = _ani->getCurrentValue((system_clock::now() - _ani->mSaveStartTime).count());
+			float rotate = _ani->getCurrentValue(system_clock::now().time_since_epoch().count()/100000 - _ani->mSaveStartTime);
 			if (_ani->mDelay != 0)
+			{
+				iter++;
 				continue;
+			}
 			glTranslatef(dw, dh, zindex);
-			glRotatef(rotate, 0, 0, 1);
+			glRotatef(m_rotate + rotate, 0, 0, 1);
 			glTranslatef(dw *-1, dh *-1, zindex);
 		}
 		iter++;
@@ -216,7 +282,7 @@ void ImageControl::OnDraw(bool isSelect) {
 	glEnable(GL_DEPTH_TEST);
 	// Telling OpenGL to enable textures.
 	
-	//glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
 
@@ -364,4 +430,90 @@ bool ImageControl::AllAnimationFinished()
 
 	return true;
 
+}
+
+
+void ImageControl::Load(ImageControl* mother, TiXmlNode * MapPieces)
+{
+	TiXmlNode * ChildNode = MapPieces->FirstChild("Child");
+	if (ChildNode == NULL)
+		return;
+	TiXmlNode * Piece = ChildNode->FirstChild("ImageControl");
+	for (; Piece != NULL; Piece = Piece->NextSibling())
+	{
+		
+		TiXmlElement* pelement = Piece->ToElement();
+
+		const char* _Name = pelement->Attribute("Name");
+		const char* _TextureName = pelement->Attribute("TextureName");
+		int _transparent = 255;
+		pelement->Attribute("transparent",&_transparent);
+		float _ScaleX;
+		pelement->QueryFloatAttribute("ScaleX", &_ScaleX);
+		float _ScaleY;
+		pelement->QueryFloatAttribute("ScaleY", &_ScaleY);
+		float _x;
+		pelement->QueryFloatAttribute("x", &_x);
+		float _y;
+		pelement->QueryFloatAttribute("y", &_y);
+		float _zindex;
+		pelement->QueryFloatAttribute("zindex", &_zindex);
+		float _m_rotate;
+		pelement->QueryFloatAttribute("m_rotate", &_m_rotate);
+		float Width;
+		pelement->QueryFloatAttribute("Width", &Width);
+		float Height;
+		pelement->QueryFloatAttribute("Height", &Height);
+
+		ImageControl* child = ImageControl::CreateImageControl(mother,string(_TextureName), _Name, _x, _y, Width,Height);
+		child->zindex = _zindex;
+		child->m_rotate = _m_rotate;
+		child->ScaleX = _ScaleX;
+		child->ScaleY = _ScaleY;
+		child->Load(child,pelement);
+	}
+}
+
+void ImageControl::Save(TiXmlElement * MapPieces)
+{
+	TiXmlElement * Piece;
+	Piece = new TiXmlElement("ImageControl");
+	MapPieces->LinkEndChild(Piece);
+	Piece->SetAttribute("Name", Name.c_str());
+	Piece->SetAttribute("TextureName", TextureName.c_str());
+	Piece->SetAttribute("transparent", transparent);
+	Piece->SetDoubleAttribute("ScaleX", ScaleX);
+	Piece->SetDoubleAttribute("ScaleY", ScaleY);
+	Piece->SetDoubleAttribute("x", x);
+	Piece->SetDoubleAttribute("y", y);
+	Piece->SetDoubleAttribute("zindex", zindex);
+	Piece->SetDoubleAttribute("m_rotate", m_rotate);
+	Piece->SetDoubleAttribute("Width", m_Size.x);
+	Piece->SetDoubleAttribute("Height", m_Size.y);
+
+	TiXmlElement * Child;
+	Child = new TiXmlElement("Child");
+	Piece->LinkEndChild(Child);
+	{
+		std::vector<ImageControl*>::iterator _iter = m_Child.begin();
+		while (_iter != m_Child.end())
+		{
+			ImageControl* var = *_iter;
+			var->Save(Child);
+			_iter++;
+		}
+	}
+
+
+	//std::list<Md2Object*>::iterator _iter = child.begin();
+	//while (_iter != child.end())
+	//{
+	//	Md2Object* var = *_iter;
+	//	if (var->GetUniqNumber() == number)
+	//		return var;
+	//	var = var->setSelectObj(number);
+	//	if (var != NULL)
+	//		return  var;
+	//	_iter++;
+	//}
 }

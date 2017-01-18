@@ -128,14 +128,6 @@ public:
 
 	
 
-	bool isExsistNumber(int number);
-	bool UseNumber(int number);
-	bool UnUseNumber(int number);
-	int getNumber();
-private:
-	// Member variables
-	std::map<int, bool> CheckMap;
-	int _NextID;
 
 	std::list<Md2Object*> _WorldPiece;
 	//std::vector<Md2ModelSPtr> _WorldPieceMash;

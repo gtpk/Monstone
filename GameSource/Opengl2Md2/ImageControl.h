@@ -61,13 +61,15 @@ public:
 	int Aligen;
 
 	float zindex = 0;
-
+	float m_rotate = 0;
 
 	bool IsVerticalReverse = false;
 
 	float ScaleX = 1;
 	float ScaleY = 1;
 
+	int transparent = 255;
+	
 	string TextureName = "";
 
 	bool isIsVerticalReverse() {
@@ -78,7 +80,7 @@ public:
 		IsVerticalReverse = isVerticalReverse;
 	}
 
-protected:
+public:
 	vector<ImageControl*> m_Child;
 
 public:
@@ -91,7 +93,9 @@ public:
 
 	virtual vector<ImageControl*> getAllChild();
 
+	virtual void Load(ImageControl* mother, TiXmlNode * MapPieces);
 
+	virtual void Save(TiXmlElement * MapPieces);
 
 public:
 	// Note! 리스트에서만 지워진다. 객체는 지우지 않는다!
@@ -115,6 +119,31 @@ public:
 	ImageControl(string ObjName);
 	ImageControl(string ObjName, float width, float height);
 
+	virtual void SetWidth(float width); //@Override
+
+	virtual void SetHeight(float height); //@Override
+
+	static ImageControl* CreateImageControl(string objectName,
+		string ImageName, int x, int y) 
+	{
+		ImageControl* _ImageControl = new ImageControl(objectName);
+		_ImageControl->x = x;
+		_ImageControl->y = y;
+		_ImageControl->Name = objectName;
+		return _ImageControl;
+	}
+
+	static ImageControl* CreateImageControl(ImageControl* target, string objectName,
+			string ImageName, int x, int y, int width, int height)
+	{
+		ImageControl* _ImageControl = new ImageControl(ImageName, width, height);
+		_ImageControl->x = x;
+		_ImageControl->y = y;
+		_ImageControl->Name = objectName;
+		target->addChild(_ImageControl);
+		return _ImageControl;
+	}
+
 	virtual void eventReceived(UIBase* sender, ClickEventArgs e) { }
 
 	void OnDraw(bool isSelect = false);
@@ -125,7 +154,5 @@ public:
 
 	void setbeckgroundImage(string string, float width, float height);
 
-
-	void OnActualDraw();
 
 };

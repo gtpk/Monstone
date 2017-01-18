@@ -35,7 +35,7 @@ public :
 		glPushMatrix();
 		
 		//glOrtho(0, 480, 0, 800, -1.0f, 1.0f);
-
+		
 		milliseconds ms = duration_cast< milliseconds >(system_clock::now().time_since_epoch());
 
 		long long dt = ms.count() - ElpseTimer;
@@ -48,7 +48,9 @@ public :
 		glRasterPos2i(0, 0);
 		//glClear(GL_COLOR_BUFFER_BIT/* | GL_DEPTH_BUFFER_BIT*/);
 		glLoadIdentity();
-		
+		Point GameSize = ExGameGraphicInfo::GetGameGraphic()->GetGameSize();
+
+		glScaled((float)(GameSize.x / 1264.0f), (float)(GameSize.y / 682.0f), 1);
 		//m_quad->draw();
 		StageManager::GetGameGraphic()->GetGameStage()->onDrawScreen();
 		glPopMatrix();
@@ -110,11 +112,37 @@ public :
 		//glClearColor(0.87f, 0.87f, 0.87f, 0.0f);										// RGBA
 		glEnable(GL_TEXTURE_2D);									// 텍스쳐 활성
 		glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);	// ??	
+
 																//gl.glEnable(GL_LINE_SMOOTH);
 																//gl.glHint(GL_LINE_SMOOTH_HINT, GL_NICEST); 
 		KardNameFactory::GetKardNameFactory()->OneTimeInit();
 
-		ElpseTimer = system_clock::now().time_since_epoch().count();
+		ElpseTimer = system_clock::now().time_since_epoch().count()/100000;
+	}
+	bool m_isPressd = false;
+
+	bool onTouchEvent(MotionEvent _event)
+	{
+
+		bool isPressd = false;
+		switch (_event.state) {
+		case GLUT_DOWN:
+			isPressd = true;
+			break;
+		case GLUT_UP:
+			isPressd = false;
+			break;
+		}
+		if (isPressd == m_isPressd)
+		{
+			return true;
+		}
+		else
+		{
+			m_isPressd = isPressd;
+			StageManager::GetGameGraphic()->GetGameStage()->onTouchEvent(_event);
+		}
+		return true;
 	}
 
 };

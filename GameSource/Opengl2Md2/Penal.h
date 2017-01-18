@@ -1,19 +1,18 @@
 #pragma once
 #include "ImageControl.h"
 #include <vector>
-#include "IContainer.h"
-
 #include "Grid.h"
+#include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
 
 class Penal : public ImageControl
 {
-private :
+public:
 	ImageControl* m_Container;
-
 
 public :
 	Penal()
 	{
+		ImageControl();
 		m_Container = (ImageControl*)(new Grid());
 	}
 

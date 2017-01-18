@@ -54,6 +54,7 @@ public:
 
 			if (contator->mType == _aniType)
 			{
+				delete contator;
 				iter = animations.erase(iter);
 			}
 			else
@@ -87,15 +88,13 @@ public:
 
 	void AnimationRemoveAll()
 	{
-		//if(animation.size() == 0)
-		//	return;
-		animations.clear();
-		/*
-		Iterator<Animation> iter = animation.iterator();
-		while(iter.hasNext())
+		vector<Animation*>::iterator iter = animations.begin();
+		while (iter != animations.end())
 		{
-		iter.remove();
-		}*/
+			Animation* contator = (Animation*)*iter;
+			delete contator;
+			iter = animations.erase(iter);
+		}
 	}
 
 
@@ -115,7 +114,7 @@ public:
 		Animation* animation = (Animation*)new PositionYAnimation();
 		animation->mDuration = Duration;
 		animation->m_AniType = AnimationType::LinearEaseIn;
-		animation->mSaveStartTime = system_clock::now();
+		animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		animation->mStartValue = StartValue;
 		animation->mEndValue = EndValue;
 		animation->mRepeat = false;
@@ -127,7 +126,7 @@ public:
 		Animation* animation = (Animation*)new PositionYAnimation();
 		animation->mDuration = Duration;
 		animation->m_AniType = AnimationType::LinearEaseIn;
-		animation->mSaveStartTime = system_clock::now();
+		animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		animation->mStartValue = StartValue;
 		animation->mEndValue = EndValue;
 		animation->mRepeat = reverse;
@@ -139,7 +138,7 @@ public:
 		Animation* animation = (Animation*)new AlphaAnimation();
 		animation->mDuration = Duration;
 		animation->m_AniType = ani;
-		animation->mSaveStartTime = system_clock::now();
+		animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		animation->mStartValue = StartValue;
 		animation->mEndValue = EndValue;
 		animation->mRepeat = false;
@@ -151,7 +150,7 @@ public:
 		Animation* animation = (Animation*)new  AlphaAnimation();
 		animation->mDuration = Duration;
 		animation->m_AniType = ani;
-		animation->mSaveStartTime = system_clock::now();
+		animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		animation->mStartValue = StartValue;
 		animation->mEndValue = EndValue;
 		animation->mDelay = Delay;
@@ -164,7 +163,7 @@ public:
 		Animation* animation = (Animation*)new  PositionYAnimation();
 		animation->mDuration = Duration;
 		animation->m_AniType = ani;
-		animation->mSaveStartTime = system_clock::now();
+		animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		animation->mStartValue = StartValue;
 		animation->mEndValue = EndValue;
 		animation->mRepeat = false;
@@ -177,7 +176,7 @@ public:
 		Animation* animation = (Animation*)new  PositionYAnimation();
 		animation->mDuration = Duration;
 		animation->m_AniType = ani;
-		animation->mSaveStartTime = system_clock::now();
+		animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		animation->mStartValue = StartValue;
 		animation->mEndValue = EndValue;
 		animation->mRepeat = false;
@@ -191,7 +190,7 @@ public:
 		Animation* animation = (Animation*)new  PositionXAnimation();
 		animation->mDuration = Duration;
 		animation->m_AniType = ani;
-		animation->mSaveStartTime = system_clock::now();
+		animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		animation->mStartValue = StartValue;
 		animation->mEndValue = EndValue;
 		animation->mRepeat = false;
@@ -204,7 +203,7 @@ public:
 		Animation* animation = (Animation*)new  PositionXAnimation();
 		animation->mDuration = Duration;
 		animation->m_AniType = ani;
-		animation->mSaveStartTime = system_clock::now();
+		animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		animation->mStartValue = StartValue;
 		animation->mEndValue = EndValue;
 		animation->mRepeat = false;
@@ -217,7 +216,7 @@ public:
 	{
 		Animation* _animation = (Animation*)new  ScaleXAnimation();
 		_animation->mDuration = Duration;
-		_animation->mSaveStartTime = system_clock::now();
+		_animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		_animation->mStartValue = StartValue;
 		_animation->mEndValue = EndValue;
 		_animation->mRepeat = false;
@@ -229,7 +228,7 @@ public:
 	{
 		Animation* _animation = (Animation*)new  ScaleXAnimation();
 		_animation->mDuration = Duration;
-		_animation->mSaveStartTime = system_clock::now();
+		_animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		_animation->mStartValue = StartValue;
 		_animation->mEndValue = EndValue;
 		_animation->mRepeat = false;
@@ -242,7 +241,7 @@ public:
 	{
 		Animation* _animation = (Animation*)new  ScaleXAnimation();
 		_animation->mDuration = Duration;
-		_animation->mSaveStartTime = system_clock::now();
+		_animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		_animation->mStartValue = StartValue;
 		_animation->mEndValue = EndValue;
 		_animation->mRepeat = false;
@@ -257,7 +256,7 @@ public:
 		Animation* animation = (Animation*)new  RotationAnimation();
 		animation->mDuration = Duration;
 		animation->m_AniType = ani;
-		animation->mSaveStartTime = system_clock::now();
+		animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		animation->mStartValue = StartValue;
 		animation->mEndValue = EndValue;
 		animation->mRepeat = false;
@@ -269,7 +268,7 @@ public:
 		Animation* _animation = (Animation*)new  ScaleXYAnimation();
 		_animation->mDuration = Duration;
 		_animation->m_AniType = ani;
-		_animation->mSaveStartTime = system_clock::now();
+		_animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		_animation->mStartValue = StartValue;
 		_animation->mEndValue = EndValue;
 		_animation->mRepeat = mRepeat;
@@ -283,7 +282,7 @@ public:
 		Animation* _animation = (Animation*)new  ScaleXYAnimation();
 		_animation->mDuration = Duration;
 		_animation->m_AniType = ani;
-		_animation->mSaveStartTime = system_clock::now();
+		_animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		_animation->mStartValue = StartValue;
 		_animation->mEndValue = EndValue;
 		_animation->mRepeat = false;
@@ -296,7 +295,7 @@ public:
 		Animation* _animation = (Animation*)new  ScaleXYAnimation();
 		_animation->mDuration = Duration;
 		_animation->m_AniType = ani;
-		_animation->mSaveStartTime = system_clock::now();
+		_animation->mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 		_animation->mStartValue = StartValue;
 		_animation->mEndValue = EndValue;
 		_animation->mDelay = Delay;

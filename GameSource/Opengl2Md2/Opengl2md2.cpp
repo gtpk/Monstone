@@ -31,7 +31,7 @@
 
 #include "CommonDataType.h"
 #include "LuaManager.h"
-
+#include "MotionEvent.h"
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -245,16 +245,21 @@ void	Opengl2md2::init ()
 	//player->setScale (0.1f);
 
 
+	if (isRealGameRun == false)
+	{
+		hPopupMenu = CreatePopupMenu();
 
-	hPopupMenu = CreatePopupMenu();
-	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING , 1, "맨 앞으로 보내기");
-	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 2, "앞으로 보내기");
-	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 3, "맨 뒤로 보내기");
-	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 4, "뒤로 보내기");
-	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 5, "삭제");
-	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 6, "복제");
-	InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 7, "세트로 내보내기");
 
+		InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 1, "맨 앞으로 보내기");
+		InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 2, "앞으로 보내기");
+		InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 3, "맨 뒤로 보내기");
+		InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 4, "뒤로 보내기");
+		InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 5, "삭제");
+		InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 6, "복제");
+		InsertMenu(hPopupMenu, 0, MF_BYPOSITION | MF_STRING, 7, "세트로 내보내기");
+
+	}
+	
 	SetForegroundWindow(inst->m_hWnd);
 
 	
@@ -276,6 +281,11 @@ void	Opengl2md2::init ()
 	if (render == NULL)
 		render = new GameStadiumScreen();
 	render->onSurfaceCreated();
+}
+
+void Opengl2md2::StartGame()
+{
+
 }
 
 void Opengl2md2::MenuFunc (int button)
@@ -303,7 +313,7 @@ void	Opengl2md2::reshape (int w, int h)
 	glMatrixMode(GL_PROJECTION);
 
 	inst->render->onSurfaceChanged(w, h);
-
+	ExGameGraphicInfo::GetGameGraphic()->SetGameSize(Point(w, h));
 	inst->m_Width = w;
 	inst->m_Hight = h;
 
@@ -403,7 +413,7 @@ void	Opengl2md2::begin2D ()
 
 	glMatrixMode (GL_MODELVIEW);
 	glLoadIdentity ();
-	glEnable(GL_ALPHA_TEST); //튜명 태스트 통과
+	glEnable(GL_ALPHA_TEST); //투명 태스트 통과
 	glEnable(GL_BLEND);
 	glEnable(GL_TEXTURE_2D);
 	glHint(GL_POINT_SMOOTH_HINT, GL_NICEST );
@@ -611,12 +621,38 @@ void Opengl2md2::draw2D ()
 	//glColor3f(1.0f, 1.0f, 1.0f);
 	
 	//end2D();
+	
+	if (!inst->Close2d)
+	{
+		begin2D();
+		//gluOrtho2D(0, 480, 800, 0);
+		//glViewport(0, 0, 480, 800);
+		//glOrtho(0, 480, 0, 800, -1.0f, 1.0f);
+		glPushMatrix();
+		//glTranslatef(dw, dh, zindex);
 
-	begin2D ();
+
+		inst->render->onDrawFrame();
+		glPopMatrix();
+		end2D();
+	}
+	
+
+	//////////////////////////////////////////
 
 
-	inst->render->onDrawFrame();
+	glViewport(0, 0, static_cast<GLsizei>(inst->m_Width), static_cast<GLsizei>(inst->m_Hight));
 
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+
+	glLoadIdentity();
+	glOrtho(0, m_Width, 0, m_Hight, -1.0f, 1.0f);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	//begin2D();
 	glColor3f (1.0f, 1.0f, 1.0f);
 
 	string currSkin, currAnim;
@@ -673,7 +709,17 @@ void Opengl2md2::draw2D ()
 			glRasterPos2i (10, m_Hight - 95);
 			glPrintf ("Rotation dgree : %.0f",inst->angle[2]);
 		}
-
+		if (inst->Close2d)
+		{
+			glRasterPos2i(10, m_Hight - 125);
+			glPrintf("2D OFF X");
+		}
+		else
+		{
+			glRasterPos2i(10, m_Hight - 125);
+			glPrintf("2D ON O");
+		}
+		
 		glRasterPos2i (m_Width -150, m_Hight - 20);
 		glPrintf ("Eye Position X: %f" , inst->eye.x);
 		glRasterPos2i (m_Width -150, m_Hight - 35);
@@ -694,8 +740,10 @@ void Opengl2md2::draw2D ()
 
 	}
 
-
-	end2D ();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+	//end2D ();
 
 	
 }
@@ -732,30 +780,70 @@ void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
 
 void Opengl2md2::SelectObjects(GLint x, GLint y)
 {
+	//inst->Close2d
 
-	GLuint selectBuff[64];
-	GLint viewport[4];
+	if (inst->Close2d)
+	{
+		GLuint selectBuff[64];
+		GLint viewport[4];
 
-	glSelectBuffer(64, selectBuff);
-	glGetIntegerv(GL_VIEWPORT, viewport);
-	glMatrixMode(GL_PROJECTION);
-	glPushMatrix();
-	glRenderMode(GL_SELECT);
-	glLoadIdentity();
-	gluPickMatrix(x, viewport[3]-y, 2, 2, viewport);
-	glOrtho(0, inst->m_Width, 
-		0, inst->m_Hight, -10.0, 10000.0);
-	glMatrixMode(GL_MODELVIEW);
-	draw3D();
-	glLoadIdentity();
-	//glutPostRedisplay ();
+		glSelectBuffer(64, selectBuff);
+		glGetIntegerv(GL_VIEWPORT, viewport);
+		glMatrixMode(GL_PROJECTION);
+		glPushMatrix();
+		glRenderMode(GL_SELECT);
+		glLoadIdentity();
+		gluPickMatrix(x, viewport[3] - y, 2, 2, viewport);
+		glOrtho(0, inst->m_Width,
+			0, inst->m_Hight, -10.0, 10000.0);
+		glMatrixMode(GL_MODELVIEW);
+		draw3D();
+		glLoadIdentity();
+		//glutPostRedisplay ();
 
-	hits = glRenderMode(GL_RENDER);
-	//if(hits>0) 
-	ProcessSelect(selectBuff);
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
-	glMatrixMode(GL_MODELVIEW);
+		hits = glRenderMode(GL_RENDER);
+		//if(hits>0) 
+		ProcessSelect(selectBuff);
+		glMatrixMode(GL_PROJECTION);
+		glPopMatrix();
+		glMatrixMode(GL_MODELVIEW);
+	}
+	else
+	{
+		begin2D();
+		GLuint selectBuff[64];
+		GLint viewport[4];
+
+		glSelectBuffer(64, selectBuff);
+		glGetIntegerv(GL_VIEWPORT, viewport);
+		glMatrixMode(GL_PROJECTION);
+		glPushMatrix();
+		glRenderMode(GL_SELECT);
+		glLoadIdentity();
+		gluPickMatrix(x, viewport[3] - y, 2, 2, viewport);
+		glOrtho(0, inst->m_Width,
+			0, inst->m_Hight, -10.0, 10000.0);
+		glMatrixMode(GL_MODELVIEW);
+
+		glPushMatrix();
+		inst->render->onDrawFrame();
+		glPopMatrix();
+
+		glLoadIdentity();
+		//glutPostRedisplay ();
+
+		hits = glRenderMode(GL_RENDER);
+		//if(hits>0) 
+		ProcessSelect(selectBuff);
+		glMatrixMode(GL_PROJECTION);
+		
+		glMatrixMode(GL_MODELVIEW);
+
+
+		
+		glPopMatrix();
+		end2D();
+	}
 
 }
 
@@ -854,6 +942,8 @@ void Opengl2md2::keyPress (unsigned char key, int x, int y)
 		inst->emTrancelate = EM_SELECT;
 	//  inst->bSelectMode = !inst->bSelectMode;
 
+	if (key == '2')
+		inst->Close2d = !inst->Close2d;
 
 
 
@@ -1053,6 +1143,8 @@ void	Opengl2md2::mouseMotion (int x, int y)
 	if (inst->mouse.buttons[GLUT_MIDDLE_BUTTON] == GLUT_DOWN)
 	{
 		inst->bIsMouse_Mid_Down = true;
+
+	
 	}
 	else if(inst->mouse.buttons[GLUT_MIDDLE_BUTTON] == GLUT_UP)
 	{
@@ -1063,11 +1155,8 @@ void	Opengl2md2::mouseMotion (int x, int y)
 	if (inst->mouse.buttons[GLUT_LEFT_BUTTON] == GLUT_DOWN)
 	{
 
+
 		inst->SelectObjects(x, y);
-
-
-
-
 
 
 		if (inst->keyboard.special[VK_SPACE] != true )
@@ -1119,6 +1208,8 @@ void	Opengl2md2::mouseMotion (int x, int y)
 
 	if (inst->mouse.buttons[GLUT_RIGHT_BUTTON] == GLUT_DOWN)
 	{
+
+
 
 		inst->SelectObjects(x, y);
 
@@ -1199,6 +1290,12 @@ void Opengl2md2::mouseButton (int button, int state, int x, int y)
 	// Update mouse state
 	inst->mouse.buttons[button] = state;
 
+	MotionEvent _e;
+	_e.x = x;
+	_e.y = y;
+	_e.state = state;
+	_e.button = button;
+	inst->render->onTouchEvent(_e);
 
 	// 마우스 다운은 바로 처리하는게 인지 상정!
 
@@ -1299,6 +1396,24 @@ int Opengl2md2::Openflmd2init (int argc, char *argv[], HDC hdc, HGLRC hRC,HWND h
 
 	return 0;
 }
+
+int Opengl2md2::Monstoneinit(int argc, char *argv[], HDC hdc, HGLRC hRC, HWND hwnd)
+{
+	// Initialize GLUT
+	glutInit(&argc, argv);
+
+	isRealGameRun = true;
+	m_hRC = hRC;
+	m_hDC = hdc;
+	m_hWnd = hwnd;
+
+	init();
+	StartGame();
+	
+	return 0;
+}
+
+
 
 
 void Opengl2md2::SetNewPiece()

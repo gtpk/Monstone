@@ -13,6 +13,7 @@
 #include "../../CLILogicCommon/VolkesInterfaceTool.h"
 // Function Declarations
 
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 void EnableOpenGL(HWND hWnd, HDC * hDC, HGLRC * hRC);
 void DisableOpenGL(HWND hWnd, HDC hDC, HGLRC hRC);
@@ -22,6 +23,13 @@ void DisableOpenGL(HWND hWnd, HDC hDC, HGLRC hRC);
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int iCmdShow)
 {
+
+	//콘솔 출력
+	AllocConsole();
+	AttachConsole(GetCurrentProcessId());
+	freopen("CON", "w", stdout);//여기서 "CON"문자를 다른걸로 바꿔버리면 콘솔창에 출력이 안된다.
+	//끝
+
 	WNDCLASS wndClass;
 	HWND hWnd = NULL;
 	HDC hDC = NULL;
@@ -57,8 +65,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	// create main window
 	hWnd = CreateWindow(
 		m_sClassName, L"OpenGL Sample",
-		WS_CAPTION | WS_POPUPWINDOW | WS_VISIBLE,
-		0, 0, 800, 600,
+		WS_CAPTION | WS_POPUPWINDOW | WS_VISIBLE | WS_THICKFRAME | WS_MAXIMIZEBOX,
+		0, 0, 1280, 720,
 		NULL, NULL, hInstance, NULL);
 
 	//
@@ -139,7 +147,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	strs[0] = str1;
 	strs[1] = (char*)LoaderPath.c_str();
 	char **argv = strs;
-	Opengl2md2::getInstance().Openflmd2init(argc, argv, hDC, hRC, hWnd);
+	Opengl2md2::getInstance().Monstoneinit(argc, argv, hDC, hRC, hWnd);
 	
 	//MarxWorld::getInstance().Volkes = (EXTERN::VolkesIterface*)instance;
 	glutInitDisplayMode(GLUT_RGB);
@@ -318,4 +326,10 @@ void DisableOpenGL(HWND hWnd, HDC hDC, HGLRC hRC)
 	wglMakeCurrent(NULL, NULL);
 	wglDeleteContext(hRC);
 	ReleaseDC(hWnd, hDC);
+}
+
+
+int main()
+{
+	return 0;
 }

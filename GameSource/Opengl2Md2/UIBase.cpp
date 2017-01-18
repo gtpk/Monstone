@@ -5,6 +5,13 @@
 void UIBase::SetWidth(float width)
 {
 	m_Size.x = (int)width;
+
+	float vertices[] = {
+		0.0f	, m_Size.y	, 0.0f, // 0, Left Top
+		m_Size.x	, m_Size.y	, 0.0f,	// 1, Right Top
+		m_Size.x	, 0.0f	, 0.0f,	// 2, Right Bottom
+		0.0f	, 0.0f	, 0.0f,	// 3, Left Bottom
+	};
 }
 
 //@Override
@@ -18,6 +25,13 @@ void UIBase::SetHeight(float height)
 		m_Size.x = getWidth();
 
 	m_Size.y = (int)height;
+
+	float vertices[] = {
+		0.0f	, m_Size.y	, 0.0f, // 0, Left Top
+		m_Size.x	, m_Size.y	, 0.0f,	// 1, Right Top
+		m_Size.x	, 0.0f	, 0.0f,	// 2, Right Bottom
+		0.0f	, 0.0f	, 0.0f,	// 3, Left Bottom
+	};
 }
 
 bool UIBase::isPrang(MotionEvent e, int pointCount)
@@ -28,19 +42,9 @@ bool UIBase::isPrang(MotionEvent e, int pointCount)
 	if (isNotClickable == true)
 		return false;
 
-	// this.x > evnet.getX >  this.x + getWidth();
+	Mouse_x = e.x;
+	Mouse_y = e.y;
 
-	float resolution = ExGameGraphicInfo::GetGameGraphic()->GetResolution();
-
-	if (pointCount >= 2)
-	{
-		return false;
-	}
-	Mouse_x = e.x*resolution + ExGameGraphicInfo::GetGameGraphic()->GetBlackScreanSize().x;
-	Mouse_y = e.y*resolution + ExGameGraphicInfo::GetGameGraphic()->GetBlackScreanSize().y;
-
-	//minimum_x = x * resolution + ExGameGraphicInfo.GetGameGraphic().GetBlackScreanSize().x;
-	//	minimum_y = y * resolution + ExGameGraphicInfo.GetGameGraphic().GetBlackScreanSize().y;
 
 	total_x = getWidth() + x;//(/* minimum_x + */getWidth())*resolution  + ExGameGraphicInfo.GetGameGraphic().GetBlackScreanSize().x;
 	total_y = getHeight() + y;//(/* minimum_y + */getHeight())*resolution + ExGameGraphicInfo.GetGameGraphic().GetBlackScreanSize().y;
@@ -53,40 +57,6 @@ bool UIBase::isPrang(MotionEvent e, int pointCount)
 	{
 		return true;
 	}
-
-	bool ishorizen = false;
-
-	//Todo :
-	//해상도 바뀌면 바꿔야함 상수로 조정예정
-
-	Point GameResolution(480, 800);
-
-	Point TotalSize = ExGameGraphicInfo::GetGameGraphic()->GetGameSize();
-
-	double Resolution = (float)TotalSize.x / (float)GameResolution.x;
-
-	if (GameResolution.y * Resolution < TotalSize.y)
-	{
-		ishorizen = false;
-	}
-	else
-	{
-		ishorizen = true;
-		Resolution = (float)TotalSize.y / (float)GameResolution.y;
-	}
-
-	int BlackScreanX = 0, BlackScreanY = 0;
-
-
-	if (ishorizen)
-	{
-		BlackScreanX = (int)(TotalSize.x - (GameResolution.x * Resolution)) / 2;
-	}
-	else
-	{
-		BlackScreanY = (int)(TotalSize.y - (GameResolution.y * Resolution)) / 2;
-	}
-
 
 	return false;
 }

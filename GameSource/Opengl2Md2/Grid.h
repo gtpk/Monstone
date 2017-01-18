@@ -6,6 +6,7 @@
 #include "GridBar.h"
 #include "AnimatinonBase.h"
 #include <algorithm>
+#include "Penal.h"
 using namespace std;
 class Grid : public ImageControl
 {

@@ -1,7 +1,7 @@
 #pragma once
 #include "KardNameFactory.h"
 #include "IGameStage.h"
-#include "LoadingScreen.h"
+#include "MainScreen.h"
 #define NULL 0
 namespace StaticStage
 {
@@ -21,7 +21,7 @@ private :
 
 
 	// 로딩 화면
-	LoadingScreen* m_LoadingScreen;
+	MainScreen* m_LoadingScreen;
 
 
 public :
@@ -29,7 +29,7 @@ public :
 	{
 		m_NowStage = StaticStage::KADSTAGE::LOADING;
 
-		m_LoadingScreen = new LoadingScreen();
+		m_LoadingScreen = new MainScreen();
 
 
 		SetNowStage(StaticStage::KADSTAGE::LOADING);

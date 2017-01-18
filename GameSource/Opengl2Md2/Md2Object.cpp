@@ -15,6 +15,7 @@
 #include "ProjectLoader.h"
 #include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
 #include "ImageControl.h"
+#include "ObjectNumberingMananger.h"
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -76,10 +77,10 @@ Md2Object::~Md2Object ()
 
 void Md2Object::setName(GLint name)
 {
-	if (!MarxWorld::getInstance().UseNumber(name))
+	if (!ObjectNumberingMananger::getInstance()->UseNumber(name))
 	{
-		name = MarxWorld::getInstance().getNumber();
-		MarxWorld::getInstance().UseNumber(name);
+		name = ObjectNumberingMananger::getInstance()->getNumber();
+		ObjectNumberingMananger::getInstance()->UseNumber(name);
 	}
 	_currentName = name; 
 }

@@ -349,8 +349,8 @@ namespace WPFOpenGLLib
 			if(RegisterWindowClass())
 			{
 				// some default size
-				int iWidth = 2;
-				int iHeight = 2;
+				int iWidth = 1280;
+				int iHeight = 700;
 
 
 				DWORD dwStyle = WS_CHILD | WS_VISIBLE;

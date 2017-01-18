@@ -91,10 +91,10 @@ Animation::Animation(Type type) {
 
 
 bool Animation::isStarted() {
+	
+	long long ms = (system_clock::now().time_since_epoch().count()/100000 - mSaveStartTime);
 
-	milliseconds ms = duration_cast< milliseconds >(system_clock::now()- mSaveStartTime);
-
-	if (ms.count() >= mDuration) {
+	if (ms >= mDuration) {
 		return true;
 	}
 	return false;
@@ -130,7 +130,7 @@ float Animation::getCurrentValue(long long currentTime) {
 		}
 		else if (currentTime > mDelay)
 		{
-			mSaveStartTime = system_clock::now();
+			mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 			mDelay = 0;
 			return mStartValue;
 		}
@@ -182,15 +182,15 @@ void Animation::Play()
 	if (isPause == true)
 	{
 		//TODO
-		long long duration = system_clock::now().time_since_epoch().count() + PauseSaved;
+		long long duration = system_clock::now().time_since_epoch().count()/100000 + PauseSaved;
 
-		std::chrono::milliseconds dur(duration);
-		std::chrono::time_point<std::chrono::system_clock> dt(dur);
-		mSaveStartTime = dt;
+		//std::chrono::milliseconds dur(duration);
+		//std::chrono::time_point<std::chrono::system_clock> dt(dur);
+		mSaveStartTime = duration;
 	}
 	else
 	{
-		mSaveStartTime = system_clock::now();
+		mSaveStartTime = system_clock::now().time_since_epoch().count()/100000;
 	}
 
 	mFinish = false;

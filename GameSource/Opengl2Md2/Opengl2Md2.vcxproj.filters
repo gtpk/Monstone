@@ -76,6 +76,12 @@
     <Filter Include="RenderEngine\BaseControl\UI\CutomObject">
       <UniqueIdentifier>{f818c3c2-4632-4cec-9be3-2344eef128ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RenderEngine\Stage\Sceen">
+      <UniqueIdentifier>{57d48e66-94c9-464d-9db6-7f927f819016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderEngine\Stage\RootUI">
+      <UniqueIdentifier>{b60832b0-8dce-4dc5-8dc3-466c1d2c3203}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Md2Model.h">
@@ -180,9 +186,6 @@
     <ClInclude Include="IEventHandler.h">
       <Filter>RenderEngine\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="IRootUI.h">
-      <Filter>RenderEngine\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="AnimatinonBase.h">
       <Filter>RenderEngine\BaseControl</Filter>
     </ClInclude>
@@ -207,9 +210,6 @@
     <ClInclude Include="ImageControl.h">
       <Filter>RenderEngine\BaseControl\UI</Filter>
     </ClInclude>
-    <ClInclude Include="RootUI.h">
-      <Filter>RenderEngine\BaseControl\UI</Filter>
-    </ClInclude>
     <ClInclude Include="IUIBase.h">
       <Filter>RenderEngine\Interface</Filter>
     </ClInclude>
@@ -217,9 +217,6 @@
       <Filter>RenderEngine</Filter>
     </ClInclude>
     <ClInclude Include="IGameStage.h">
-      <Filter>RenderEngine\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="LoadingScreen.h">
       <Filter>RenderEngine\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Snumber.h">
@@ -230,6 +227,18 @@
     </ClInclude>
     <ClInclude Include="Momo.h">
       <Filter>RenderEngine\BaseControl\UI\CutomObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RootUI.h">
+      <Filter>RenderEngine\Stage\RootUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IRootUI.h">
+      <Filter>RenderEngine\Stage\RootUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScreen.h">
+      <Filter>RenderEngine\Stage\Sceen</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectNumberingMananger.h">
+      <Filter>Utill</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -311,11 +320,22 @@
     <ClCompile Include="KingControl.cpp">
       <Filter>RenderEngine\BaseControl\UI\CutomObject</Filter>
     </ClCompile>
+    <ClCompile Include="RootUI.cpp">
+      <Filter>RenderEngine\Stage\RootUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Penal.cpp">
+      <Filter>RenderEngine\BaseControl\UI\Contaner</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScreen.cpp">
+      <Filter>RenderEngine\Stage\Sceen</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectNumberingMananger.cpp">
+      <Filter>Utill</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="DataManager.inl">
       <Filter>Resource</Filter>
     </None>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
