@@ -332,6 +332,9 @@
     <ClCompile Include="ObjectNumberingMananger.cpp">
       <Filter>Utill</Filter>
     </ClCompile>
+    <ClCompile Include="AnimatinonBase.cpp">
+      <Filter>RenderEngine\BaseControl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="DataManager.inl">

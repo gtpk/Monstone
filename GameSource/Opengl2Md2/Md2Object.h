@@ -17,14 +17,16 @@
 using std::map;
 using std::vector;
 using std::string;
+using namespace MarxEngine;
 
+namespace MarxEngine {
+	class ImageControl;
+}
 /////////////////////////////////////////////////////////////////////////////
 //
 // class Md2Object -- MD2 Object Class.
 //
 /////////////////////////////////////////////////////////////////////////////
-class ImageControl ;
-
 class Md2Object : public MarxObject
 {
 public:

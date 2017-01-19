@@ -130,6 +130,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="UIobjectInterface.cpp" />
+    <ClCompile Include="UIObjectTreeContator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\CLILogicCommon\VolkesInterfaceTool.h" />
@@ -141,6 +143,8 @@
     <ClInclude Include="OpenGLUserControl.h" />
     <ClInclude Include="SelectObjectInterface.h" />
     <ClInclude Include="ProjectSettingValuesInterface.h" />
+    <ClInclude Include="UIobjectInterface.h" />
+    <ClInclude Include="UIObjectTreeContator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

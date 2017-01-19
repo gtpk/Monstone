@@ -164,7 +164,7 @@ namespace LogicTool.ViewModel
                         node.TextureName = Name;
                         node.TextureFilePath = Name;
                         node.BitmapSource = source;
-
+                        KardatalsList.Getinstance().KardList[Name] = source;
                         node.Width = fib.Width;
                         node.Height = fib.Height;
 

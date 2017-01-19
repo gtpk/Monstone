@@ -1,4 +1,5 @@
 ﻿using FreeImageAPI;
+using LogicTool.Model;
 using Paloma;
 using System;
 using System.Collections.Generic;
@@ -52,11 +53,18 @@ namespace MarxEngineTool
 
             if (value == "")
                 return;
+            if (value.Contains(".pcx")|| value.Contains(".PCX"))
+            {
 
-            FreeImageBitmap fib = new FreeImageBitmap(value);
+                FreeImageBitmap fib = new FreeImageBitmap(value);
 
-            control.i_Targa.Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(fib.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty,
-            System.Windows.Media.Imaging.BitmapSizeOptions.FromEmptyOptions());
+                control.i_Targa.Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(fib.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty,
+                System.Windows.Media.Imaging.BitmapSizeOptions.FromEmptyOptions());
+            }
+            else
+            {
+                control.i_Targa.Source = KardatalsList.Getinstance().KardList[value];
+            }
         }
 	}
 }

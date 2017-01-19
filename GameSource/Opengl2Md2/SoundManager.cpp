@@ -1,12 +1,15 @@
 #include "SoundManager.h"
-
-
-
-SoundManager::SoundManager()
+using namespace MarxEngine;
+namespace MarxEngine
 {
-}
+
+	SoundManager::SoundManager()
+	{
+	}
 
 
-SoundManager::~SoundManager()
-{
+	SoundManager::~SoundManager()
+	{
+	}
+
 }

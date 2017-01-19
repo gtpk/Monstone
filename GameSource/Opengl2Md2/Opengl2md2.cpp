@@ -35,7 +35,7 @@
 using std::cout;
 using std::cerr;
 using std::endl;
-
+using namespace MarxEngine;
 // static 초기화는 이렇게 이루어지는것!
 Opengl2md2 *Opengl2md2::inst = NULL;
 
@@ -750,20 +750,40 @@ void Opengl2md2::draw2D ()
 
 void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
 {
-	if (inst->keyboard.special[VK_SPACE] == true)
-		return;
-
-	if(hits ==0)
+	if (inst->Close2d)
 	{
-		SelectObjectNum = -1;
-		player->setSelectObj(-1);
+		if (inst->keyboard.special[VK_SPACE] == true)
+			return;
+
+		if (hits == 0)
+		{
+			SelectObjectNum = -1;
+			player->setSelectObj(-1);
+		}
+		else
+		{
+			SelectObjectNum = index[(4 * hits) - 1];
+			player->setSelectObj(SelectObjectNum);
+
+		}
 	}
 	else
 	{
-		SelectObjectNum = index[(4*hits)-1];
-		player->setSelectObj(SelectObjectNum);
+		if (hits == 0)
+		{
+			SelectObjectNum = -1;
+			inst->render->setSelectObj(-1);
+		}
+		else
+		{
+			SelectObjectNum = index[(4 * hits) - 1];
+			inst->render->setSelectObj(SelectObjectNum);
 
+			//inst->render->onDrawFrame();
+
+		}
 	}
+	
 	/*
 	switch(index[3]) {
 	case 100:SelectObjectNum = 100; break;
@@ -810,39 +830,35 @@ void Opengl2md2::SelectObjects(GLint x, GLint y)
 	}
 	else
 	{
-		begin2D();
 		GLuint selectBuff[64];
 		GLint viewport[4];
-
+		begin2D();
+		glRasterPos2i(0, 0);
 		glSelectBuffer(64, selectBuff);
 		glGetIntegerv(GL_VIEWPORT, viewport);
 		glMatrixMode(GL_PROJECTION);
 		glPushMatrix();
 		glRenderMode(GL_SELECT);
 		glLoadIdentity();
+		
 		gluPickMatrix(x, viewport[3] - y, 2, 2, viewport);
-		glOrtho(0, inst->m_Width,
-			0, inst->m_Hight, -10.0, 10000.0);
+		glOrtho(0, inst->m_Width, 0, inst->m_Hight, -1.0f, 1000.0f);
 		glMatrixMode(GL_MODELVIEW);
-
-		glPushMatrix();
 		inst->render->onDrawFrame();
-		glPopMatrix();
-
 		glLoadIdentity();
 		//glutPostRedisplay ();
 
 		hits = glRenderMode(GL_RENDER);
 		//if(hits>0) 
 		ProcessSelect(selectBuff);
-		glMatrixMode(GL_PROJECTION);
-		
-		glMatrixMode(GL_MODELVIEW);
-
-
 		
 		glPopMatrix();
 		end2D();
+
+		glMatrixMode(GL_PROJECTION);
+
+		glMatrixMode(GL_MODELVIEW);
+
 	}
 
 }
@@ -1071,67 +1087,88 @@ void	Opengl2md2::mouseMotion (int x, int y)
 		}
 		else
 		{
-			Md2Object* obj =  inst->player->getSelectObj();
-			if(obj == NULL)
-				return;
 
-			if(inst->emTrancelate == EM_TRANCELATE)
-			{
-				// Rotation
-				inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*senstive);
-				inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*senstive);
-				inst->player->setTranslate(inst->trance);
-			}
-			else if( inst->emTrancelate == EM_ROTAION)
+			if (inst->Close2d == false)
 			{
 
-				float x1 = obj->getTranslate()[0];
-				float y1 = obj->getTranslate()[1];
-
-				float x2 = inst->a_mouse.x;
-				float y2 = inst->a_mouse.y;
-
-				float ax = x1 - x2;
-				float ay = y1 - y2;
-
-				if(ax ==0 || ay == 0)
+				ImageControl* obj = inst->render->getSelectObj();
+				if (obj == NULL)
 					return;
 
-				//float ac = (ay) / (ax);
-
-				float radian = atan2(ay,ax);
-
-				// 근사치로 계산함.
-				float dgree = radian/3.14159 * 180 ;
-
-
-				// Rotation
-				inst->angle[2] =  dgree ;//+ inst->old_dgree;
-
-				if( inst->angle[2] < 0.0 )
-					inst->angle[2] += 360.0;
-
-				if( inst->angle[2] > 360.0 )
-					inst->angle[2] -= 360.0;
-
-				inst->player->setRotate(inst->angle);
-
-
-
-
+				if (inst->emTrancelate == EM_TRANCELATE)
+				{
+					// Rotation
+					inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*senstive);
+					inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*senstive);
+					obj->x = inst->trance[0];
+					obj->y = inst->trance[1];
+				}
 			}
-			else if( inst->emTrancelate == EM_SCALE)
+			else
 			{
-				int powx = (x - inst->mouse.x) * (x - inst->mouse.x);
-				int powy = (y - inst->mouse.y) * (y - inst->mouse.y);
+				Md2Object* obj = inst->player->getSelectObj();
+				if (obj == NULL)
+					return;
 
-				GLfloat distance = sqrt(powx + powy);
+				if (inst->emTrancelate == EM_TRANCELATE)
+				{
+					// Rotation
+					inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*senstive);
+					inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*senstive);
+					inst->player->setTranslate(inst->trance);
+				}
+				else if (inst->emTrancelate == EM_ROTAION)
+				{
 
-				inst->scale = distance * senstive;
+					float x1 = obj->getTranslate()[0];
+					float y1 = obj->getTranslate()[1];
 
-				inst->player->setScale(inst->scale);
+					float x2 = inst->a_mouse.x;
+					float y2 = inst->a_mouse.y;
 
+					float ax = x1 - x2;
+					float ay = y1 - y2;
+
+					if (ax == 0 || ay == 0)
+						return;
+
+					//float ac = (ay) / (ax);
+
+					float radian = atan2(ay, ax);
+
+					// 근사치로 계산함.
+					float dgree = radian / 3.14159 * 180;
+
+
+					// Rotation
+					inst->angle[2] = dgree;//+ inst->old_dgree;
+
+					if (inst->angle[2] < 0.0)
+						inst->angle[2] += 360.0;
+
+					if (inst->angle[2] > 360.0)
+						inst->angle[2] -= 360.0;
+
+					inst->player->setRotate(inst->angle);
+
+
+
+
+				}
+				else if (inst->emTrancelate == EM_SCALE)
+				{
+					int powx = (x - inst->mouse.x) * (x - inst->mouse.x);
+					int powy = (y - inst->mouse.y) * (y - inst->mouse.y);
+
+					GLfloat distance = sqrt(powx + powy);
+
+					inst->scale = distance * senstive;
+
+					inst->player->setScale(inst->scale);
+
+				}
 			}
+			
 		}
 	}
 	if(inst->bIsMouse_Right_Down == true)
@@ -1155,47 +1192,70 @@ void	Opengl2md2::mouseMotion (int x, int y)
 	if (inst->mouse.buttons[GLUT_LEFT_BUTTON] == GLUT_DOWN)
 	{
 
-
-		inst->SelectObjects(x, y);
-
-
-		if (inst->keyboard.special[VK_SPACE] != true )
+		if (inst->Close2d)
 		{
-			Md2Object* obj =  inst->player->getSelectObj();
+			inst->SelectObjects(x, y);
 
-			if(obj == NULL)
-				return;
 
-			inst->old_trance[0] = obj->getTranslate()[0];
-			inst->old_trance[1] = obj->getTranslate()[1];
-			inst->old_trance[2] = obj->getTranslate()[2];
+			if (inst->keyboard.special[VK_SPACE] != true)
+			{
+				Md2Object* obj = inst->player->getSelectObj();
 
-			inst->mouse.x = x;
-			inst->mouse.y = y;
+				if (obj == NULL)
+					return;
+
+				inst->old_trance[0] = obj->getTranslate()[0];
+				inst->old_trance[1] = obj->getTranslate()[1];
+				inst->old_trance[2] = obj->getTranslate()[2];
+
+				inst->mouse.x = x;
+				inst->mouse.y = y;
+
+			}
+			else
+			{
+
+				inst->old_trance[0] = inst->eye.x;
+				inst->old_trance[1] = inst->eye.y;
+				inst->old_trance[2] = 0;
+
+				inst->mouse.x = x;
+				inst->mouse.y = y;
+
+			}
+
+			if (inst->emTrancelate == EM_ROTAION)
+			{
+				Md2Object* obj = inst->player->getSelectObj();
+
+				if (obj == NULL)
+					return;
+
+				//inst->old_dgree = obj->getRotate()[2];
+			}
 
 		}
 		else
 		{
+			inst->SelectObjects(x, y);
 
-			inst->old_trance[0] = inst->eye.x;
-			inst->old_trance[1] = inst->eye.y;
-			inst->old_trance[2] = 0;
+			if (inst->keyboard.special[VK_SPACE] != true)
+			{
+				ImageControl* obj = inst->render->getSelectObj();
 
-			inst->mouse.x = x;
-			inst->mouse.y = y;
+				if (obj == NULL)
+					return;
 
+				inst->old_trance[0] = obj->x;
+				inst->old_trance[1] = obj->y;
+				inst->old_trance[2] = obj->zindex;
+
+				inst->mouse.x = x;
+				inst->mouse.y = y;
+
+			}
 		}
-
-		if( inst->emTrancelate == EM_ROTAION)
-		{
-			Md2Object* obj =  inst->player->getSelectObj();
-
-			if(obj == NULL)
-				return;
-
-			//inst->old_dgree = obj->getRotate()[2];
-		}
-
+		
 
 		inst->bIsMouse_Left_Down = true;
 

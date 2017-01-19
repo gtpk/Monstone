@@ -1,14 +1,17 @@
 #pragma once
 #include "MotionEvent.h"
 #include "Point.h"
-class ClickEventArgs
+namespace MarxEngine
 {
-
-public:
-	ClickEventArgs(MotionEvent e)
+	class ClickEventArgs
 	{
-		m_MotionEvent = e;
-	}
-	MotionEvent m_MotionEvent;
-	Point m_Position;
-};
+
+	public:
+		ClickEventArgs(MotionEvent e)
+		{
+			m_MotionEvent = e;
+		}
+		MotionEvent m_MotionEvent;
+		Point m_Position;
+	};
+}

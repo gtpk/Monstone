@@ -9,6 +9,7 @@
         xmlns:ViewModel="clr-namespace:LogicTool.ViewModel;assembly=LogicTool"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:CloseableTabItemDemo="clr-namespace:CloseableTabItemDemo"
+        xmlns:LogicCommon="clr-namespace:LogicCommon;assembly=OpenGLManagedCpp"
         mc:Ignorable="d" x:Class="MarxEngineTool.OpenGLHWndWindow" Height="716" Width="1085"
         Loaded="Window_Loaded" KeyDown="Window_KeyDown" Title="Marx Engine" WindowStartupLocation="CenterScreen">
     <Window.Resources>
@@ -77,6 +78,27 @@
                 <TextBlock Text="{Binding TextureName}"/>
             </StackPanel>
         </DataTemplate>
+        <HierarchicalDataTemplate x:Key="UIobjectInterfaceTemplate" ItemsSource="{Binding Children}">
+            <StackPanel>
+                <TextBlock Text="{Binding _ScaleX}"/>
+                <TextBlock Text="{Binding _ScaleY}"/>
+                <TextBlock Text="{Binding Height}"/>
+                <TextBlock Text="{Binding Name}"/>
+                <TextBlock Text="{Binding rotate}"/>
+                <TextBlock Text="{Binding TextureName}"/>
+                <TextBlock Text="{Binding transparent}"/>
+                <TextBlock Text="{Binding Width}"/>
+                <TextBlock Text="{Binding x}"/>
+                <TextBlock Text="{Binding y}"/>
+                <TextBlock Text="{Binding zindex}"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="DataTemplat2" ItemsSource="{Binding Children}">
+            <StackPanel Orientation="Horizontal">
+                <local:SourceTextureView x:Name="__" Height="20" Width="20" TgaImageUri="{Binding TextureName}"/>
+                <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
@@ -216,6 +238,22 @@
             <DockPanel x:Name="grid2" Margin="0" DockPanel.Dock="Bottom" Height="Auto" Width="Auto">
                 <DockPanel x:Name="dockPanel" LastChildFill="False" Margin="0">
                     <TabControl Background="{x:Null}" Foreground="{x:Null}" Margin="0" MinWidth="200">
+                        <TabItem Header="UIRoot" Background="#FF474747" Foreground="#FFC8C8C8" Margin="0">
+                            <TabItem.DataContext>
+                                <ViewModel:ImageControlTreeViewModel/>
+                            </TabItem.DataContext>
+                            <Grid Background="#FF525252">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TreeView Margin="0,25.04,0,0" ItemTemplate="{DynamicResource DataTemplat2}" ItemsSource="{Binding Children}"/>
+                                <Grid Height="25" Margin="0,0.02,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height">
+                                    <TextBox x:Name="textBox1" Margin="0,0,70,0" TextWrapping="Wrap"/>
+                                    <Button x:Name="button1" Content="Search" HorizontalAlignment="Right" Margin="0" Width="70" d:LayoutOverrides="Height"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
                         <TabItem Header="프로젝트" Background="#FF474747" Foreground="#FFC8C8C8" Margin="0">
                             <TabItem.DataContext>
                                 <ViewModel:MarxObjectTreeViewModel/>

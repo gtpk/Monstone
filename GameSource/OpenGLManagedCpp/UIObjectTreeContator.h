@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
@@ -19,7 +20,7 @@
 #include "../Common/VolkesInterface.h"
 #include "../CLILogicCommon/VolkesInterfaceTool.h"
 #include "../Opengl2Md2/MarxWorld.h"
-#include "ObjectInterface.h"
+#include "UIobjectInterface.h"
 
 using namespace System;
 using namespace System::Windows;
@@ -57,30 +58,30 @@ property TYPE NAME\
 
 namespace LogicCommon
 {
-	public ref class ObjectTreeContator : public ObjectInterface
+	public ref class UIObjectTreeContator : public UIobjectInterface
 	{
 	private:
-		static ObjectTreeContator^ instance;
-		ObjectTreeContator()
+		static UIObjectTreeContator^ instance;
+		UIObjectTreeContator()
 		{
-			_Children = gcnew ObservableCollection<ObjectInterface^>();
+			_Children = gcnew ObservableCollection<UIobjectInterface^>();
 		}
 
-		static ObservableCollection<ObjectInterface^>^ _Children;
+		static ObservableCollection<UIobjectInterface^>^ _Children;
 
-		
-	public :
-		property ObservableCollection<ObjectInterface^>^ Children
+
+	public:
+		property ObservableCollection<UIobjectInterface^>^ Children
 		{
-			ObservableCollection<ObjectInterface^>^ get()
+			ObservableCollection<UIobjectInterface^>^ get()
 			{
-				return ObjectTreeContator::_Children;
+				return UIObjectTreeContator::_Children;
 			}
 		}
-		
-		void DeletePiece(Md2Object* model)
+
+		void DeletePiece(ImageControl* model)
 		{
-			for each (ObjectInterface^ var in Children)
+			for each (UIobjectInterface^ var in Children)
 			{
 				if (var->root == model)
 				{
@@ -94,19 +95,19 @@ namespace LogicCommon
 			}
 		}
 
-		void setNewPiece(Md2Object* obj)
+		void setNewPiece(ImageControl* obj)
 		{
-			ObjectInterface^ gen = gcnew ObjectInterface();
+			UIobjectInterface^ gen = gcnew UIobjectInterface();
 			gen->SetMarxObject(obj);
 			Children->Add(gen);
 		}
 
-		void setNewPiece(Md2Object* mother,Md2Object* obj)
+		void setNewPiece(ImageControl* mother, ImageControl* obj)
 		{
-			ObjectInterface^ gen = gcnew ObjectInterface();
+			UIobjectInterface^ gen = gcnew UIobjectInterface();
 			gen->SetMarxObject(obj);
 
-			for each (ObjectInterface^ var in Children)
+			for each (UIobjectInterface^ var in Children)
 			{
 				if (var->root == mother)
 				{
@@ -120,10 +121,10 @@ namespace LogicCommon
 			}
 		}
 
-		static ObjectTreeContator^ GetInstance()
+		static UIObjectTreeContator^ GetInstance()
 		{
 			if (instance == nullptr)
-				instance = gcnew ObjectTreeContator();
+				instance = gcnew UIObjectTreeContator();
 			return instance;
 		}
 	};

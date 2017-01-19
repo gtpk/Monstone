@@ -11,13 +11,18 @@ public:
 	VolkesIterfaceTool();
 	~VolkesIterfaceTool();
 
+	string SaveUrl();
 	void setNewPiece(Md2Object* mother, Md2Object* model);
 	void setNewPiece(Md2Object* model);
 	void DeletePiece(Md2Object* model);
-	bool SetSelection(Md2Object* model);
+	bool SetMd2ObjectSelection(Md2Object* model);
 
+	void setNewImageControl(ImageControl* mother, ImageControl* model);
+	void setNewImageControl(ImageControl* model);
+	void DeleteImageControl(ImageControl* model);
+	bool SetImageControlSelection(ImageControl* model);
 
-	string SaveUrl();
+	
 	void OneTimeInit();
 };
 

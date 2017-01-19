@@ -12,32 +12,34 @@
 
 using namespace std;
 using namespace stdext;
-
-class ImageLoader
+namespace MarxEngine
 {
+	class ImageLoader
+	{
 
-private:
-	bool isForceClose = false;
-	vector<int> m_ResourseList;
-	int m_Count;
-	int m_MaxCount;
+	private:
+		bool isForceClose = false;
+		vector<int> m_ResourseList;
+		int m_Count;
+		int m_MaxCount;
 
-	bool oldstyle = false;
+		bool oldstyle = false;
 
-public:
-	ImageLoader();
+	public:
+		ImageLoader();
 
-	void stopThread();
-	/*
-	public Bitmap[] GetBitmapRsualt() {
-	if (m_Count >= m_MaxCount) {
-	return KARD_output.toArray(new Bitmap[KARD_output.size()]);
-	} else {
-	return null;
-	}
-	}*/
+		void stopThread();
+		/*
+		public Bitmap[] GetBitmapRsualt() {
+		if (m_Count >= m_MaxCount) {
+		return KARD_output.toArray(new Bitmap[KARD_output.size()]);
+		} else {
+		return null;
+		}
+		}*/
 
-	float GetLoadingPercent();
-	void run();
-};
+		float GetLoadingPercent();
+		void run();
+	};
 
+}

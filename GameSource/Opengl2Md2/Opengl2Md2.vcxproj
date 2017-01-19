@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.cpp" />
+    <ClCompile Include="AnimatinonBase.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AttacheAble.cpp" />
     <ClCompile Include="KingControl.cpp" />

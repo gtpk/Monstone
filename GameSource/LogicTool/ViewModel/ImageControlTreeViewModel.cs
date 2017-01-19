@@ -2,47 +2,44 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 
 namespace LogicTool.ViewModel
 {
-
-    public class MarxObjectTreeViewModel : ViewModelBase
+    public class ImageControlTreeViewModel : ViewModelBase
     {
-        static readonly MarxObjectTreeViewModel DummyChild = new MarxObjectTreeViewModel();
-        
+        static readonly ImageControlTreeViewModel DummyChild = new ImageControlTreeViewModel();
 
-        readonly ObservableCollection<ObjectInterface> _children;
+
+        readonly ObservableCollection<UIobjectInterface> _children;
         /// <summary>
         /// Returns the logical child items of this object.
         /// </summary>
-        public ObservableCollection<ObjectInterface> Children
+        public ObservableCollection<UIobjectInterface> Children
         {
             get
             {
-                return ObjectTreeContator.GetInstance().Children;
+                return UIObjectTreeContator.GetInstance().Children;
             }
         }
 
-        readonly MarxObjectTreeViewModel _parent;
+        readonly ImageControlTreeViewModel _parent;
 
-        
+
         bool _isSelected;
 
 
-        protected MarxObjectTreeViewModel(MarxObjectTreeViewModel parent, bool lazyLoadChildren)
+        protected ImageControlTreeViewModel(ImageControlTreeViewModel parent, bool lazyLoadChildren)
         {
             _parent = parent;
 
-            _children = new ObservableCollection<ObjectInterface>();
+            _children = new ObservableCollection<UIobjectInterface>();
 
         }
 
         // This is used to create the DummyChild instance.
-        public MarxObjectTreeViewModel()
+        public ImageControlTreeViewModel()
         {
         }
 
@@ -118,7 +115,7 @@ namespace LogicTool.ViewModel
 
         #region Parent
 
-        public MarxObjectTreeViewModel Parent
+        public ImageControlTreeViewModel Parent
         {
             get { return _parent; }
         }

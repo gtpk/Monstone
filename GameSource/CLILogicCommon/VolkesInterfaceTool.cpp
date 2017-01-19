@@ -7,10 +7,12 @@
 #include "../Opengl2Md2/Md2Object.h"
 #include "../Opengl2Md2/ProjectLoader.h"
 #include "../OpenGLManagedCpp/ObjectTreeContator.h"
+#include "../OpenGLManagedCpp/UIObjectTreeContator.h"
 
 using LogicCommon::SelectObjectInterface;
 using LogicCommon::ProjectSettingValuesInterface;
 using LogicCommon::ObjectTreeContator;
+using LogicCommon::UIObjectTreeContator;
 
 VolkesIterfaceTool::VolkesIterfaceTool()
 {
@@ -59,9 +61,38 @@ string VolkesIterfaceTool::SaveUrl()
 	return sModelname;
 }
 
-bool VolkesIterfaceTool::SetSelection(Md2Object* obj)
+bool VolkesIterfaceTool::SetMd2ObjectSelection(Md2Object* obj)
 {
 	SelectObjectInterface^ data = SelectObjectInterface::GetInstance();
+
+
+	data->SetMarxObject(obj);
+
+	//data->ModelName = gcnew String( model->model()->getMd2name()->c_str() );
+
+	return false;
+}
+
+void VolkesIterfaceTool::setNewImageControl(ImageControl* mother, ImageControl* model)
+{
+	UIObjectTreeContator::GetInstance()->setNewPiece(mother, model);
+}
+void VolkesIterfaceTool::setNewImageControl(ImageControl* model)
+{
+	UIObjectTreeContator::GetInstance()->setNewPiece(model);
+}
+
+void VolkesIterfaceTool::DeleteImageControl(ImageControl* model)
+{
+	UIObjectTreeContator^ data = UIObjectTreeContator::GetInstance();
+	if (data->root == model)
+		data->SetMarxObject(NULL);
+
+	UIObjectTreeContator::GetInstance()->DeletePiece(model);
+}
+bool VolkesIterfaceTool::SetImageControlSelection(ImageControl* obj)
+{
+	UIObjectTreeContator^ data = UIObjectTreeContator::GetInstance();
 
 
 	data->SetMarxObject(obj);

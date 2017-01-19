@@ -48,7 +48,7 @@
 using std::cout;
 using std::cerr;
 using std::endl;
-
+using namespace MarxEngine;
 /////////////////////////////////////////////////////////////////////////////
 //
 // class Md2Player implementation.
@@ -172,7 +172,7 @@ void MarxWorld::setSelectObj(int number)
 	if (_SelectID == -1)
 	{
 		if (Volkes != NULL)
-			Volkes->SetSelection(NULL);
+			Volkes->SetMd2ObjectSelection(NULL);
 	}
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
@@ -184,7 +184,7 @@ void MarxWorld::setSelectObj(int number)
 		{
 			node->setSelect(true);
 			if(Volkes != NULL)
-				Volkes->SetSelection(node);
+				Volkes->SetMd2ObjectSelection(node);
 		}
 		else
 		{
@@ -194,7 +194,7 @@ void MarxWorld::setSelectObj(int number)
 			{
 				node->setSelect(true);
 				if (Volkes != NULL)
-					Volkes->SetSelection(node);
+					Volkes->SetMd2ObjectSelection(node);
 			}
 		}
 	}
@@ -252,7 +252,7 @@ void MarxWorld::setScale (GLfloat scale)
 				if (node != NULL)
 				{
 					if (Volkes != NULL)
-						Volkes->SetSelection(node);
+						Volkes->SetMd2ObjectSelection(node);
 				}
 			}
 		}

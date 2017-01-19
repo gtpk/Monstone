@@ -1,17 +1,23 @@
 #pragma once
 #include <vector>
-#include "ImageControl.h"
+#include "PointF.h"
 
-class IContainer
+
+namespace MarxEngine
 {
-public :
-	virtual void addChild(ImageControl* child) = 0;
+	class ImageControl;
 
-	virtual std::vector<ImageControl*>  getAllChild() =0;
+	class IContainer : public PointF
+	{
+	public:
+		virtual void addChild(MarxEngine::ImageControl* child) = 0;
 
-	virtual void OnDraw(bool isSelect = false) =0;
+		virtual std::vector<MarxEngine::ImageControl*>  getAllChild() = 0;
 
-	virtual void Remove(ImageControl* child)=0;
+		virtual void OnDraw(bool isSelect = false) = 0;
 
-	virtual bool AllAnimationFinished() =0;
-};
+		virtual void Remove(MarxEngine::ImageControl* child) = 0;
+
+		virtual bool AllAnimationFinished() = 0;
+	};
+}

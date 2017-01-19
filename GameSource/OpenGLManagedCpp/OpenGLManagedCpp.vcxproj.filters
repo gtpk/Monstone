@@ -57,6 +57,12 @@
     <ClCompile Include="ObjectInterface.cpp">
       <Filter>CLI_CPP\Intrface</Filter>
     </ClCompile>
+    <ClCompile Include="UIobjectInterface.cpp">
+      <Filter>CLI_CPP\Intrface</Filter>
+    </ClCompile>
+    <ClCompile Include="UIObjectTreeContator.cpp">
+      <Filter>CLI_CPP\for Tool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLHwnd.h">
@@ -85,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="ObjectInterface.h">
       <Filter>CLI_CPP\Intrface</Filter>
+    </ClInclude>
+    <ClInclude Include="UIobjectInterface.h">
+      <Filter>CLI_CPP\Intrface</Filter>
+    </ClInclude>
+    <ClInclude Include="UIObjectTreeContator.h">
+      <Filter>CLI_CPP\for Tool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

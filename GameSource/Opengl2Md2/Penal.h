@@ -3,53 +3,53 @@
 #include <vector>
 #include "Grid.h"
 #include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
-
-class Penal : public ImageControl
+namespace MarxEngine
 {
-public:
-	ImageControl* m_Container;
-
-public :
-	Penal()
+	class Penal : public ImageControl
 	{
-		ImageControl();
-		m_Container = (ImageControl*)(new Grid());
-	}
+	public:
+		ImageControl* m_Container;
 
-public :
-	void SetContainer(ImageControl* child)
-	{
-		m_Container = child;
-	}
+	public:
+		Penal()
+		{
+			ImageControl();
+			m_Container = (ImageControl*)(new Grid());
+		}
 
-	void OnDraw(bool isSelect)
-	{
-		m_Container->OnDraw(isSelect);
-	}
+	public:
+		void SetContainer(ImageControl* child)
+		{
+			m_Container = child;
+		}
 
-public :
-	ImageControl* GetContainer()
-	{
-		return m_Container;
-	}
+		void OnDraw(bool isSelect)
+		{
+			m_Container->OnDraw(isSelect);
+		}
 
-public :
-	void addChild(ImageControl* child)
-	{
-		m_Container->addChild(child);
-	}
+	public:
+		ImageControl* GetContainer()
+		{
+			return m_Container;
+		}
 
-public :
-	std::vector<ImageControl*>  getAllChild()
-	{
-		vector<ImageControl*> getAll_Child;
-		getAll_Child.push_back(m_Container);
-		return getAll_Child;
-	}
+	public:
+		void addChild(ImageControl* child)
+		{
+			m_Container->addChild(child);
+		}
 
-public :
-	void Remove(ImageControl* child) {
-		m_Container->Remove(child);
-	}
+	public:
+		std::vector<ImageControl*>  getAllChild()
+		{
+			return m_Container->getAllChild();
+		}
 
-};
+	public:
+		void Remove(ImageControl* child) {
+			m_Container->Remove(child);
+		}
+
+	};
+}

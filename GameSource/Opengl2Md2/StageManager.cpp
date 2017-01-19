@@ -1,51 +1,54 @@
 #include "StageManager.h"
-
+using namespace MarxEngine;
 StageManager* StageManager::m_StageManager = NULL;
 
-
-IGameStage* StageManager::GetGameStage()
+namespace MarxEngine
 {
-	if (KardNameFactory::GetKardNameFactory()->IsReadForGame() == false)
-		return m_LoadingScreen;
-
-	if (savedStage != m_NowStage)
+	IGameStage* StageManager::GetGameStage()
 	{
-		before_savedStage = savedStage;
-		savedStage = m_NowStage;
-		TempStage = GetGameStage(GetNowStage());
+		if (KardNameFactory::GetKardNameFactory()->IsReadForGame() == false)
+			return m_LoadingScreen;
+
+		if (savedStage != m_NowStage)
+		{
+			before_savedStage = savedStage;
+			savedStage = m_NowStage;
+			TempStage = GetGameStage(GetNowStage());
+		}
+		return TempStage;
 	}
-	return TempStage;
-}
 
-IGameStage* StageManager::GetGameBeforeStage()
-{
-	if (KardNameFactory::GetKardNameFactory()->IsReadForGame() == false)
-		return m_LoadingScreen;
-
-	if (savedStage != m_NowStage)
+	IGameStage* StageManager::GetGameBeforeStage()
 	{
-		before_savedStage = savedStage;
-		savedStage = m_NowStage;
-		TempStage = GetGameStage(GetNowStage());
+		if (KardNameFactory::GetKardNameFactory()->IsReadForGame() == false)
+			return m_LoadingScreen;
+
+		if (savedStage != m_NowStage)
+		{
+			before_savedStage = savedStage;
+			savedStage = m_NowStage;
+			TempStage = GetGameStage(GetNowStage());
+		}
+		return TempStage;
 	}
-	return TempStage;
-}
 
-IGameStage* StageManager::GetGameStage(StaticStage::KADSTAGE stage)
-{
-	switch (stage) {
-	case StaticStage::LOADING:
-		return m_LoadingScreen;
-	default:
-		break;
+	IGameStage* StageManager::GetGameStage(StaticStage::KADSTAGE stage)
+	{
+		switch (stage) {
+		case StaticStage::LOADING:
+			return m_LoadingScreen;
+		default:
+			break;
+		}
+		return NULL;
 	}
-	return NULL;
-}
 
-void StageManager::SetNowStage(StaticStage::KADSTAGE stage)
-{
-	GetGameStage(m_NowStage)->onClose();
-	m_NowStage = stage;
+	void StageManager::SetNowStage(StaticStage::KADSTAGE stage)
+	{
+		GetGameStage(m_NowStage)->onClose();
+		m_NowStage = stage;
 
-	GetGameStage(stage)->onShow();
+		GetGameStage(stage)->onShow();
+	}
+
 }

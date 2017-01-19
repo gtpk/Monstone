@@ -1,17 +1,19 @@
 #pragma once
-
-enum MouseAction
+namespace MarxEngine
 {
-	ACTION_DOWN,
-	ACTION_UP
-};
+	enum MouseAction
+	{
+		ACTION_DOWN,
+		ACTION_UP
+	};
 
-class MotionEvent
-{
-	
-public:
-	int button;
-	int state;
-	int x;
-	int y;
-};
+	class MotionEvent
+	{
+
+	public:
+		int button;
+		int state;
+		int x;
+		int y;
+	};
+}

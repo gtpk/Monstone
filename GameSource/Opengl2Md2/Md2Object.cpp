@@ -19,7 +19,7 @@
 using std::cout;
 using std::cerr;
 using std::endl;
-
+using namespace MarxEngine;
 /////////////////////////////////////////////////////////////////////////////
 //
 // class Md2Object implementation.

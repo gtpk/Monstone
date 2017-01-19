@@ -2,10 +2,31 @@
 #include <string>
 #include "stdio.h"
 
+namespace MarxEngine
+{
+	class MyClass
+	{
+	public:
+		MyClass();
+		~MyClass();
+
+	private:
+
+	};
+
+	MyClass::MyClass()
+	{
+	}
+
+	MyClass::~MyClass()
+	{
+	}
+}
+using namespace MarxEngine;
 
 void SaveProjectFile()
 {
-
+	MyClass* MyClass_;
 	TiXmlDocument doc;
 	TiXmlElement* msg;
 
