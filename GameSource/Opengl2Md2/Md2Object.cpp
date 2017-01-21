@@ -70,7 +70,8 @@ Md2Object::~Md2Object ()
 		delete (var);
 		_iter++;
 	}
-	MarxWorld::getInstance().Volkes->DeletePiece(this);
+	if(MarxWorld::getInstance().Volkes != NULL)
+		MarxWorld::getInstance().Volkes->DeletePiece(this);
 }
 
 //_NextID

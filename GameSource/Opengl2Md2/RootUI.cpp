@@ -16,11 +16,11 @@ namespace MarxEngine
 	void RootUI::onTouchEvent(MotionEvent event)
 	{
 		ImageControl* targetImage = NULL;
-		vector<ImageControl*> m_Child = m_Container->getAllChild();
-		vector<ImageControl*>::iterator iter = m_Child.begin();
+		vector<ImageControl*> cc = m_Container->getAllChild();
+		vector<ImageControl*>::iterator iter = cc.begin();
 
 		//buttons[GLUT_LEFT_BUTTON] == GLUT_UP
-		while (iter != m_Child.end()) {
+		while (iter != cc.end()) {
 			ImageControl* ParentControl = *iter;
 
 			int action = event.state;
@@ -39,7 +39,7 @@ namespace MarxEngine
 					(*eventitor)->eventReceived(targetImage, ClickEventArgs(event));
 					eventitor++;
 				}
-
+				return;
 			}
 
 			iter++;

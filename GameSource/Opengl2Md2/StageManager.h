@@ -2,12 +2,16 @@
 #include "KardNameFactory.h"
 #include "IGameStage.h"
 #include "MainScreen.h"
+#include "InGameUI.h"
+#include "LoadingScreen.h"
 #define NULL 0
 namespace StaticStage
 {
 	enum KADSTAGE
 	{
+		Title,
 		LOADING,
+		STORY,
 	};
 
 }
@@ -22,18 +26,19 @@ namespace MarxEngine
 
 
 		// 로딩 화면
-		MainScreen* m_LoadingScreen;
-
-
+		MainScreen* m_MainScreen = NULL;
+		InGameUI * m_InGameUI = NULL;
+		LoadingScreen* m_LoadingScreen = NULL;
 	public:
 		StageManager()
 		{
-			m_NowStage = StaticStage::KADSTAGE::LOADING;
+			m_NowStage = StaticStage::KADSTAGE::Title;
 
-			m_LoadingScreen = new MainScreen();
+			m_MainScreen = new MainScreen();
+			m_LoadingScreen = new LoadingScreen();
+			m_InGameUI = new InGameUI();
 
-
-			SetNowStage(StaticStage::KADSTAGE::LOADING);
+			SetNowStage(StaticStage::KADSTAGE::Title);
 
 		}
 

@@ -49,14 +49,6 @@ namespace MarxEngine
 			while (iter != m_Container->m_Child.end()) {
 				ImageControl* ParentControl = *iter;
 				ParentControl->OnDraw();
-				vector<ImageControl*> TempList = ParentControl->getAllChild();
-				vector<ImageControl*>::iterator tempitor = TempList.begin();
-				while (tempitor != TempList.end())
-				{
-					ImageControl* DrawableControl = *tempitor;
-					DrawableControl->OnDraw();
-					tempitor++;
-				}
 				iter++;
 			}
 		}
@@ -89,7 +81,7 @@ namespace MarxEngine
 				std::vector<ImageControl*>::iterator md2End = m_Container->m_Child.end();
 				for (; md2begin != md2End; md2begin++)
 				{
-					Md2Object* node = ((Md2Object*)*md2begin);
+					ImageControl* node = ((ImageControl*)*md2begin);
 					node->Save(MapPieces);
 				}
 			}

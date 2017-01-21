@@ -51,5 +51,8 @@ namespace MarxEngine
 			m_Container->Remove(child);
 		}
 
+	public:
+		ImageControl* GetImageControlByName(string Name);
+
 	};
 }

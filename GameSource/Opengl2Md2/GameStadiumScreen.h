@@ -45,6 +45,8 @@ namespace MarxEngine
 				dt = 0;
 			ElpseTimer = ms.count();
 			glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+
+
 			StageManager::GetGameGraphic()->GetGameStage()->onUpdate(dt);
 
 			glRasterPos2i(0, 0);
@@ -58,8 +60,15 @@ namespace MarxEngine
 			glPopMatrix();
 		}
 
+		int _SelectID = - 1;
 		void setSelectObj(int SelectObjectNum)
 		{
+			if (SelectObjectNum == -1)
+			{
+				if (MarxWorld::getInstance().Volkes != NULL)
+					MarxWorld::getInstance().Volkes->SetImageControlSelection(NULL);
+			}
+			_SelectID = SelectObjectNum;
 			std::vector<ImageControl*> objs = StageManager::GetGameGraphic()->GetGameStage()->getAllChild();
 			std::vector<ImageControl*>::iterator _itor = objs.begin();
 
@@ -186,6 +195,37 @@ namespace MarxEngine
 				StageManager::GetGameGraphic()->GetGameStage()->onTouchEvent(_event);
 			}
 			return true;
+		}
+
+		void XboxControllerKeyEvent(WORD Button, bool Updown)
+		{
+			StageManager::GetGameGraphic()->GetGameStage()->XboxControllerKeyEvent(Button, Updown);
+		}
+
+		void deleteSelectPiece()
+		{
+
+			StageManager::GetGameGraphic()->GetGameStage()->m_Container->m_Child;
+			std::vector<ImageControl*>::iterator _itor = StageManager::GetGameGraphic()->GetGameStage()->m_Container->m_Child.begin();
+
+			while (_itor != StageManager::GetGameGraphic()->GetGameStage()->m_Container->m_Child.end())
+			{
+				ImageControl* target = *_itor;
+				if (target != NULL)
+				{
+					if (target->_currentName == _SelectID)
+					{
+						delete(target);
+						_itor = StageManager::GetGameGraphic()->GetGameStage()->m_Container->m_Child.erase(_itor);
+					}
+					else
+					{
+						target->deleteSelectPiece(_SelectID);
+						_itor++;
+					}
+				}
+				
+			}
 		}
 
 	};

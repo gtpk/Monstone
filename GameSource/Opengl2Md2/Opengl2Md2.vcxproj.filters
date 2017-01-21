@@ -240,6 +240,18 @@
     <ClInclude Include="ObjectNumberingMananger.h">
       <Filter>Utill</Filter>
     </ClInclude>
+    <ClInclude Include="CXBOXController.h">
+      <Filter>Utill</Filter>
+    </ClInclude>
+    <ClInclude Include="XBoxControllerManager.h">
+      <Filter>Utill</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameUI.h">
+      <Filter>RenderEngine\Stage\Sceen</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingScreen.h">
+      <Filter>RenderEngine\Stage\Sceen</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Md2Model.cpp">
@@ -334,6 +346,18 @@
     </ClCompile>
     <ClCompile Include="AnimatinonBase.cpp">
       <Filter>RenderEngine\BaseControl</Filter>
+    </ClCompile>
+    <ClCompile Include="CXBOXController.cpp">
+      <Filter>Utill</Filter>
+    </ClCompile>
+    <ClCompile Include="XBoxControllerManager.cpp">
+      <Filter>Utill</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameUI.cpp">
+      <Filter>RenderEngine\Stage\Sceen</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingScreen.cpp">
+      <Filter>RenderEngine\Stage\Sceen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

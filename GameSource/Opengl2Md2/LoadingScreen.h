@@ -7,36 +7,16 @@
 #include "UIBase.h"
 namespace MarxEngine
 {
-	class MainScreen : public IGameStage
+	class LoadingScreen : public IGameStage
 	{
 	public:
 
-		int LoadingPersent;
-
 		long long dt_timesleep = 2000;
 
-		ImageControl* Background;
-		ImageControl* title;
-		ImageControl* PressAny;
-		ImageControl* MainMenu;
-		ImageControl* TitleWheel;
-		ImageControl* MainMenuOption;
-		ImageControl* MainMenuStart;
-		ImageControl* MainMenuExit;
-
-		Animation * Spacial;
-		Animation * UPAni;
 	public:
-		MainScreen()
+		LoadingScreen()
 		{
-
-			LoadingPersent = 0;
-
-
 			addEventHandler(dynamic_cast<IEventHandler<ClickEventArgs>*> (this));
-
-			//KardNameFactory.GetKardNameFactory().PlayOppeningSound();
-			//KardNameFactory.GetKardNameFactory().StopBackgroundSound();
 		}
 
 	public:
@@ -44,12 +24,9 @@ namespace MarxEngine
 
 		void onDrawScreen()
 		{
-
 			OnDraw(false);
-			//King->OnDraw();
 		}
 
-		int selectValue = 0;
 
 
 	public:
@@ -62,12 +39,9 @@ namespace MarxEngine
 		void onUpdate(long long dt);
 
 		void onClose() {
-			// TODO Auto-generated method stub
-
 		}
 
 		bool isCloseed() {
-			// TODO Auto-generated method stub
 			return true;
 
 		}

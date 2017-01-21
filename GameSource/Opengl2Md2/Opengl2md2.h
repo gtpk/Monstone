@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "GL/glew.h"
 #include "GL/glut.h"
 
@@ -11,6 +12,7 @@
 #include "GameStadiumScreen.h"
 #include "KardNameFactory.h"
 
+#include "XBoxControllerManager.h"
 class Opengl2md2
 {
 private :
@@ -47,7 +49,7 @@ private :
 	bool bAnimated;
 	EnumNowAction emTrancelate;
 	bool bSelectMode;
-	bool Close2d = false;
+	
 
 	bool bIsMouse_Mid_Down;
 	bool bIsMouse_Left_Down;
@@ -89,7 +91,7 @@ private :
 	static Opengl2md2 *inst;
 	
 public:
-
+	bool Close2d = false;
 	COMMONDATATYPE::Vector3d eye;
 
 
@@ -130,6 +132,8 @@ public :
 	static void idleVisible ();
 	static void windowStatus (int state);
 	static void menuSelect(HMENU menu, int idx);
+
+
 	
 public:
 
@@ -143,4 +147,12 @@ public:
 
 	void SetNewPiece();
 	void MenuFunc (int button);
+
+	void Save();
+	void Load(string sModelname);
+
+
+public:
+	XINPUT_STATE Gamepad[4];
+	void DetectXboxControllerButton();
 };

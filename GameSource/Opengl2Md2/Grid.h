@@ -64,8 +64,8 @@ namespace MarxEngine
 
 		void OnDraw(bool isSelect = false)
 		{
-			vector<ImageControl*> child = getAllChild();
-			vector<ImageControl*>::iterator itor = child.begin();
+			vector<ImageControl*> child = m_Child;
+			vector<ImageControl*>::iterator itor = m_Child.begin();
 
 			while (itor != child.end())
 			{

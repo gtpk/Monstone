@@ -677,9 +677,19 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height , const string &textu
 	return obj;
 }
 
+void MarxWorld::setNewImageControl(const string &textureName)
+{
+	ImageControl* node= ImageControl::CreateImageControl(textureName, textureName, 0, 0);
+	StageManager::GetGameGraphic()->GetGameStage()->addChild(node);
+}
+
+void MarxWorld::setNewImageControl(ImageControl* model, const string &textureName)
+{
+	ImageControl::CreateImageControl(model,textureName, textureName, 0, 0);
+}
+
 Md2Object *MarxWorld::setNewPiece(const string &textureName)
 {
-
 
 	Md2Object* obj = new Md2Object();
 	//_WorldPiece.push_back()

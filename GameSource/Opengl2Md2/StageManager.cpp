@@ -35,8 +35,12 @@ namespace MarxEngine
 	IGameStage* StageManager::GetGameStage(StaticStage::KADSTAGE stage)
 	{
 		switch (stage) {
+		case StaticStage::Title:
+			return m_MainScreen;
 		case StaticStage::LOADING:
 			return m_LoadingScreen;
+		case StaticStage::STORY:
+			return m_InGameUI;
 		default:
 			break;
 		}

@@ -127,8 +127,8 @@ namespace MarxEngine
 			_ImageControl->x = x;
 			_ImageControl->y = y;
 			_ImageControl->Name = objectName;
-
-			MarxWorld::getInstance().Volkes->setNewImageControl(_ImageControl);
+			if (MarxWorld::getInstance().Volkes != NULL)
+				MarxWorld::getInstance().Volkes->setNewImageControl(_ImageControl);
 			return _ImageControl;
 		}
 
@@ -145,6 +145,19 @@ namespace MarxEngine
 			return _ImageControl;
 		}
 
+		static ImageControl* CreateImageControl(ImageControl* target, string objectName,
+			string ImageName, int x, int y)
+		{
+			ImageControl* _ImageControl = new ImageControl(ImageName);
+			_ImageControl->x = x;
+			_ImageControl->y = y;
+			_ImageControl->Name = objectName;
+			target->addChild(_ImageControl);
+			if (MarxWorld::getInstance().Volkes != NULL)
+				MarxWorld::getInstance().Volkes->setNewImageControl(target, _ImageControl);
+			return _ImageControl;
+		}
+
 		virtual void eventReceived(UIBase* sender, ClickEventArgs e) { }
 
 		void OnDraw(bool isSelect = false);
@@ -155,6 +168,6 @@ namespace MarxEngine
 
 		void setbeckgroundImage(string string, float width, float height);
 
-
+		void deleteSelectPiece(int tempname);
 	};
 }

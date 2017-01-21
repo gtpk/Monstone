@@ -19,6 +19,8 @@
 #include "../Opengl2Md2/ProjectLoader.h"
 #include "../CLILogicCommon/VolkesInterfaceTool.h"
 #include "SelectObjectInterface.h"
+#include "UIobjectInterface.h"
+#include "UIObjectTreeContator.h"
 //#pragma comment(lib, "opengl32.lib")
 
 
@@ -565,7 +567,23 @@ namespace WPFOpenGLLib
 
 			MarshalString(sprite, ssprite);
 
-			MarxWorld::getInstance().setNewPiece(ssprite);
+			if (Opengl2md2::getInstance().Close2d)
+			{
+				MarxWorld::getInstance().setNewPiece(ssprite);
+			}
+			else
+			{
+				
+				if (LogicCommon::UIObjectTreeContator::GetInstance()->isUnable == true)
+				{
+					MarxWorld::getInstance().setNewImageControl(ssprite);
+				}
+				else
+				{
+					MarxWorld::getInstance().setNewImageControl(LogicCommon::UIObjectTreeContator::GetInstance()->root,ssprite);
+				}
+			}
+			
 
 		}
 
@@ -631,7 +649,7 @@ namespace WPFOpenGLLib
 
 		void Save()
 		{
-			MarxWorld::getInstance().Save();
+			Opengl2md2::getInstance().Save();
 		}
 
 		void Load()
@@ -651,7 +669,7 @@ namespace WPFOpenGLLib
 			selected1 = openFileDialog1->FileName;
 
 			MarshalString(selected1, sModelname);
-			MarxWorld::getInstance().Load(sModelname);
+			Opengl2md2::getInstance().Load(sModelname);
 		}
 	};
 }

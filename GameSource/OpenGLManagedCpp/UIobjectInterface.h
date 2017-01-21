@@ -107,6 +107,10 @@ namespace LogicCommon
 					var->Children->Add(gen);
 					return;
 				}
+				else
+				{
+					var->setNewPiece(mother,obj);
+				}
 			}
 		}
 

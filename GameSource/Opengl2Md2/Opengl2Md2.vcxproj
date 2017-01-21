@@ -21,6 +21,7 @@
     <ClInclude Include="AttacheAble.h" />
     <ClInclude Include="ClickEventArgs.h" />
     <ClInclude Include="CommonDataType.h" />
+    <ClInclude Include="CXBOXController.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="defAnimations.h" />
     <ClInclude Include="Eventlistener.h" />
@@ -34,9 +35,11 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageControl.h" />
     <ClInclude Include="ImageLoader.h" />
+    <ClInclude Include="InGameUI.h" />
     <ClInclude Include="IRootUI.h" />
     <ClInclude Include="IUIBase.h" />
     <ClInclude Include="KingControl.h" />
+    <ClInclude Include="LoadingScreen.h" />
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="Momo.h" />
     <ClInclude Include="ObjectNumberingMananger.h" />
@@ -67,18 +70,21 @@
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="XBoxControllerManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.cpp" />
     <ClCompile Include="AnimatinonBase.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AttacheAble.cpp" />
+    <ClCompile Include="InGameUI.cpp" />
     <ClCompile Include="KingControl.cpp" />
     <ClCompile Include="ExGameGraphicInfo.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageControl.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="KardNameFactory.cpp" />
+    <ClCompile Include="LoadingScreen.cpp" />
     <ClCompile Include="LuaManager.cpp" />
     <ClCompile Include="LuaScriptAttached.cpp" />
     <ClCompile Include="MainScreen.cpp" />
@@ -102,6 +108,8 @@
     <ClCompile Include="Stringformat.h" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="UIBase.cpp" />
+    <ClCompile Include="CXBOXController.cpp" />
+    <ClCompile Include="XBoxControllerManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataManager.inl" />

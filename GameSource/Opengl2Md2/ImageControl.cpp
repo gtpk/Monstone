@@ -41,7 +41,11 @@ namespace MarxEngine
 
 	ImageControl::~ImageControl()
 	{
-		MarxWorld::getInstance().Volkes->DeleteImageControl(this);
+		if (MarxWorld::getInstance().Volkes != NULL)
+		{
+			MarxWorld::getInstance().Volkes->DeleteImageControl(this);
+		}
+		
 	}
 
 	//@Override
@@ -297,7 +301,7 @@ namespace MarxEngine
 		glPopName();
 
 		{
-			vector<ImageControl*> m_Child = getAllChild();
+			//vector<ImageControl*> m_Child = this->m_Child;
 			vector<ImageControl*>::iterator itor = m_Child.begin();
 
 			while (itor != m_Child.end())
@@ -416,10 +420,9 @@ namespace MarxEngine
 		{
 			ImageControl* contator = (ImageControl*)*iter;
 			getAll_Child.push_back(contator);
-			ImageControl* _IContainer = dynamic_cast<ImageControl*>(contator);
-			if (_IContainer != NULL)
+			if (contator != NULL)
 			{
-				vector<ImageControl*> coninside = _IContainer->getAllChild();
+				vector<ImageControl*> coninside = contator->getAllChild();
 				vector<ImageControl*>::iterator iter2 = coninside.begin();
 				while (iter2 != coninside.end())
 				{
@@ -427,10 +430,6 @@ namespace MarxEngine
 					iter2++;
 				}
 				iter++;
-			}
-			else if (dynamic_cast<ImageControl*>(contator) != NULL)
-			{
-				getAll_Child.push_back((ImageControl*)contator);
 			}
 			else
 			{
@@ -451,6 +450,24 @@ namespace MarxEngine
 
 			if (contator == child)
 			{
+				delete contator;
+				iter = m_Child.erase(iter);
+				return;
+			}
+			iter++;
+		}
+	}
+
+	void ImageControl::deleteSelectPiece(int tempname)
+	{
+		vector<ImageControl*>::iterator iter = m_Child.begin();
+		while (iter != m_Child.end())
+		{
+			ImageControl* contator = (ImageControl*)*iter;
+
+			if (contator->_currentName == tempname)
+			{
+				delete contator;
 				iter = m_Child.erase(iter);
 				return;
 			}

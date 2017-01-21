@@ -32,6 +32,10 @@
 #include "CommonDataType.h"
 #include "LuaManager.h"
 #include "MotionEvent.h"
+
+
+#include "XBoxControllerManager.h"
+
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -631,7 +635,7 @@ void Opengl2md2::draw2D ()
 		glPushMatrix();
 		//glTranslatef(dw, dh, zindex);
 
-
+		inst->DetectXboxControllerButton();
 		inst->render->onDrawFrame();
 		glPopMatrix();
 		end2D();
@@ -778,7 +782,10 @@ void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
 		{
 			SelectObjectNum = index[(4 * hits) - 1];
 			inst->render->setSelectObj(SelectObjectNum);
-
+			ImageControl* node = inst->render->getSelectObj();
+			if (MarxWorld::getInstance().Volkes != NULL)
+				MarxWorld::getInstance().Volkes->SetImageControlSelection(node);
+			
 			//inst->render->onDrawFrame();
 
 		}
@@ -966,8 +973,18 @@ void Opengl2md2::keyPress (unsigned char key, int x, int y)
 	if (inst->frameRate < 0)
 		inst->frameRate = 0;
 
-	if(key == VK_DELETE)
-		inst->player->deleteSelectPiece();
+	if (key == VK_DELETE)
+	{
+		if (inst->Close2d)
+		{
+			inst->player->deleteSelectPiece();
+		}
+		else
+		{
+			inst->render->deleteSelectPiece();
+		}
+	}
+		
 
 	if(inst->keyboard.special[VK_LCONTROL] || inst->keyboard.special[VK_RCONTROL] )
 	{
@@ -975,6 +992,22 @@ void Opengl2md2::keyPress (unsigned char key, int x, int y)
 		{
 			inst->player->setSelectionCopy();
 			//복사
+		}
+	}
+
+	if (inst->keyboard.special[VK_LCONTROL] || inst->keyboard.special[VK_RCONTROL])
+	{
+		if (key == 'D' || key == 'd')
+		{
+			if (inst->Close2d)
+			{
+				inst->player->setSelectObj(-1);
+			}
+			else
+			{
+				inst->render->setSelectObj(-1);
+			
+			}
 		}
 	}
 
@@ -1350,16 +1383,20 @@ void Opengl2md2::mouseButton (int button, int state, int x, int y)
 	// Update mouse state
 	inst->mouse.buttons[button] = state;
 
+	Point GameSize = ExGameGraphicInfo::GetGameGraphic()->GetGameSize();
+
 	MotionEvent _e;
-	_e.x = x;
-	_e.y = y;
+	inst->m_Width;
+	_e.x = x * (float)(1264.0f/ inst->m_Width);
+	_e.y = (inst->m_Hight - y) * (float)(682.0f/ inst->m_Hight);
 	_e.state = state;
 	_e.button = button;
 	inst->render->onTouchEvent(_e);
 
 	// 마우스 다운은 바로 처리하는게 인지 상정!
 
-	Opengl2md2::mouseMotion(x,y);
+	if(inst->isRealGameRun == false)
+		Opengl2md2::mouseMotion(x,y);
 
 
 
@@ -1479,4 +1516,68 @@ int Opengl2md2::Monstoneinit(int argc, char *argv[], HDC hdc, HGLRC hRC, HWND hw
 void Opengl2md2::SetNewPiece()
 {
 
+}
+
+
+void Opengl2md2::Save()
+{
+	if (inst->Close2d)
+	{
+		MarxWorld::getInstance().Save();
+	}
+	else
+	{
+		StageManager::GetGameGraphic()->GetGameStage()->Save();
+	}
+	
+}
+
+void Opengl2md2::Load(string sModelname)
+{
+	if (inst->Close2d)
+	{
+		MarxWorld::getInstance().Load(sModelname);
+	}
+	else
+	{
+		StageManager::GetGameGraphic()->GetGameStage()->Load(sModelname);
+	}
+}
+
+void Opengl2md2::DetectXboxControllerButton()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		CXBOXController* player = XBoxControllerManager::getinstance()->getController(i);
+		if (player->IsConnected())
+		{
+			XINPUT_STATE newData = player->GetState();
+			if (Gamepad[i].Gamepad.wButtons != newData.Gamepad.wButtons)
+			{
+				WORD CheckSum = Gamepad[i].Gamepad.wButtons ^ newData.Gamepad.wButtons;
+				for (int check = 1; check <  65535; check <<=1)
+				{
+					if ((CheckSum & check) != 0)
+					{
+						//printf("Changed %X ", check);
+						bool Updown = false;
+						if ((check & newData.Gamepad.wButtons )== 0)
+						{
+							//printf("UP");
+							Updown = true;
+						}
+						else
+						{
+							Updown = false;
+							//printf("Down");
+						}
+						render->XboxControllerKeyEvent(check, Updown);
+						//printf("\n");
+					}
+				}
+			}
+
+			Gamepad[i] = newData;
+		}
+	}
 }
