@@ -157,6 +157,7 @@ void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 
 	if (m_obj != NULL)
 	{
+		m_obj->_currentName = _currentName;
 		if (getSelect() == true)
 			m_obj->OnDraw(true);
 		m_obj->zindex = m_translate[2];

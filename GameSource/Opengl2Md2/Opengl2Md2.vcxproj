@@ -20,6 +20,7 @@
     <ClInclude Include="AtlasObj.h" />
     <ClInclude Include="AttacheAble.h" />
     <ClInclude Include="ClickEventArgs.h" />
+    <ClInclude Include="CollisionMapCreater.h" />
     <ClInclude Include="CommonDataType.h" />
     <ClInclude Include="CXBOXController.h" />
     <ClInclude Include="DataManager.h" />
@@ -70,6 +71,7 @@
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="ViewCamera.h" />
     <ClInclude Include="XBoxControllerManager.h" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +79,7 @@
     <ClCompile Include="AnimatinonBase.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AttacheAble.cpp" />
+    <ClCompile Include="CollisionMapCreater.cpp" />
     <ClCompile Include="InGameUI.cpp" />
     <ClCompile Include="KingControl.cpp" />
     <ClCompile Include="ExGameGraphicInfo.cpp" />
@@ -109,6 +112,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="UIBase.cpp" />
     <ClCompile Include="CXBOXController.cpp" />
+    <ClCompile Include="ViewCamera.cpp" />
     <ClCompile Include="XBoxControllerManager.cpp" />
   </ItemGroup>
   <ItemGroup>

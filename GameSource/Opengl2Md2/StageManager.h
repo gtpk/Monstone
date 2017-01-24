@@ -32,13 +32,13 @@ namespace MarxEngine
 	public:
 		StageManager()
 		{
-			m_NowStage = StaticStage::KADSTAGE::Title;
+			m_NowStage = StaticStage::KADSTAGE::STORY;
 
 			m_MainScreen = new MainScreen();
 			m_LoadingScreen = new LoadingScreen();
 			m_InGameUI = new InGameUI();
 
-			SetNowStage(StaticStage::KADSTAGE::Title);
+			SetNowStage(StaticStage::KADSTAGE::STORY);
 
 		}
 

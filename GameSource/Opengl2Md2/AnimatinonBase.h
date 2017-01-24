@@ -257,6 +257,18 @@ namespace MarxEngine
 			return _animation;
 		}
 
+		static Animation* CreateScaleYAnimation(float StartValue, float EndValue, long Duration)
+		{
+			Animation* _animation = (Animation*)new  ScaleYAnimation();
+			_animation->mDuration = Duration;
+			_animation->mSaveStartTime = system_clock::now().time_since_epoch().count() / 100000;
+			_animation->mStartValue = StartValue;
+			_animation->mEndValue = EndValue;
+			_animation->mRepeat = false;
+			_animation->Play();
+			return _animation;
+		}
+
 		static Animation* CreateRotationAnimation(float StartValue, float EndValue, long Duration, AnimationType ani)
 		{
 			Animation* animation = (Animation*)new  RotationAnimation();

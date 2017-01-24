@@ -42,6 +42,7 @@ private :
 		EM_ROTAION,
 		EM_SCALE,
 		EM_SELECT,
+		EM_CREATE_COLLISION,
 	};
 
 	bool bTextured;
@@ -84,7 +85,7 @@ private :
 	vector<string> animList;
 
 
-	GLfloat ViewScale = 1;
+	
 
 	Opengl2md2();
 
@@ -92,7 +93,7 @@ private :
 	
 public:
 	bool Close2d = false;
-	COMMONDATATYPE::Vector3d eye;
+	bool createCollision = false;
 
 
 	

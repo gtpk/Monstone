@@ -252,6 +252,12 @@
     <ClInclude Include="LoadingScreen.h">
       <Filter>RenderEngine\Stage\Sceen</Filter>
     </ClInclude>
+    <ClInclude Include="ViewCamera.h">
+      <Filter>OpenGL\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionMapCreater.h">
+      <Filter>OpenGL\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Md2Model.cpp">
@@ -358,6 +364,12 @@
     </ClCompile>
     <ClCompile Include="LoadingScreen.cpp">
       <Filter>RenderEngine\Stage\Sceen</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewCamera.cpp">
+      <Filter>OpenGL\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionMapCreater.cpp">
+      <Filter>OpenGL\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

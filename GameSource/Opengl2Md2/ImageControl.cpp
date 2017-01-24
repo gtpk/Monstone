@@ -14,7 +14,9 @@ namespace MarxEngine
 		m_Aligen_Horizen = UIHorizen::Aligen_Horizen::defalt;
 
 		m_gridNum = Point(0, 0);
-
+		ScaleX = 1;
+		ScaleY = 1;
+		
 		isNotClickable = false;
 		isWidthPercent = true;
 		isHeightPercent = true;
@@ -114,7 +116,7 @@ namespace MarxEngine
 
 		glPushName(_currentName);
 		glDisable(GL_DEPTH_TEST);
-
+		glDisable(GL_CULL_FACE); //뒷면 보이게 하는것
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
@@ -186,15 +188,20 @@ namespace MarxEngine
 		}
 
 
+		float dw = getWidth() / 2 /* + currentX*/;
+		float dh = getHeight() / 2 /* + currentY*/;
+
+		
 		glTranslatef(currentX, currentY, zindex);
-		glScalef(ScaleX, ScaleY, 0);
+		//glScalef(ScaleX, ScaleY, 0);
 		glRotatef(m_rotate, 0, 0, 1);
-		float dw;
-		float dh;
 
-		dw = getWidth() / 2 /* + currentX*/;
-		dh = getHeight() / 2 /* + currentY*/;
+		glTranslatef(dw, dh, zindex);
+		glScalef(ScaleX, ScaleY, 1);
+		glTranslatef(dw *-1, dh *-1, zindex);
 
+
+		
 		iter = animations.begin();
 		while (iter != animations.end())
 		{
@@ -263,7 +270,7 @@ namespace MarxEngine
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		if (visiable == true)
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, index);
-
+		glPopName();
 		if (isSelect || m_isSelect)
 		{
 			glDisable(GL_TEXTURE_2D);
@@ -298,7 +305,7 @@ namespace MarxEngine
 			glEnable(GL_TEXTURE_2D);
 		}
 
-		glPopName();
+		
 
 		{
 			//vector<ImageControl*> m_Child = this->m_Child;

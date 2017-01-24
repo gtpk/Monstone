@@ -1,80 +1,26 @@
-#include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
-#include <string>
-#include "stdio.h"
-
-namespace MarxEngine
+#include "GL/glut.h"
+void display()
 {
-	class MyClass
-	{
-	public:
-		MyClass();
-		~MyClass();
-
-	private:
-
-	};
-
-	MyClass::MyClass()
-	{
-	}
-
-	MyClass::~MyClass()
-	{
-	}
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1.0, 1.0, 0.0);
+	glBegin(GL_POLYGON);
+	glVertex3f(0.1, 0.1, 0.0);
+	glVertex3f(0.6, 0.1, 0.0);
+	glVertex3f(0.8, 0.3, 0.0);
+	glVertex3f(0.6, 0.6, 0.0);
+	glVertex3f(0.1, 0.6, 0.0);
+	glVertex3f(0.0, 0.3, 0.0);
+	glEnd();
+	glFlush();
 }
-using namespace MarxEngine;
-
-void SaveProjectFile()
+void init()
 {
-	MyClass* MyClass_;
-	TiXmlDocument doc;
-	TiXmlElement* msg;
-
-	//문서 설정
-	TiXmlDeclaration* decl = new TiXmlDeclaration("1.0", "", "");
-
-	doc.LinkEndChild(decl);
-	// Root 만들자
-	TiXmlElement * root = new TiXmlElement("Project");
-	doc.LinkEndChild(root);
-
-	root->SetAttribute("RootFolder", "testproject");
-
-	doc.SaveFile("ProjectProperty.xml");
+	glClearColor(0.0, 0.5, 0.2, 0.8);
 }
-
-int main()
+int main(int argc, char** argv)
 {
-
-	SaveProjectFile();
-
-	TiXmlDocument doc("ProjectProperty.xml");
-	bool loadOkay = doc.LoadFile();
-
-	if (!loadOkay)
-	{
-		// 파일이 없음..!!
-		return false;
-		//printf( "Could not load test file 'demotest.xml'. Error='%s'. Exiting.\n", doc.ErrorDesc() );
-	}
-
-	TiXmlNode* root = doc.FirstChild();
-
-	TiXmlDeclaration* declar = (TiXmlDeclaration*)root;
-	if (declar != NULL)
-	{
-
-		if (strcmp(declar->Version(), "1.0") != 0)
-		{
-			// 버전이 일치 하지 않음
-			return false;
-		}
-	}
-
-	TiXmlNode* MapNode;
-	MapNode = doc.FirstChild("Project");
-
-	TiXmlElement* MinMonstersMap = MapNode->ToElement();
-	const char* teststring = MinMonstersMap->Attribute("RootFolder");
-	printf("%s\n", teststring);
+	glutCreateWindow("simple 3D");
+	glutDisplayFunc(display);
+	init();
+	glutMainLoop();
 }

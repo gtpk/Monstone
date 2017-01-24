@@ -41,7 +41,7 @@
 #include "LuaScriptAttached.h"
 #include "ObjectNumberingMananger.h"
 #include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
-
+#include "ViewCamera.h"
 //#include "Opengl2md2.h"
 
 
@@ -75,7 +75,7 @@ throw (std::runtime_error)
 	ObjectManager* m_ObjectManager = ObjectManager::GetInstance();
 
 	Volkes = NULL;
-	//Md2Object * obj = setNewPiece("chr_01.md2", "chr_01.tga", Opengl2md2::getInstance().eye);
+	//Md2Object * obj = setNewPiece("chr_01.md2", "chr_01.tga", ViewCamera::getinstance()->eye);
 	//
 	//if (obj != NULL)
 	//{
@@ -662,10 +662,10 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height , const string &textu
 	obj->setScale(0.1);
 
 	obj->setTranslate(
-		Opengl2md2::getInstance().eye.x,
-		Opengl2md2::getInstance().eye.y,
+		ViewCamera::getinstance()->eye.x,
+		ViewCamera::getinstance()->eye.y,
 		0);
-	//obj->setTranslate(Opengl2md2::getInstance().eye.x,Opengl2md2::getInstance().eye.y,Opengl2md2::getInstance().eye.z);
+	//obj->setTranslate(ViewCamera::getinstance()->eye.x,ViewCamera::getinstance()->eye.y,ViewCamera::getinstance()->eye.z);
 
 	
 	_WorldPiece.push_back(obj);
@@ -699,10 +699,10 @@ Md2Object *MarxWorld::setNewPiece(const string &textureName)
 	obj->setScale(0.1);
 
 	obj->setTranslate(
-		Opengl2md2::getInstance().eye.x,
-		Opengl2md2::getInstance().eye.y,
+		ViewCamera::getinstance()->eye.x,
+		ViewCamera::getinstance()->eye.y,
 		0);
-	//obj->setTranslate(Opengl2md2::getInstance().eye.x,Opengl2md2::getInstance().eye.y,Opengl2md2::getInstance().eye.z);
+	//obj->setTranslate(ViewCamera::getinstance()->eye.x,ViewCamera::getinstance()->eye.y,ViewCamera::getinstance()->eye.z);
 
 
 	_WorldPiece.push_back(obj);
@@ -742,8 +742,8 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 	obj->setName(ObjectNumberingMananger::getInstance()->getNumber());
 
 	obj->setTranslate(
-		Opengl2md2::getInstance().eye.x + m_copycount*0.1,
-		Opengl2md2::getInstance().eye.y + m_copycount*0.1,
+		ViewCamera::getinstance()->eye.x + m_copycount*0.1,
+		ViewCamera::getinstance()->eye.y + m_copycount*0.1,
 		0);
 
 	
@@ -815,8 +815,8 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model, float Width, float Height, c
 	obj->setRotate(0, 90, 90);
 	obj->setScale(0.1);
 	obj->setTranslate(
-		Opengl2md2::getInstance().eye.x,
-		Opengl2md2::getInstance().eye.y,
+		ViewCamera::getinstance()->eye.x,
+		ViewCamera::getinstance()->eye.y,
 		0);
 	// ¾Ë¸®±â
 	if (Volkes != NULL)
