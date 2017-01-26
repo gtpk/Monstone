@@ -20,6 +20,7 @@
     <ClInclude Include="AtlasObj.h" />
     <ClInclude Include="AttacheAble.h" />
     <ClInclude Include="ClickEventArgs.h" />
+    <ClInclude Include="CollisionMap.h" />
     <ClInclude Include="CollisionMapCreater.h" />
     <ClInclude Include="CommonDataType.h" />
     <ClInclude Include="CXBOXController.h" />
@@ -27,6 +28,7 @@
     <ClInclude Include="defAnimations.h" />
     <ClInclude Include="Eventlistener.h" />
     <ClInclude Include="ExGameGraphicInfo.h" />
+    <ClInclude Include="EyeMouseMove.h" />
     <ClInclude Include="GameStadiumScreen.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridBar.h" />
@@ -73,13 +75,16 @@
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="ViewCamera.h" />
     <ClInclude Include="XBoxControllerManager.h" />
+    <ClInclude Include="triangulate.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Externallib\FreeImage\Examples\OpenGL\TextureManager\TextureManager.cpp" />
     <ClCompile Include="AnimatinonBase.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AttacheAble.cpp" />
+    <ClCompile Include="CollisionMap.cpp" />
     <ClCompile Include="CollisionMapCreater.cpp" />
+    <ClCompile Include="EyeMouseMove.cpp" />
     <ClCompile Include="InGameUI.cpp" />
     <ClCompile Include="KingControl.cpp" />
     <ClCompile Include="ExGameGraphicInfo.cpp" />

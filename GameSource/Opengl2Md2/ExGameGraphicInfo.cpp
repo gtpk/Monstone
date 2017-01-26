@@ -14,7 +14,7 @@ namespace MarxEngine
 		//HORIZEN? VERTICAL?
 		bool ishorizen = false;
 
-		MarxEngine::Point GameResolution(480, 800);
+		MarxEngine::Point GameResolution(1280, 720);
 
 		MarxEngine::Point TotalSize(ExGameGraphicInfo::GetGameGraphic()->GetGameSize());
 

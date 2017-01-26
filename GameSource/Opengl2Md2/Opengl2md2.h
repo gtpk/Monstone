@@ -11,7 +11,7 @@
 #include "LuaManager.h"
 #include "GameStadiumScreen.h"
 #include "KardNameFactory.h"
-
+#include "EyeMouseMove.h"
 #include "XBoxControllerManager.h"
 class Opengl2md2
 {
@@ -43,6 +43,7 @@ private :
 		EM_SCALE,
 		EM_SELECT,
 		EM_CREATE_COLLISION,
+		EM_MOVE_EYE,
 	};
 
 	bool bTextured;
@@ -50,7 +51,6 @@ private :
 	bool bAnimated;
 	EnumNowAction emTrancelate;
 	bool bSelectMode;
-	
 
 	bool bIsMouse_Mid_Down;
 	bool bIsMouse_Left_Down;
@@ -65,7 +65,7 @@ private :
 
 	float wheel;
 
-	int m_Width,m_Hight;
+	int m_Width = 1270 ,m_Hight = 720;
 
 	int SelectObjectNum;
 

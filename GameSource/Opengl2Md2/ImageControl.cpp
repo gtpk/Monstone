@@ -114,7 +114,8 @@ namespace MarxEngine
 			return;
 		}
 
-		glPushName(_currentName);
+		if(_currentName != -1)
+			glPushName(_currentName);
 		glDisable(GL_DEPTH_TEST);
 		glDisable(GL_CULL_FACE); //뒷면 보이게 하는것
 		glEnableClientState(GL_VERTEX_ARRAY);
@@ -270,7 +271,10 @@ namespace MarxEngine
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		if (visiable == true)
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, index);
-		glPopName();
+
+		if (_currentName != -1)
+			glPopName();
+
 		if (isSelect || m_isSelect)
 		{
 			glDisable(GL_TEXTURE_2D);

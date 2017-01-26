@@ -36,6 +36,7 @@
 
 #include "XBoxControllerManager.h"
 #include "CollisionMapCreater.h"
+#include "EyeMouseMove.h"
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -317,55 +318,9 @@ void	Opengl2md2::reshape (int w, int h)
 	glMatrixMode(GL_PROJECTION);
 
 	inst->render->onSurfaceChanged(w, h);
-	ExGameGraphicInfo::GetGameGraphic()->SetGameSize(Point(w, h));
+	//ExGameGraphicInfo::GetGameGraphic()->SetGameSize(Point(w, h));
 	inst->m_Width = w;
 	inst->m_Hight = h;
-
-	return;
-
-	
-	//wglMakeCurrent(inst->m_hDC, inst->m_hRC);
-	glViewport (0, 0, static_cast<GLsizei>(w), static_cast<GLsizei>(h));
-
-	GLfloat WidthFactor = (GLfloat)w / (GLfloat)300;  
-	GLfloat HeightFactor = (GLfloat)h / (GLfloat)300; 
-
-
-	
-	glLoadIdentity ();
-
-
-#ifdef  ORTHO_ORIGINAL_
-	//glOrtho(45.0, w / static_cast<GLfloat>(h), 0.1, 1000.0,1,10);
-	//glOrtho(-10, 10, -10, 10,0.1,1000.0);
-
-	GLdouble ratio = w / static_cast<GLfloat>(h)/2;
-	glOrtho(-10*ratio, 10*ratio,
-		-10/ratio, 10/ratio,0,100);
-#endif
-	//ratio = (GLfloat)w/(GLfloat)h; // NEW //
-
-	inst->ratio = w / static_cast<GLfloat>(h);
-
-	glOrtho(0,
-		inst->wheel*1.0 * inst->m_Width, 
-		0,
-		inst->wheel*1.0 * inst->m_Hight,
-		-1, 10000.0);
-
-	;
-	//glOrtho(0, inst->wheel*inst->ratio,0, inst->wheel * ,-10,10000);
-	//glOrtho(0, inst->wheel*inst->ratio,0, inst->wheel,-10,10000);
-
-	//glOrtho (0, inst->m_Width/inst->wheel, 0, inst->m_Hight/inst->wheel, -10,10000);
-
-
-	//gluPerspective (45.0, w / static_cast<GLfloat>(h), 0.1, 1000.0);
-
-	glMatrixMode (GL_MODELVIEW);
-	glLoadIdentity ();
-	//
-	//glutPostRedisplay ();
 }
 
 
@@ -546,8 +501,10 @@ void Opengl2md2::draw3D ()
 	glRotated (rot.x, 1.0f, 0.0f, 0.0f);
 	glRotated (rot.y, 0.0f, 1.0f, 0.0f);
 	glRotated (rot.z, 0.0f, 0.0f, 1.0f);
-	
-	glScaled((float)(inst->m_Width / 1264.0f), (float)(inst->m_Hight / 682.0f), 1);
+	Point GameSize = ExGameGraphicInfo::GetGameGraphic()->GetGameSize();
+
+	glScaled((float)(GameSize.x / 1264.0f), (float)(GameSize.y / 682.0f), 1);
+
 	glTranslated (-ViewCamera::getinstance()->eye.x, -ViewCamera::getinstance()->eye.y, -ViewCamera::getinstance()->eye.z);
 
 	glScaled(ViewCamera::getinstance()->ViewScale, ViewCamera::getinstance()->ViewScale,1);
@@ -574,14 +531,23 @@ void Opengl2md2::draw3D ()
 	//player->drawPlayerFrame (10,
 	//    static_cast<Md2Object::Md2RenderMode>(renderMode));
 
+	
 
 	glDisable(GL_BLEND);
 	glDisable(GL_ALPHA_TEST);
 	glDisable (GL_TEXTURE_2D);
 	glDisable (GL_DEPTH_TEST);
 	glDisable (GL_LIGHTING);
+
+	if (emTrancelate == EM_CREATE_COLLISION)
+	{
+		glEnable(GL_ALPHA_TEST);
+		glEnable(GL_BLEND);
+		CollisionMapCreater::getinstance()->onDraw();
+		glDisable(GL_ALPHA_TEST);
+		glDisable(GL_BLEND);
+	}
 	
-	CollisionMapCreater::getinstance()->onDraw();
 
 	if(emTrancelate == EM_ROTAION && inst->bIsMouse_Left_Down)
 	{
@@ -745,9 +711,9 @@ void Opengl2md2::draw2D ()
 		glPrintf ("ViewScale : %f" , ViewCamera::getinstance()->ViewScale);
 
 		glRasterPos2i (m_Width -150, m_Hight - 80);
-		glPrintf ("Game Mouse X: %f" , inst->a_mouse.x);
+		glPrintf ("Game Mouse X: %f" , inst->mouse.x);
 		glRasterPos2i (m_Width -150, m_Hight - 95);
-		glPrintf ("Game Mouse Y: %f" ,inst->a_mouse.y);
+		glPrintf ("Game Mouse Y: %f" ,inst->mouse.y);
 		//		glRasterPos2i (m_Width -150, m_Hight - 110);
 		//		glPrintf ("Eye Position Z: %f" , inst->a_mouse.z);
 
@@ -921,7 +887,7 @@ void Opengl2md2::keyPress (unsigned char key, int x, int y)
 	LuaManager* pluaman = LuaManager::Getinstance();	
 	int value = lua_tinker::call<int>(pluaman->NowStatus, "KeyDown", key);
 
-	printf("%d --> Keydown\n", value);
+	//printf("%d --> Keydown\n", value);
 
 	// Update key state
 	inst->keyboard.keymap[key] = 1;
@@ -1061,6 +1027,7 @@ void	Opengl2md2::keyUp (unsigned char key, int x, int y)
 {
 	LuaManager* pluaman = LuaManager::Getinstance();	
 	int value = lua_tinker::call<int>(pluaman->NowStatus, "KeyUp", key);
+
 	inst->keyboard.keymap[key] = 0;
 }
 
@@ -1075,18 +1042,10 @@ void	Opengl2md2::specialKeyPress (int key, int x, int y)
 {
 	inst->keyboard.special[key] = 1;
 
-	switch( key )
+	if (key == VK_SPACE && inst->Close2d)
 	{
-	case GLUT_KEY_LEFT:
-		//angle -= 5.0;
-		break;
-
-	case GLUT_KEY_RIGHT:
-		//angle += 5.0;
-		break;
-
+		EyeMouseMove::getinstance()->Enable();
 	}
-
 
 }
 
@@ -1099,6 +1058,11 @@ void	Opengl2md2::specialKeyPress (int key, int x, int y)
 
 void	Opengl2md2::specialKeyUp (int key, int x, int y)
 {
+	if (key == VK_SPACE)
+	{
+		EyeMouseMove::getinstance()->Disable();
+	}
+
 	inst->keyboard.special[key] = 0;
 }
 
@@ -1122,29 +1086,15 @@ void	Opengl2md2::mouseMotion (int x, int y)
 
 	inst->a_mouse.x = ViewCamera::getinstance()->eye.x + gamemouseX;
 	inst->a_mouse.y = ViewCamera::getinstance()->eye.y + gamemouseY;
-
 	//inst->a_mouse.x = x + ViewCamera::getinstance()->eye.x;
 	//inst->a_mouse.y = inst->m_Hight- y  + ViewCamera::getinstance()->eye.y;
+	inst->mouse.x = x;
+	inst->mouse.y = y;
+	
 
-
-	// Zoom
-	if(inst->bIsMouse_Mid_Down == true)
-	{
-		
-	}
 	if(inst->bIsMouse_Left_Down == true)
 	{
-		if (inst->keyboard.special[VK_SPACE] == true )
-		{
-			if (inst->Close2d)
-			{
-				// Translation
-				ViewCamera::getinstance()->eye.x = inst->old_trance[0] + ((inst->mouse.x - x)*senstive);
-				ViewCamera::getinstance()->eye.y = inst->old_trance[1] + ((y - inst->mouse.y)*senstive);
-
-			}
-		}
-		else
+		if (inst->keyboard.special[VK_SPACE] != true )
 		{
 
 			if (inst->Close2d == false)
@@ -1166,66 +1116,69 @@ void	Opengl2md2::mouseMotion (int x, int y)
 			else
 			{
 				Md2Object* obj = inst->player->getSelectObj();
-				if (obj == NULL)
-					return;
-
-				if (inst->emTrancelate == EM_TRANCELATE)
+				if (obj != NULL)
 				{
-					// Rotation
-					inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*senstive);
-					inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*senstive);
-					inst->player->setTranslate(inst->trance);
+					if (inst->emTrancelate == EM_TRANCELATE)
+					{
+						// Rotation
+						inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*senstive);
+						inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*senstive);
+						inst->player->setTranslate(inst->trance);
+					}
+					else if (inst->emTrancelate == EM_ROTAION)
+					{
+
+						float x1 = obj->getTranslate()[0];
+						float y1 = obj->getTranslate()[1];
+
+						float x2 = inst->a_mouse.x;
+						float y2 = inst->a_mouse.y;
+
+						float ax = x1 - x2;
+						float ay = y1 - y2;
+
+						if (ax == 0 || ay == 0)
+							return;
+
+						//float ac = (ay) / (ax);
+
+						float radian = atan2(ay, ax);
+
+						// 근사치로 계산함.
+						float dgree = radian / 3.14159 * 180;
+
+
+						// Rotation
+						inst->angle[2] = dgree;//+ inst->old_dgree;
+
+						if (inst->angle[2] < 0.0)
+							inst->angle[2] += 360.0;
+
+						if (inst->angle[2] > 360.0)
+							inst->angle[2] -= 360.0;
+
+						inst->player->setRotate(inst->angle);
+
+
+
+
+					}
+					else if (inst->emTrancelate == EM_SCALE)
+					{
+						int powx = (x - inst->mouse.x) * (x - inst->mouse.x);
+						int powy = (y - inst->mouse.y) * (y - inst->mouse.y);
+
+						GLfloat distance = sqrt(powx + powy);
+
+						inst->scale = distance * senstive;
+
+						inst->player->setScale(inst->scale);
+
+					}
 				}
-				else if (inst->emTrancelate == EM_ROTAION)
-				{
+					
 
-					float x1 = obj->getTranslate()[0];
-					float y1 = obj->getTranslate()[1];
-
-					float x2 = inst->a_mouse.x;
-					float y2 = inst->a_mouse.y;
-
-					float ax = x1 - x2;
-					float ay = y1 - y2;
-
-					if (ax == 0 || ay == 0)
-						return;
-
-					//float ac = (ay) / (ax);
-
-					float radian = atan2(ay, ax);
-
-					// 근사치로 계산함.
-					float dgree = radian / 3.14159 * 180;
-
-
-					// Rotation
-					inst->angle[2] = dgree;//+ inst->old_dgree;
-
-					if (inst->angle[2] < 0.0)
-						inst->angle[2] += 360.0;
-
-					if (inst->angle[2] > 360.0)
-						inst->angle[2] -= 360.0;
-
-					inst->player->setRotate(inst->angle);
-
-
-
-
-				}
-				else if (inst->emTrancelate == EM_SCALE)
-				{
-					int powx = (x - inst->mouse.x) * (x - inst->mouse.x);
-					int powy = (y - inst->mouse.y) * (y - inst->mouse.y);
-
-					GLfloat distance = sqrt(powx + powy);
-
-					inst->scale = distance * senstive;
-
-					inst->player->setScale(inst->scale);
-
-				}
+				
 			}
 			
 		}
@@ -1262,10 +1215,21 @@ void	Opengl2md2::mouseMotion (int x, int y)
 			{
 				if (inst->emTrancelate == EM_CREATE_COLLISION)
 				{
-					//CollisionMapCreater::getinstance()->SetVertext(x + ViewCamera::getinstance()->eye.x, y + ViewCamera::getinstance()->eye.y);
-
-					float realposx = ViewCamera::getinstance()->eye.x;
-					float realposy = ViewCamera::getinstance()->eye.y;
+					// Ahhhhh.. this is too difficult..
+					Point GameSize = ExGameGraphicInfo::GetGameGraphic()->GetGameSize();
+					float realposx = x ;
+					//1. i'm not sure Logic, but Y(Hight) is UpsideDown
+					float realposy = inst->m_Hight - y;
+					//2. Multiply by Reciprocal of Resulution 
+					realposx = realposx / (float)(GameSize.x / 1264.0f);
+					realposy = realposy / (float)(GameSize.y / 682.0f);
+					//3. Add Carmera Translate
+					realposx += ViewCamera::getinstance()->eye.x;
+					realposy += ViewCamera::getinstance()->eye.y;
+					//4. Multiply  by Reciprocal of Scale  
+					realposx /= ViewCamera::getinstance()->ViewScale;
+					realposy /= ViewCamera::getinstance()->ViewScale;
+					//this is your Acture Mouse Positon
 					CollisionMapCreater::getinstance()->SetVertext(realposx, realposy);
 				}
 
@@ -1284,17 +1248,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 				
 
 			}
-			else
-			{
-
-				inst->old_trance[0] = ViewCamera::getinstance()->eye.x;
-				inst->old_trance[1] = ViewCamera::getinstance()->eye.y;
-				inst->old_trance[2] = 0;
-
-				inst->mouse.x = x;
-				inst->mouse.y = y;
-
-			}
+			
 
 			if (inst->emTrancelate == EM_ROTAION)
 			{
@@ -1362,6 +1316,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 
 
 
+	EyeMouseMove::getinstance()->SetMousePos(x,y, inst->bIsMouse_Left_Down);
 
 
 
@@ -1418,6 +1373,10 @@ void Opengl2md2::menuSelect(HMENU menu, int idx)
 
 void Opengl2md2::mouseButton (int button, int state, int x, int y)
 {
+	EyeMouseMove::getinstance()->Last_mouse.x = x;
+	EyeMouseMove::getinstance()->Last_mouse.y = y;
+
+
 	// Update key modifiers
 	inst->keyboard.modifiers = glutGetModifiers ();
 
@@ -1428,8 +1387,8 @@ void Opengl2md2::mouseButton (int button, int state, int x, int y)
 
 	MotionEvent _e;
 	inst->m_Width;
-	_e.x = x * (float)(1264.0f/ inst->m_Width);
-	_e.y = (inst->m_Hight - y) * (float)(682.0f/ inst->m_Hight);
+	_e.x = x * (float)(ExGameGraphicInfo::GetGameGraphic()->GetGameSize().x / inst->m_Width);
+	_e.y = (inst->m_Hight - y) * (float)(ExGameGraphicInfo::GetGameGraphic()->GetGameSize().y/ inst->m_Hight);
 	_e.state = state;
 	_e.button = button;
 	inst->render->onTouchEvent(_e);
@@ -1542,9 +1501,10 @@ int Opengl2md2::Openflmd2init (int argc, char *argv[], HDC hdc, HGLRC hRC,HWND h
 
 int Opengl2md2::Monstoneinit(int argc, char *argv[], HDC hdc, HGLRC hRC, HWND hwnd)
 {
+	ExGameGraphicInfo::GetGameGraphic()->SetGameSize(Point(1280, 700));
 	// Initialize GLUT
 	glutInit(&argc, argv);
-
+	glutInitWindowSize(ExGameGraphicInfo::GetGameGraphic()->GetGameSize().x, ExGameGraphicInfo::GetGameGraphic()->GetGameSize().y);
 	isRealGameRun = true;
 	m_hRC = hRC;
 	m_hDC = hdc;

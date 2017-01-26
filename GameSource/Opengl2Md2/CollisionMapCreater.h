@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonDataType.h"
+#include "CollisionMap.h"
 #include <vector>
 class CollisionMapCreater
 {
@@ -8,11 +9,16 @@ public:
 	~CollisionMapCreater();
 
 
-	void onDraw();
-	void onDrawPoint();
-	void onDrawLine();
+
+	void onDraw(); 
 	void SetVertext(COMMONDATATYPE::Vector3d dot);
 	void SetVertext(float x,float y);
+
+	void NewCollisionMap();
+
+	void SelectCollistionMap(int select) { selectNumber = select; }
+	void SelectPoint(float x,float y);
+
 	static CollisionMapCreater* getinstance()
 	{
 		if (inst == NULL)
@@ -22,7 +28,9 @@ public:
 		return inst;
 	}
 private:
-	std::vector<COMMONDATATYPE::Vector3d> dotlist;
+
+	int selectNumber = -1;
+	std::vector<CollisionMap*> dotlist;
 
 	static CollisionMapCreater* inst;
 	

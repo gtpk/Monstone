@@ -59,7 +59,7 @@ namespace MarxEngine
 
 	void InGameUI::onUpdate(long long dt)
 	{
-		
+		return;
 		//currentX = _ani->getCurrentValue(system_clock::now().time_since_epoch().count() / 100000 - _ani->mSaveStartTime);
 		if (KardNameFactory::GetKardNameFactory()->IsLoaded == false)
 		{

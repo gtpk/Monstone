@@ -171,7 +171,22 @@ void PieceModel::renderSelectFrameImmediate()
 	
 	glDisable(GL_LINES);
 	glColor3f(1.0f,1.0f,1.0f);
-	glEnd( );
+	glEnd();
+
+
+	glColor4f(1.0f, 0.0f, 1.0f,0.2f);
+	glBegin(GL_TRIANGLE_STRIP);
+
+	glVertex3f(x2, y2, 0);
+	glVertex3f(x2, y1, 0);
+	glVertex3f(x1, y2, 0);
+	glVertex3f(x1, y1, 0);
+
+	//glDisable(GL_LINES);
+	glEnd();
+
+
+	glColor3f(1.0f, 1.0f, 1.0f);
 	glEnable(GL_TEXTURE_2D);
 
 	

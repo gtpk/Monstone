@@ -18,7 +18,8 @@ namespace MarxEngine
 	public:
 		ExGameGraphicInfo()
 		{
-
+			m_GameSize.x = 1270;
+			m_GameSize.y = 720;
 		}
 
 		static ExGameGraphicInfo* GetGameGraphic()

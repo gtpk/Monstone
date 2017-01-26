@@ -82,6 +82,9 @@
     <Filter Include="RenderEngine\Stage\RootUI">
       <UniqueIdentifier>{b60832b0-8dce-4dc5-8dc3-466c1d2c3203}</UniqueIdentifier>
     </Filter>
+    <Filter Include="OpenGL\Player\Utill">
+      <UniqueIdentifier>{efdef005-6396-4519-b688-909b3a5cf168}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Md2Model.h">
@@ -255,8 +258,17 @@
     <ClInclude Include="ViewCamera.h">
       <Filter>OpenGL\Player</Filter>
     </ClInclude>
+    <ClInclude Include="EyeMouseMove.h">
+      <Filter>OpenGL\Player\Utill</Filter>
+    </ClInclude>
     <ClInclude Include="CollisionMapCreater.h">
-      <Filter>OpenGL\Player</Filter>
+      <Filter>OpenGL\Player\Utill</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionMap.h">
+      <Filter>OpenGL\Player\Utill</Filter>
+    </ClInclude>
+    <ClInclude Include="triangulate.h">
+      <Filter>Utill</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -368,8 +380,14 @@
     <ClCompile Include="ViewCamera.cpp">
       <Filter>OpenGL\Player</Filter>
     </ClCompile>
+    <ClCompile Include="EyeMouseMove.cpp">
+      <Filter>OpenGL\Player\Utill</Filter>
+    </ClCompile>
     <ClCompile Include="CollisionMapCreater.cpp">
-      <Filter>OpenGL\Player</Filter>
+      <Filter>OpenGL\Player\Utill</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionMap.cpp">
+      <Filter>OpenGL\Player\Utill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
