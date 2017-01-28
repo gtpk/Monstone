@@ -270,6 +270,9 @@
     <ClInclude Include="triangulate.h">
       <Filter>Utill</Filter>
     </ClInclude>
+    <ClInclude Include="TinyFont.h">
+      <Filter>Utill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Md2Model.cpp">
@@ -388,6 +391,9 @@
     </ClCompile>
     <ClCompile Include="CollisionMap.cpp">
       <Filter>OpenGL\Player\Utill</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyFont.cpp">
+      <Filter>Utill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

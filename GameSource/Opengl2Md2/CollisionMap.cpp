@@ -2,8 +2,13 @@
 #include "Texture.h"
 #include "triangulate.h"
 #include <math.h>
+#include "ProjectLoader.h"
+#include <string>
 CollisionMap::CollisionMap()
 {
+	std::string filename = ProjectLoader::getinstance()->GetProjectPath() + "\\font\\BMJUA_ttf.ttf";
+
+	text = new TinyFont(20, 2, filename.c_str());
 }
 
 CollisionMap::~CollisionMap()
@@ -43,11 +48,17 @@ void CollisionMap::onDrawPoint()
 
 void CollisionMap::onDrawLine()
 {
-
+	
 	if (dotlist.size() <= 1)
 	{
 		return;
 	}
+	//glDisable(GL_TEXTURE_2D);
+	//glEnable(GL_BLEND);
+	//
+
+	float avgx = 0;
+	float avgy = 0;
 	glBegin(GL_LINES);
 	
 		glColor3f(1.0f, 1.0f, 1.0f);
@@ -55,12 +66,19 @@ void CollisionMap::onDrawLine()
 		{
 			glVertex3f(dotlist[i - 1].x, dotlist[i - 1].y, 0);
 			glVertex3f(dotlist[i].x, dotlist[i].y, 0);
+			avgx += dotlist[i].x;
+			avgy += dotlist[i].y;
 		}
 		glColor3f(1.0f, 0.0f, 1.0f);
 		glVertex3f(dotlist[0].x, dotlist[0].y, 0);
 		glVertex3f(dotlist[dotlist.size() - 1].x, dotlist[dotlist.size() - 1].y, 0);
+		avgx += dotlist[0].x;
+		avgy += dotlist[0].y;
 	glEnd();
 	glColor3f(1.0f, 1.0f, 1.0f);
+
+	avgx /= dotlist.size();
+	avgy /= dotlist.size();
 
 	if (dotlist.size() <= 2)
 	{
@@ -75,6 +93,7 @@ void CollisionMap::onDrawLine()
 	{
 
 		glVertex3f(dotlist[polygonList[i]].x, dotlist[polygonList[i]].y, 0);
+		
 	}
 	glEnd();
 
@@ -87,8 +106,13 @@ void CollisionMap::onDrawLine()
 	}
 	glEnd();
 
+
+
+	text->Print(avgx, avgy, dotlist[0].z, 1.0f, 1.0f, 1.0f, 1.0f, FONT_VIEWPORT, L"°¹¼ö(%d)", dotlist.size());
 	glColor4f(1.0f, 1.0f, 1.0f,1.0f);
 }
+
+
 
 void CollisionMap::SetVertext(COMMONDATATYPE::Vector3d dot)
 {

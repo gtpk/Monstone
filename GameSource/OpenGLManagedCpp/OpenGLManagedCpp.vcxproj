@@ -65,7 +65,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalDependencies>$(SolutionDir)OpenGLlib/glew32.lib;$(SolutionDir)OpenGLlib/glut32.lib;$(SolutionDir)$(Configuration)tinyxml\tinyxml.lib;$(SolutionDir)$(Configuration)Opengl2Md2\Opengl2Md2.lib;$(SolutionDir)$(Configuration)Lua\Lua.lib;$(SolutionDir)Externallib\FreeImage\$(Configuration)\FreeImaged.lib;$(SolutionDir)Externallib\LuaJit\output\lua51.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)OpenGLlib/glew32.lib;$(SolutionDir)OpenGLlib/glut32.lib;$(SolutionDir)$(Configuration)tinyxml\tinyxml.lib;$(SolutionDir)$(Configuration)Opengl2Md2\Opengl2Md2.lib;$(SolutionDir)$(Configuration)Lua\Lua.lib;$(SolutionDir)Externallib\FreeImage\$(Configuration)\FreeImaged.lib;$(SolutionDir)Externallib\LuaJit\output\lua51.lib;$(SolutionDir)Externallib\ftgl-2.1.3\msvc\Build\ftgl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>LIBCMTD.LIB</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
@@ -79,7 +79,7 @@
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(SolutionDir)OpenGLlib/glew32.lib;$(SolutionDir)OpenGLlib/glut32.lib;$(SolutionDir)$(Configuration)tinyxml\tinyxml.lib;$(SolutionDir)$(Configuration)Opengl2Md2\Opengl2Md2.lib;$(SolutionDir)$(Configuration)Lua\Lua.lib;$(SolutionDir)Externallib\FreeImage\$(Configuration)\FreeImage.lib;$(SolutionDir)Externallib\LuaJit\output\lua51.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)OpenGLlib/glew32.lib;$(SolutionDir)OpenGLlib/glut32.lib;$(SolutionDir)$(Configuration)tinyxml\tinyxml.lib;$(SolutionDir)$(Configuration)Opengl2Md2\Opengl2Md2.lib;$(SolutionDir)$(Configuration)Lua\Lua.lib;$(SolutionDir)Externallib\FreeImage\$(Configuration)\FreeImage.lib;$(SolutionDir)Externallib\LuaJit\output\lua51.lib;$(SolutionDir)Externallib\ftgl-2.1.3\msvc\Build\ftgl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX86</TargetMachine>
       <IgnoreSpecificDefaultLibraries>LIBCMTD.LIB</IgnoreSpecificDefaultLibraries>

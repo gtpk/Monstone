@@ -50,6 +50,7 @@
     <ClInclude Include="RootUI.h" />
     <ClInclude Include="Snumber.h" />
     <ClInclude Include="StageManager.h" />
+    <ClInclude Include="TinyFont.h" />
     <ClInclude Include="UIBase.h" />
     <ClInclude Include="KardNameFactory.h" />
     <ClInclude Include="LuaManager.h" />
@@ -115,6 +116,7 @@
     <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="Stringformat.h" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TinyFont.cpp" />
     <ClCompile Include="UIBase.cpp" />
     <ClCompile Include="CXBOXController.cpp" />
     <ClCompile Include="ViewCamera.cpp" />
@@ -168,6 +170,8 @@
       <CompileAsManaged>false</CompileAsManaged>
       <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <ShowIncludes>true</ShowIncludes>
+      <AdditionalIncludeDirectories>$(SolutionDir)Externallib\ftgl-2.1.3\src\FTGL;$(SolutionDir)Externallib\ftgl-2.1.3\src;$(SolutionDir)Externallib\freetype\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -180,6 +184,8 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Externallib\ftgl-2.1.3\src\FTGL;$(SolutionDir)Externallib\ftgl-2.1.3\src;$(SolutionDir)Externallib\freetype\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

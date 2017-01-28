@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonDataType.h"
 #include <vector>
+#include "TinyFont.h"
 class CollisionMap
 {
 public:
@@ -13,7 +14,7 @@ public:
 	void onDrawLine();
 	void SetVertext(COMMONDATATYPE::Vector3d dot);
 	void SetVertext(float x, float y);
-
+	TinyFont* text;
 private:
 
 	bool isFinish = false;
