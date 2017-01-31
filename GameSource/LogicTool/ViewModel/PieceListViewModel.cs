@@ -18,15 +18,22 @@ using FreeImageAPI;
 using System.Threading;
 using System.Windows.Threading;
 using System.ComponentModel;
+using System.Xml;
 
 namespace LogicTool.ViewModel
 {
     public class PieceListViewModel : ViewModelBase
     {
+        private static PieceListViewModel _Instance;
+
         public static PieceListViewModel Instance
         {
-            get;
-            private set;
+            get
+            {
+                if (PieceListViewModel._Instance == null)
+                    PieceListViewModel._Instance = new PieceListViewModel();
+                return PieceListViewModel._Instance;
+            }
         }
 
         private ObservableCollection<PieceInfo> m_pieceList;
@@ -35,11 +42,11 @@ namespace LogicTool.ViewModel
         {
             get
             {
-                return m_pieceList;
+                return PieceListViewModel.Instance.m_pieceList;
             }
             set
             {
-                m_pieceList = value;
+                PieceListViewModel.Instance.m_pieceList = value;
                 NotifyPropertyChanged("pieceList");
             }
         }
@@ -50,11 +57,11 @@ namespace LogicTool.ViewModel
         {
             get
             {
-                return m_pieceSelection;
+                return PieceListViewModel.Instance.m_pieceSelection;
             }
             set
             {
-                m_pieceSelection = value;
+                PieceListViewModel.Instance.m_pieceSelection = value;
                 NotifyPropertyChanged("pieceSelection");
             }
         }
@@ -64,15 +71,14 @@ namespace LogicTool.ViewModel
 
         private readonly BackgroundWorker worker = new BackgroundWorker();
 
-        public WPFOpenGLLib.OpenGLHwnd m_OpenGl2Md2;
+        public static WPFOpenGLLib.OpenGLHwnd m_OpenGl2Md2;
 
         
         public PieceListViewModel()
         {
             m_pieceList = new ObservableCollection<PieceInfo>();
-
             m_pieceList.CollectionChanged += m_pieceList_CollectionChanged;
-            Instance = this;
+            //OnetimeInit();
         }
 
         private void m_pieceList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -87,9 +93,12 @@ namespace LogicTool.ViewModel
             if (isLoad)
                 return;
             isLoad = true;
-            
+            if ((bool)DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue)
+            {
+                return;
+            }
             DirectoryInfo di = new DirectoryInfo(
-                ProjectSettingValuesInterface.GetInstance().ProjectPath + @"\asset");
+            ProjectSettingValuesInterface.GetInstance().ProjectPath + @"\asset");
 
             bool isFind = false;
             foreach (FileInfo f in di.GetFiles())

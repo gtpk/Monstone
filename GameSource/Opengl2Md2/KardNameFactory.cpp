@@ -137,8 +137,8 @@ namespace MarxEngine
 		char buff[101];
 		snprintf(buff, sizeof(buff), "\\Asset\\AtlasGen%d.txt", FileName + 1);
 		std::string buffAsStdStr = MarxWorld::getInstance()._RootDirctory + buff;
-
-		FILE* f = fopen(buffAsStdStr.c_str(), "r+");
+		printf("AtlasOpen %s\n", buffAsStdStr.c_str());
+		FILE* f = fopen(buffAsStdStr.c_str(), "r");
 		char inputString[1001];
 
 		while (fscanf(f, "%s", inputString) != EOF)

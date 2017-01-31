@@ -57,7 +57,7 @@ namespace LogicTool.ViewModel
 
         private readonly BackgroundWorker worker = new BackgroundWorker();
 
-        public WPFOpenGLLib.OpenGLHwnd m_OpenGl2Md2;
+        public static WPFOpenGLLib.OpenGLHwnd m_OpenGl2Md2;
 
 
         public KADAtalsViewModel()

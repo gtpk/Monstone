@@ -15,13 +15,15 @@ using System.Windows.Shapes;
 using System.Windows.Interop;
 using System.Timers;
 using LogicTool.ViewModel; //HwndHost
+using LogicCommon;
+using System.Xml;
 
 namespace MarxEngineTool
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class OpenGLHWndWindow : Window
+    public partial class OpenGLHWndWindow 
     {
         public OpenGLHWndWindow()
         {
@@ -34,7 +36,7 @@ namespace MarxEngineTool
         //private HwndHost host;
         private int fps;
         private DateTime before;
-        private WPFOpenGLLib.OpenGLHwnd OpenGl2Md2;
+        public static WPFOpenGLLib.OpenGLHwnd OpenGl2Md2;
 
         private System.Windows.Threading.DispatcherTimer updateTimer = new System.Windows.Threading.DispatcherTimer();
   
@@ -113,14 +115,15 @@ namespace MarxEngineTool
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            
             // Create our OpenGL Hwnd 'control'...
             HwndHost host = new WPFOpenGLLib.OpenGLHwnd();
             OpenGl2Md2 = (WPFOpenGLLib.OpenGLHwnd)host;
  
             // ... and attach it to the placeholder control:
             hwndPlaceholder.Child = host;
-            PieceListViewModel.Instance.m_OpenGl2Md2 = this.OpenGl2Md2;
-            KADAtalsViewModel.Instance.m_OpenGl2Md2 = this.OpenGl2Md2;
+            PieceListViewModel.m_OpenGl2Md2 = OpenGl2Md2;
+            KADAtalsViewModel.m_OpenGl2Md2 = OpenGl2Md2;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

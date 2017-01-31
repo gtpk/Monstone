@@ -51,7 +51,7 @@ using namespace System::Windows::Forms; // We derive from UserControl this time,
 
 using namespace System::Windows::Media::Media3D;
 using namespace System::ComponentModel;
-
+using namespace System::Xml;
 namespace LogicCommon
 {
 
@@ -59,10 +59,9 @@ namespace LogicCommon
 	{
 	
 	private: 
-		static ProjectSettingValuesInterface^ instance;
+		static ProjectSettingValuesInterface^ instance = nullptr;
 		ProjectSettingValuesInterface()
 		{
-			instance = this;
 		}
 
 
@@ -79,13 +78,30 @@ namespace LogicCommon
 
 	public:
 
+
 		virtual event PropertyChangedEventHandler^ PropertyChanged;
 
 
 		static ProjectSettingValuesInterface^ GetInstance()
 		{
-			if(instance == nullptr)
+			if (instance == nullptr)
+			{
 				instance = gcnew ProjectSettingValuesInterface();
+				instance->ProjectPath = String::Empty;
+				if (instance->ProjectPath == String::Empty)
+				{
+					XmlDocument^ xml = gcnew XmlDocument(); // XmlDocument 생성
+					xml->Load(AppDomain::CurrentDomain->BaseDirectory + "ProjectProperty.xml");
+					XmlNodeList^ xnList = xml->GetElementsByTagName("Project"); //접근할 노드
+
+					for each (XmlNode^ xn in xnList)
+					{
+						String^ attrVal = xn->Attributes["RootFolder"]->Value;
+						instance->ProjectPath = attrVal;
+					}
+				}
+			}
+				
 			return instance;
 		}
 
