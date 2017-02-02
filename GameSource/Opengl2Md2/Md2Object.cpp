@@ -107,6 +107,20 @@ void Md2Object::CopyDeepObj(Md2Object* obj)
 	}
 }
 
+void Md2Object::Refresh()
+{
+	std::list<Md2Object*>::iterator md2begin = child.begin();
+	std::list<Md2Object*>::iterator md2End = child.end();
+	for (; md2begin != md2End; )
+	{
+		Md2Object* node = ((Md2Object*)*md2begin);
+		MarxWorld::getInstance().Volkes->setNewPiece(this,node);
+		md2begin++;
+	}
+
+	
+}
+
 void Md2Object::deleteSelectPiece(int _SelectID)
 {
 	std::list<Md2Object*>::iterator md2begin = child.begin();

@@ -63,7 +63,9 @@ namespace LogicCommon
 		static ObjectTreeContator^ instance;
 		ObjectTreeContator()
 		{
-			_Children = gcnew ObservableCollection<ObjectInterface^>();
+			if(_Children == nullptr)
+				_Children = gcnew ObservableCollection<ObjectInterface^>();
+			
 		}
 
 		static ObservableCollection<ObjectInterface^>^ _Children;
@@ -123,7 +125,12 @@ namespace LogicCommon
 		static ObjectTreeContator^ GetInstance()
 		{
 			if (instance == nullptr)
+			{
 				instance = gcnew ObjectTreeContator();
+				if(MarxWorld::getInstance().Volkes != NULL)
+					MarxWorld::getInstance().Volkes->RefreshGameObject();
+			}
+				
 			return instance;
 		}
 	};

@@ -119,6 +119,8 @@ public:
 	void duplicateSelectPiece();
 	void CreateSet();
 
+	void Refresh();
+
 	const string &name () const { return _name; }
 	const string &currentSkin () const { return _currentSkin; }
 	const string &currentAnim () const { return _currentAnim; }

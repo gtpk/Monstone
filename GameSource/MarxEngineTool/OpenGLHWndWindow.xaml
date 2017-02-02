@@ -14,12 +14,30 @@
         xmlns:LogicCommon="clr-namespace:LogicCommon;assembly=OpenGLManagedCpp"
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:MVVMTestApp="clr-namespace:AvalonDock.MVVMTestApp"
         mc:Ignorable="d" x:Class="MarxEngineTool.OpenGLHWndWindow" Height="982" Width="1523"
         Loaded="Window_Loaded" KeyDown="Window_KeyDown" Title="Marx Engine"
-        BorderThickness="1"
-        WindowStartupLocation="CenterScreen"
+        BorderThickness="1" Unloaded="MetroWindow_Unloaded"
     >
     <Controls:MetroWindow.Resources>
+        <VisualBrush x:Key="DotFillBrush" TileMode="Tile" Viewport="0,0,5,5" ViewportUnits="Absolute" Viewbox="0,0,6,6" ViewboxUnits="Absolute">
+            <VisualBrush.Visual>
+                <Canvas>
+                    <Rectangle Fill="#FF5D5D5D" Width="1.5" Height="1.5" Canvas.Left="3" Canvas.Top="3"/>
+                    <Rectangle Fill="#FF5D5D5D" Width="1.5" Height="1.5" Canvas.Left="0" Canvas.Top="0"/>
+                </Canvas>
+            </VisualBrush.Visual>
+        </VisualBrush>
+        <VisualBrush x:Key="Backgroundtransparent" TileMode="Tile" Viewport="0,0,15,15" ViewportUnits="Absolute" Viewbox="0,0,6,6" ViewboxUnits="Absolute">
+            <VisualBrush.Visual>
+                <Canvas>
+                    <Rectangle Fill="#FF272727" Width="3" Height="3" Canvas.Left="3" Canvas.Top="3"/>
+                    <Rectangle Fill="#FF272727" Width="3" Height="3" Canvas.Left="0" Canvas.Top="0"/>
+                </Canvas>
+            </VisualBrush.Visual>
+        </VisualBrush>
+        <MVVMTestApp:ActiveDocumentConverter x:Key="ActiveDocumentConverter"/>
+        <avalonDock:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
         <DataTemplate x:Key="BitmapSourceTemplate">
             <StackPanel>
                 <Image Source="{Binding Mode=OneWay}" HorizontalAlignment="Left" Height="64" Width="64"/>
@@ -129,7 +147,10 @@
             </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-    <DockPanel x:Name="grid1" d:LayoutOverrides="Height" Background="#FF373737">
+    <Controls:MetroWindow.DataContext>
+        <MVVMTestApp:Workspace/>
+    </Controls:MetroWindow.DataContext>
+    <DockPanel x:Name="grid1" d:LayoutOverrides="Height" Background="#FF252525">
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup" ei:ExtendedVisualStateManager.UseFluidLayout="True">
@@ -151,16 +172,16 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Menu Margin="0,0,0,0" Background="#FF373737" Foreground="#FFADADAD" DockPanel.Dock="Top">
-            <MenuItem Header="파일(_F)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333">
+        <Menu Margin="0,0,0,0" Background="#FF252525" Foreground="#FFADADAD" DockPanel.Dock="Top">
+            <MenuItem Header="파일(_F)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6">
                 <MenuItem Header="새 프로젝트(_N)" />
                 <Separator HorizontalAlignment="Left" Width="180.303333333333"/>
-                <MenuItem Header="새 맵 만들기_N)" />
-                <MenuItem Header="불러오기(_S)" />
+                <MenuItem Header="새 맵 만들기_N)" Command="{Binding This.NewCommand, Mode=OneWay}" />
+                <MenuItem Header="불러오기(_S)" Command="{Binding This.OpenCommand, Mode=OneWay}" />
                 <MenuItem Header="저장(_S)" />
                 <MenuItem Header="종료(_X)" />
             </MenuItem>
-            <MenuItem Header="편집(_E)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333">
+            <MenuItem Header="편집(_E)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6">
                 <MenuItem Header="실행취소(_D)" Margin="0"/>
                 <MenuItem Header="다시실행(_R)" Margin="0"/>
                 <Separator Margin="0"/>
@@ -169,11 +190,12 @@
                 <MenuItem Header="붙여넣기(_V)" Margin="0"/>
                 <MenuItem Header="삭제(_Del)" Margin="0" />
             </MenuItem>
-            <MenuItem Header="모드(_M)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
-            <MenuItem Header="그리기(_D)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
-            <MenuItem Header="크기(_S)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333"/>
-            <MenuItem Header="툴(_T)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333">
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+            <MenuItem Header="모드(_M)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6"/>
+            <MenuItem Header="그리기(_D)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6"/>
+            <MenuItem Header="크기(_S)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6"/>
+            <MenuItem Header="툴(_T)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6">
+                <MenuItem Header="Properties" IsChecked="{Binding FileStats.IsVisible, Mode=TwoWay}" IsCheckable="True"/>
+                <MenuItem Header="PieceListInfo" IsChecked="{Binding PieceListInfo.IsVisible, Mode=TwoWay}" IsCheckable="True"/>
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
@@ -183,56 +205,233 @@
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
             </MenuItem>
-            <MenuItem Header="게임(_G)" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <MenuItem Header="도움(_H)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <MenuItem Header="게임(_G)" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="7,0,8,6"/>
+            <MenuItem Header="도움(_H)" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="7,0,8,6" />
         </Menu>
-        <DockPanel x:Name="stackPanel" Height="32" Margin="0" VerticalAlignment="Top" Background="#FF353535" DockPanel.Dock="Top" LastChildFill="False" >
-            <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0" Click="Button_Click_4">
-                <Image Height="22" Source="ImageAsset/icons/1373913501_Open.png" Stretch="Fill" Width="22"/>
+        <DockPanel x:Name="stackPanel" Height="24" Margin="5,0,0,0" VerticalAlignment="Top" Background="#FF252525" DockPanel.Dock="Top" LastChildFill="False" >
+            <Path Data="M73.5,4 L73.5,23.026298" Margin="0" Stretch="Fill" Width="13" StrokeThickness="7" StrokeDashArray="1 0" Stroke="{DynamicResource DotFillBrush}"/>
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0" Click="Button_Click_4">
+                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" x:Name="___" Width="16" Height="16">
+                    <Rectangle Width="16" Height="16">
+                        <Rectangle.Fill>
+                            <DrawingBrush>
+                                <DrawingBrush.Drawing>
+                                    <DrawingGroup>
+                                        <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
+                                        <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M5.5859,10L8.5859,7 5.9999,7C4.8979,7 3.9999,7.897 3.9999,9 3.9999,10.104 4.8979,11 5.9999,11L6.9999,11 6.9999,15 5.9999,15C2.6909,15 -0.000100000000000655,12.309 -0.000100000000000655,9 -0.000100000000000655,5.691 2.6909,3 5.9999,3L8.5859,3 5.5859,0 11.4139,0 15.9999,4.586 15.9999,5.414 11.4139,10z" />
+                                        <GeometryDrawing Brush="#FF00539C" Geometry="F1M15,5L11,9 8,9 11,6 6,6C4.343,6 3,7.343 3,9 3,10.656 4.343,12 6,12L6,14C3.238,14 1,11.762 1,9 1,6.239 3.238,4 6,4L11,4 8,1 11,1z" />
+                                    </DrawingGroup>
+                                </DrawingBrush.Drawing>
+                            </DrawingBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Viewbox>
             </Button>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-                <Image Margin="0" Source="ImageAsset/icons/Actions-document-save-as-icon.png" Stretch="Fill" Width="22" Height="22"/>
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="16" Height="16">
+                    <Rectangle Width="16" Height="16">
+                        <Rectangle.Fill>
+                            <DrawingBrush>
+                                <DrawingBrush.Drawing>
+                                    <DrawingGroup>
+                                        <GeometryDrawing Brush="#FF2279BF" Geometry="F1M22,36L22,45.998 10,45.998 10,36 4,36 4,60 28,60 28,40 24,36z M16,42L20,42 20,36 16,36z" />
+                                    </DrawingGroup>
+                                </DrawingBrush.Drawing>
+                            </DrawingBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Viewbox>
             </Button>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-                <Image Height="22" Source="ImageAsset/icons/Files-New-File-icon.png" Stretch="Fill" Width="22" HorizontalAlignment="Center"/>
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                <!-- This file was generated by the AiToXaml tool.-->
+                <!-- Tool Version: 14.0.22307.0 -->
+                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="16" Height="16">
+                    <Rectangle Width="16" Height="16">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding This.NewCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Rectangle.Fill>
+                            <DrawingBrush>
+                                <DrawingBrush.Drawing>
+                                    <DrawingGroup>
+                                        <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
+                                        <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M1.9998,-0.000199999999999534L1.9998,2.0188 -0.000199999999999978,2.0188 -0.000199999999999978,5.9998 1.9998,5.9998 1.9998,15.9998 15.9998,15.9998 15.9998,-0.000199999999999534z" />
+                                        <GeometryDrawing Brush="#FF424242" Geometry="F1M15,1L15,15 3,15 3,8 5,8 5,13 13,13 13,3 8,3 8,2.018 6,2.018 6,1z" />
+                                        <GeometryDrawing Brush="#FFF0EFF1" Geometry="F1M8,6L8,3 13,3 13,13 5,13 5,8 6,8 6,6z" />
+                                        <GeometryDrawing Brush="#FF388A34" Geometry="F1M7,3.0181L5,3.0181 5,1.0001 3.019,1.0001 3.019,3.0181 1,3.0181 1,5.0001 3.019,5.0001 3.019,7.0001 5,7.0001 5,5.0001 7,5.0001z" />
+                                    </DrawingGroup>
+                                </DrawingBrush.Drawing>
+                            </DrawingBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Viewbox>
             </Button>
-            <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-                <Image Height="24" Source="ImageAsset/icons/Edit-Cut-icon.png" Stretch="Fill" Width="24"/>
+            <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Width="13" StrokeThickness="7" StrokeDashArray="1 0" Stroke="{DynamicResource DotFillBrush}"/>
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="16" Height="16">
+                    <Rectangle Width="16" Height="16">
+                        <Rectangle.Fill>
+                            <DrawingBrush>
+                                <DrawingBrush.Drawing>
+                                    <DrawingGroup>
+                                        <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
+                                        <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M11.5029,9C11.3339,9,11.1659,9.014,10.9999,9.041L10.9999,9C10.9999,8.455 10.8559,7.934 10.5839,7.478 11.7569,5.404 12.3779,4.291 12.5299,3.987 12.7349,3.576 12.9919,3.065 12.9999,2.498 13.0079,1.935 12.7629,1.348 12.3429,0.927L11.4139,0 10.3819,0 7.9999,4.764 5.6179,0 4.5889,0 3.6509,0.928000000000001C3.4529,1.125 2.9929,1.673 2.9999,2.475 3.0029,3.064 3.2799,3.619 3.4639,3.987 3.6189,4.296 4.2739,5.471 5.4149,7.479 5.1449,7.936 4.9999,8.456 4.9999,9L4.9999,9.04C4.8349,9.014 4.6679,9 4.5009,9 2.6039,9 0.9999,10.604 0.9999,12.5 0.9999,14.396 2.6039,16 4.5009,16 6.3649,16 7.9999,14.364 7.9999,12.5 7.9999,12.332 7.9999,12.332 7.9999,12.5 7.9999,14.396 9.6049,16 11.5029,16 13.3989,16 14.9999,14.396 14.9999,12.5 14.9999,10.604 13.3989,9 11.5029,9" />
+                                        <GeometryDrawing Brush="#FF414141" Geometry="F1M11.4932,14C10.6672,14 10.0002,13.341 10.0002,12.512 10.0002,11.682 10.6672,11 11.4932,11 12.3202,11 13.0002,11.682 13.0002,12.512 13.0002,13.341 12.3202,14 11.4932,14 M8.0022,10C7.4492,10 7.0002,9.553 7.0002,9 7.0002,8.448 7.4472,8 8.0002,8 8.5532,8 9.0002,8.448 9.0002,9 9.0002,9.553 8.5532,10 8.0022,10 M4.4882,14C3.6582,14 3.0002,13.352 3.0002,12.523 3.0002,11.693 3.6582,11 4.4882,11 5.3142,11 6.0002,11.693 6.0002,12.523 6.0002,13.352 5.3142,14 4.4882,14 M11.5032,10C11.0832,10,10.6842,10.127,10.3282,10.328L9.8202,9.82C9.9332,9.57 10.0002,9.293 10.0002,9 10.0002,8.436 9.7632,7.927 9.3862,7.562 10.3282,5.9 11.4392,3.932 11.6362,3.54 11.8062,3.198 11.9952,2.821 12.0002,2.484 12.0052,2.127 11.8152,1.815 11.6362,1.635L11.0002,1 8.0002,7 5.0002,1 4.3582,1.635C4.1802,1.812 3.9972,2.119 4.0002,2.469 4.0022,2.811 4.1852,3.193 4.3582,3.54 4.5552,3.932 5.6682,5.901 6.6132,7.564 6.2362,7.928 6.0002,8.436 6.0002,9 6.0002,9.293 6.0662,9.569 6.1802,9.82L5.6732,10.328C5.3162,10.127 4.9192,10 4.5012,10 3.1702,10 2.0002,11.172 2.0002,12.5 2.0002,13.828 3.1702,15 4.5012,15 5.8282,15 7.0002,13.828 7.0002,12.5 7.0002,12.081 6.8742,11.684 6.6732,11.328L7.1802,10.82C7.4312,10.934 7.7082,11 8.0012,11 8.2942,11 8.5702,10.934 8.8202,10.82L9.3272,11.328C9.1262,11.684 9.0002,12.081 9.0002,12.5 9.0002,13.828 10.1722,15 11.5032,15 12.8342,15 14.0002,13.828 14.0002,12.5 14.0002,11.172 12.8342,10 11.5032,10" />
+                                        <GeometryDrawing Brush="#FFF0EFF1" Geometry="F1M13,12.5117C13,11.6817 12.32,10.9997 11.493,10.9997 10.667,10.9997 10,11.6817 10,12.5117 10,13.3407 10.667,13.9997 11.493,13.9997 12.32,13.9997 13,13.3407 13,12.5117 M9,8.9997C9,8.4487 8.553,7.9997 8,7.9997 7.447,7.9997 7,8.4487 7,8.9997 7,9.5527 7.449,9.9997 8.002,9.9997 8.553,9.9997 9,9.5527 9,8.9997 M4.488,13.9997C3.658,13.9997 3,13.3517 3,12.5237 3,11.6937 3.658,10.9997 4.488,10.9997 5.314,10.9997 6,11.6937 6,12.5237 6,13.3517 5.314,13.9997 4.488,13.9997" />
+                                    </DrawingGroup>
+                                </DrawingBrush.Drawing>
+                            </DrawingBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Viewbox>
             </Button>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-                <Image Height="24" Source="ImageAsset/icons/Copy-icon.png" Stretch="Fill" Width="24"/>
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="16" Height="16">
+                    <Rectangle Width="16" Height="16">
+                        <Rectangle.Fill>
+                            <DrawingBrush>
+                                <DrawingBrush.Drawing>
+                                    <DrawingGroup>
+                                        <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
+                                        <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M5.0004,-0.000199999999999534L5.0004,4.0008 0.9994,4.0008 0.9994,15.9998 10.9994,15.9998 10.9994,12.0008 15.0004,12.0008 15.0004,-0.000199999999999534z" />
+                                        <GeometryDrawing Brush="#FF424242" Geometry="F1M9,6L3,6 3,14 9,14z M10,15L2,15 2,5 10,5z M11,11L11,10 13,10 13,2 7,2 7,4 6,4 6,1 14,1 14,11z" />
+                                        <GeometryDrawing Brush="#FFF0EFF1" Geometry="F1M7,2L7,4 11,4 11,10 13,10 13,2z M9,14L3,14 3,6 9,6z" />
+                                    </DrawingGroup>
+                                </DrawingBrush.Drawing>
+                            </DrawingBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Viewbox>
             </Button>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-                <Image Height="24" Source="ImageAsset/icons/Paste-icon.png" Stretch="Fill" Width="24"/>
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="16" Height="16">
+                    <Rectangle Width="16" Height="16">
+                        <Rectangle.Fill>
+                            <DrawingBrush>
+                                <DrawingBrush.Drawing>
+                                    <DrawingGroup>
+                                        <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
+                                        <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M12,3L12,2 11.01,2C10.598,0.836 9.324,0 8.02,0 6.717,0 5.424,0.836 5.01,2L4,2 4,3 2.01,3C2.01,3,2.007,4.769,2.004,7L0,7 0,16 2.01,16 8,16 14,16 14,3z" />
+                                        <GeometryDrawing Brush="#FF424242" Geometry="F1M2,9L6,9 6,14 2,14z M1,15L7,15 7,8 1,8z" />
+                                        <GeometryDrawing Brush="#FF414141" Geometry="F1M8.0195,4C7.4685,4 7.0095,3.553 7.0095,3 7.0095,2.447 7.4585,2 8.0095,2 8.5625,2 9.0095,2.447 9.0095,3 9.0095,3.553 8.5725,4 8.0195,4 M10.9995,4L10.9995,3 10.0095,3C10.0095,1.896 9.1155,1 8.0095,1 6.9065,1 6.0095,1.896 6.0095,3L4.9995,3 4.9995,4 2.9995,4 2.9995,7 3.9995,7 3.9995,5 11.9995,5 11.9995,14 7.9995,14 7.9995,15 12.9995,15 12.9995,4z" />
+                                        <GeometryDrawing Brush="#FFF0EFF1" Geometry="F1M8.0098,4C8.5628,4 9.0628,3.553 9.0628,3 9.0628,2.447 8.5628,1.953 8.0098,1.953 7.4578,1.953 6.9218,2.447 6.9218,3 6.9218,3.553 7.4578,4 8.0098,4" />
+                                        <GeometryDrawing Brush="#FFF0EFF1" Geometry="F1M4,5L4,7 8,7 8,14 12,14 12,5z" />
+                                        <GeometryDrawing Brush="#FFF0EFF1" Geometry="F1M6,14L2,14 2,9 6,9z" />
+                                    </DrawingGroup>
+                                </DrawingBrush.Drawing>
+                            </DrawingBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Viewbox>
             </Button>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
-                <Image Height="24" Source="ImageAsset/icons/Actions-edit-delete-icon.png" Stretch="Fill" Width="24"/>
-            </Button>
-            <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+            <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Width="13" StrokeThickness="7" StrokeDashArray="1 0" Stroke="{DynamicResource DotFillBrush}"/>
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
                 <Image Height="24" Source="ImageAsset/icons/1373914895_to_do_list_cheked_all.png" Stretch="Fill" Width="24"/>
             </Button>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
                 <Image Height="24" Source="ImageAsset/icons/1373915017_select_by_color.png" Stretch="Fill" Width="24"/>
             </Button>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
                 <Image Height="24" Source="ImageAsset/icons/group-24.png" Stretch="Fill" Width="24"/>
             </Button>
-            <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Stroke="Black" Width="13" StrokeThickness="4" StrokeDashArray="1 0"/>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+            <Path Data="M73.5,4 L73.5,23.026298" Margin="4,0,0,0" Stretch="Fill" Width="13" StrokeThickness="7" StrokeDashArray="1 0" Stroke="{DynamicResource DotFillBrush}"/>
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
                 <Image Height="24" Source="ImageAsset/icons/1373918230_object-rotate-right.png" Stretch="Fill" Width="24"/>
             </Button>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
                 <Image Height="24" Source="ImageAsset/icons/1373918245_move.png" Stretch="Fill" Width="24"/>
             </Button>
-            <Button Height="32" Width="32" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
+            <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0">
                 <Image Height="24" Source="ImageAsset/icons/Actions-transform-scale-icon.png" Stretch="Fill" Width="24"/>
             </Button>
         </DockPanel>
 
-        <avalonDock:DockingManager Foreground="{DynamicResource LightBrush}">
+        <avalonDock:DockingManager x:Name="dockManager" Foreground="{DynamicResource LightBrush}" Background="#FF252525"
+                                   AnchorablesSource="{Binding Tools}" 
+                                   DocumentsSource="{Binding Files}" 
+                                   ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource ActiveDocumentConverter}}">
+            <avalonDock:DockingManager.Theme>
+                <avalonDock:Vs2013DarkTheme/>
+            </avalonDock:DockingManager.Theme>
+            <avalonDock:DockingManager.LayoutItemTemplateSelector>
+                <MVVMTestApp:PanesTemplateSelector>
+                    <MVVMTestApp:PanesTemplateSelector.FileStatsViewTemplate>
+                        <DataTemplate>
+                            <Border Padding="5">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding FileSize}"/>
+                                    <TextBlock Text="{Binding LastModified}"/>
+                                    <TextBox Text="test"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </MVVMTestApp:PanesTemplateSelector.FileStatsViewTemplate>
+                    <MVVMTestApp:PanesTemplateSelector.PieceListInfoViewTemplate>
+                        <DataTemplate>
+                            <Grid Background="#FF252525" Margin="0" MinWidth="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <ListBox x:Name="listBox" ItemTemplate="{DynamicResource PieceInfoTemplate1}" ItemsSource="{Binding pieceList}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,42" Background="{DynamicResource Backgroundtransparent}" >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger SourceName="listBox">
+                                            <i:InvokeCommandAction Command="{Binding Instance.Command, Mode=OneWay}" CommandParameter="Load"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="SelectionChanged" SourceName="listBox1" SourceObject="{Binding ElementName=listBox}">
+                                            <i:InvokeCommandAction Command="{Binding SelectCommand, Mode=OneWay}" CommandParameter="{Binding SelectedValue, ElementName=listBox}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </ListBox>
+                                <Button Content="피스 추가" VerticalAlignment="Bottom" Height="42" Margin="0">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding MakePieceInfo, Mode=OneWay}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </MVVMTestApp:PanesTemplateSelector.PieceListInfoViewTemplate>
+                </MVVMTestApp:PanesTemplateSelector>
+            </avalonDock:DockingManager.LayoutItemTemplateSelector>
+            <avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+                <MVVMTestApp:PanesStyleSelector>
+                    <MVVMTestApp:PanesStyleSelector.ToolStyle>
+                        <Style TargetType="{x:Type avalonDock:LayoutAnchorableItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}"/>
+                            <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"/>
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                            <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
+                            <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
+                        </Style>
+                    </MVVMTestApp:PanesStyleSelector.ToolStyle>
+                    <MVVMTestApp:PanesStyleSelector.FileStyle>
+                        <Style TargetType="{x:Type avalonDock:LayoutItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}"/>
+                            <Setter Property="ToolTip" Value="{Binding Model.FilePath}"/>
+                            <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}"/>
+                            <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                        </Style>
+                    </MVVMTestApp:PanesStyleSelector.FileStyle>
+                    <MVVMTestApp:PanesStyleSelector.PieceStyle>
+                        <Style TargetType="{x:Type avalonDock:LayoutAnchorableItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}"/>
+                            <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"/>
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                            <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
+                            <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
+                        </Style>
+                    </MVVMTestApp:PanesStyleSelector.PieceStyle>
+                </MVVMTestApp:PanesStyleSelector>
+            </avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+            <avalonDock:DockingManager.LayoutUpdateStrategy>
+                <MVVMTestApp:LayoutInitializer/>
+            </avalonDock:DockingManager.LayoutUpdateStrategy>
             <avalonDock:LayoutRoot x:Name="_layoutRoot">
                 <avalonDock:LayoutPanel Orientation="Horizontal">
                     <avalonDock:LayoutAnchorablePane DockWidth="200">
@@ -253,7 +452,7 @@
 							AutoHideWidth="240">
                             <Grid>
                                 <Grid.DataContext>
-                                    <ViewModel:ImageControlTreeViewModel/>
+                                    <ViewModel:MarxObjectTreeViewModel/>
                                 </Grid.DataContext>
                                 <TreeView Margin="0,25.04,0,0" ItemTemplate="{DynamicResource DataTemplat2}" ItemsSource="{Binding Children}"/>
                                 <Grid Height="25" Margin="0,0.02,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height">
@@ -263,9 +462,9 @@
                             </Grid>
                         </avalonDock:LayoutAnchorable>
                     </avalonDock:LayoutAnchorablePane>
-                    <avalonDock:LayoutDocumentPaneGroup  >
-                        <avalonDock:LayoutDocumentPane  >
-                            <avalonDock:LayoutDocument>
+                    <avalonDock:LayoutDocumentPaneGroup CanRepositionItems="False" IsMaximized="True"  >
+                        <avalonDock:LayoutDocumentPane CanRepositionItems="False" ShowHeader="False"  >
+                            <avalonDock:LayoutDocument CanClose="False" CanFloat="False" Title="GameScene">
                                 <Border x:Name="hwndPlaceholder" RenderTransformOrigin="0.5,0.5" Margin="0" >
                                     <Border.RenderTransform>
                                         <TransformGroup>
@@ -278,39 +477,7 @@
                             </avalonDock:LayoutDocument>
                         </avalonDock:LayoutDocumentPane>
                     </avalonDock:LayoutDocumentPaneGroup>
-                    <avalonDock:LayoutAnchorablePane DockWidth="200">
-                        <avalonDock:LayoutAnchorable ContentId="Asset" Title="Asset" CanHide="False" CanClose="False"
-							AutoHideWidth="240">
-                            <Grid Background="#FF252525" Margin="0" MinWidth="200">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="43*"/>
-                                    <RowDefinition Height="20*"/>
-                                </Grid.RowDefinitions>
-                                <Grid.DataContext>
-                                    <ViewModel:PieceListViewModel/>
-                                </Grid.DataContext>
-                                <Grid>
-                                    <ListBox x:Name="listBox" Background="{x:Null}" Margin="0,0,0,42.84" ItemTemplate="{DynamicResource PieceInfoTemplate1}" ItemsSource="{Binding pieceList}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxWidth="300">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger>
-                                                <i:InvokeCommandAction Command="{Binding Instance.Command, Mode=OneWay}" CommandParameter="Load"/>
-                                            </i:EventTrigger>
-                                            <i:EventTrigger EventName="SelectionChanged">
-                                                <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="{Binding SelectedValue, ElementName=listBox}"/>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </ListBox>
-                                    <Button Content="피스 추가" Margin="0" VerticalAlignment="Bottom" Height="42">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="Click">
-                                                <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="MakePieceInfo"/>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </Button>
-                                </Grid>
-                                <Image Grid.Row="1" Source="{Binding Instance.pieceSelection.BitmapSource}" Margin="0" Width="200"/>
-                            </Grid>
-                        </avalonDock:LayoutAnchorable>
+                    <avalonDock:LayoutAnchorablePane DockWidth="300" FloatingHeight="500">
                         <avalonDock:LayoutAnchorable ContentId="Property" Title="Property" CanHide="False" CanClose="False"
 							AutoHideWidth="240">
                             <Grid Background="#FF252525" Margin="0" MinWidth="200">
@@ -319,37 +486,35 @@
 
                             </Grid>
                         </avalonDock:LayoutAnchorable>
-                        <avalonDock:LayoutAnchorable ContentId="Atlas Asset" Title="Property" CanHide="False" CanClose="False"
+                        <avalonDock:LayoutAnchorable ContentId="Atlas Asset" Title="Atlas Asset" CanHide="False" CanClose="False"
 							AutoHideWidth="240">
+
                             <Grid Background="#FF252525" Margin="0" MinWidth="200">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="43*"/>
-                                    <RowDefinition Height="20*"/>
+                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Grid.DataContext>
                                     <ViewModel:KADAtalsViewModel/>
                                 </Grid.DataContext>
-                                <Grid>
-                                    <ListBox x:Name="listBox1" Background="{x:Null}" Margin="0,0,0,42.84" ItemTemplate="{DynamicResource PieceInfoTemplate2}" ItemsSource="{Binding pieceList}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxWidth="300">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger SourceName="listBox1">
-                                                <i:InvokeCommandAction Command="{Binding Instance.Command, Mode=OneWay}" CommandParameter="Load"/>
-                                            </i:EventTrigger>
-                                            <i:EventTrigger EventName="SelectionChanged" SourceName="listBox1" SourceObject="{Binding ElementName=listBox1}">
-                                                <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="{Binding SelectedValue, ElementName=listBox1}"/>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </ListBox>
-                                    <Button Content="피스 추가" Margin="0" VerticalAlignment="Bottom" Height="42">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="Click">
-                                                <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="MakePieceInfo"/>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </Button>
-                                </Grid>
-                                <Image Grid.Row="1" Source="{Binding Instance.pieceSelection.BitmapSource}" Margin="0" Width="200"/>
+                                <ListBox x:Name="listBox1" ItemTemplate="{DynamicResource PieceInfoTemplate2}" ItemsSource="{Binding pieceList}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,42" Background="{DynamicResource Backgroundtransparent}" >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger SourceName="listBox1">
+                                            <i:InvokeCommandAction Command="{Binding Instance.Command, Mode=OneWay}" CommandParameter="Load"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="SelectionChanged" SourceName="listBox1" SourceObject="{Binding ElementName=listBox1}">
+                                            <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="{Binding SelectedValue, ElementName=listBox1}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </ListBox>
+                                <Button Content="피스 추가" VerticalAlignment="Bottom" Height="42" Margin="0">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="MakePieceInfo"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
                             </Grid>
+
                         </avalonDock:LayoutAnchorable>
                     </avalonDock:LayoutAnchorablePane>
                 </avalonDock:LayoutPanel>

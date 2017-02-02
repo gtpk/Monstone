@@ -80,6 +80,8 @@ public:
 
 	int setRotate_Lua(GLfloat x,GLfloat y,GLfloat z );
 
+	
+
 	GLfloat getRotateX_Lua()
 	{
 		return m_rotation[0];
@@ -145,6 +147,8 @@ public:
 	void deleteSelectPiece(int _SelectID);
 	void Save(TiXmlElement * MapPieces);
 	void Load(Md2Object* mother,TiXmlNode * MapPieces);
+
+	void Refresh();
 private:
 	std::list<Md2Object*> child;
 

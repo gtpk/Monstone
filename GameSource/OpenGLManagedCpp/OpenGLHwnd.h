@@ -21,11 +21,7 @@
 #include "SelectObjectInterface.h"
 #include "UIobjectInterface.h"
 #include "UIObjectTreeContator.h"
-//#pragma comment(lib, "opengl32.lib")
-
-
-//#include "OpenGL.h"
-
+#include <map>
 
 // To use these, we must add some references...
 //	o PresentationFramework (for HwndHost)
@@ -38,8 +34,8 @@ using namespace System::Windows::Input;
 using namespace System::Windows::Media;
 using namespace System::Runtime::InteropServices;
 using namespace System::Windows::Forms;
-
-
+using namespace System::Windows::Controls;
+using namespace System::Collections::Generic;
 
 /*
 #define GLUT_LEFT_BUTTON		0
@@ -48,113 +44,9 @@ using namespace System::Windows::Forms;
 */
 namespace WPFOpenGLLib 
 {
-	LRESULT WINAPI MyMsgProc(HWND _hWnd, UINT _msg, WPARAM _wParam, LPARAM _lParam)
-	{
-		switch(_msg)
-		{
-			// Make sure the window gets focus when it has to!
-			case WM_IME_SETCONTEXT:
-				// LOWORD(wParam) = 0 stands for deactivation, so don't set
-				// focus then (results in a rather, err... 'greedy' window...)
-				if(LOWORD(_wParam) > 0) 
-					SetFocus(_hWnd);
+	LRESULT WINAPI MyMsgProc(HWND _hWnd, UINT _msg, WPARAM _wParam, LPARAM _lParam);
 
-				return 0;
-			case WM_SIZE:								// Resize The OpenGL Window
-				{
-					Opengl2md2::getInstance().reshape(LOWORD(_lParam),HIWORD(_lParam));
-
-					//ReSizeGLScene(LOWORD(lParam),HIWORD(lParam));  // LoWord=Width, HiWord=Height
-					return 0;								// Jump Back
-				}
-			case WM_KEYDOWN:							// Is A Key Being Held Down?
-				{
-					Opengl2md2::keyPress(_wParam,0,0); // If So, Mark It As TRUE
-					Opengl2md2::specialKeyPress(_wParam,0,0);
-					return 0;								// Jump Back
-				}
-
-			case WM_KEYUP:								// Has A Key Been Released?
-				{
-					Opengl2md2::keyUp(_wParam,0,0);					// If So, Mark It As FALSE
-					Opengl2md2::specialKeyUp(_wParam,0,0);
-					return 0;								// Jump Back
-				}
-			case WM_MOUSEMOVE:
-				{
-					Opengl2md2::mouseMotion(LOWORD(_lParam),HIWORD(_lParam));
-					return 0;
-				}
-			case WM_LBUTTONDOWN:
-				{
-					Opengl2md2::mouseButton(GLUT_LEFT_BUTTON,GLUT_DOWN,LOWORD(_lParam),HIWORD(_lParam));
-					SetFocus(_hWnd);
-					return 0;
-				}
-			case WM_RBUTTONDOWN:
-				{
-					Opengl2md2::mouseButton(GLUT_RIGHT_BUTTON,GLUT_DOWN,LOWORD(_lParam),HIWORD(_lParam));
-					SetFocus(_hWnd);
-					return 0;
-				}
-			case WM_MBUTTONDOWN:
-				{
-					Opengl2md2::mouseButton(GLUT_MIDDLE_BUTTON,GLUT_DOWN,LOWORD(_lParam),HIWORD(_lParam));
-					SetFocus(_hWnd);
-					return 0;
-				}
-			case WM_LBUTTONUP:
-				{
-					Opengl2md2::mouseButton(GLUT_LEFT_BUTTON,GLUT_UP,LOWORD(_lParam),HIWORD(_lParam));
-					return 0;
-				}
-			case WM_RBUTTONUP:
-				{
-					Opengl2md2::mouseButton(GLUT_RIGHT_BUTTON,GLUT_UP,LOWORD(_lParam),HIWORD(_lParam));
-					return 0;
-				}
-			case WM_MBUTTONUP:
-				{
-					Opengl2md2::mouseButton(GLUT_MIDDLE_BUTTON,GLUT_UP,LOWORD(_lParam),HIWORD(_lParam));
-					return 0;
-				}
-			case WM_MOUSEWHEEL:
-				{
-					//Opengl2md2::mouseButton(GLUT_MIDDLE_BUTTON,GLUT_UP,LOWORD(_lParam),HIWORD(_lParam));
-					Opengl2md2::WhellScrolle(LOWORD(_wParam),HIWORD(_wParam));
-					return 0;
-				}
-		    case WM_MOUSEACTIVATE:
-				if( (HWND)_wParam != _hWnd) //hWndVP is hwnd of window I want to get focus
-					return MA_NOACTIVATE;
-				else
-				{
-					SetFocus(_hWnd);
-					return MA_ACTIVATE;
-				}
-			case WM_PRINT:
-				{
-					
-					//Opengl2md2::getInstance().idleVisible();
-					//wglMakeCurrent(m_hDC, m_hRC);
-
-					//Opengl2md2::getInstance().display();
-
-					//SwapBuffers((GetDC(_hWnd));
-					//Opengl2md2::getInstance().display();
-
-					//SwapBuffers(GetDC(_hWnd)); // NOTE: This is no longer wglSwapBuffers
-				}
-			case WM_COMMAND:
-				{
-					Opengl2md2::menuSelect((HMENU)_lParam, _wParam);
-					return 0;
-				}
-			default:
-				return DefWindowProc( _hWnd, _msg, _wParam, _lParam );
-		}
-	}
-
+	
 	//
 	// This class implements HwndHost
 	//
@@ -313,7 +205,7 @@ namespace WPFOpenGLLib
 				return true;
 			}
 
-			wndClass.style				= CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
+			wndClass.style				= CS_HREDRAW | CS_VREDRAW | CS_OWNDC ;
 			
 			// Not providing a WNDPROC here results in a crash on my system:
 			wndClass.lpfnWndProc		= (WNDPROC)MyMsgProc; 
@@ -355,7 +247,7 @@ namespace WPFOpenGLLib
 				int iHeight = 700;
 
 
-				DWORD dwStyle = WS_CHILD | WS_VISIBLE;
+				DWORD dwStyle = WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN;
 
 				// Get the parent (WPF) Hwnd. This is important: Windows won't let you create
 				// the Hwnd otherwise.
@@ -514,7 +406,7 @@ namespace WPFOpenGLLib
 					instance->OneTimeInit();
 				}
 
-
+				setHandle(m_hWnd, this);
 				SetFocus(m_hWnd);
 				CompositionTarget::Rendering += gcnew EventHandler(this, &OpenGLHwnd::Drawing);
 				//Load();
@@ -540,6 +432,7 @@ namespace WPFOpenGLLib
 			ValidateRect(m_hWnd,NULL);
 		}
 
+
 		void MarshalString ( String ^ s, string& os ) 
 		{
 			using namespace Runtime::InteropServices;
@@ -557,6 +450,8 @@ namespace WPFOpenGLLib
 			os = chars;
 			Marshal::FreeHGlobal(IntPtr((void*)chars));
 		}
+
+
 
 
 	public :
@@ -671,5 +566,137 @@ namespace WPFOpenGLLib
 			MarshalString(selected1, sModelname);
 			Opengl2md2::getInstance().Load(sModelname);
 		}
+
+		void Refresh()
+		{
+			MarxWorld::getInstance().Refresh();
+		}
+
+		Border^ ModerObj = nullptr;
+
+		void SetModerObj(Border^ Moder)
+		{
+			ModerObj = Moder;
+		}
+
+		static OpenGLHwnd^ getHandle(HWND who)
+		{
+			return Values[(int)who];
+		}
+		static void setHandle(HWND who , OpenGLHwnd^ item)
+		{
+			Values[(int)who] = item;
+		}
+
+		static Dictionary<int, OpenGLHwnd^>^ Values = gcnew Dictionary<int, OpenGLHwnd^>();
 	};
+
+	LRESULT WINAPI MyMsgProc(HWND _hWnd, UINT _msg, WPARAM _wParam, LPARAM _lParam)
+	{
+		switch (_msg)
+		{
+			// Make sure the window gets focus when it has to!
+		case WM_IME_SETCONTEXT:
+			// LOWORD(wParam) = 0 stands for deactivation, so don't set
+			// focus then (results in a rather, err... 'greedy' window...)
+			if (LOWORD(_wParam) > 0)
+				SetFocus(_hWnd);
+
+			return 0;
+		case WM_SIZE:								// Resize The OpenGL Window
+		{
+			Opengl2md2::getInstance().reshape(LOWORD(_lParam), HIWORD(_lParam));
+
+			//ReSizeGLScene(LOWORD(lParam),HIWORD(lParam));  // LoWord=Width, HiWord=Height
+			return 0;								// Jump Back
+		}
+		case WM_KEYDOWN:							// Is A Key Being Held Down?
+		{
+			Opengl2md2::keyPress(_wParam, 0, 0); // If So, Mark It As TRUE
+			Opengl2md2::specialKeyPress(_wParam, 0, 0);
+			return 0;								// Jump Back
+		}
+
+		case WM_KEYUP:								// Has A Key Been Released?
+		{
+			Opengl2md2::keyUp(_wParam, 0, 0);					// If So, Mark It As FALSE
+			Opengl2md2::specialKeyUp(_wParam, 0, 0);
+			return 0;								// Jump Back
+		}
+		case WM_MOUSEMOVE:
+		{
+			Opengl2md2::mouseMotion(LOWORD(_lParam), HIWORD(_lParam));
+			return 0;
+		}
+		case WM_LBUTTONDOWN:
+		{
+			Opengl2md2::mouseButton(GLUT_LEFT_BUTTON, GLUT_DOWN, LOWORD(_lParam), HIWORD(_lParam));
+			OpenGLHwnd::getHandle(_hWnd)->ModerObj->Focus();
+			SetFocus(_hWnd);
+			return 0;
+		}
+		case WM_RBUTTONDOWN:
+		{
+			Opengl2md2::mouseButton(GLUT_RIGHT_BUTTON, GLUT_DOWN, LOWORD(_lParam), HIWORD(_lParam));
+			SetFocus(_hWnd);
+			return 0;
+		}
+		case WM_MBUTTONDOWN:
+		{
+			Opengl2md2::mouseButton(GLUT_MIDDLE_BUTTON, GLUT_DOWN, LOWORD(_lParam), HIWORD(_lParam));
+			SetFocus(_hWnd);
+			return 0;
+		}
+		case WM_LBUTTONUP:
+		{
+			Opengl2md2::mouseButton(GLUT_LEFT_BUTTON, GLUT_UP, LOWORD(_lParam), HIWORD(_lParam));
+			return 0;
+		}
+		case WM_RBUTTONUP:
+		{
+			Opengl2md2::mouseButton(GLUT_RIGHT_BUTTON, GLUT_UP, LOWORD(_lParam), HIWORD(_lParam));
+			return 0;
+		}
+		case WM_MBUTTONUP:
+		{
+			Opengl2md2::mouseButton(GLUT_MIDDLE_BUTTON, GLUT_UP, LOWORD(_lParam), HIWORD(_lParam));
+			return 0;
+		}
+		case WM_MOUSEWHEEL:
+		{
+			//Opengl2md2::mouseButton(GLUT_MIDDLE_BUTTON,GLUT_UP,LOWORD(_lParam),HIWORD(_lParam));
+			Opengl2md2::WhellScrolle(LOWORD(_wParam), HIWORD(_wParam));
+			return 0;
+		}
+		case WM_MOUSEACTIVATE:
+			if ((HWND)_wParam != _hWnd) //hWndVP is hwnd of window I want to get focus
+				return MA_NOACTIVATE;
+			else
+			{
+				SetFocus(_hWnd);
+				return MA_ACTIVATE;
+			}
+		case WM_PRINT:
+		{
+
+			//Opengl2md2::getInstance().idleVisible();
+			//wglMakeCurrent(m_hDC, m_hRC);
+
+			//Opengl2md2::getInstance().display();
+
+			//SwapBuffers((GetDC(_hWnd));
+			//Opengl2md2::getInstance().display();
+
+			//SwapBuffers(GetDC(_hWnd)); // NOTE: This is no longer wglSwapBuffers
+		}
+		case WM_COMMAND:
+		{
+			Opengl2md2::menuSelect((HMENU)_lParam, _wParam);
+			return 0;
+		}
+		default:
+			return DefWindowProc(_hWnd, _msg, _wParam, _lParam);
+		}
+	}
+
 }

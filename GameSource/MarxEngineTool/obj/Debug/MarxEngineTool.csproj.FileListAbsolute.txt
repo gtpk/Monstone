@@ -30,3 +30,5 @@ E:\Monstone\GameSource\MarxEngineTool\obj\Debug\MarxEngineTool.Properties.Resour
 E:\Monstone\GameSource\MarxEngineTool\obj\Debug\MarxEngineTool.csproj.GenerateResource.Cache
 E:\Monstone\GameSource\MarxEngineTool\obj\Debug\MarxEngineTool.exe
 E:\Monstone\GameSource\MarxEngineTool\obj\Debug\MarxEngineTool.pdb
+E:\Monstone\GameSource\MarxEngineTool\obj\Debug\AddControl_16x.baml
+E:\Monstone\GameSource\MarxEngineTool\obj\Debug\ImageAsset\AddControl_16x.baml

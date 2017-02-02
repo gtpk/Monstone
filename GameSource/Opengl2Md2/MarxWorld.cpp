@@ -641,6 +641,21 @@ Md2Object *MarxWorld::setNewPieceChar(const string &md2Name, const string &textu
 	return obj;
 }
 
+void MarxWorld::Refresh()
+{
+	Md2Iter md2begin = _WorldPiece.begin();
+	Md2Iter md2End = _WorldPiece.end();
+	for (; md2begin != md2End; )
+	{
+		Md2Object* node = ((Md2Object*)*md2begin);
+		if (Volkes != NULL)
+			Volkes->setNewPiece(node);
+		node->Refresh();
+		md2begin++;
+
+	}
+}
+
 Md2Object *MarxWorld::setNewPiece(const string &md2Name,const string &textureName,float x,float y,float z)
 {
 	COMMONDATATYPE::Vector3d data;

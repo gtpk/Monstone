@@ -15,7 +15,7 @@ namespace LogicTool.ViewModel
         static readonly MarxObjectTreeViewModel DummyChild = new MarxObjectTreeViewModel();
         
 
-        readonly ObservableCollection<ObjectInterface> _children;
+        readonly static ObservableCollection<ObjectInterface> _children = new ObservableCollection<ObjectInterface>();
         /// <summary>
         /// Returns the logical child items of this object.
         /// </summary>
@@ -36,14 +36,12 @@ namespace LogicTool.ViewModel
         protected MarxObjectTreeViewModel(MarxObjectTreeViewModel parent, bool lazyLoadChildren)
         {
             _parent = parent;
-
-            _children = new ObservableCollection<ObjectInterface>();
-
         }
 
         // This is used to create the DummyChild instance.
         public MarxObjectTreeViewModel()
         {
+            
         }
 
         /// <summary>

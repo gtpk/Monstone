@@ -111,3 +111,8 @@ void VolkesIterfaceTool::OneTimeInit()
 	data->ProjectPath =  gcnew String(path2.c_str());
 
 }
+
+void VolkesIterfaceTool::RefreshGameObject()
+{
+	MarxWorld::getInstance().Refresh();
+}

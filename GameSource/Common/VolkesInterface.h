@@ -41,7 +41,7 @@ namespace EXTERN
 		virtual void setNewImageControl(ImageControl* model) = 0;
 		virtual void DeleteImageControl(ImageControl* model) = 0;
 		virtual bool SetImageControlSelection(ImageControl* model) = 0;
-
+		virtual void RefreshGameObject() = 0;
 		virtual void OneTimeInit() = 0;
 
 	};

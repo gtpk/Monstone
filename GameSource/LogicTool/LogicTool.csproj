@@ -69,7 +69,6 @@
     <Compile Include="ViewModel\MarxObjectTreeViewModel.cs" />
     <Compile Include="ViewModel\PieceAddViewModel.cs" />
     <Compile Include="ViewModel\PieceCommand.cs" />
-    <Compile Include="ViewModel\PieceListViewModel.cs" />
     <Compile Include="Virtual Interface\CommandBase.cs" />
     <Compile Include="Virtual Interface\ViewModelBase.cs" />
   </ItemGroup>

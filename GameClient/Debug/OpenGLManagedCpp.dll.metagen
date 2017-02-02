@@ -158,6 +158,9 @@ Class LogicCommon.UIObjectTreeContator: AutoLayout, AnsiClass, Class, Public, Be
 Class WPFOpenGLLib.OpenGLHwnd: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Interop.HwndHost
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Controls.Border ModerObj : Public
+    System.Collections.Generic.Dictionary`2[System.Int32,WPFOpenGLLib.OpenGLHwnd] Values : Public, Static
   Methods:
     SetNewPiece(Single, Single, String, String): PrivateScope, Public, HideBySig
     SetNewPiece(Single, Single, String): PrivateScope, Public, HideBySig
@@ -166,6 +169,10 @@ Class WPFOpenGLLib.OpenGLHwnd: AutoLayout, AnsiClass, Class, Public, BeforeField
     DrawingCall(): PrivateScope, Public, HideBySig
     Save(): PrivateScope, Public, HideBySig
     Load(): PrivateScope, Public, HideBySig
+    Refresh(): PrivateScope, Public, HideBySig
+    SetModerObj(Border): PrivateScope, Public, HideBySig
+    getHandle(HWND__*): PrivateScope, Public, Static, HideBySig
+    setHandle(HWND__*, OpenGLHwnd): PrivateScope, Public, Static, HideBySig
 Class WPFOpenGLLib.OpenGLUserControl: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.UserControl
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

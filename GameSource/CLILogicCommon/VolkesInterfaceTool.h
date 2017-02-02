@@ -21,7 +21,7 @@ public:
 	void setNewImageControl(ImageControl* model);
 	void DeleteImageControl(ImageControl* model);
 	bool SetImageControlSelection(ImageControl* model);
-
+	void RefreshGameObject();
 	
 	void OneTimeInit();
 };
