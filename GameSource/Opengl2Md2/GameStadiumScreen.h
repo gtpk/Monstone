@@ -90,7 +90,7 @@ namespace MarxEngine
 			}
 		}
 
-		ImageControl* getSelectObj()
+		ImageControl* FindSelectTopObj()
 		{
 			std::vector<ImageControl*> objs = StageManager::GetGameGraphic()->GetGameStage()->getAllChild();
 			std::vector<ImageControl*>::iterator _itor = objs.begin();

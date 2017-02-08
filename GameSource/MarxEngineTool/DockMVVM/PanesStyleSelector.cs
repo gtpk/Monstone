@@ -43,6 +43,13 @@ namespace AvalonDock.MVVMTestApp
             set;
         }
 
+        public Style TreeStyle
+        {
+            get;
+            set;
+        }
+
+
         public override System.Windows.Style SelectStyle(object item, System.Windows.DependencyObject container)
         {
             if (item is ToolViewModel)
@@ -52,6 +59,15 @@ namespace AvalonDock.MVVMTestApp
                 return FileStyle;
 
             if (item is PieceListInfoViewModel)
+                return PieceStyle;
+
+            if (item is UIObjectListInfoViewModel)
+                return PieceStyle;
+
+            if (item is MarxObjectTreeViewModel)
+                return PieceStyle;
+
+            if (item is ImageControlTreeViewModel)
                 return PieceStyle;
 
             return base.SelectStyle(item, container);

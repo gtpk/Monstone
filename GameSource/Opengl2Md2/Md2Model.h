@@ -148,7 +148,7 @@ public:
 
 	void renderFrameWithGLcmds (int frame);
 	void drawModelItpWithGLcmds (int frameA, int frameB, float interp);
-	void renderSelectFrameImmediate(){}
+	void renderSelectFrameImmediate(int Numbers[]){}
 
 	
 private:

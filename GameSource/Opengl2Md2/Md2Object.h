@@ -22,6 +22,16 @@ using namespace MarxEngine;
 namespace MarxEngine {
 	class ImageControl;
 }
+class Md2Object;
+
+
+struct EdgeTarget
+{
+	Md2Object *obj;
+	int id;
+	int direction;
+};
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // class Md2Object -- MD2 Object Class.
@@ -52,6 +62,8 @@ public:
 
 	void drawObjectItp (bool animated, Md2RenderMode renderMode);
 	void drawObjectFrame (int frame, Md2RenderMode renderMode);
+
+	void SelectDraw();
 	void animate (int startFrame, int endFrame, float percent);
 	void animate (float percent);
 
@@ -128,11 +140,11 @@ public:
 	// Accessors
 	ModelInteface *model () const { return _model.get(); }
 
-	void setSelect (bool select){m_bselect = select;}
+	void setSelect(bool select);
 	bool getSelect (){ return m_bselect;}
 
 	
-	bool m_bselect;
+	
 
 	float scale () const { return _scale; }
 	const string &currentAnim () const { return _currentAnim; }
@@ -142,17 +154,21 @@ public:
 
 	/* // Child Object */
 	void setNewPiece(Md2Object* obj);
-
+	Md2Object* setSelectObj(int number,bool isSelect);
 	Md2Object* setSelectObj(int number);
+	Md2Object* FindbyNameObj(int name);
+
 	void deleteSelectPiece(int _SelectID);
 	void Save(TiXmlElement * MapPieces);
 	void Load(Md2Object* mother,TiXmlNode * MapPieces);
 
 	void Refresh();
 private:
-	std::list<Md2Object*> child;
 
-	
+	bool m_bselect;
+	std::list<Md2Object*> child;
+	int SelectNumbers[9] = { 0 , };
+	EdgeTarget slelectList[8];
 
 private:
 	// Member variables

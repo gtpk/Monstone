@@ -273,6 +273,9 @@
     <ClInclude Include="TinyFont.h">
       <Filter>Utill</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectMove.h">
+      <Filter>OpenGL\Player\Utill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Md2Model.cpp">
@@ -394,6 +397,9 @@
     </ClCompile>
     <ClCompile Include="TinyFont.cpp">
       <Filter>Utill</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectMove.cpp">
+      <Filter>OpenGL\Player\Utill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

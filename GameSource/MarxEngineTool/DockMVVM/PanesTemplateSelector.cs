@@ -50,6 +50,12 @@ namespace AvalonDock.MVVMTestApp
             set;
         }
 
+        public DataTemplate ObjectTreeTemplate
+        {
+            get;
+            set;
+        }
+
         public override System.Windows.DataTemplate SelectTemplate(object item, System.Windows.DependencyObject container)
         {
             var itemAsLayoutContent = item as LayoutContent;
@@ -62,6 +68,15 @@ namespace AvalonDock.MVVMTestApp
 
             if (item is PieceListInfoViewModel)
                 return PieceListInfoViewTemplate;
+
+            if (item is UIObjectListInfoViewModel)
+                return PieceListInfoViewTemplate;
+
+            if (item is MarxObjectTreeViewModel)
+                return ObjectTreeTemplate;
+
+            if (item is ImageControlTreeViewModel)
+                return ObjectTreeTemplate;
 
             return base.SelectTemplate(item, container);
         }

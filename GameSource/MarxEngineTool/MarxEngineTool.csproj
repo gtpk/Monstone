@@ -66,6 +66,9 @@
     <Reference Include="Microsoft.Expression.Effects" />
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
@@ -120,15 +123,18 @@
     </ApplicationDefinition>
     <Compile Include="CloseableTabItem.cs" />
     <Compile Include="DockMVVM\ActiveDocumentConverter.cs" />
-    <Compile Include="DockMVVM\PieceListInfoViewModel.cs" />
     <Compile Include="DockMVVM\FileStatsViewModel.cs" />
     <Compile Include="DockMVVM\FileViewModel.cs" />
     <Compile Include="DockMVVM\LayoutInitializer.cs" />
     <Compile Include="DockMVVM\PanesStyleSelector.cs" />
     <Compile Include="DockMVVM\PanesTemplateSelector.cs" />
     <Compile Include="DockMVVM\PaneViewModel.cs" />
+    <Compile Include="DockMVVM\PieceListInfoViewModel.cs" />
     <Compile Include="DockMVVM\RelayCommand.cs" />
     <Compile Include="DockMVVM\ToolViewModel.cs" />
+    <Compile Include="DockMVVM\MarxObjectTreeViewModel.cs" />
+    <Compile Include="DockMVVM\ImageControlTreeViewModel.cs" />
+    <Compile Include="DockMVVM\UIObjectListInfoViewModel.cs" />
     <Compile Include="DockMVVM\ViewModelBase.cs" />
     <Compile Include="DockMVVM\Workspace.cs" />
     <Compile Include="EditorContorl\TextureView\AlphaTextureView.xaml.cs">
@@ -143,6 +149,7 @@
     <Compile Include="EditorContorl\VectorEditer.xaml.cs">
       <DependentUpon>VectorEditer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditorContorl\WpfPropertyGrid.cs" />
     <Page Include="AddControl_16x.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

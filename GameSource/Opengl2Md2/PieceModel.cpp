@@ -27,15 +27,10 @@ PieceModel::PieceModel(float Width,float Height)
 	m_Height = Height;
 	m_Width = Width;
 	_scale = 1.0f;
-	x1 = m_Width * _scale;
-	y1 = m_Height* _scale;
-	x2 = (-1 * m_Width) / 2 * _scale;
-	y2 = (-1 * m_Height)  / 2 * _scale;
-	
 	x1 = m_Width ;
 	y1 = m_Height;
-	x2 = (-1 * m_Width) ;
-	y2 = (-1 * m_Height);
+	x2 = 0 ;
+	y2 = 0;
 
 }
 
@@ -44,15 +39,10 @@ void PieceModel::SetPieceSize(float Width,float Height)
 	m_Height = Height;
 	m_Width = Width;
 
-	x1 = m_Width/2 * _scale;
-	y1 = m_Height/2* _scale;
-	x2 = (-1 * m_Width) / 2 * _scale;
-	y2 = (-1 * m_Height)  / 2 * _scale;
-
 	x1 = m_Width;
 	y1 = m_Height;
-	x2 = (-1 * m_Width);
-	y2 = (-1 * m_Height);
+	x2 = 0;
+	y2 = 0;
 }
 
 bool PieceModel::loadTexture (const string &filename)
@@ -145,17 +135,47 @@ void PieceModel::drawModelItpWithGLcmds (int frameA, int frameB, float interp)
 	RenderPiece();
 }
 
-void PieceModel::renderSelectFrameImmediate()
+void PieceModel::RenderRect(float x, float y, int name)
 {
+	glPushName(name);
+	float x1_ = x +  5;
+	float y1_ = y + 5;
+	float x2_ = x + (-1 * 5);
+	float y2_ = y +  (-1 * 5);
+
+	glColor4f(0.0f, 0.635f, 0.909f, 1.0f);
+	glBegin(GL_TRIANGLE_STRIP);
+
+	glVertex3f(x2_, y2_, 1);
+	glVertex3f(x2_, y1_, 1);
+	glVertex3f(x1_, y2_, 1);
+	glVertex3f(x1_, y1_, 1);
+	glEnd();
+	
+
+	
+
+	glPopName();
+}
+
+void PieceModel::renderSelectFrameImmediate(int Numbers[])
+{
+
 	//glBindTexture(GL_TEXTURE_2D, 0);
 	glDisable(GL_TEXTURE_2D);
 
-	glColor3f(1.0f,0.0f,1.0f);
+	
 
-
+	//
+	glColor4f(0.0f, 0.635f, 0.909f,0.5f);
 	glBegin(GL_LINES);
 
 	glLineWidth(10);
+
+	x1 = m_Width;
+	y1 = m_Height;
+	x2 = 0;
+	y2 = 0;
 
 	glVertex2f(x1,y1);
 	glVertex2f(x2,y1);
@@ -174,7 +194,7 @@ void PieceModel::renderSelectFrameImmediate()
 	glEnd();
 
 
-	glColor4f(1.0f, 0.0f, 1.0f,0.2f);
+	glColor4f(0.0f, 0.635f, 0.909f,0.2f);
 	glBegin(GL_TRIANGLE_STRIP);
 
 	glVertex3f(x2, y2, 0);
@@ -182,13 +202,27 @@ void PieceModel::renderSelectFrameImmediate()
 	glVertex3f(x1, y2, 0);
 	glVertex3f(x1, y1, 0);
 
+
+
 	//glDisable(GL_LINES);
 	glEnd();
 
+	//glPopName();
+	glPushName(Numbers[8]);
+	float pos[8][2] = { { 1,1 },{ 1,0 },{ 0,1 },{ 0,0 } ,{ 1, 0.5 } ,{ 0.5 , 1 } ,{ 0.5 , 0 } ,{ 0 , 0.5 } };
+
+	for (int i = 0; i < 8; i++)
+	{
+		RenderRect(m_Width* pos[i][0], m_Height* pos[i][1], Numbers[i]);
+	}
+	glPopName();
 
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glEnable(GL_TEXTURE_2D);
 
+
+
+	
 	
 }
 

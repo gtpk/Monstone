@@ -13,6 +13,9 @@
 #include "KardNameFactory.h"
 #include "EyeMouseMove.h"
 #include "XBoxControllerManager.h"
+
+
+
 class Opengl2md2
 {
 private :
@@ -66,8 +69,6 @@ private :
 	float wheel;
 
 	int m_Width = 1270 ,m_Hight = 720;
-
-	int SelectObjectNum;
 
 	
 	GLint hits;

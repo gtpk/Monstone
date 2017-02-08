@@ -29,6 +29,7 @@
 #include "CommonDataType.h"
 #include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
 #include "../Common/VolkesInterface.h"
+#include "ObjectMove.h"
 
 using std::vector;
 using std::string;
@@ -88,6 +89,7 @@ public:
 	void setTranslate(vec3_t trance );
 
 	void setSelectObj(int number);
+	void setSelectObj(int number, bool isSelect);
 
 	Md2Object *setNewPiece(const string &dirname,const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye);
 	Md2Object *setNewPiece(const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye);
@@ -106,8 +108,8 @@ public:
 
 	Md2Object *MakePiece(Md2Object* model);
 
-	Md2Object *getSelectObj();
-
+	Md2Object *FindbyNameObj(int name);
+	Md2Object * FindSelectTopObj();
 	void setSelectionTopMost();
 	void setSelectionTop();
 	void setSelectionBottomMost();
@@ -150,8 +152,6 @@ public:
 	
 	
 	int _Bottompos;
-
-	int _SelectID;
 
 	std::vector<int> m_CopyID;
 	int m_copycount;

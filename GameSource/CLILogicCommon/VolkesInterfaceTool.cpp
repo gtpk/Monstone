@@ -8,12 +8,14 @@
 #include "../Opengl2Md2/ProjectLoader.h"
 #include "../OpenGLManagedCpp/ObjectTreeContator.h"
 #include "../OpenGLManagedCpp/UIObjectTreeContator.h"
+#include "../OpenGLManagedCpp/SelectObjectContator.h"
+
 
 using LogicCommon::SelectObjectInterface;
 using LogicCommon::ProjectSettingValuesInterface;
 using LogicCommon::ObjectTreeContator;
 using LogicCommon::UIObjectTreeContator;
-
+using LogicCommon::SelectObjectContator;
 VolkesIterfaceTool::VolkesIterfaceTool()
 {
 }
@@ -67,7 +69,7 @@ bool VolkesIterfaceTool::SetMd2ObjectSelection(Md2Object* obj)
 
 
 	data->SetMarxObject(obj);
-
+	SelectObjectContator::GetInstance()->select = data;
 	//data->ModelName = gcnew String( model->model()->getMd2name()->c_str() );
 
 	return false;
@@ -96,7 +98,7 @@ bool VolkesIterfaceTool::SetImageControlSelection(ImageControl* obj)
 
 
 	data->SetMarxObject(obj);
-
+	SelectObjectContator::GetInstance()->select = data;
 	//data->ModelName = gcnew String( model->model()->getMd2name()->c_str() );
 
 	return false;
@@ -115,4 +117,9 @@ void VolkesIterfaceTool::OneTimeInit()
 void VolkesIterfaceTool::RefreshGameObject()
 {
 	MarxWorld::getInstance().Refresh();
+}
+
+void VolkesIterfaceTool::SelectedObjectChanged()
+{
+	SelectObjectContator::GetInstance()->OnPropertyChanged("select");
 }

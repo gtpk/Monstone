@@ -159,45 +159,33 @@ void MarxWorld::drawPlayerFrame (int frame, Md2Object::Md2RenderMode renderMode)
 	
 }
 
-
-
-void MarxWorld::setSelectObj(int number) 
+void MarxWorld::setSelectObj(int number, bool isSelect)
 {
-	Md2Object* node = getSelectObj();
-	if(node != NULL)
-		node->setSelect(false);
 
-	_SelectID = number; 
-
-	if (_SelectID == -1)
-	{
-		if (Volkes != NULL)
-			Volkes->SetMd2ObjectSelection(NULL);
-	}
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
 
-	for(;md2begin != md2End ; md2begin++)
+	for (; md2begin != md2End; md2begin++)
 	{
 		Md2Object* node = ((Md2Object*)*md2begin);
-		if(node->GetUniqNumber() == _SelectID)
+		if (node->GetUniqNumber() == number)
 		{
-			node->setSelect(true);
-			if(Volkes != NULL)
-				Volkes->SetMd2ObjectSelection(node);
+			node->setSelect(isSelect);
 		}
 		else
 		{
-			node->setSelect(false);
-			node = node->setSelectObj(number);
+			node = node->setSelectObj(number, isSelect);
 			if (node != NULL)
 			{
-				node->setSelect(true);
-				if (Volkes != NULL)
-					Volkes->SetMd2ObjectSelection(node);
+				node->setSelect(isSelect);
 			}
 		}
 	}
+}
+
+void MarxWorld::setSelectObj(int number) 
+{
+	setSelectObj(number, true);
 }
 
 
@@ -234,28 +222,12 @@ void MarxWorld::animate (GLfloat percent)
 
 void MarxWorld::setScale (GLfloat scale)
 {
-	Md2Iter md2begin = _WorldPiece.begin();
-	Md2Iter md2End = _WorldPiece.end();
-
-	for(; md2begin != md2End ;  md2begin++)
+	Md2Object* obj = FindSelectTopObj();
+	if (obj != NULL)
 	{
-		Md2Object* node = ((Md2Object*)*md2begin);
-		//node->setScale (scale);
-		ModelInteface* model = node->model();
-		if(model)
-		{
-			if(node->GetUniqNumber() == _SelectID)
-				model->setScale(scale);
-			else
-			{
-				node = node->setSelectObj(_SelectID);
-				if (node != NULL)
-				{
-					if (Volkes != NULL)
-						Volkes->SetMd2ObjectSelection(node);
-				}
-			}
-		}
+		ModelInteface* model = obj->model();
+		if (model != NULL)
+			model->setScale(scale);
 	}
 }
 
@@ -268,33 +240,14 @@ void MarxWorld::setScale (GLfloat scale)
 
 void MarxWorld::setSkin (const string &name)
 {
-	if(100 == _SelectID)
-		_currentSkin = name;
-	
-	Md2Iter md2begin = _WorldPiece.begin();
-	Md2Iter md2End = _WorldPiece.end();
+	Md2Object* obj = FindSelectTopObj();
 
-	for(; md2begin != md2End ;  md2begin++)
+	if (obj != NULL)
 	{
-		
-		Md2Object* node = ((Md2Object*)*md2begin);
-		ModelInteface* model = node->model();
-		if(model)
-		{
-			if(node->GetUniqNumber() == _SelectID)
-				model->setTexture (name);
-			else
-			{
-				node = node->setSelectObj(_SelectID);
-				if (node != NULL)
-				{
-					node->model()->setTexture(name);
-				}
-			}
-		}
+		ModelInteface* model = obj->model();
+		if(model != NULL)
+			model->setTexture(name);
 	}
-
-	
 }
 
 
@@ -321,79 +274,63 @@ void MarxWorld::setAnim (const string &name)
 
 void MarxWorld::setRotate(vec3_t angle)
 {
-	/*
-	if (_weaponMesh.get ())
-	{
-		_weaponObject.setRotate (angle);
-	}
+	Md2Object* obj = FindSelectTopObj();
 
-	if (_playerMesh.get ())
-	{
-		_playerObject.setRotate (angle);
-	}*/
+	if(obj != NULL)
+		obj->setRotate(angle);
 
-	Md2Iter md2begin = _WorldPiece.begin();
-	Md2Iter md2End = _WorldPiece.end();
-
-	for(; md2begin != md2End ; md2begin++)
-	{
-		Md2Object* node = ((Md2Object*)*md2begin);
-
-		if(node->GetUniqNumber() == _SelectID)
-		{
-			node->setRotate (angle);
-		}
-		else
-		{
-			node = node->setSelectObj(_SelectID);
-			if (node != NULL)
-			{
-				node->setRotate(angle);
-			}
-		}
-	}
 }
 
 void MarxWorld::setTranslate(vec3_t trance )
 {
-	Md2Iter md2begin = _WorldPiece.begin();
-	Md2Iter md2End = _WorldPiece.end();
 
-	for(;md2begin != md2End ; md2begin++)
-	{
-		Md2Object* node = ((Md2Object*)*md2begin);
-		if(node->GetUniqNumber() == _SelectID)
-		{
-			node->setTranslate (trance);
-		}
-		else
-		{
-			node = node->setSelectObj(_SelectID);
-			if (node != NULL)
-			{
-				node->setTranslate(trance);
-			}
-		}
-	}
+	Md2Object* obj = FindSelectTopObj();
+
+	obj->setTranslate(trance);
 
 }
 
-
-Md2Object * MarxWorld::getSelectObj()
+Md2Object * MarxWorld::FindSelectTopObj()
 {
+	if (ObjectMove::getinstance()->SelectObjectNum.size() == 0)
+		return NULL;
+
 	Md2Iter md2begin = _WorldPiece.begin();
 	Md2Iter md2End = _WorldPiece.end();
 
-	for(;md2begin != md2End ; md2begin++)
+	for (; md2begin != md2End; md2begin++)
 	{
 		Md2Object* node = ((Md2Object*)*md2begin);
-		if(node->GetUniqNumber() == _SelectID)
+		if (node->GetUniqNumber() == ObjectMove::getinstance()->SelectObjectNum[0])
 		{
 			return node;
 		}
 		else
 		{
-			node = node->setSelectObj(_SelectID);
+			node = node->FindbyNameObj(ObjectMove::getinstance()->SelectObjectNum[0]);
+			if (node != NULL)
+			{
+				return node;
+			}
+		}
+	}
+	return NULL;
+}
+Md2Object * MarxWorld::FindbyNameObj(int name)
+{
+	Md2Iter md2begin = _WorldPiece.begin();
+	Md2Iter md2End = _WorldPiece.end();
+
+	for(;md2begin != md2End ; md2begin++)
+	{
+		Md2Object* node = ((Md2Object*)*md2begin);
+		if(node->GetUniqNumber() == name)
+		{
+			return node;
+		}
+		else
+		{
+			node = node->FindbyNameObj(name);
 			if (node != NULL)
 			{
 				return node;
@@ -412,7 +349,7 @@ void MarxWorld::setSelectionTopMost()
 	{
 		Md2Object* node = ((Md2Object*)*md2begin);
 
-		if(node->GetUniqNumber() == _SelectID)
+		if(node->GetUniqNumber() == ObjectMove::getinstance()->SelectObjectNum[0])
 		{
 			if( _WorldPiece.rbegin() == md2begin)
 				return;
@@ -430,7 +367,7 @@ void MarxWorld::setSelectionTop()
 	for(;md2begin != md2End ; md2begin++)
 	{
 		Md2Object* node = ((Md2Object*)*md2begin);
-		if(node->GetUniqNumber() == _SelectID)
+		if(node->GetUniqNumber() == ObjectMove::getinstance()->SelectObjectNum[0])
 		{
 			if(md2begin == _WorldPiece.rbegin())
 				return; // 맨 위면 안해도 되요.
@@ -449,7 +386,7 @@ void MarxWorld::setSelectionBottomMost()
 	for(;md2begin != md2End ; md2begin++)
 	{
 		Md2Object* node = ((Md2Object*)*md2begin);
-		if(node->GetUniqNumber() == _SelectID)
+		if(node->GetUniqNumber() == ObjectMove::getinstance()->SelectObjectNum[0])
 		{
 			md2begin =_WorldPiece.erase(md2begin);
 			_WorldPiece.push_front(node);
@@ -466,7 +403,7 @@ void MarxWorld::setSelectionBottom()
 	for(;md2begin != md2End ; md2begin++)
 	{
 		Md2Object* node = ((Md2Object*)*md2begin);
-		if(node->GetUniqNumber() == _SelectID)
+		if(node->GetUniqNumber() == ObjectMove::getinstance()->SelectObjectNum[0])
 		{
 			if(md2begin == _WorldPiece.begin())
 				return; // 맨 밑이면 안해도 되요.
@@ -486,7 +423,7 @@ void MarxWorld::deleteSelectPiece()
 	for(; md2begin != md2End ; )
 	{
 		Md2Object* node = ((Md2Object*)*md2begin);
-		if(node->GetUniqNumber() == _SelectID)
+		if(node->GetUniqNumber() == ObjectMove::getinstance()->SelectObjectNum[0])
 		{
 			delete node;
 			md2begin = _WorldPiece.erase(md2begin);
@@ -495,7 +432,7 @@ void MarxWorld::deleteSelectPiece()
 		}
 		else
 		{
-			node->deleteSelectPiece(_SelectID);
+			node->deleteSelectPiece(ObjectMove::getinstance()->SelectObjectNum[0]);
 		}
 		md2begin++;
 
@@ -507,13 +444,13 @@ void MarxWorld::setSelectionCopy()
 	m_copycount = 0;
 	this->m_CopyID.clear();
 
-	this->m_CopyID.push_back(_SelectID);
+	this->m_CopyID.push_back(ObjectMove::getinstance()->SelectObjectNum[0]);
 }
 
 void MarxWorld::setSelectionPaste()
 {
 	m_copycount++;
-	Md2Object* node = getSelectObj();
+	Md2Object* node = FindSelectTopObj();
 	setNewPiece(node);
 	
 	
@@ -527,7 +464,7 @@ void MarxWorld::duplicateSelectPiece()
 	for(; md2begin != md2End ; )
 	{
 		Md2Object* node = ((Md2Object*)*md2begin);
-		if(node->GetUniqNumber() == _SelectID)
+		if(node->GetUniqNumber() == ObjectMove::getinstance()->SelectObjectNum[0])
 		{
 			setNewPiece(node);
 			return;
@@ -868,7 +805,7 @@ void MarxWorld::CreateSet()
 	TiXmlElement * MapPieces = new TiXmlElement("MapPieces");
 	root->LinkEndChild(MapPieces);
 
-	getSelectObj()->Save(MapPieces);
+	FindSelectTopObj()->Save(MapPieces);
 
 	if (Volkes != NULL)
 	{

@@ -18,7 +18,7 @@ namespace MarxEngine
 	class ImageControl :
 		public UIBase,
 		public IEventHandler<ClickEventArgs>,
-		MarxObject,
+		public MarxObject,
 		public AnimationBase
 	{
 	public:

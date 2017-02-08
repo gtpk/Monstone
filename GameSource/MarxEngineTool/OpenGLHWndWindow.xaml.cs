@@ -125,7 +125,6 @@ namespace MarxEngineTool
             // ... and attach it to the placeholder control:
             hwndPlaceholder.Child = host;
             Workspace.This.OpenGl2Md2 = OpenGl2Md2;
-            KADAtalsViewModel.m_OpenGl2Md2 = OpenGl2Md2;
             OpenGl2Md2.SetModerObj(hwndPlaceholder);
 
             var serializer = new Xceed.Wpf.AvalonDock.Layout.Serialization.XmlLayoutSerializer(dockManager);
@@ -135,7 +134,7 @@ namespace MarxEngineTool
             };
 #if DEBUG
 
-#else
+//#else
             if (File.Exists(@".\AvalonDock.config"))
                 serializer.Deserialize(@".\AvalonDock.config");
 #endif

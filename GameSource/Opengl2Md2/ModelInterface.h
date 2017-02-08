@@ -36,7 +36,7 @@ public :
 	virtual void renderFrameWithGLcmds (int frame) = 0;
 	virtual void drawModelItpWithGLcmds (int frameA, int frameB, float interp) = 0;
 
-	virtual void renderSelectFrameImmediate() = 0;
+	virtual void renderSelectFrameImmediate(int Numbers[]) = 0;
 
 	void setScale (GLfloat scale) { _scale = scale; }
 	float getScale () {return _scale ;}

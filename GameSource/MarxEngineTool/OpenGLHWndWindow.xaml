@@ -15,6 +15,7 @@
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:MVVMTestApp="clr-namespace:AvalonDock.MVVMTestApp"
+        xmlns:Controls1="clr-namespace:System.Windows.Controls"
         mc:Ignorable="d" x:Class="MarxEngineTool.OpenGLHWndWindow" Height="982" Width="1523"
         Loaded="Window_Loaded" KeyDown="Window_KeyDown" Title="Marx Engine"
         BorderThickness="1" Unloaded="MetroWindow_Unloaded"
@@ -57,10 +58,10 @@
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="PieceInfoTemplate1">
-            <Grid Height="100" MinWidth="50" MinHeight="50" Width="100">
-                <Image Source="{Binding BitmapSource}" HorizontalAlignment="Stretch" Height="Auto" Width="Auto" MinWidth="50" MinHeight="50" Margin="10"/>
-                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding TextureName}" VerticalAlignment="Top" Background="White" Foreground="Black"/>
-            </Grid>
+            <StackPanel Height="Auto" MinWidth="50" MinHeight="50" Width="Auto">
+                <Image Source="{Binding BitmapSource}" HorizontalAlignment="Center" Height="80" Width="80" MinWidth="50" MinHeight="50" Margin="0" d:LayoutOverrides="LeftPosition, RightPosition"/>
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding TextureName}" VerticalAlignment="Stretch" Background="White" Foreground="Black" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Width="80" TextAlignment="Center"/>
+            </StackPanel>
         </DataTemplate>
         <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
             <WrapPanel IsItemsHost="True" Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
@@ -93,7 +94,7 @@
         <HierarchicalDataTemplate x:Key="ObjectInterfaceTemplate1" ItemsSource="{Binding Children}">
             <StackPanel Orientation="Horizontal">
                 <local:SourceTextureView x:Name="__" Height="20" Width="20" TgaImageUri="{Binding TextureName}"/>
-                <TextBlock Text="{Binding ObjectName}"/>
+                <TextBlock Text="{Binding Name}"/>
             </StackPanel>
         </HierarchicalDataTemplate>
         <DataTemplate x:Key="PieceInfoTemplate2">
@@ -121,12 +122,1025 @@
         <HierarchicalDataTemplate x:Key="DataTemplat2" ItemsSource="{Binding Children}">
             <StackPanel Orientation="Horizontal">
                 <local:SourceTextureView x:Name="__" Height="20" Width="20" TgaImageUri="{Binding TextureName}"/>
-                <TextBlock Text="{Binding Name}"/>
+                <TextBlock Text="{Binding ObjectName}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </StackPanel>
         </HierarchicalDataTemplate>
+        <Storyboard x:Key="Storyboard1"/>
+        <Style x:Key="PropertyItemBaseStyle1" TargetType="{x:Type xctk:PropertyItemBase}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="0,0,0,1"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type xctk:PropertyItemBase}">
+                        <Border ContextMenu="{Binding AdvancedOptionsMenu, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" ContextMenuService.Placement="Bottom">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="{Binding NameColumnWidth, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Border x:Name="PART_Name" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding BorderBrush}" HorizontalAlignment="Stretch" Margin="0,0,1,0" VerticalAlignment="Stretch">
+                                    <Grid Margin="2" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="#FF5D5D5D">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="15"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.Margin>
+                                                <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}">
+                                                    <Binding.Converter>
+                                                        <xctk:ExpandableObjectMarginConverter/>
+                                                    </Binding.Converter>
+                                                </Binding>
+                                            </Grid.Margin>
+                                            <ToggleButton x:Name="__" Grid.Column="0" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True">
+                                                <ToggleButton.Template>
+                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="20"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Rectangle x:Name="Rectangle" Fill="Transparent" Margin="0"/>
+                                                            <Path x:Name="Up_Arrow" Data="M0,0L4,4 8,0z" Fill="#FF31347C" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                                                                <Path.RenderTransform>
+                                                                    <TransformGroup>
+                                                                        <ScaleTransform ScaleY="1" ScaleX="1"/>
+                                                                        <SkewTransform AngleY="0" AngleX="0"/>
+                                                                        <RotateTransform Angle="-90"/>
+                                                                        <TranslateTransform X="0" Y="0"/>
+                                                                    </TransformGroup>
+                                                                </Path.RenderTransform>
+                                                            </Path>
+                                                            <Path x:Name="Down_Arrow" Data="M0,4L4,0 8,4z" Fill="#FF31347C" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" VerticalAlignment="Center">
+                                                                <Path.RenderTransform>
+                                                                    <TransformGroup>
+                                                                        <ScaleTransform ScaleY="1" ScaleX="1"/>
+                                                                        <SkewTransform AngleY="0" AngleX="0"/>
+                                                                        <RotateTransform Angle="135"/>
+                                                                        <TranslateTransform X="0" Y="0"/>
+                                                                    </TransformGroup>
+                                                                </Path.RenderTransform>
+                                                            </Path>
+                                                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                                                        </Grid>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsChecked" Value="True">
+                                                                <Setter Property="Visibility" TargetName="Down_Arrow" Value="Visible"/>
+                                                                <Setter Property="Visibility" TargetName="Up_Arrow" Value="Collapsed"/>
+                                                                <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </ToggleButton.Template>
+                                                <ToggleButton.Visibility>
+                                                    <Binding Path="IsExpandable" RelativeSource="{RelativeSource TemplatedParent}">
+                                                        <Binding.Converter>
+                                                            <BooleanToVisibilityConverter/>
+                                                        </Binding.Converter>
+                                                    </Binding>
+                                                </ToggleButton.Visibility>
+                                            </ToggleButton>
+                                            <xctk:TrimmedTextBlock x:Name="_text" Grid.Column="1" HorizontalAlignment="Stretch" Text="{Binding DisplayName, RelativeSource={RelativeSource TemplatedParent}}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center">
+                                                <xctk:TrimmedTextBlock.IsEnabled>
+                                                    <Binding Path="IsReadOnly" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}">
+                                                        <Binding.Converter>
+                                                            <xctk:InverseBoolConverter/>
+                                                        </Binding.Converter>
+                                                    </Binding>
+                                                </xctk:TrimmedTextBlock.IsEnabled>
+                                            </xctk:TrimmedTextBlock>
+                                        </Grid>
+                                        <Grid Grid.Column="1" ContextMenu="{Binding AdvancedOptionsMenu, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" HorizontalAlignment="Right" Margin="5,0" xctk:ContextMenuUtilities.OpenOnMouseLeftButtonClick="True">
+                                            <Grid.Visibility>
+                                                <Binding Path="ShowAdvancedOptions" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}">
+                                                    <Binding.Converter>
+                                                        <BooleanToVisibilityConverter/>
+                                                    </Binding.Converter>
+                                                </Binding>
+                                            </Grid.Visibility>
+                                            <Image x:Name="_optionsImage" Height="11" ToolTip="{Binding AdvancedOptionsTooltip, RelativeSource={RelativeSource TemplatedParent}}" Width="11"/>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                                <Border x:Name="PART_Editor" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="1" KeyboardNavigation.DirectionalNavigation="None" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <Border.ToolTip>
+                                        <ToolTip Visibility="Collapsed"/>
+                                    </Border.ToolTip>
+                                    <ContentControl x:Name="PART_ValueContainer" Content="{TemplateBinding Editor}" Focusable="False" IsTabStop="False" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                        <ContentControl.IsEnabled>
+                                            <Binding Path="IsReadOnly" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}">
+                                                <Binding.Converter>
+                                                    <xctk:InverseBoolConverter/>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </ContentControl.IsEnabled>
+                                    </ContentControl>
+                                </Border>
+                                <Expander x:Name="_propertyExpander" Grid.ColumnSpan="2" IsExpanded="{TemplateBinding IsExpanded}" IsEnabled="True" Grid.Row="1">
+                                    <Expander.Style>
+                                        <Style TargetType="{x:Type Expander}">
+                                            <Setter Property="Padding" Value="10,0,0,0"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type Expander}">
+                                                        <Grid>
+                                                            <Border x:Name="ExpandSite" Padding="0" Grid.Row="1" Visibility="Collapsed">
+                                                                <Border BorderThickness="0" HorizontalAlignment="Stretch" Margin="0" Padding="0" VerticalAlignment="Stretch">
+                                                                    <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                                </Border>
+                                                            </Border>
+                                                        </Grid>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsExpanded" Value="True">
+                                                                <Setter Property="Visibility" TargetName="ExpandSite" Value="Visible"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Expander.Style>
+                                    <xctk:PropertyItemsControl x:Name="PART_PropertyItemsControl" Focusable="False" IsTabStop="False" ItemContainerStyle="{Binding PropertyContainerStyle, RelativeSource={RelativeSource TemplatedParent}}">
+                                        <xctk:PropertyItemsControl.GroupStyle>
+                                            <GroupStyle Panel="{x:Null}">
+                                                <GroupStyle.ContainerStyleSelector>
+                                                    <xctk:CategoryGroupStyleSelector>
+                                                        <xctk:CategoryGroupStyleSelector.ItemGroupStyle>
+                                                            <Style TargetType="{x:Type GroupItem}">
+                                                                <Setter Property="Template">
+                                                                    <Setter.Value>
+                                                                        <ControlTemplate>
+                                                                            <Border>
+                                                                                <Expander x:Name="expander" Header="{Binding Name}" IsExpanded="True">
+                                                                                    <Expander.Style>
+                                                                                        <Style TargetType="{x:Type Expander}">
+                                                                                            <Setter Property="Padding" Value="0"/>
+                                                                                            <Setter Property="Background" Value="#FFF0F0F0"/>
+                                                                                            <Setter Property="Template">
+                                                                                                <Setter.Value>
+                                                                                                    <ControlTemplate TargetType="{x:Type Expander}">
+                                                                                                        <Grid>
+                                                                                                            <Grid.RowDefinitions>
+                                                                                                                <RowDefinition Height="Auto"/>
+                                                                                                                <RowDefinition x:Name="ContentRow" Height="*"/>
+                                                                                                            </Grid.RowDefinitions>
+                                                                                                            <Border x:Name="Border" BorderBrush="#FFF0F0F0" Background="{TemplateBinding Background}">
+                                                                                                                <ToggleButton IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True">
+                                                                                                                    <ToggleButton.Template>
+                                                                                                                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                                                                            <Grid>
+                                                                                                                                <Grid.ColumnDefinitions>
+                                                                                                                                    <ColumnDefinition Width="20"/>
+                                                                                                                                    <ColumnDefinition Width="*"/>
+                                                                                                                                </Grid.ColumnDefinitions>
+                                                                                                                                <Rectangle x:Name="Rectangle" Fill="Transparent" Margin="0"/>
+                                                                                                                                <Path x:Name="Up_Arrow" Data="M0,0L4,4 8,0z" Fill="#FF31347C" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                                                                                                                                    <Path.RenderTransform>
+                                                                                                                                        <TransformGroup>
+                                                                                                                                            <ScaleTransform ScaleY="1" ScaleX="1"/>
+                                                                                                                                            <SkewTransform AngleY="0" AngleX="0"/>
+                                                                                                                                            <RotateTransform Angle="-90"/>
+                                                                                                                                            <TranslateTransform X="0" Y="0"/>
+                                                                                                                                        </TransformGroup>
+                                                                                                                                    </Path.RenderTransform>
+                                                                                                                                </Path>
+                                                                                                                                <Path x:Name="Down_Arrow" Data="M0,4L4,0 8,4z" Fill="#FF31347C" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" VerticalAlignment="Center">
+                                                                                                                                    <Path.RenderTransform>
+                                                                                                                                        <TransformGroup>
+                                                                                                                                            <ScaleTransform ScaleY="1" ScaleX="1"/>
+                                                                                                                                            <SkewTransform AngleY="0" AngleX="0"/>
+                                                                                                                                            <RotateTransform Angle="135"/>
+                                                                                                                                            <TranslateTransform X="0" Y="0"/>
+                                                                                                                                        </TransformGroup>
+                                                                                                                                    </Path.RenderTransform>
+                                                                                                                                </Path>
+                                                                                                                                <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                                                                                                                            </Grid>
+                                                                                                                            <ControlTemplate.Triggers>
+                                                                                                                                <Trigger Property="IsChecked" Value="True">
+                                                                                                                                    <Setter Property="Visibility" TargetName="Down_Arrow" Value="Visible"/>
+                                                                                                                                    <Setter Property="Visibility" TargetName="Up_Arrow" Value="Collapsed"/>
+                                                                                                                                    <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="Black"/>
+                                                                                                                                </Trigger>
+                                                                                                                            </ControlTemplate.Triggers>
+                                                                                                                        </ControlTemplate>
+                                                                                                                    </ToggleButton.Template>
+                                                                                                                    <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" TextElement.FontWeight="Bold" Margin="1" RecognizesAccessKey="True"/>
+                                                                                                                </ToggleButton>
+                                                                                                            </Border>
+                                                                                                            <Border x:Name="ExpandSite" Background="#FFF0F0F0" Padding="10,0,0,0" Grid.Row="1" Visibility="Collapsed">
+                                                                                                                <Border BorderThickness="0" HorizontalAlignment="Stretch" Margin="0" Padding="0" VerticalAlignment="Stretch">
+                                                                                                                    <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                                                                                </Border>
+                                                                                                            </Border>
+                                                                                                        </Grid>
+                                                                                                        <ControlTemplate.Triggers>
+                                                                                                            <Trigger Property="IsExpanded" Value="True">
+                                                                                                                <Setter Property="Visibility" TargetName="ExpandSite" Value="Visible"/>
+                                                                                                            </Trigger>
+                                                                                                        </ControlTemplate.Triggers>
+                                                                                                    </ControlTemplate>
+                                                                                                </Setter.Value>
+                                                                                            </Setter>
+                                                                                        </Style>
+                                                                                    </Expander.Style>
+                                                                                    <ItemsPresenter/>
+                                                                                </Expander>
+                                                                            </Border>
+                                                                        </ControlTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Style.Triggers>
+                                                                    <MultiDataTrigger>
+                                                                        <MultiDataTrigger.Conditions>
+                                                                            <Condition Value="True">
+                                                                                <Condition.Binding>
+                                                                                    <Binding Path="Name">
+                                                                                        <Binding.Converter>
+                                                                                            <xctk:IsDefaultCategoryConverter/>
+                                                                                        </Binding.Converter>
+                                                                                    </Binding>
+                                                                                </Condition.Binding>
+                                                                            </Condition>
+                                                                            <Condition Binding="{Binding IsMiscCategoryLabelHidden, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" Value="True"/>
+                                                                        </MultiDataTrigger.Conditions>
+                                                                        <Setter Property="Template">
+                                                                            <Setter.Value>
+                                                                                <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                                                    <ItemsPresenter/>
+                                                                                </ControlTemplate>
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                    </MultiDataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </xctk:CategoryGroupStyleSelector.ItemGroupStyle>
+                                                        <xctk:CategoryGroupStyleSelector.SingleDefaultCategoryItemGroupStyle>
+                                                            <Style TargetType="{x:Type GroupItem}">
+                                                                <Setter Property="Template">
+                                                                    <Setter.Value>
+                                                                        <ControlTemplate>
+                                                                            <ItemsPresenter/>
+                                                                        </ControlTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                            </Style>
+                                                        </xctk:CategoryGroupStyleSelector.SingleDefaultCategoryItemGroupStyle>
+                                                    </xctk:CategoryGroupStyleSelector>
+                                                </GroupStyle.ContainerStyleSelector>
+                                            </GroupStyle>
+                                        </xctk:PropertyItemsControl.GroupStyle>
+                                        <xctk:PropertyItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <VirtualizingStackPanel IsItemsHost="True"/>
+                                            </ItemsPanelTemplate>
+                                        </xctk:PropertyItemsControl.ItemsPanel>
+                                    </xctk:PropertyItemsControl>
+                                </Expander>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="PART_Name" Value="#FFCED4DF"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" TargetName="PART_Name" Value="#FF43577B"/>
+                                <Setter Property="TextElement.Foreground" TargetName="PART_Name" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" TargetName="PART_ValueContainer" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="Foreground" TargetName="_text" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ShowDescriptionByTooltip, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" Value="True"/>
+                                    <Condition Value="False">
+                                        <Condition.Binding>
+                                            <Binding Path="Description" RelativeSource="{RelativeSource Self}">
+                                                <Binding.Converter>
+                                                    <xctk:IsStringEmptyConverter/>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </Condition.Binding>
+                                    </Condition>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="ToolTip" TargetName="PART_Name" Value="{Binding Description, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </MultiDataTrigger>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="ToolTip" Value="{Binding (Validation.Errors).CurrentItem.ErrorContent, RelativeSource={RelativeSource Self}}"/>
+                            </Trigger>
+                            <Trigger Property="Visibility" SourceName="__" Value="Visible">
+                                <Setter Property="Focusable" Value="False"/>
+                            </Trigger>
+                            <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Local">
+                                <Setter Property="Source" TargetName="_optionsImage">
+                                    <Setter.Value>
+                                        <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;v2.9.0.0;component/PropertyGrid/Images/Local11.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Resource">
+                                <Setter Property="Source" TargetName="_optionsImage">
+                                    <Setter.Value>
+                                        <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;v2.9.0.0;component/PropertyGrid/Images/Resource11.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Databinding">
+                                <Setter Property="Source" TargetName="_optionsImage">
+                                    <Setter.Value>
+                                        <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;v2.9.0.0;component/PropertyGrid/Images/Database11.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Inheritance">
+                                <Setter Property="Source" TargetName="_optionsImage">
+                                    <Setter.Value>
+                                        <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;v2.9.0.0;component/PropertyGrid/Images/Inheritance11.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Style Setter">
+                                <Setter Property="Source" TargetName="_optionsImage">
+                                    <Setter.Value>
+                                        <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;v2.9.0.0;component/PropertyGrid/Images/Style11.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ToolTip, ElementName=_optionsImage}" Value="Advanced Properties">
+                                <Setter Property="Source" TargetName="_optionsImage">
+                                    <Setter.Value>
+                                        <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;v2.9.0.0;component/PropertyGrid/Images/AdvancedProperties11.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PropertyGridStyle1" TargetType="{x:Type xctk:PropertyGrid}">
+            <Setter Property="AdvancedOptionsMenu">
+                <Setter.Value>
+                    <ContextMenu>
+                        <MenuItem Header="Reset Value">
+                            <MenuItem.Command>
+                                <RoutedCommand/>
+                            </MenuItem.Command>
+                        </MenuItem>
+                    </ContextMenu>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#FFBCC7D8"/>
+            <Setter Property="BorderBrush" Value="#FF43577B"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="SelectedObjectType">
+                <Setter.Value>
+                    <Binding ConverterParameter="Type" Path="SelectedObject" RelativeSource="{RelativeSource Self}">
+                        <Binding.Converter>
+                            <xctk:SelectedObjectConverter/>
+                        </Binding.Converter>
+                    </Binding>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="SelectedObjectTypeName">
+                <Setter.Value>
+                    <Binding ConverterParameter="TypeName" Path="SelectedObject" RelativeSource="{RelativeSource Self}">
+                        <Binding.Converter>
+                            <xctk:SelectedObjectConverter/>
+                        </Binding.Converter>
+                    </Binding>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="SelectedObjectName">
+                <Setter.Value>
+                    <Binding ConverterParameter="SelectedObjectName" Path="SelectedObject" RelativeSource="{RelativeSource Self}">
+                        <Binding.Converter>
+                            <xctk:SelectedObjectConverter/>
+                        </Binding.Converter>
+                    </Binding>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type xctk:PropertyGrid}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel x:Name="selectObjectNamePanel" Orientation="Horizontal">
+                                    <Border BorderBrush="Black" BorderThickness="1" Background="White" Height="44" Margin="6,4,0,4" Padding="2" Width="44">
+                                        <Border.Visibility>
+                                            <Binding Path="ShowPreview" RelativeSource="{RelativeSource TemplatedParent}">
+                                                <Binding.Converter>
+                                                    <BooleanToVisibilityConverter/>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </Border.Visibility>
+                                        <Rectangle>
+                                            <Rectangle.Fill>
+                                                <VisualBrush Stretch="Uniform">
+                                                    <VisualBrush.Visual>
+                                                        <Binding Path="SelectedObject" RelativeSource="{RelativeSource TemplatedParent}">
+                                                            <Binding.Converter>
+                                                                <xctk:ObjectToUIElementConverter/>
+                                                            </Binding.Converter>
+                                                        </Binding>
+                                                    </VisualBrush.Visual>
+                                                </VisualBrush>
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </Border>
+                                    <StackPanel Margin="6,2,6,4" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <StackPanel.Visibility>
+                                            <Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}">
+                                                <Binding.Converter>
+                                                    <BooleanToVisibilityConverter/>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </StackPanel.Visibility>
+                                        <Grid>
+                                            <Grid.MaxWidth>
+                                                <Binding ConverterParameter="17" Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}">
+                                                    <Binding.Converter>
+                                                        <xctk:HalfConverter/>
+                                                    </Binding.Converter>
+                                                </Binding>
+                                            </Grid.MaxWidth>
+                                            <xctk:TrimmedTextBlock FontWeight="Bold" Text="{TemplateBinding SelectedObjectTypeName}" TextTrimming="CharacterEllipsis"/>
+                                        </Grid>
+                                        <Grid Margin="5,0,0,0">
+                                            <Grid.MaxWidth>
+                                                <Binding ConverterParameter="17" Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}">
+                                                    <Binding.Converter>
+                                                        <xctk:HalfConverter/>
+                                                    </Binding.Converter>
+                                                </Binding>
+                                            </Grid.MaxWidth>
+                                            <xctk:TrimmedTextBlock Text="{TemplateBinding SelectedObjectName}" TextTrimming="CharacterEllipsis"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </StackPanel>
+                                <Grid x:Name="toolsContainer" Margin="4,0,4,4" Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid x:Name="sortButtonContainer" Margin="4">
+                                        <Grid.Visibility>
+                                            <Binding Path="ShowSortOptions" RelativeSource="{RelativeSource TemplatedParent}">
+                                                <Binding.Converter>
+                                                    <BooleanToVisibilityConverter/>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </Grid.Visibility>
+                                        <StackPanel Margin="1" Orientation="Horizontal">
+                                            <RadioButton IsChecked="{Binding IsCategorized, RelativeSource={RelativeSource TemplatedParent}}" ToolTip="Categorized" VerticalAlignment="Center">
+                                                <RadioButton.Style>
+                                                    <Style TargetType="{x:Type RadioButton}">
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                        <Setter Property="BorderThickness" Value="1"/>
+                                                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                                        <Setter Property="Height" Value="22"/>
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="ToolTipService.InitialShowDelay" Value="900"/>
+                                                        <Setter Property="ToolTipService.ShowDuration" Value="20000"/>
+                                                        <Setter Property="ToolTipService.BetweenShowDelay" Value="0"/>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type RadioButton}">
+                                                                    <Grid SnapsToDevicePixels="True">
+                                                                        <Border x:Name="OuterBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="2"/>
+                                                                        <Border x:Name="MiddleBorder" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" CornerRadius="2">
+                                                                            <Border x:Name="InnerBorder" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" CornerRadius="2" Padding="{TemplateBinding Padding}">
+                                                                                <StackPanel x:Name="StackPanel" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                                                                                    <ContentPresenter x:Name="Content" RenderOptions.BitmapScalingMode="NearestNeighbor" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="Center"/>
+                                                                                </StackPanel>
+                                                                            </Border>
+                                                                        </Border>
+                                                                    </Grid>
+                                                                    <ControlTemplate.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" TargetName="OuterBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFFEFBF4" Offset="0"/>
+                                                                                        <GradientStop Color="#FFFDE7CE" Offset="0.19"/>
+                                                                                        <GradientStop Color="#FFFDDEB8" Offset="0.39"/>
+                                                                                        <GradientStop Color="#FFFFCE6B" Offset="0.39"/>
+                                                                                        <GradientStop Color="#FFFFDE9A" Offset="0.79"/>
+                                                                                        <GradientStop Color="#FFFFEBAA" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                            <Setter Property="BorderBrush" TargetName="OuterBorder" Value="#FFFFB700"/>
+                                                                            <Setter Property="BorderBrush" TargetName="InnerBorder" Value="#80FFFFFF"/>
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsEnabled" Value="False">
+                                                                            <Setter Property="Opacity" TargetName="Content" Value="0.5"/>
+                                                                            <Setter Property="TextElement.Foreground" TargetName="OuterBorder" Value="#FF9E9E9E"/>
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsChecked" Value="True">
+                                                                            <Setter Property="Background" TargetName="OuterBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFFFDCA0" Offset="0"/>
+                                                                                        <GradientStop Color="#FFFFD692" Offset="0.18"/>
+                                                                                        <GradientStop Color="#FFFFC45D" Offset="0.39"/>
+                                                                                        <GradientStop Color="#FFFFD178" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                            <Setter Property="BorderBrush" TargetName="OuterBorder" Value="#FFC29B29"/>
+                                                                            <Setter Property="BorderBrush" TargetName="InnerBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFE7CBAD" Offset="0"/>
+                                                                                        <GradientStop Color="#FFF7D7B5" Offset="0.1"/>
+                                                                                        <GradientStop Color="#FFFFD38C" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFFFC75A" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFFFEFA5" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsPressed" Value="True">
+                                                                            <Setter Property="Background" TargetName="OuterBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFE3C085" Offset="0"/>
+                                                                                        <GradientStop Color="#FFF4CC89" Offset="0.19"/>
+                                                                                        <GradientStop Color="#FFF5C777" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFF5BB56" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFF4CE9A" Offset="0.79"/>
+                                                                                        <GradientStop Color="#FFF3E28D" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                            <Setter Property="BorderBrush" TargetName="OuterBorder" Value="#FFC29B29"/>
+                                                                            <Setter Property="BorderBrush" TargetName="InnerBorder" Value="Transparent"/>
+                                                                        </Trigger>
+                                                                        <MultiTrigger>
+                                                                            <MultiTrigger.Conditions>
+                                                                                <Condition Property="IsChecked" Value="True"/>
+                                                                                <Condition Property="IsMouseOver" Value="True"/>
+                                                                            </MultiTrigger.Conditions>
+                                                                            <Setter Property="Background" TargetName="MiddleBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#40FFFEFE" Offset="0"/>
+                                                                                        <GradientStop Color="#40FFFEFE" Offset="0.39"/>
+                                                                                        <GradientStop Color="#20FFCE68" Offset="0.39"/>
+                                                                                        <GradientStop Color="#20FFCE68" Offset="0.69"/>
+                                                                                        <GradientStop Color="#10FFFFFF" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </MultiTrigger>
+                                                                    </ControlTemplate.Triggers>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </RadioButton.Style>
+                                                <Image Height="16" Width="16">
+                                                    <Image.Source>
+                                                        <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;v2.9.0.0;component/PropertyGrid/Images/Categorize16.png"/>
+                                                    </Image.Source>
+                                                </Image>
+                                            </RadioButton>
+                                            <RadioButton ToolTip="Alphabetical" VerticalAlignment="Center">
+                                                <RadioButton.IsChecked>
+                                                    <Binding Mode="OneWay" Path="IsCategorized" RelativeSource="{RelativeSource TemplatedParent}">
+                                                        <Binding.Converter>
+                                                            <xctk:InverseBoolConverter/>
+                                                        </Binding.Converter>
+                                                    </Binding>
+                                                </RadioButton.IsChecked>
+                                                <RadioButton.Style>
+                                                    <Style TargetType="{x:Type RadioButton}">
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                        <Setter Property="BorderThickness" Value="1"/>
+                                                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                                        <Setter Property="Height" Value="22"/>
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="ToolTipService.InitialShowDelay" Value="900"/>
+                                                        <Setter Property="ToolTipService.ShowDuration" Value="20000"/>
+                                                        <Setter Property="ToolTipService.BetweenShowDelay" Value="0"/>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type RadioButton}">
+                                                                    <Grid SnapsToDevicePixels="True">
+                                                                        <Border x:Name="OuterBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="2"/>
+                                                                        <Border x:Name="MiddleBorder" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" CornerRadius="2">
+                                                                            <Border x:Name="InnerBorder" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" CornerRadius="2" Padding="{TemplateBinding Padding}">
+                                                                                <StackPanel x:Name="StackPanel" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                                                                                    <ContentPresenter x:Name="Content" RenderOptions.BitmapScalingMode="NearestNeighbor" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="Center"/>
+                                                                                </StackPanel>
+                                                                            </Border>
+                                                                        </Border>
+                                                                    </Grid>
+                                                                    <ControlTemplate.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" TargetName="OuterBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFFEFBF4" Offset="0"/>
+                                                                                        <GradientStop Color="#FFFDE7CE" Offset="0.19"/>
+                                                                                        <GradientStop Color="#FFFDDEB8" Offset="0.39"/>
+                                                                                        <GradientStop Color="#FFFFCE6B" Offset="0.39"/>
+                                                                                        <GradientStop Color="#FFFFDE9A" Offset="0.79"/>
+                                                                                        <GradientStop Color="#FFFFEBAA" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                            <Setter Property="BorderBrush" TargetName="OuterBorder" Value="#FFFFB700"/>
+                                                                            <Setter Property="BorderBrush" TargetName="InnerBorder" Value="#80FFFFFF"/>
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsEnabled" Value="False">
+                                                                            <Setter Property="Opacity" TargetName="Content" Value="0.5"/>
+                                                                            <Setter Property="TextElement.Foreground" TargetName="OuterBorder" Value="#FF9E9E9E"/>
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsChecked" Value="True">
+                                                                            <Setter Property="Background" TargetName="OuterBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFFFDCA0" Offset="0"/>
+                                                                                        <GradientStop Color="#FFFFD692" Offset="0.18"/>
+                                                                                        <GradientStop Color="#FFFFC45D" Offset="0.39"/>
+                                                                                        <GradientStop Color="#FFFFD178" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                            <Setter Property="BorderBrush" TargetName="OuterBorder" Value="#FFC29B29"/>
+                                                                            <Setter Property="BorderBrush" TargetName="InnerBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFE7CBAD" Offset="0"/>
+                                                                                        <GradientStop Color="#FFF7D7B5" Offset="0.1"/>
+                                                                                        <GradientStop Color="#FFFFD38C" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFFFC75A" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFFFEFA5" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsPressed" Value="True">
+                                                                            <Setter Property="Background" TargetName="OuterBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFE3C085" Offset="0"/>
+                                                                                        <GradientStop Color="#FFF4CC89" Offset="0.19"/>
+                                                                                        <GradientStop Color="#FFF5C777" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFF5BB56" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFF4CE9A" Offset="0.79"/>
+                                                                                        <GradientStop Color="#FFF3E28D" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                            <Setter Property="BorderBrush" TargetName="OuterBorder" Value="#FFC29B29"/>
+                                                                            <Setter Property="BorderBrush" TargetName="InnerBorder" Value="Transparent"/>
+                                                                        </Trigger>
+                                                                        <MultiTrigger>
+                                                                            <MultiTrigger.Conditions>
+                                                                                <Condition Property="IsChecked" Value="True"/>
+                                                                                <Condition Property="IsMouseOver" Value="True"/>
+                                                                            </MultiTrigger.Conditions>
+                                                                            <Setter Property="Background" TargetName="MiddleBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#40FFFEFE" Offset="0"/>
+                                                                                        <GradientStop Color="#40FFFEFE" Offset="0.39"/>
+                                                                                        <GradientStop Color="#20FFCE68" Offset="0.39"/>
+                                                                                        <GradientStop Color="#20FFCE68" Offset="0.69"/>
+                                                                                        <GradientStop Color="#10FFFFFF" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </MultiTrigger>
+                                                                    </ControlTemplate.Triggers>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </RadioButton.Style>
+                                                <Image Height="16" Width="16">
+                                                    <Image.Source>
+                                                        <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;v2.9.0.0;component/PropertyGrid/Images/SortAscending16.png"/>
+                                                    </Image.Source>
+                                                </Image>
+                                            </RadioButton>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Border x:Name="searchBoxContainer" BorderBrush="Gray" BorderThickness="1" Background="White" Grid.Column="1" Margin="4,4,0,4">
+                                        <Border.Visibility>
+                                            <Binding Path="ShowSearchBox" RelativeSource="{RelativeSource TemplatedParent}">
+                                                <Binding.Converter>
+                                                    <BooleanToVisibilityConverter/>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </Border.Visibility>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <xctk:WatermarkTextBox x:Name="_txtFilter" Background="Transparent" Text="{Binding Filter, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}" Watermark="{TemplateBinding FilterWatermark}">
+                                                <xctk:WatermarkTextBox.Style>
+                                                    <Style TargetType="{x:Type Control}">
+                                                        <Setter Property="BorderThickness" Value="0"/>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="BorderThickness" Value="1"/>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </xctk:WatermarkTextBox.Style>
+                                            </xctk:WatermarkTextBox>
+                                            <Button Grid.Column="1" HorizontalAlignment="Left">
+                                                <Button.Command>
+                                                    <RoutedCommand/>
+                                                </Button.Command>
+                                                <Button.Style>
+                                                    <Style TargetType="{x:Type Button}">
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                        <Setter Property="BorderThickness" Value="1"/>
+                                                        <Setter Property="Height" Value="22"/>
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="ToolTipService.InitialShowDelay" Value="900"/>
+                                                        <Setter Property="ToolTipService.ShowDuration" Value="20000"/>
+                                                        <Setter Property="ToolTipService.BetweenShowDelay" Value="0"/>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                                    <Grid SnapsToDevicePixels="True">
+                                                                        <Border x:Name="OuterBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="2"/>
+                                                                        <Border x:Name="MiddleBorder" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" CornerRadius="2">
+                                                                            <Border x:Name="InnerBorder" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" CornerRadius="2" Padding="{TemplateBinding Padding}">
+                                                                                <StackPanel x:Name="StackPanel" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                                                                                    <ContentPresenter x:Name="Content" RenderOptions.BitmapScalingMode="NearestNeighbor" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="Center"/>
+                                                                                </StackPanel>
+                                                                            </Border>
+                                                                        </Border>
+                                                                    </Grid>
+                                                                    <ControlTemplate.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" TargetName="OuterBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFFEFBF4" Offset="0"/>
+                                                                                        <GradientStop Color="#FFFDE7CE" Offset="0.19"/>
+                                                                                        <GradientStop Color="#FFFDDEB8" Offset="0.39"/>
+                                                                                        <GradientStop Color="#FFFFCE6B" Offset="0.39"/>
+                                                                                        <GradientStop Color="#FFFFDE9A" Offset="0.79"/>
+                                                                                        <GradientStop Color="#FFFFEBAA" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                            <Setter Property="BorderBrush" TargetName="OuterBorder" Value="#FFFFB700"/>
+                                                                            <Setter Property="BorderBrush" TargetName="InnerBorder" Value="#80FFFFFF"/>
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsEnabled" Value="False">
+                                                                            <Setter Property="Opacity" TargetName="Content" Value="0.5"/>
+                                                                            <Setter Property="TextElement.Foreground" TargetName="OuterBorder" Value="#FF9E9E9E"/>
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsPressed" Value="True">
+                                                                            <Setter Property="Background" TargetName="OuterBorder">
+                                                                                <Setter.Value>
+                                                                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                                                        <GradientStop Color="#FFE3C085" Offset="0"/>
+                                                                                        <GradientStop Color="#FFF4CC89" Offset="0.19"/>
+                                                                                        <GradientStop Color="#FFF5C777" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFF5BB56" Offset="0.36"/>
+                                                                                        <GradientStop Color="#FFF4CE9A" Offset="0.79"/>
+                                                                                        <GradientStop Color="#FFF3E28D" Offset="1"/>
+                                                                                    </LinearGradientBrush>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                            <Setter Property="BorderBrush" TargetName="OuterBorder" Value="#FFC29B29"/>
+                                                                            <Setter Property="BorderBrush" TargetName="InnerBorder" Value="Transparent"/>
+                                                                        </Trigger>
+                                                                    </ControlTemplate.Triggers>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </Button.Style>
+                                                <Image Height="16" Width="16">
+                                                    <Image.Source>
+                                                        <BitmapImage UriSource="pack://application:,,,/Xceed.Wpf.Toolkit;v2.9.0.0;component/PropertyGrid/Images/ClearFilter16.png"/>
+                                                    </Image.Source>
+                                                </Image>
+                                            </Button>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                                <Grid Background="White" Grid.Row="2">
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="{x:Null}">
+                                        <xctk:PropertyItemsControl x:Name="PART_PropertyItemsControl" Background="#FFF0F0F0" Focusable="False" IsTabStop="False" ItemContainerStyle="{Binding PropertyContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Top">
+                                            <xctk:PropertyItemsControl.GroupStyle>
+                                                <GroupStyle Panel="{x:Null}">
+                                                    <GroupStyle.ContainerStyleSelector>
+                                                        <xctk:CategoryGroupStyleSelector>
+                                                            <xctk:CategoryGroupStyleSelector.ItemGroupStyle>
+                                                                <Style TargetType="{x:Type GroupItem}">
+                                                                    <Setter Property="Template">
+                                                                        <Setter.Value>
+                                                                            <ControlTemplate>
+                                                                                <Border>
+                                                                                    <Expander x:Name="expander" Header="{Binding Name}" IsExpanded="True">
+                                                                                        <Expander.Style>
+                                                                                            <Style TargetType="{x:Type Expander}">
+                                                                                                <Setter Property="Padding" Value="0"/>
+                                                                                                <Setter Property="Background" Value="#FFF0F0F0"/>
+                                                                                                <Setter Property="Template">
+                                                                                                    <Setter.Value>
+                                                                                                        <ControlTemplate TargetType="{x:Type Expander}">
+                                                                                                            <Grid>
+                                                                                                                <Grid.RowDefinitions>
+                                                                                                                    <RowDefinition Height="Auto"/>
+                                                                                                                    <RowDefinition x:Name="ContentRow" Height="*"/>
+                                                                                                                </Grid.RowDefinitions>
+                                                                                                                <Border x:Name="Border" BorderBrush="#FFF0F0F0" Background="{TemplateBinding Background}">
+                                                                                                                    <ToggleButton IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True">
+                                                                                                                        <ToggleButton.Template>
+                                                                                                                            <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                                                                                <Grid>
+                                                                                                                                    <Grid.ColumnDefinitions>
+                                                                                                                                        <ColumnDefinition Width="20"/>
+                                                                                                                                        <ColumnDefinition Width="*"/>
+                                                                                                                                    </Grid.ColumnDefinitions>
+                                                                                                                                    <Rectangle x:Name="Rectangle" Fill="Transparent" Margin="0"/>
+                                                                                                                                    <Path x:Name="Up_Arrow" Data="M0,0L4,4 8,0z" Fill="#FF31347C" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                                                                                                                                        <Path.RenderTransform>
+                                                                                                                                            <TransformGroup>
+                                                                                                                                                <ScaleTransform ScaleY="1" ScaleX="1"/>
+                                                                                                                                                <SkewTransform AngleY="0" AngleX="0"/>
+                                                                                                                                                <RotateTransform Angle="-90"/>
+                                                                                                                                                <TranslateTransform X="0" Y="0"/>
+                                                                                                                                            </TransformGroup>
+                                                                                                                                        </Path.RenderTransform>
+                                                                                                                                    </Path>
+                                                                                                                                    <Path x:Name="Down_Arrow" Data="M0,4L4,0 8,4z" Fill="#FF31347C" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" VerticalAlignment="Center">
+                                                                                                                                        <Path.RenderTransform>
+                                                                                                                                            <TransformGroup>
+                                                                                                                                                <ScaleTransform ScaleY="1" ScaleX="1"/>
+                                                                                                                                                <SkewTransform AngleY="0" AngleX="0"/>
+                                                                                                                                                <RotateTransform Angle="135"/>
+                                                                                                                                                <TranslateTransform X="0" Y="0"/>
+                                                                                                                                            </TransformGroup>
+                                                                                                                                        </Path.RenderTransform>
+                                                                                                                                    </Path>
+                                                                                                                                    <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                                                                                                                                </Grid>
+                                                                                                                                <ControlTemplate.Triggers>
+                                                                                                                                    <Trigger Property="IsChecked" Value="True">
+                                                                                                                                        <Setter Property="Visibility" TargetName="Down_Arrow" Value="Visible"/>
+                                                                                                                                        <Setter Property="Visibility" TargetName="Up_Arrow" Value="Collapsed"/>
+                                                                                                                                        <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="Black"/>
+                                                                                                                                    </Trigger>
+                                                                                                                                </ControlTemplate.Triggers>
+                                                                                                                            </ControlTemplate>
+                                                                                                                        </ToggleButton.Template>
+                                                                                                                        <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" TextElement.FontWeight="Bold" Margin="1" RecognizesAccessKey="True"/>
+                                                                                                                    </ToggleButton>
+                                                                                                                </Border>
+                                                                                                                <Border x:Name="ExpandSite" Background="#FFF0F0F0" Padding="10,0,0,0" Grid.Row="1" Visibility="Collapsed">
+                                                                                                                    <Border BorderThickness="0" HorizontalAlignment="Stretch" Margin="0" Padding="0" VerticalAlignment="Stretch">
+                                                                                                                        <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                                                                                    </Border>
+                                                                                                                </Border>
+                                                                                                            </Grid>
+                                                                                                            <ControlTemplate.Triggers>
+                                                                                                                <Trigger Property="IsExpanded" Value="True">
+                                                                                                                    <Setter Property="Visibility" TargetName="ExpandSite" Value="Visible"/>
+                                                                                                                </Trigger>
+                                                                                                            </ControlTemplate.Triggers>
+                                                                                                        </ControlTemplate>
+                                                                                                    </Setter.Value>
+                                                                                                </Setter>
+                                                                                            </Style>
+                                                                                        </Expander.Style>
+                                                                                        <ItemsPresenter/>
+                                                                                    </Expander>
+                                                                                </Border>
+                                                                            </ControlTemplate>
+                                                                        </Setter.Value>
+                                                                    </Setter>
+                                                                    <Style.Triggers>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Value="True">
+                                                                                    <Condition.Binding>
+                                                                                        <Binding Path="Name">
+                                                                                            <Binding.Converter>
+                                                                                                <xctk:IsDefaultCategoryConverter/>
+                                                                                            </Binding.Converter>
+                                                                                        </Binding>
+                                                                                    </Condition.Binding>
+                                                                                </Condition>
+                                                                                <Condition Binding="{Binding IsMiscCategoryLabelHidden, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type xctk:PropertyGrid}}}" Value="True"/>
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Template">
+                                                                                <Setter.Value>
+                                                                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                                                        <ItemsPresenter/>
+                                                                                    </ControlTemplate>
+                                                                                </Setter.Value>
+                                                                            </Setter>
+                                                                        </MultiDataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </xctk:CategoryGroupStyleSelector.ItemGroupStyle>
+                                                            <xctk:CategoryGroupStyleSelector.SingleDefaultCategoryItemGroupStyle>
+                                                                <Style TargetType="{x:Type GroupItem}">
+                                                                    <Setter Property="Template">
+                                                                        <Setter.Value>
+                                                                            <ControlTemplate>
+                                                                                <ItemsPresenter/>
+                                                                            </ControlTemplate>
+                                                                        </Setter.Value>
+                                                                    </Setter>
+                                                                </Style>
+                                                            </xctk:CategoryGroupStyleSelector.SingleDefaultCategoryItemGroupStyle>
+                                                        </xctk:CategoryGroupStyleSelector>
+                                                    </GroupStyle.ContainerStyleSelector>
+                                                </GroupStyle>
+                                            </xctk:PropertyItemsControl.GroupStyle>
+                                            <xctk:PropertyItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <VirtualizingStackPanel IsItemsHost="True"/>
+                                                </ItemsPanelTemplate>
+                                            </xctk:PropertyItemsControl.ItemsPanel>
+                                        </xctk:PropertyItemsControl>
+                                    </ScrollViewer>
+                                    <Thumb x:Name="PART_DragThumb" Cursor="SizeWE" HorizontalAlignment="Left" Margin="6,0,0,0" Width="5">
+                                        <Thumb.Template>
+                                            <ControlTemplate>
+                                                <Border Background="Transparent"/>
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                </Grid>
+                                <GridSplitter HorizontalAlignment="Stretch" Height="3" Grid.Row="3">
+                                    <GridSplitter.Visibility>
+                                        <Binding Path="ShowSummary" RelativeSource="{RelativeSource TemplatedParent}">
+                                            <Binding.Converter>
+                                                <BooleanToVisibilityConverter/>
+                                            </Binding.Converter>
+                                        </Binding>
+                                    </GridSplitter.Visibility>
+                                </GridSplitter>
+                                <StackPanel Margin="0,0,0,5" Grid.Row="4">
+                                    <StackPanel.Visibility>
+                                        <Binding Path="ShowSummary" RelativeSource="{RelativeSource TemplatedParent}">
+                                            <Binding.Converter>
+                                                <BooleanToVisibilityConverter/>
+                                            </Binding.Converter>
+                                        </Binding>
+                                    </StackPanel.Visibility>
+                                    <TextBlock FontWeight="Bold" Padding="2,2,2,0" Text="{Binding SelectedPropertyItem.DisplayName, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <TextBlock Padding="5,2,2,0" TextWrapping="WrapWithOverflow" Text="{Binding SelectedPropertyItem.Description, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Visibility" SourceName="searchBoxContainer" Value="Collapsed"/>
+                                    <Condition Property="Visibility" SourceName="sortButtonContainer" Value="Collapsed"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="toolsContainer" Value="Collapsed"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Controls:MetroWindow.Resources>
     <Controls:MetroWindow.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
     </Controls:MetroWindow.Triggers>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
@@ -174,8 +1188,26 @@
 
         <Menu Margin="0,0,0,0" Background="#FF252525" Foreground="#FFADADAD" DockPanel.Dock="Top">
             <MenuItem Header="파일(_F)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6">
-                <MenuItem Header="새 프로젝트(_N)" />
-                <Separator HorizontalAlignment="Left" Width="180.303333333333"/>
+                <MenuItem Header="새 프로젝트(_N)">
+                    <MenuItem.Icon>
+                        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  Width="16" Height="16">
+                            <Rectangle Width="16" Height="16">
+                                <Rectangle.Fill>
+                                    <DrawingBrush>
+                                        <DrawingBrush.Drawing>
+                                            <DrawingGroup>
+                                                <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
+                                                <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M5.5859,10L8.5859,7 5.9999,7C4.8979,7 3.9999,7.897 3.9999,9 3.9999,10.104 4.8979,11 5.9999,11L6.9999,11 6.9999,15 5.9999,15C2.6909,15 -0.000100000000000655,12.309 -0.000100000000000655,9 -0.000100000000000655,5.691 2.6909,3 5.9999,3L8.5859,3 5.5859,0 11.4139,0 15.9999,4.586 15.9999,5.414 11.4139,10z" />
+                                                <GeometryDrawing Brush="#FF00539C" Geometry="F1M15,5L11,9 8,9 11,6 6,6C4.343,6 3,7.343 3,9 3,10.656 4.343,12 6,12L6,14C3.238,14 1,11.762 1,9 1,6.239 3.238,4 6,4L11,4 8,1 11,1z" />
+                                            </DrawingGroup>
+                                        </DrawingBrush.Drawing>
+                                    </DrawingBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Viewbox>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator HorizontalAlignment="Left" Width="180.303333333333" Margin="0,2" Background="#FF101011" Foreground="Black"/>
                 <MenuItem Header="새 맵 만들기_N)" Command="{Binding This.NewCommand, Mode=OneWay}" />
                 <MenuItem Header="불러오기(_S)" Command="{Binding This.OpenCommand, Mode=OneWay}" />
                 <MenuItem Header="저장(_S)" />
@@ -190,28 +1222,18 @@
                 <MenuItem Header="붙여넣기(_V)" Margin="0"/>
                 <MenuItem Header="삭제(_Del)" Margin="0" />
             </MenuItem>
-            <MenuItem Header="모드(_M)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6"/>
-            <MenuItem Header="그리기(_D)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6"/>
-            <MenuItem Header="크기(_S)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6"/>
             <MenuItem Header="툴(_T)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Padding="7,0,8,6">
                 <MenuItem Header="Properties" IsChecked="{Binding FileStats.IsVisible, Mode=TwoWay}" IsCheckable="True"/>
                 <MenuItem Header="PieceListInfo" IsChecked="{Binding PieceListInfo.IsVisible, Mode=TwoWay}" IsCheckable="True"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="151.84"/>
+                <MenuItem Header="UIObjectListInfo" IsChecked="{Binding UIObjectListInfo.IsVisible, Mode=TwoWay}" IsCheckable="True"/>
+                <MenuItem Header="MarxObjectTree" IsChecked="{Binding MarxObjectTree.IsVisible, Mode=TwoWay}" IsCheckable="True"/>
+                <MenuItem Header="ImageControlTree" IsChecked="{Binding ImageControlTree.IsVisible, Mode=TwoWay}" IsCheckable="True"/>
             </MenuItem>
-            <MenuItem Header="게임(_G)" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="7,0,8,6"/>
-            <MenuItem Header="도움(_H)" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="7,0,8,6" />
         </Menu>
         <DockPanel x:Name="stackPanel" Height="24" Margin="5,0,0,0" VerticalAlignment="Top" Background="#FF252525" DockPanel.Dock="Top" LastChildFill="False" >
             <Path Data="M73.5,4 L73.5,23.026298" Margin="0" Stretch="Fill" Width="13" StrokeThickness="7" StrokeDashArray="1 0" Stroke="{DynamicResource DotFillBrush}"/>
             <Button Height="24" Width="24" Style="{DynamicResource MineMosterStyle}" Margin="6,0,0,0" Click="Button_Click_4">
-                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" x:Name="___" Width="16" Height="16">
+                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="16" Height="16">
                     <Rectangle Width="16" Height="16">
                         <Rectangle.Fill>
                             <DrawingBrush>
@@ -349,9 +1371,9 @@
         </DockPanel>
 
         <avalonDock:DockingManager x:Name="dockManager" Foreground="{DynamicResource LightBrush}" Background="#FF252525"
-                                   AnchorablesSource="{Binding Tools}" 
-                                   DocumentsSource="{Binding Files}" 
-                                   ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource ActiveDocumentConverter}}">
+			AnchorablesSource="{Binding Tools}" 
+			DocumentsSource="{Binding Files}" 
+			ActiveContent="{Binding ActiveDocument, Converter={StaticResource ActiveDocumentConverter}, Mode=TwoWay}">
             <avalonDock:DockingManager.Theme>
                 <avalonDock:Vs2013DarkTheme/>
             </avalonDock:DockingManager.Theme>
@@ -394,6 +1416,31 @@
                             </Grid>
                         </DataTemplate>
                     </MVVMTestApp:PanesTemplateSelector.PieceListInfoViewTemplate>
+                    <MVVMTestApp:PanesTemplateSelector.ObjectTreeTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TreeView Margin="0,37,0,0" ItemTemplate="{DynamicResource DataTemplat2}" ItemsSource="{Binding Children}" BorderThickness="0" Background="{DynamicResource Backgroundtransparent}"/>
+                                <Grid Height="30" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                    <TextBox x:Name="textBox1" Margin="0,2,25,2" TextWrapping="Wrap" BorderBrush="#FF4D4D4D" Height="25"/>
+                                    <Button HorizontalAlignment="Right" Foreground="White" BorderBrush="{x:Null}" Height="25" Width="25" Padding="2" UseLayoutRounding="True">
+                                        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+                                            <Rectangle Width="28" Height="28">
+                                                <Rectangle.Fill>
+                                                    <DrawingBrush>
+                                                        <DrawingBrush.Drawing>
+                                                            <DrawingGroup>
+                                                                <GeometryDrawing Brush="#FF7F7F7F" Geometry="F1M10.0791,10.9531C10.0791,7.1581 13.1521,4.1441 16.9451,4.1441 20.7401,4.1441 23.8121,7.1581 23.8121,10.9531 23.8121,14.7451 20.7401,17.8191 16.9451,17.8191 13.1521,17.8191 10.0791,14.7451 10.0791,10.9531 M0.9191,24.0811L3.8321,26.9991 12.5751,18.2621C13.7521,18.8531 14.3291,19.7051 16.9621,19.7051 21.8001,19.7051 25.7161,15.7861 25.7161,10.9531 25.7161,6.1181 21.8001,2.1981 16.9621,2.1981 12.1301,2.1981 8.2511,6.1181 8.2511,10.9531 8.2511,13.8691 9.0601,14.1631 9.6571,15.3441z" />
+                                                            </DrawingGroup>
+                                                        </DrawingBrush.Drawing>
+                                                    </DrawingBrush>
+                                                </Rectangle.Fill>
+                                            </Rectangle>
+                                        </Viewbox>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </MVVMTestApp:PanesTemplateSelector.ObjectTreeTemplate>
                 </MVVMTestApp:PanesTemplateSelector>
             </avalonDock:DockingManager.LayoutItemTemplateSelector>
             <avalonDock:DockingManager.LayoutItemContainerStyleSelector>
@@ -402,7 +1449,7 @@
                         <Style TargetType="{x:Type avalonDock:LayoutAnchorableItem}">
                             <Setter Property="Title" Value="{Binding Model.Title}"/>
                             <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
-                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"/>
+                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, ConverterParameter={x:Static Visibility.Hidden}, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}"/>
                             <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
                             <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
                             <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
@@ -421,7 +1468,7 @@
                         <Style TargetType="{x:Type avalonDock:LayoutAnchorableItem}">
                             <Setter Property="Title" Value="{Binding Model.Title}"/>
                             <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
-                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"/>
+                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, ConverterParameter={x:Static Visibility.Hidden}, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}"/>
                             <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
                             <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
                             <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
@@ -434,34 +1481,6 @@
             </avalonDock:DockingManager.LayoutUpdateStrategy>
             <avalonDock:LayoutRoot x:Name="_layoutRoot">
                 <avalonDock:LayoutPanel Orientation="Horizontal">
-                    <avalonDock:LayoutAnchorablePane DockWidth="200">
-                        <avalonDock:LayoutAnchorable ContentId="UI" Title="UI Object" CanHide="False" CanClose="False"
-							AutoHideWidth="240">
-                            <Grid>
-                                <Grid.DataContext>
-                                    <ViewModel:ImageControlTreeViewModel/>
-                                </Grid.DataContext>
-                                <TreeView Margin="0,25.04,0,0" ItemTemplate="{DynamicResource ObjectInterfaceTemplate1}" ItemsSource="{Binding Children}"/>
-                                <Grid Height="25" Margin="0,0.02,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height">
-                                    <TextBox x:Name="textBox" Margin="0,0,70,0" TextWrapping="Wrap"/>
-                                    <Button x:Name="button" Content="Search" HorizontalAlignment="Right" Margin="0" Width="70" d:LayoutOverrides="Height"/>
-                                </Grid>
-                            </Grid>
-                        </avalonDock:LayoutAnchorable>
-                        <avalonDock:LayoutAnchorable ContentId="UI" Title="Scene Object" CanHide="False" CanClose="False"
-							AutoHideWidth="240">
-                            <Grid>
-                                <Grid.DataContext>
-                                    <ViewModel:MarxObjectTreeViewModel/>
-                                </Grid.DataContext>
-                                <TreeView Margin="0,25.04,0,0" ItemTemplate="{DynamicResource DataTemplat2}" ItemsSource="{Binding Children}"/>
-                                <Grid Height="25" Margin="0,0.02,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height">
-                                    <TextBox  Margin="0,0,70,0" TextWrapping="Wrap"/>
-                                    <Button  Content="Search" HorizontalAlignment="Right" Margin="0" Width="70" d:LayoutOverrides="Height"/>
-                                </Grid>
-                            </Grid>
-                        </avalonDock:LayoutAnchorable>
-                    </avalonDock:LayoutAnchorablePane>
                     <avalonDock:LayoutDocumentPaneGroup CanRepositionItems="False" IsMaximized="True"  >
                         <avalonDock:LayoutDocumentPane CanRepositionItems="False" ShowHeader="False"  >
                             <avalonDock:LayoutDocument CanClose="False" CanFloat="False" Title="GameScene">
@@ -481,40 +1500,16 @@
                         <avalonDock:LayoutAnchorable ContentId="Property" Title="Property" CanHide="False" CanClose="False"
 							AutoHideWidth="240">
                             <Grid Background="#FF252525" Margin="0" MinWidth="200">
-
-                                <xctk:PropertyGrid HorizontalAlignment="Left" Height="100" Margin="0,0,0,-100" VerticalAlignment="Bottom" Width="100"/>
-
+                                <xctk:PropertyGrid d:LayoutOverrides="Width" Margin="0" SelectedObject="{Binding selected}"  Foreground="Black"  >
+                                    <xctk:PropertyGrid.Resources>
+                                        <ResourceDictionary>
+                                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="Red" />
+                                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Green" />
+                                            <SolidColorBrush x:Key="TextBrush" Color="Black" />
+                                        </ResourceDictionary>
+                                    </xctk:PropertyGrid.Resources>
+                                </xctk:PropertyGrid>
                             </Grid>
-                        </avalonDock:LayoutAnchorable>
-                        <avalonDock:LayoutAnchorable ContentId="Atlas Asset" Title="Atlas Asset" CanHide="False" CanClose="False"
-							AutoHideWidth="240">
-
-                            <Grid Background="#FF252525" Margin="0" MinWidth="200">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.DataContext>
-                                    <ViewModel:KADAtalsViewModel/>
-                                </Grid.DataContext>
-                                <ListBox x:Name="listBox1" ItemTemplate="{DynamicResource PieceInfoTemplate2}" ItemsSource="{Binding pieceList}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,42" Background="{DynamicResource Backgroundtransparent}" >
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger SourceName="listBox1">
-                                            <i:InvokeCommandAction Command="{Binding Instance.Command, Mode=OneWay}" CommandParameter="Load"/>
-                                        </i:EventTrigger>
-                                        <i:EventTrigger EventName="SelectionChanged" SourceName="listBox1" SourceObject="{Binding ElementName=listBox1}">
-                                            <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="{Binding SelectedValue, ElementName=listBox1}"/>
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </ListBox>
-                                <Button Content="피스 추가" VerticalAlignment="Bottom" Height="42" Margin="0">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="Click">
-                                            <i:InvokeCommandAction Command="{Binding Command, Mode=OneWay}" CommandParameter="MakePieceInfo"/>
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </Button>
-                            </Grid>
-
                         </avalonDock:LayoutAnchorable>
                     </avalonDock:LayoutAnchorablePane>
                 </avalonDock:LayoutPanel>

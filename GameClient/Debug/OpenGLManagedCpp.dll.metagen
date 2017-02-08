@@ -112,15 +112,16 @@ Class LogicCommon.UIobjectInterface: AutoLayout, AnsiClass, Class, Public, Befor
     Single _ScaleY 'get set' : 
     Single _ScaleX 'get set' : 
     Int32 transparent 'get set' : 
-    System.String TextureName 'get set' : 
+    System.String ObjectName 'get set' : 
     System.String Name 'get set' : 
   Events:
     System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
   Methods:
+    MarshalString(String, basic_string<char\,std::char_traits<char>\,std::allocator<char> >* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
     set_Name(String): PrivateScope, Public, HideBySig, SpecialName
     get_Name(): PrivateScope, Public, HideBySig, SpecialName
-    set_TextureName(String): PrivateScope, Public, HideBySig, SpecialName
-    get_TextureName(): PrivateScope, Public, HideBySig, SpecialName
+    set_ObjectName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ObjectName(): PrivateScope, Public, HideBySig, SpecialName
     set_transparent(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_transparent(): PrivateScope, Public, HideBySig, SpecialName
     set__ScaleX(Single): PrivateScope, Public, HideBySig, SpecialName
@@ -155,6 +156,20 @@ Class LogicCommon.UIObjectTreeContator: AutoLayout, AnsiClass, Class, Public, Be
     setNewPiece(ImageControl*, ImageControl*): PrivateScope, Public, HideBySig
     setNewPiece(ImageControl*): PrivateScope, Public, HideBySig
     GetInstance(): PrivateScope, Public, Static, HideBySig
+Class LogicCommon.SelectObjectContator: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.ComponentModel.INotifyPropertyChanged
+  Properties:
+    System.Object select 'get set' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+  Methods:
+    OnPropertyChanged(String): PrivateScope, Public, HideBySig
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    GetInstance(): PrivateScope, Public, Static, HideBySig
+    set_select(Object): PrivateScope, Public, HideBySig, SpecialName
+    get_select(): PrivateScope, Public, HideBySig, SpecialName
 Class WPFOpenGLLib.OpenGLHwnd: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Interop.HwndHost
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

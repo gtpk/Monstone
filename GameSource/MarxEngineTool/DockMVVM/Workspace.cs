@@ -24,6 +24,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Windows;
 using Xceed.Wpf.AvalonDock.Layout;
+using LogicCommon;
 
 namespace AvalonDock.MVVMTestApp
 {
@@ -32,6 +33,13 @@ namespace AvalonDock.MVVMTestApp
         public Workspace()
         {
             _this = this;
+            SelectObjectContator.GetInstance().PropertyChanged += Workspace_PropertyChanged;
+        }
+
+        private void Workspace_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            selected = SelectObjectContator.GetInstance().select;
+            RaisePropertyChanged("selected");
         }
 
         static Workspace _this;
@@ -68,7 +76,9 @@ namespace AvalonDock.MVVMTestApp
             {
                 if (_tools == null)
                 {
-                    _tools = new ToolViewModel[] { FileStats ,PieceListInfo};
+                    _tools = new ToolViewModel[] {
+                        FileStats ,PieceListInfo, UIObjectListInfo
+                    ,MarxObjectTree,ImageControlTree};
                 }
                     
                 return _tools;
@@ -98,6 +108,47 @@ namespace AvalonDock.MVVMTestApp
                 return _PieceListInfo;
             }
         }
+
+        UIObjectListInfoViewModel _UIObjectListInfo = null;
+        public UIObjectListInfoViewModel UIObjectListInfo
+        {
+            get
+            {
+                if (_UIObjectListInfo == null)
+                    _UIObjectListInfo = new UIObjectListInfoViewModel();
+
+                return _UIObjectListInfo;
+            }
+        }
+
+
+
+
+        MarxObjectTreeViewModel _MarxObjectTree= null;
+        public MarxObjectTreeViewModel MarxObjectTree
+        {
+            get
+            {
+                if (_MarxObjectTree == null)
+                    _MarxObjectTree = new MarxObjectTreeViewModel();
+
+                return _MarxObjectTree;
+            }
+        }
+
+
+        ImageControlTreeViewModel _ImageControlTree = null;
+        public ImageControlTreeViewModel ImageControlTree
+        {
+            get
+            {
+                if (_ImageControlTree == null)
+                    _ImageControlTree = new ImageControlTreeViewModel();
+
+                return _ImageControlTree;
+            }
+        }
+         
 
         #region OpenCommand
         RelayCommand _openCommand = null;
@@ -169,6 +220,24 @@ namespace AvalonDock.MVVMTestApp
         }
 
         #endregion 
+
+        #region ActiveDocument
+
+        private object _selected = null;
+        public object selected
+        {
+            get { return _selected; }
+            set
+            {
+                if (_selected != value)
+                {
+                    _selected = value;
+                    RaisePropertyChanged("selected");
+                }
+            }
+        }
+        #endregion
+
 
         #region ActiveDocument
 

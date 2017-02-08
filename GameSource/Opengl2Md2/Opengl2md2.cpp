@@ -37,6 +37,8 @@
 #include "XBoxControllerManager.h"
 #include "CollisionMapCreater.h"
 #include "EyeMouseMove.h"
+#include "ObjectMove.h"
+
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -530,7 +532,7 @@ void Opengl2md2::draw3D ()
 	
 	//player->drawPlayerFrame (10,
 	//    static_cast<Md2Object::Md2RenderMode>(renderMode));
-
+	ObjectMove::getinstance()->OnDraw();
 	
 
 	glDisable(GL_BLEND);
@@ -544,6 +546,8 @@ void Opengl2md2::draw3D ()
 		glEnable(GL_ALPHA_TEST);
 		glEnable(GL_BLEND);
 		CollisionMapCreater::getinstance()->onDraw();
+		
+
 		glDisable(GL_ALPHA_TEST);
 		glDisable(GL_BLEND);
 	}
@@ -551,7 +555,7 @@ void Opengl2md2::draw3D ()
 
 	if(emTrancelate == EM_ROTAION && inst->bIsMouse_Left_Down)
 	{
-		Md2Object* obj =  inst->player->getSelectObj();
+		Md2Object* obj =  inst->player->FindSelectTopObj();
 
 		if(obj != NULL)
 		{
@@ -719,7 +723,10 @@ void Opengl2md2::draw2D ()
 
 		//inst->a_mouse
 		glRasterPos2i (10, m_Hight - 110);
-		glPrintf ("Select Object Name %d" , SelectObjectNum);
+		if(ObjectMove::getinstance()->SelectObjectNum.size() > 0)
+			glPrintf ("Select Object Name %d" , ObjectMove::getinstance()->SelectObjectNum[0]);
+		else
+			glPrintf("Select Object Name NONE");
 
 	}
 
@@ -733,41 +740,122 @@ void Opengl2md2::draw2D ()
 
 void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
 {
+	if (inst->keyboard.special[VK_SPACE] == true)
+		return;
+
+	int counting = 0;
+	//새롭게 선택된 객체들
+	std::vector<SelectObj> SelectList;
+	{
+
+		GLuint names, *ptr;
+
+		printf("hits = %d\n", hits);
+		ptr = (GLuint *)index;
+		for (int i = 0; i < hits; i++) {  /* for each hit  */
+			SelectObj s;
+			names = *ptr;
+			s.names = names;
+			printf(" number of names for hit = %d\n", names); ptr++;
+			s.z1 = *ptr;
+			printf("  z1 is %g;", (float)*ptr / 0x7fffffff); ptr++;
+			s.z2 = *ptr;
+			printf(" z2 is %g\n", (float)*ptr / 0x7fffffff); ptr++;
+
+			printf("   the name is ");
+			for (int j = 0; j < names; j++) {  /* for each name */
+				printf("%d ", *ptr);
+				s.index[j] = (*ptr);
+				ptr++;
+				counting++;
+			}
+			printf("\n");
+			if(names != 0)
+				SelectList.push_back(s);
+		}
+	}
+
 	if (inst->Close2d)
 	{
-		if (inst->keyboard.special[VK_SPACE] == true)
-			return;
-
-		if (hits == 0)
+		// 모두 해재한후
+		for (int i = 0; i < ObjectMove::getinstance()->SelectObjectNum.size(); i++)
 		{
-			SelectObjectNum = -1;
-			player->setSelectObj(-1);
+			player->setSelectObj(ObjectMove::getinstance()->SelectObjectNum[i], false);
+		}
+
+		//선택이 없으면 다지움
+		if (SelectList.size() == 0)
+		{
+			ObjectMove::getinstance()->SelectObjectNum.clear();
+			if (MarxWorld::getInstance().Volkes != NULL)
+				MarxWorld::getInstance().Volkes->SetMd2ObjectSelection(NULL);
 		}
 		else
 		{
-			SelectObjectNum = index[(4 * hits) - 1];
-			player->setSelectObj(SelectObjectNum);
+			// 맨 위에 객체만 선택한다. 
+			// 이름이 없는 객체는 이미 배제되어있다.
+			if (inst->keyboard.special[VK_CONTROL])
+			{
 
+				player->setSelectObj(SelectList[SelectList.size() - 1].index[0], true);
+
+				//등록된것들 다 다시 등록
+				for (int i = 0; i < ObjectMove::getinstance()->SelectObjectNum.size(); i++)
+				{
+					player->setSelectObj(ObjectMove::getinstance()->SelectObjectNum[i], true);
+				}
+
+				//새로운 객체를 추가한다.
+				ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[0].index[0]);
+			}
+			else
+			{
+
+				player->setSelectObj(SelectList[SelectList.size() - 1].index[0], true);
+				//새로 선택했으므로 선택리스트를 비운다.
+				ObjectMove::getinstance()->SelectObjectNum.clear();
+				ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[0].index[0]);
+			}
+
+			//최초 선택된 것만 체크한다.
+			Md2Object* obj = MarxWorld::getInstance().FindbyNameObj(
+				ObjectMove::getinstance()->SelectObjectNum[0]);
+
+			if (obj != NULL)
+			{
+				ObjectMove::getinstance()->old_trance[0] = obj->getTranslate()[0];
+				ObjectMove::getinstance()->old_trance[1] = obj->getTranslate()[1];
+				ObjectMove::getinstance()->old_trance[2] = obj->getTranslate()[2];
+				ObjectMove::getinstance()->old_mouse = inst->a_mouse;
+
+				if (MarxWorld::getInstance().Volkes != NULL)
+					MarxWorld::getInstance().Volkes->SetMd2ObjectSelection(obj);
+
+			}
 		}
+		
 	}
 	else
 	{
-		if (hits == 0)
-		{
-			SelectObjectNum = -1;
-			inst->render->setSelectObj(-1);
-		}
-		else
-		{
-			SelectObjectNum = index[(4 * hits) - 1];
-			inst->render->setSelectObj(SelectObjectNum);
-			ImageControl* node = inst->render->getSelectObj();
-			if (MarxWorld::getInstance().Volkes != NULL)
-				MarxWorld::getInstance().Volkes->SetImageControlSelection(node);
-			
-			//inst->render->onDrawFrame();
-
-		}
+		//if (hits == 0)
+		//{
+		//	//ObjectMove::getinstance()->SelectObjectNum = -1;
+		//	inst->render->setSelectObj(ObjectMove::getinstance()->SelectObjectNum[0]);
+		//
+		//}
+		//else
+		//{
+		//	ObjectMove::getinstance()->SelectObjectNum = index[(4 * hits) - 1];
+		//	inst->render->setSelectObj(ObjectMove::getinstance()->SelectObjectNum);
+		//	ImageControl* node = inst->render->FindSelectTopObj();
+		//	if (MarxWorld::getInstance().Volkes != NULL)
+		//		MarxWorld::getInstance().Volkes->SetImageControlSelection(node);
+		//
+		//
+		//	
+		//	//inst->render->onDrawFrame();
+		//
+		//}
 	}
 	
 	/*
@@ -813,6 +901,8 @@ void Opengl2md2::SelectObjects(GLint x, GLint y)
 		glMatrixMode(GL_PROJECTION);
 		glPopMatrix();
 		glMatrixMode(GL_MODELVIEW);
+
+		
 	}
 	else
 	{
@@ -1076,20 +1166,31 @@ void	Opengl2md2::specialKeyUp (int key, int x, int y)
 
 void	Opengl2md2::mouseMotion (int x, int y)
 {
-	float senstive = 1;
-	if(ViewCamera::getinstance()->ViewScale != 0)
-		senstive = 1 / ViewCamera::getinstance()->ViewScale;
+	// Ahhhhh.. this is too difficult..
+	Point GameSize = ExGameGraphicInfo::GetGameGraphic()->GetGameSize();
+	float realposx = x;
+	//1. i'm not sure Logic, but Y(Hight) is UpsideDown
+	float realposy = inst->m_Hight - y;
+	//2. Multiply by Reciprocal of Resulution 
+	realposx = realposx / (float)(GameSize.x / 1264.0f);
+	realposy = realposy / (float)(GameSize.y / 682.0f);
+	//3. Add Carmera Translate
+	if (inst->Close2d == true)
+	{
+		realposx += ViewCamera::getinstance()->eye.x;
+		realposy += ViewCamera::getinstance()->eye.y;
+	
+		//4. Multiply  by Reciprocal of Scale  
+		realposx /= ViewCamera::getinstance()->ViewScale;
+		realposy /= ViewCamera::getinstance()->ViewScale;
+	}
+	//this is your Acture Mouse Positon
 
-	//게임에서의 마우스 포인터 위치
-	float gamemouseX = (x - inst->m_Width / 2)*senstive;
-	float gamemouseY = (inst->m_Hight / 2 - y)*senstive;
 
-	inst->a_mouse.x = ViewCamera::getinstance()->eye.x + gamemouseX;
-	inst->a_mouse.y = ViewCamera::getinstance()->eye.y + gamemouseY;
-	//inst->a_mouse.x = x + ViewCamera::getinstance()->eye.x;
-	//inst->a_mouse.y = inst->m_Hight- y  + ViewCamera::getinstance()->eye.y;
-	inst->mouse.x = x;
-	inst->mouse.y = y;
+	inst->a_mouse.x = realposx;
+	inst->a_mouse.y = realposy;
+
+	
 	
 
 	if(inst->bIsMouse_Left_Down == true)
@@ -1100,30 +1201,29 @@ void	Opengl2md2::mouseMotion (int x, int y)
 			if (inst->Close2d == false)
 			{
 
-				ImageControl* obj = inst->render->getSelectObj();
+				ImageControl* obj = inst->render->FindSelectTopObj();
 				if (obj == NULL)
 					return;
 
 				if (inst->emTrancelate == EM_TRANCELATE)
 				{
-					// Rotation
-					inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*senstive);
-					inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*senstive);
+					inst->trance[0] = ObjectMove::getinstance()->old_trance[0] + ((realposx - ObjectMove::getinstance()->old_mouse.x));
+					inst->trance[1] = ObjectMove::getinstance()->old_trance[1] + ((realposy - ObjectMove::getinstance()->old_mouse.y));
 					obj->x = inst->trance[0];
 					obj->y = inst->trance[1];
 				}
 			}
 			else
 			{
-				Md2Object* obj = inst->player->getSelectObj();
+				Md2Object* obj = inst->player->FindSelectTopObj();
 				if (obj != NULL)
 				{
 					if (inst->emTrancelate == EM_TRANCELATE)
 					{
-						// Rotation
-						inst->trance[0] = inst->old_trance[0] + ((x - inst->mouse.x)*senstive);
-						inst->trance[1] = inst->old_trance[1] + ((inst->mouse.y - y)*senstive);
+						inst->trance[0] = ObjectMove::getinstance()->old_trance[0] + (( realposx - ObjectMove::getinstance()->old_mouse.x ));
+						inst->trance[1] = ObjectMove::getinstance()->old_trance[1] + (( realposy - ObjectMove::getinstance()->old_mouse.y ));
 						inst->player->setTranslate(inst->trance);
+						MarxWorld::getInstance().Volkes->SelectedObjectChanged();
 					}
 					else if (inst->emTrancelate == EM_ROTAION)
 					{
@@ -1170,7 +1270,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 
 						GLfloat distance = sqrt(powx + powy);
 
-						inst->scale = distance * senstive;
+						inst->scale = distance;
 
 						inst->player->setScale(inst->scale);
 
@@ -1208,56 +1308,29 @@ void	Opengl2md2::mouseMotion (int x, int y)
 		{
 			
 			
-			inst->SelectObjects(x, y);
-
+			
 
 			if (inst->keyboard.special[VK_SPACE] != true)
 			{
 				if (inst->emTrancelate == EM_CREATE_COLLISION)
 				{
-					// Ahhhhh.. this is too difficult..
-					Point GameSize = ExGameGraphicInfo::GetGameGraphic()->GetGameSize();
-					float realposx = x ;
-					//1. i'm not sure Logic, but Y(Hight) is UpsideDown
-					float realposy = inst->m_Hight - y;
-					//2. Multiply by Reciprocal of Resulution 
-					realposx = realposx / (float)(GameSize.x / 1264.0f);
-					realposy = realposy / (float)(GameSize.y / 682.0f);
-					//3. Add Carmera Translate
-					realposx += ViewCamera::getinstance()->eye.x;
-					realposy += ViewCamera::getinstance()->eye.y;
-					//4. Multiply  by Reciprocal of Scale  
-					realposx /= ViewCamera::getinstance()->ViewScale;
-					realposy /= ViewCamera::getinstance()->ViewScale;
-					//this is your Acture Mouse Positon
+					
 					CollisionMapCreater::getinstance()->SetVertext(realposx, realposy);
 				}
-
-				Md2Object* obj = inst->player->getSelectObj();
-
-				if (obj != NULL)
+				else
 				{
-					inst->old_trance[0] = obj->getTranslate()[0];
-					inst->old_trance[1] = obj->getTranslate()[1];
-					inst->old_trance[2] = obj->getTranslate()[2];
-
-					inst->mouse.x = x;
-					inst->mouse.y = y;
+					inst->SelectObjects(x, y);
 				}
-
-				
-
 			}
 			
 
 			if (inst->emTrancelate == EM_ROTAION)
 			{
-				Md2Object* obj = inst->player->getSelectObj();
+				Md2Object* obj = inst->player->FindSelectTopObj();
 
 				if (obj == NULL)
 					return;
 
-				//inst->old_dgree = obj->getRotate()[2];
 			}
 			
 			
@@ -1269,7 +1342,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 
 			if (inst->keyboard.special[VK_SPACE] != true)
 			{
-				ImageControl* obj = inst->render->getSelectObj();
+				ImageControl* obj = inst->render->FindSelectTopObj();
 
 				if (obj == NULL)
 					return;
@@ -1284,6 +1357,8 @@ void	Opengl2md2::mouseMotion (int x, int y)
 			}
 		}
 		
+		inst->mouse.x = realposx;
+		inst->mouse.y = realposy;
 
 		inst->bIsMouse_Left_Down = true;
 

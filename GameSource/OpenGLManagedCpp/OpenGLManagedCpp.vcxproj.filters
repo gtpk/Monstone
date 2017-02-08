@@ -28,6 +28,9 @@
     <Filter Include="CLI_CPP\for Tool">
       <UniqueIdentifier>{fc3967f4-4b03-431c-870e-9754cc59af47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CLI_CPP\Intrface\SelectObject">
+      <UniqueIdentifier>{b144db70-b79f-4d41-8a64-d48401c9270c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLUserControl.cpp">
@@ -45,9 +48,6 @@
     <ClCompile Include="..\CLILogicCommon\VolkesInterfaceTool.cpp">
       <Filter>CLI_CSHARP</Filter>
     </ClCompile>
-    <ClCompile Include="SelectObjectInterface.cpp">
-      <Filter>CLI_CPP\Intrface</Filter>
-    </ClCompile>
     <ClCompile Include="ProjectSettingValuesInterface.cpp">
       <Filter>CLI_CPP\ProjectSettingValues</Filter>
     </ClCompile>
@@ -63,8 +63,14 @@
     <ClCompile Include="UIObjectTreeContator.cpp">
       <Filter>CLI_CPP\for Tool</Filter>
     </ClCompile>
+    <ClCompile Include="SelectObjectContator.cpp">
+      <Filter>CLI_CPP\Intrface\SelectObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectObjectInterface.cpp">
+      <Filter>CLI_CPP\Intrface\SelectObject</Filter>
+    </ClCompile>
     <ClCompile Include="SelectUIObjectInterface.cpp">
-      <Filter>CLI_CPP\Intrface</Filter>
+      <Filter>CLI_CPP\Intrface\SelectObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,9 +89,6 @@
     <ClInclude Include="..\CLILogicCommon\VolkesInterfaceTool.h">
       <Filter>CLI_CSHARP</Filter>
     </ClInclude>
-    <ClInclude Include="SelectObjectInterface.h">
-      <Filter>CLI_CPP\Intrface</Filter>
-    </ClInclude>
     <ClInclude Include="ProjectSettingValuesInterface.h">
       <Filter>CLI_CPP\ProjectSettingValues</Filter>
     </ClInclude>
@@ -101,8 +104,14 @@
     <ClInclude Include="UIObjectTreeContator.h">
       <Filter>CLI_CPP\for Tool</Filter>
     </ClInclude>
+    <ClInclude Include="SelectObjectContator.h">
+      <Filter>CLI_CPP\Intrface\SelectObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectObjectInterface.h">
+      <Filter>CLI_CPP\Intrface\SelectObject</Filter>
+    </ClInclude>
     <ClInclude Include="SelectUIObjectInterface.h">
-      <Filter>CLI_CPP\Intrface</Filter>
+      <Filter>CLI_CPP\Intrface\SelectObject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

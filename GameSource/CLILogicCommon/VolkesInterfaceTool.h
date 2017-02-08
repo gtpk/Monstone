@@ -22,7 +22,7 @@ public:
 	void DeleteImageControl(ImageControl* model);
 	bool SetImageControlSelection(ImageControl* model);
 	void RefreshGameObject();
-	
+	void SelectedObjectChanged();
 	void OneTimeInit();
 };
 

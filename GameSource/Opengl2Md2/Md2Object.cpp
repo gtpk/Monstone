@@ -89,6 +89,9 @@ void Md2Object::setName(GLint name)
 void Md2Object::SetAtlasObj(string ObjName)
 {
 	m_obj = new ImageControl(ObjName);
+
+	ObjectNumberingMananger::getInstance()->UnUseNumber(m_obj->_currentName);
+	m_obj->_currentName = _currentName;
 }
 
 void Md2Object::CopyDeepObj(Md2Object* obj)
@@ -149,9 +152,80 @@ void Md2Object::deleteSelectPiece(int _SelectID)
 //
 // Draw the MD2 object with frame interpolation.
 // --------------------------------------------------------------------------
+void Md2Object::SelectDraw()
+{
+	//glPushName(_currentName);
+	glPushMatrix();
+
+	glTranslatef(m_translate[0], m_translate[1], m_translate[2]);
+
+	glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
+	glRotatef(-90.0f, 0.0f, 0.0f, 1.0f);
+	glRotatef(m_rotation[0], 1.0f, 0.0f, 0.0f);
+	glRotatef(m_rotation[1], 0.0f, 1.0f, 0.0f);
+	glRotatef(m_rotation[2], 0.0f, 0.0f, 1.0f);
+
+	if (m_obj != NULL)
+	{
+		m_obj->_currentName = _currentName;
+		m_obj->zindex = m_translate[2];
+		m_obj->OnDraw(getSelect());
+	}
+	else if (_model.get())
+	{
+		_model->setScale(_scale);
+		glPushAttrib(GL_POLYGON_BIT);
+		glFrontFace(GL_CW);
+		SelectNumbers[8] = _currentName;
+		if (getSelect() == true)
+			_model->renderSelectFrameImmediate(SelectNumbers);
+		glPopAttrib();
+	}
+
+	glPopName();
+
+	std::list<Md2Object*>::iterator _iter = child.begin();
+	while (_iter != child.end())
+	{
+		Md2Object* var = *_iter;
+		var->SelectDraw();
+		_iter++;
+	}
+	glPopMatrix();
+}
+
+
+void Md2Object::setSelect(bool select) 
+{
+	if (m_bselect == select)
+		return;
+	m_bselect = select; 
+	if (m_bselect == true)
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			SelectNumbers[i] = ObjectNumberingMananger::getInstance()->getNumber();
+			EdgeTarget edge;
+			edge.direction = i;
+			edge.id = SelectNumbers[i];
+			edge.obj = this;
+			slelectList[i] = edge;
+		}
+	}
+	else
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			if(SelectNumbers[i]!= 0)
+				ObjectNumberingMananger::getInstance()->UnUseNumber(SelectNumbers[i]);
+		}
+	}
+	
+}
 
 void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 {
+
 
 	glPushName(_currentName);
 	glPushMatrix();
@@ -172,12 +246,10 @@ void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 	if (m_obj != NULL)
 	{
 		m_obj->_currentName = _currentName;
-		if (getSelect() == true)
-			m_obj->OnDraw(true);
 		m_obj->zindex = m_translate[2];
-		m_obj->OnDraw();
+		m_obj->OnDraw(getSelect());
 	}
-	if (_model.get())
+	else if (_model.get())
 	{
 		// Set model scale factor
 		_model->setScale(_scale);
@@ -186,21 +258,10 @@ void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 		glPushAttrib(GL_POLYGON_BIT);
 		glFrontFace(GL_CW);
 
-		//glScalef(_scale,_scale,_scale);
-
-		//_model->renderSelectFrameImmediate();
-
-		// Render the model
-
-
 		switch (renderMode)
 		{
 		case kDrawImmediate:
-
-			if (getSelect() == true)
-				_model->renderSelectFrameImmediate();
 			_model->drawModelItpImmediate(_currFrame, _nextFrame, _interp);
-
 			break;
 
 		case kDrawGLcmds:
@@ -209,13 +270,6 @@ void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 		}
 		glPopAttrib();
 	}
-	
-	if (animated)
-	{
-		// Increase interpolation percent
-		_interp += _percent;
-	}
-
 	
 	glPopName();
 
@@ -271,9 +325,6 @@ void Md2Object::drawObjectFrame (int frame, Md2RenderMode renderMode)
 		switch (renderMode)
 		{
 		case kDrawImmediate:
-
-			if(getSelect() == true)
-				_model->renderSelectFrameImmediate();
 			_model->renderFrameImmediate (frame);
 		
 			break;
@@ -285,6 +336,7 @@ void Md2Object::drawObjectFrame (int frame, Md2RenderMode renderMode)
 	}
 	else
 	{
+		m_obj->_currentName = _currentName;
 		m_obj->OnDraw();
 	}
 
@@ -500,19 +552,49 @@ void Md2Object::setNewPiece(Md2Object* obj)
 	}
 	child.push_back(obj);
 }
-
-Md2Object* Md2Object::setSelectObj(int number)
+Md2Object* Md2Object::setSelectObj(int number, bool isSelect)
 {
 	std::list<Md2Object*>::iterator _iter = child.begin();
 	while (_iter != child.end())
 	{
 		Md2Object* var = *_iter;
 		if (var->GetUniqNumber() == number)
-			return var;
-		var = var->setSelectObj(number);
-		if (var != NULL)
-			return  var;
+		{
+			var->setSelect(isSelect);
+			MarxWorld::getInstance().Volkes->SetMd2ObjectSelection(var);
+		}
+		var->setSelectObj(number);
 		_iter++;
+	}
+	return NULL;
+}
+
+
+Md2Object* Md2Object::setSelectObj(int number)
+{
+	return setSelectObj(number, true);
+}
+
+Md2Object * Md2Object::FindbyNameObj(int name)
+{
+	std::list<Md2Object*>::iterator md2begin = child.begin();
+	std::list<Md2Object*>::iterator md2End = child.end();
+
+	for (; md2begin != md2End; md2begin++)
+	{
+		Md2Object* node = ((Md2Object*)*md2begin);
+		if (node->GetUniqNumber() == name)
+		{
+			return node;
+		}
+		else
+		{
+			node = node->setSelectObj(name);
+			if (node != NULL)
+			{
+				return node;
+			}
+		}
 	}
 	return NULL;
 }

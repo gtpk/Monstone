@@ -7,6 +7,7 @@
 
 using std::string;
 
+
 class PieceModel  : public ModelInteface , public MarxObject
 {
 public :
@@ -28,11 +29,11 @@ public :
 	void renderFrameWithGLcmds (int frame);
 	void drawModelItpWithGLcmds (int frameA, int frameB, float interp);
 
-	void renderSelectFrameImmediate();
+	void renderSelectFrameImmediate(int Numbers[]);
 
 	void RenderPiece();
 	void RenderPiece(int value, int value2,int value3,int value4, int count);
-
+	void RenderRect(float x,float y, int name);
 
 public:
 

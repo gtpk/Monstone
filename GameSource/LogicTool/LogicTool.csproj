@@ -65,8 +65,6 @@
     <Compile Include="Singleton.cs" />
     <Compile Include="TargaImageControl\TargaImage.cs" />
     <Compile Include="ViewModel\ImageControlTreeViewModel.cs" />
-    <Compile Include="ViewModel\KADAtalsViewModel.cs" />
-    <Compile Include="ViewModel\MarxObjectTreeViewModel.cs" />
     <Compile Include="ViewModel\PieceAddViewModel.cs" />
     <Compile Include="ViewModel\PieceCommand.cs" />
     <Compile Include="Virtual Interface\CommandBase.cs" />

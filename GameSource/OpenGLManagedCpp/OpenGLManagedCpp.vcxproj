@@ -127,6 +127,7 @@
     <ClCompile Include="OpenGLHwnd.cpp" />
     <ClCompile Include="OpenGLUserControl.cpp" />
     <ClCompile Include="ProjectSettingValuesInterface.cpp" />
+    <ClCompile Include="SelectObjectContator.cpp" />
     <ClCompile Include="SelectObjectInterface.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -144,6 +145,7 @@
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="OpenGLHwnd.h" />
     <ClInclude Include="OpenGLUserControl.h" />
+    <ClInclude Include="SelectObjectContator.h" />
     <ClInclude Include="SelectObjectInterface.h" />
     <ClInclude Include="ProjectSettingValuesInterface.h" />
     <ClInclude Include="SelectUIObjectInterface.h" />

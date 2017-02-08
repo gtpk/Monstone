@@ -1,42 +1,87 @@
-﻿using FreeImageAPI;
-using LogicCommon;
-using LogicTool.Model;
+﻿/************************************************************************
+
+   AvalonDock
+
+   Copyright (C) 2007-2013 Xceed Software Inc.
+
+   This program is provided to you under the terms of the New BSD
+   License (BSD) as published at http://avalondock.codeplex.com/license 
+
+   For more features, controls, and fast professional support,
+   pick up AvalonDock in Extended WPF Toolkit Plus at http://xceed.com/wpf_toolkit
+
+   Stay informed: follow @datagrid on Twitter or Like facebook.com/datagrids
+
+  **********************************************************************/
+
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows;
+using System.IO;
 using System.Windows.Media.Imaging;
+using System.Collections.ObjectModel;
+using LogicTool.Model;
+using System.ComponentModel;
+using LogicTool.Virtual_Interface;
+using LogicCommon;
+using System.Windows;
+using FreeImageAPI;
+using System.Drawing;
+using System.Windows.Input;
 
-namespace LogicTool.ViewModel
+namespace AvalonDock.MVVMTestApp
 {
-    public class KADAtalsViewModel : ViewModelBase
+    public class UIObjectListInfoViewModel : ToolViewModel
     {
-        public static KADAtalsViewModel Instance
+        public UIObjectListInfoViewModel()
+            :base("UI Object List")
         {
-            get;
-            private set;
+            Workspace.This.ActiveDocumentChanged += new EventHandler(OnActiveDocumentChanged);
+            ContentId = ToolContentId;
+
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.UriSource = new Uri("pack://application:,,/Images/property-blue.png");
+            bi.EndInit();
+            IconSource = bi;
+
+            m_pieceList.CollectionChanged += m_pieceList_CollectionChanged;
+            OnetimeInit();
+
+            RaisePropertyChanged("pieceList");
         }
 
-        private ObservableCollection<PieceInfo> m_pieceList;
+        public const string ToolContentId = "UIObjectList";
+
+        void OnActiveDocumentChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void m_pieceList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            RaisePropertyChanged("pieceList");
+        }
+
+
+        #region pieceList
+        private static ObservableCollection<PieceInfo> m_pieceList = new ObservableCollection<PieceInfo>();
 
         public ObservableCollection<PieceInfo> pieceList
         {
             get
             {
-                return m_pieceList;
+                return UIObjectListInfoViewModel.m_pieceList;
             }
             set
             {
-                m_pieceList = value;
-                NotifyPropertyChanged("pieceList");
+                UIObjectListInfoViewModel.m_pieceList = value;
+                RaisePropertyChanged("pieceList");
             }
         }
+        #endregion
 
+        #region pieceList
         private PieceInfo m_pieceSelection;
 
         public PieceInfo pieceSelection
@@ -48,34 +93,15 @@ namespace LogicTool.ViewModel
             set
             {
                 m_pieceSelection = value;
-                NotifyPropertyChanged("pieceSelection");
+                RaisePropertyChanged("pieceSelection");
             }
         }
+        #endregion
 
 
-        private bool isLoad = false;
+        private static bool isLoad = false;
 
-        private readonly BackgroundWorker worker = new BackgroundWorker();
-
-        public static WPFOpenGLLib.OpenGLHwnd m_OpenGl2Md2;
-
-
-        public KADAtalsViewModel()
-        {
-            m_pieceList = new ObservableCollection<PieceInfo>();
-
-            m_pieceList.CollectionChanged += m_pieceList_CollectionChanged;
-            Instance = this;
-        }
-
-        private void m_pieceList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            NotifyPropertyChanged("pieceList");
-            //throw new NotImplementedException();
-        }
-
-
-        private void OnetimeInit()
+        private static void OnetimeInit()
         {
             if (isLoad)
                 return;
@@ -88,7 +114,7 @@ namespace LogicTool.ViewModel
             foreach (FileInfo f in di.GetFiles())
             {
                 isFind = false;
-                foreach (PieceInfo p in pieceList)
+                foreach (PieceInfo p in m_pieceList)
                 {
                     if (p.AlphaTextureFilePath == f.FullName || p.TextureFilePath == f.FullName)
                     {
@@ -168,61 +194,83 @@ namespace LogicTool.ViewModel
                         node.Width = fib.Width;
                         node.Height = fib.Height;
 
-                        pieceList.Add(node);
+                        m_pieceList.Add(node);
                         text = reader.ReadLine();
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     MessageBox.Show(e.ToString());
                 }
-                
 
+
+            }
+
+        }
+
+        #region MakePieceInfo
+        RelayCommand _MakePieceInfo = null;
+        public ICommand MakePieceInfo
+        {
+            get
+            {
+                if (_MakePieceInfo == null)
+                {
+                    _MakePieceInfo = new RelayCommand((p) => OnMakePieceInfo(), (p) => CanMakePieceInfo());
+                }
+
+                return _MakePieceInfo;
             }
         }
 
-        public override void Excute(object param)
+        private bool CanMakePieceInfo()
         {
-            if (param == null)
+            if (pieceSelection == null)
+                return false;
+            return true;
+        }
+
+        private void OnMakePieceInfo()
+        {
+            if (pieceSelection == null)
                 return;
 
-            string sparam = param.ToString();
+            PieceInfo m = pieceSelection;
 
-            if (sparam == "Load")
-            {
-                /*
-                worker.DoWork += worker_DoWork;
-                //Thread ImageLoadeThread = new Thread(new ThreadStart(OnetimeInit));
-                //ImageLoadeThread.Start();
-                worker.RunWorkerAsync();*/
-                OnetimeInit();
-            }
-            else if (sparam == "MakePieceInfo")
-            {
-                if (pieceSelection == null)
-                    return;
-
-                PieceInfo m = pieceSelection;
-
-                m_OpenGl2Md2.SetNewPiece(m.TextureName);
-
-
-            }
-            else if (param is PieceInfo)
-            {
-                PieceInfo m = (PieceInfo)param;
-
-                pieceSelection = m;
-            }
-
+            Workspace.This.OpenGl2Md2.SetNewPiece(m.TextureName);
         }
+        #endregion
 
-        private void worker_DoWork(object sender, DoWorkEventArgs e)
+        #region SelectCommand
+        RelayCommand _SelectCommand = null;
+        public ICommand SelectCommand
         {
-            OnetimeInit();
+            get
+            {
+                if (_SelectCommand == null)
+                {
+                    _SelectCommand = new RelayCommand((p) => OnSelect(p), (p) => CanSelect(p));
+                }
+
+                return _SelectCommand;
+            }
         }
 
-        public int Abs255Color(int value)
+        private bool CanSelect(object parameter)
+        {
+            if(typeof(PieceInfo) == parameter.GetType())
+                return true;
+            return false;
+        }
+
+        private void OnSelect(object parameter)
+        {
+            pieceSelection = (PieceInfo)parameter;
+        }
+
+        #endregion
+
+        public static int Abs255Color(int value)
         {
             if (value < 0)
                 value = 0;

@@ -12,7 +12,7 @@ namespace LogicTool.ViewModel
         static readonly ImageControlTreeViewModel DummyChild = new ImageControlTreeViewModel();
 
 
-        readonly ObservableCollection<UIobjectInterface> _children;
+        readonly static ObservableCollection<UIobjectInterface> _children = new ObservableCollection<UIobjectInterface>();
         /// <summary>
         /// Returns the logical child items of this object.
         /// </summary>
@@ -34,7 +34,7 @@ namespace LogicTool.ViewModel
         {
             _parent = parent;
 
-            _children = new ObservableCollection<UIobjectInterface>();
+            
 
         }
 
