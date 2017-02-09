@@ -276,6 +276,9 @@
     <ClInclude Include="ObjectMove.h">
       <Filter>OpenGL\Player\Utill</Filter>
     </ClInclude>
+    <ClInclude Include="SelectableObject.h">
+      <Filter>MarxObject\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Md2Model.cpp">
@@ -400,6 +403,9 @@
     </ClCompile>
     <ClCompile Include="ObjectMove.cpp">
       <Filter>OpenGL\Player\Utill</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectableObject.cpp">
+      <Filter>MarxObject\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

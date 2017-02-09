@@ -555,7 +555,7 @@ void Opengl2md2::draw3D ()
 
 	if(emTrancelate == EM_ROTAION && inst->bIsMouse_Left_Down)
 	{
-		Md2Object* obj =  inst->player->FindSelectTopObj();
+		Md2Object* obj = (Md2Object*)inst->player->FindSelectTopObj();
 
 		if(obj != NULL)
 		{
@@ -738,7 +738,7 @@ void Opengl2md2::draw2D ()
 	
 }
 
-void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
+void Opengl2md2::ProcessSelect(GLuint index[128])  // NEW //
 {
 	if (inst->keyboard.special[VK_SPACE] == true)
 		return;
@@ -781,6 +781,7 @@ void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
 		for (int i = 0; i < ObjectMove::getinstance()->SelectObjectNum.size(); i++)
 		{
 			player->setSelectObj(ObjectMove::getinstance()->SelectObjectNum[i], false);
+			inst->render->setSelectObj(ObjectMove::getinstance()->SelectObjectNum[i],false);
 		}
 
 		//선택이 없으면 다지움
@@ -806,7 +807,7 @@ void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
 				}
 
 				//새로운 객체를 추가한다.
-				ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[0].index[0]);
+				ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[SelectList.size() - 1].index[0]);
 			}
 			else
 			{
@@ -814,11 +815,11 @@ void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
 				player->setSelectObj(SelectList[SelectList.size() - 1].index[0], true);
 				//새로 선택했으므로 선택리스트를 비운다.
 				ObjectMove::getinstance()->SelectObjectNum.clear();
-				ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[0].index[0]);
+				ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[SelectList.size() - 1].index[0]);
 			}
 
 			//최초 선택된 것만 체크한다.
-			Md2Object* obj = MarxWorld::getInstance().FindbyNameObj(
+			Md2Object* obj = (Md2Object*)MarxWorld::getInstance().FindbyNameObj(
 				ObjectMove::getinstance()->SelectObjectNum[0]);
 
 			if (obj != NULL)
@@ -831,6 +832,13 @@ void Opengl2md2::ProcessSelect(GLuint index[64])  // NEW //
 				if (MarxWorld::getInstance().Volkes != NULL)
 					MarxWorld::getInstance().Volkes->SetMd2ObjectSelection(obj);
 
+			}
+			else
+			{
+				ObjectMove::getinstance()->old_trance[0] = 0;
+				ObjectMove::getinstance()->old_trance[1] = 0;
+				ObjectMove::getinstance()->old_trance[2] = 0;
+				ObjectMove::getinstance()->old_mouse = inst->a_mouse;
 			}
 		}
 		
@@ -878,10 +886,10 @@ void Opengl2md2::SelectObjects(GLint x, GLint y)
 
 	if (inst->Close2d)
 	{
-		GLuint selectBuff[64];
+		GLuint selectBuff[128];
 		GLint viewport[4];
 
-		glSelectBuffer(64, selectBuff);
+		glSelectBuffer(128, selectBuff);
 		glGetIntegerv(GL_VIEWPORT, viewport);
 		glMatrixMode(GL_PROJECTION);
 		glPushMatrix();
@@ -1201,7 +1209,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 			if (inst->Close2d == false)
 			{
 
-				ImageControl* obj = inst->render->FindSelectTopObj();
+				ImageControl* obj = (ImageControl*)inst->render->FindSelectTopObj();
 				if (obj == NULL)
 					return;
 
@@ -1215,7 +1223,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 			}
 			else
 			{
-				Md2Object* obj = inst->player->FindSelectTopObj();
+				Md2Object* obj = (Md2Object*)inst->player->FindSelectTopObj();
 				if (obj != NULL)
 				{
 					if (inst->emTrancelate == EM_TRANCELATE)
@@ -1326,7 +1334,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 
 			if (inst->emTrancelate == EM_ROTAION)
 			{
-				Md2Object* obj = inst->player->FindSelectTopObj();
+				Md2Object* obj = (Md2Object*)inst->player->FindSelectTopObj();
 
 				if (obj == NULL)
 					return;
@@ -1342,7 +1350,7 @@ void	Opengl2md2::mouseMotion (int x, int y)
 
 			if (inst->keyboard.special[VK_SPACE] != true)
 			{
-				ImageControl* obj = inst->render->FindSelectTopObj();
+				ImageControl* obj = (ImageControl*)inst->render->FindSelectTopObj();
 
 				if (obj == NULL)
 					return;

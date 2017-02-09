@@ -18,7 +18,7 @@ namespace MarxEngine
 	class ImageControl :
 		public UIBase,
 		public IEventHandler<ClickEventArgs>,
-		public MarxObject,
+		public SelectableObject,
 		public AnimationBase
 	{
 	public:
@@ -47,9 +47,6 @@ namespace MarxEngine
 		string Name;
 		int _currentName = -1;
 		int NowTextureId = 1;
-
-
-		bool m_isSelect = false;
 
 		bool isWidthPercent;
 		bool isHeightPercent;
@@ -116,6 +113,9 @@ namespace MarxEngine
 		ImageControl(string ObjName);
 		ImageControl(string ObjName, float width, float height);
 		~ImageControl();
+
+		bool OntimeInit = false;
+
 		virtual void SetWidth(float width); //@Override
 
 		virtual void SetHeight(float height); //@Override
@@ -127,6 +127,18 @@ namespace MarxEngine
 			_ImageControl->x = x;
 			_ImageControl->y = y;
 			_ImageControl->Name = objectName;
+			if (MarxWorld::getInstance().Volkes != NULL)
+				MarxWorld::getInstance().Volkes->setNewImageControl(_ImageControl);
+			return _ImageControl;
+		}
+
+		static ImageControl* CreateImageControl(ImageControl* target)
+		{
+			
+			ImageControl* _ImageControl = new ImageControl(target->TextureName);
+			_ImageControl->x = target->x;
+			_ImageControl->y = target->y;
+			_ImageControl->Name = target->Name;
 			if (MarxWorld::getInstance().Volkes != NULL)
 				MarxWorld::getInstance().Volkes->setNewImageControl(_ImageControl);
 			return _ImageControl;
@@ -162,12 +174,8 @@ namespace MarxEngine
 
 		void OnDraw(bool isSelect = false);
 
-
-
 		void setbeckgroundImage(string string);
 
 		void setbeckgroundImage(string string, float width, float height);
-
-		void deleteSelectPiece(int tempname);
 	};
 }

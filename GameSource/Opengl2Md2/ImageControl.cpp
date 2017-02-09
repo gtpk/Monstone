@@ -8,8 +8,9 @@
 using namespace MarxEngine;
 namespace MarxEngine
 {
-	ImageControl::ImageControl() : MarxObject(MARXOBJECT_TYP_ENUM::MARX_OBJECT_UI)
+	ImageControl::ImageControl()
 	{
+		objtype = MARXOBJECT_TYP_ENUM::MARX_OBJECT_UI;
 		m_Aligen_Vertical = UIVertical::Aligen_Vertical::defalt;
 		m_Aligen_Horizen = UIHorizen::Aligen_Horizen::defalt;
 
@@ -23,30 +24,26 @@ namespace MarxEngine
 		_Acturalx = 0;
 		_Acturaly = 0;
 		isCaculated = false;
-		_currentName = ObjectNumberingMananger::getInstance()->getNumber();
+		_currentName = ObjectNumberingMananger::getInstance()->getNumber(this);
 	}
 
-	ImageControl::ImageControl(string ObjName) : MarxObject(MARXOBJECT_TYP_ENUM::MARX_OBJECT_UI)
+	ImageControl::ImageControl(string ObjName)
 	{
 		ImageControl();
 		setbeckgroundImage(ObjName);
-		_currentName = ObjectNumberingMananger::getInstance()->getNumber();
+		_currentName = ObjectNumberingMananger::getInstance()->getNumber(this);
 	}
 
-	ImageControl::ImageControl(string ObjName, float width, float height) : MarxObject(MARXOBJECT_TYP_ENUM::MARX_OBJECT_UI)
+	ImageControl::ImageControl(string ObjName, float width, float height)
 	{
 		ImageControl();
 		//
 		setbeckgroundImage(ObjName, width, height);
-		_currentName = ObjectNumberingMananger::getInstance()->getNumber();
+		_currentName = ObjectNumberingMananger::getInstance()->getNumber(this);
 	}
 
 	ImageControl::~ImageControl()
 	{
-		if (MarxWorld::getInstance().Volkes != NULL)
-		{
-			MarxWorld::getInstance().Volkes->DeleteImageControl(this);
-		}
 		
 	}
 
@@ -275,7 +272,7 @@ namespace MarxEngine
 		if (_currentName != -1)
 			glPopName();
 
-		if (isSelect || m_isSelect)
+		if (isSelect || m_bselect)
 		{
 			glDisable(GL_TEXTURE_2D);
 
@@ -340,7 +337,22 @@ namespace MarxEngine
 
 
 	}
+	void ImageControl::Remove(ImageControl* child)
+	{
+		vector<ImageControl*>::iterator iter = m_Child.begin();
+		while (iter != m_Child.end())
+		{
+			ImageControl* contator = (ImageControl*)*iter;
 
+			if (contator == child)
+			{
+				delete contator;
+				iter = m_Child.erase(iter);
+				return;
+			}
+			iter++;
+		}
+	}
 
 	void ImageControl::setbeckgroundImage(string string)
 	{
@@ -354,16 +366,25 @@ namespace MarxEngine
 			///Log.e("setbeckgroundImage", string);
 			return;
 		}
+		if (OntimeInit == false)
+		{
+			OntimeInit = true;
 
-		float vertices[] = {
-			0.0f	, obj->Height	, 0.0f, // 0, Left Top
-			obj->Width	, obj->Height	, 0.0f,	// 1, Right Top
-			obj->Width	, 0.0f	, 0.0f,	// 2, Right Bottom
-			0.0f	, 0.0f	, 0.0f,	// 3, Left Bottom
-		};
+			float vertices[] = {
+				0.0f	, obj->Height	, 0.0f, // 0, Left Top
+				obj->Width	, obj->Height	, 0.0f,	// 1, Right Top
+				obj->Width	, 0.0f	, 0.0f,	// 2, Right Bottom
+				0.0f	, 0.0f	, 0.0f,	// 3, Left Bottom
+			};
 
-		SetWidth(obj->Width);
-		SetHeight(obj->Height);
+			SetWidth(obj->Width);
+			SetHeight(obj->Height);
+
+			for (int i = 0; i < 12; i++)
+				vertexBuffer[i] = vertices[i];
+
+		}
+		
 
 		//Mapping coordinates for the vertices
 		float texture[] = {
@@ -375,8 +396,7 @@ namespace MarxEngine
 
 		NowTextureId = obj->TextureNum;
 
-		for (int i = 0; i < 12; i++)
-			vertexBuffer[i] = vertices[i];
+		
 
 		for (int i = 0; i < 8; i++)
 			textureBuffer[i] = texture[i];
@@ -452,39 +472,8 @@ namespace MarxEngine
 		return getAll_Child;
 	}
 
-	void ImageControl::Remove(ImageControl* child)
-	{
-		vector<ImageControl*>::iterator iter = m_Child.begin();
-		while (iter != m_Child.end())
-		{
-			ImageControl* contator = (ImageControl*)*iter;
+	
 
-			if (contator == child)
-			{
-				delete contator;
-				iter = m_Child.erase(iter);
-				return;
-			}
-			iter++;
-		}
-	}
-
-	void ImageControl::deleteSelectPiece(int tempname)
-	{
-		vector<ImageControl*>::iterator iter = m_Child.begin();
-		while (iter != m_Child.end())
-		{
-			ImageControl* contator = (ImageControl*)*iter;
-
-			if (contator->_currentName == tempname)
-			{
-				delete contator;
-				iter = m_Child.erase(iter);
-				return;
-			}
-			iter++;
-		}
-	}
 
 	bool ImageControl::AllAnimationFinished()
 	{

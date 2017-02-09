@@ -47,7 +47,7 @@ namespace MarxEngine
 		}
 
 	public:
-		void Remove(ImageControl* child) {
+		virtual void Remove(ImageControl* child) {
 			m_Container->Remove(child);
 		}
 

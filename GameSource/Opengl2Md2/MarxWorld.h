@@ -30,7 +30,7 @@
 #include "../Externallib/tinyxml_2_6_2/tinyxml/tinyxml.h"
 #include "../Common/VolkesInterface.h"
 #include "ObjectMove.h"
-
+#include "SelectableObject.h"
 using std::vector;
 using std::string;
 using std::auto_ptr;
@@ -42,7 +42,7 @@ using std::auto_ptr;
 //
 /////////////////////////////////////////////////////////////////////////////
 
-class MarxWorld
+class MarxWorld : public SelectableObject
 {
 private:
 	static MarxWorld *inst;
@@ -58,8 +58,8 @@ public:
 	typedef auto_ptr<Md2Model> Md2ModelPtr;
 	typedef std::shared_ptr<ModelInteface> Md2ModelSPtr;
 
-	typedef std::list<Md2Object*>::iterator Md2Iter;
-	typedef std::list<Md2Object*>::reverse_iterator Md2RIter;
+	typedef std::list<SelectableObject*>::iterator Md2Iter;
+	typedef std::list<SelectableObject*>::reverse_iterator Md2RIter;
 	typedef std::list<Md2ModelSPtr>::iterator Md2MashIter;
 
 
@@ -88,9 +88,6 @@ public:
 	void setRotate(vec3_t angle );
 	void setTranslate(vec3_t trance );
 
-	void setSelectObj(int number);
-	void setSelectObj(int number, bool isSelect);
-
 	Md2Object *setNewPiece(const string &dirname,const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye);
 	Md2Object *setNewPiece(const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye);
 	Md2Object *setNewPieceChar(const string &md2Name,const string &textureName,COMMONDATATYPE::Vector3d eye);
@@ -108,12 +105,7 @@ public:
 
 	Md2Object *MakePiece(Md2Object* model);
 
-	Md2Object *FindbyNameObj(int name);
-	Md2Object * FindSelectTopObj();
-	void setSelectionTopMost();
-	void setSelectionTop();
-	void setSelectionBottomMost();
-	void setSelectionBottom();
+
 	void setSelectionCopy();
 	void setSelectionPaste();
 
@@ -136,8 +128,6 @@ public:
 
 	
 
-
-	std::list<Md2Object*> _WorldPiece;
 	//std::vector<Md2ModelSPtr> _WorldPieceMash;
 	Md2ModelPtr _playerMesh;
 	Md2ModelPtr _weaponMesh;

@@ -34,7 +34,7 @@ using namespace MarxEngine;
 
 Md2Object::Md2Object ()
 	: _model (NULL), _currFrame (0), _nextFrame (0), m_obj(NULL),
-	_interp (0.0f), _percent (0.0f), _scale (1.0f), MarxObject(MARX_OBJECT_MD2_OBJECT)
+	_interp (0.0f), _percent (0.0f), _scale (1.0f)
 {
 	
 }
@@ -42,7 +42,7 @@ Md2Object::Md2Object ()
 
 Md2Object::Md2Object (ModelInteface *model)
 	: _model (model), _currFrame (0), _nextFrame (0), m_obj(NULL),
-	_interp (0.0f), _percent (0.0f), _scale (1.0f), MarxObject(MARX_OBJECT_MD2_OBJECT)
+	_interp (0.0f), _percent (0.0f), _scale (1.0f)
 {
 
 	setModel (model);
@@ -50,7 +50,7 @@ Md2Object::Md2Object (ModelInteface *model)
 
 Md2Object::Md2Object(string ObjName)
 	: _model(NULL), _currFrame(0), _nextFrame(0), m_obj(NULL),
-	_interp(0.0f), _percent(0.0f), _scale(1.0f), MarxObject(MARX_OBJECT_MD2_OBJECT)
+	_interp(0.0f), _percent(0.0f), _scale(1.0f)
 {
 	SetAtlasObj(ObjName);
 }
@@ -63,57 +63,26 @@ Md2Object::Md2Object(string ObjName)
 
 Md2Object::~Md2Object ()
 {
-	std::list<Md2Object*>::iterator _iter = child.begin();
-	while (_iter != child.end())
-	{
-		Md2Object* var = *_iter;
-		delete (var);
-		_iter++;
-	}
-	if(MarxWorld::getInstance().Volkes != NULL)
-		MarxWorld::getInstance().Volkes->DeletePiece(this);
+	
+	
 }
 
 //_NextID
 
-void Md2Object::setName(GLint name)
-{
-	if (!ObjectNumberingMananger::getInstance()->UseNumber(name))
-	{
-		name = ObjectNumberingMananger::getInstance()->getNumber();
-		ObjectNumberingMananger::getInstance()->UseNumber(name);
-	}
-	_currentName = name; 
-}
 
 void Md2Object::SetAtlasObj(string ObjName)
 {
 	m_obj = new ImageControl(ObjName);
 
-	ObjectNumberingMananger::getInstance()->UnUseNumber(m_obj->_currentName);
+	ObjectNumberingMananger::getInstance()->UnUseNumber(m_obj->_currentName,this);
 	m_obj->_currentName = _currentName;
 }
 
-void Md2Object::CopyDeepObj(Md2Object* obj)
-{
-	std::list<Md2Object*>::iterator md2begin = child.begin();
-	std::list<Md2Object*>::iterator md2End = child.end();
-	for (; md2begin != md2End; )
-	{
-		Md2Object* node = ((Md2Object*)*md2begin);
-		
-		Md2Object* childnode = MarxWorld::getInstance().MakePiece(node);
-		obj->child.push_back(childnode);
-		node->CopyDeepObj(childnode);
-		md2begin++;
-
-	}
-}
 
 void Md2Object::Refresh()
 {
-	std::list<Md2Object*>::iterator md2begin = child.begin();
-	std::list<Md2Object*>::iterator md2End = child.end();
+	std::list<SelectableObject*>::iterator md2begin = child.begin();
+	std::list<SelectableObject*>::iterator md2End = child.end();
 	for (; md2begin != md2End; )
 	{
 		Md2Object* node = ((Md2Object*)*md2begin);
@@ -124,28 +93,7 @@ void Md2Object::Refresh()
 	
 }
 
-void Md2Object::deleteSelectPiece(int _SelectID)
-{
-	std::list<Md2Object*>::iterator md2begin = child.begin();
-	std::list<Md2Object*>::iterator md2End = child.end();
-	for (; md2begin != md2End; )
-	{
-		Md2Object* node = ((Md2Object*)*md2begin);
-		if (node->GetUniqNumber() == _SelectID)
-		{
-			delete node;
-			md2begin = child.erase(md2begin);
 
-			return;
-		}
-		else
-		{
-			node->deleteSelectPiece(_SelectID);
-		}
-		md2begin++;
-
-	}
-}
 
 // --------------------------------------------------------------------------
 // Md2Object::drawObjectItp
@@ -184,10 +132,10 @@ void Md2Object::SelectDraw()
 
 	glPopName();
 
-	std::list<Md2Object*>::iterator _iter = child.begin();
+	std::list<SelectableObject*>::iterator _iter = child.begin();
 	while (_iter != child.end())
 	{
-		Md2Object* var = *_iter;
+		Md2Object* var =(Md2Object*)*_iter;
 		var->SelectDraw();
 		_iter++;
 	}
@@ -195,33 +143,6 @@ void Md2Object::SelectDraw()
 }
 
 
-void Md2Object::setSelect(bool select) 
-{
-	if (m_bselect == select)
-		return;
-	m_bselect = select; 
-	if (m_bselect == true)
-	{
-		for (int i = 0; i < 8; i++)
-		{
-			SelectNumbers[i] = ObjectNumberingMananger::getInstance()->getNumber();
-			EdgeTarget edge;
-			edge.direction = i;
-			edge.id = SelectNumbers[i];
-			edge.obj = this;
-			slelectList[i] = edge;
-		}
-	}
-	else
-	{
-		for (int i = 0; i < 8; i++)
-		{
-			if(SelectNumbers[i]!= 0)
-				ObjectNumberingMananger::getInstance()->UnUseNumber(SelectNumbers[i]);
-		}
-	}
-	
-}
 
 void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 {
@@ -273,10 +194,10 @@ void Md2Object::drawObjectItp (bool animated, Md2RenderMode renderMode)
 	
 	glPopName();
 
-	std::list<Md2Object*>::iterator _iter = child.begin();
+	std::list<SelectableObject*>::iterator _iter = child.begin();
 	while (_iter != child.end())
 	{
-		Md2Object* var = *_iter;
+		Md2Object* var = (Md2Object*)*_iter;
 		var->drawObjectItp(animated, renderMode);
 		_iter++;
 	}
@@ -347,10 +268,10 @@ void Md2Object::drawObjectFrame (int frame, Md2RenderMode renderMode)
 	
 
 	glPopName();
-	std::list<Md2Object*>::iterator _iter = child.begin();
+	std::list<SelectableObject*>::iterator _iter = child.begin();
 	while (_iter != child.end())
 	{
-		Md2Object* var = *_iter;
+		Md2Object* var = (Md2Object*)*_iter;
 		var->drawObjectFrame(frame, renderMode);
 		_iter++;
 	}
@@ -552,52 +473,6 @@ void Md2Object::setNewPiece(Md2Object* obj)
 	}
 	child.push_back(obj);
 }
-Md2Object* Md2Object::setSelectObj(int number, bool isSelect)
-{
-	std::list<Md2Object*>::iterator _iter = child.begin();
-	while (_iter != child.end())
-	{
-		Md2Object* var = *_iter;
-		if (var->GetUniqNumber() == number)
-		{
-			var->setSelect(isSelect);
-			MarxWorld::getInstance().Volkes->SetMd2ObjectSelection(var);
-		}
-		var->setSelectObj(number);
-		_iter++;
-	}
-	return NULL;
-}
-
-
-Md2Object* Md2Object::setSelectObj(int number)
-{
-	return setSelectObj(number, true);
-}
-
-Md2Object * Md2Object::FindbyNameObj(int name)
-{
-	std::list<Md2Object*>::iterator md2begin = child.begin();
-	std::list<Md2Object*>::iterator md2End = child.end();
-
-	for (; md2begin != md2End; md2begin++)
-	{
-		Md2Object* node = ((Md2Object*)*md2begin);
-		if (node->GetUniqNumber() == name)
-		{
-			return node;
-		}
-		else
-		{
-			node = node->setSelectObj(name);
-			if (node != NULL)
-			{
-				return node;
-			}
-		}
-	}
-	return NULL;
-}
 
 void Md2Object::Load(Md2Object* mother,TiXmlNode * MapPieces)
 {
@@ -710,10 +585,10 @@ void Md2Object::Save(TiXmlElement * MapPieces)
 	Child = new TiXmlElement("Child");
 	Piece->LinkEndChild(Child);
 	{
-		std::list<Md2Object*>::iterator _iter = child.begin();
+		std::list<SelectableObject*>::iterator _iter = child.begin();
 		while (_iter != child.end())
 		{
-			Md2Object* var = *_iter;
+			Md2Object* var = (Md2Object*)*_iter;
 			var->Save(Child);
 			_iter++;
 		}

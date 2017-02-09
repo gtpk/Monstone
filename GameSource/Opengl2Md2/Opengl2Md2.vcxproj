@@ -49,6 +49,7 @@
     <ClInclude Include="ObjectNumberingMananger.h" />
     <ClInclude Include="Penal.h" />
     <ClInclude Include="RootUI.h" />
+    <ClInclude Include="SelectableObject.h" />
     <ClInclude Include="Snumber.h" />
     <ClInclude Include="StageManager.h" />
     <ClInclude Include="TinyFont.h" />
@@ -114,6 +115,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="RootUI.cpp" />
+    <ClCompile Include="SelectableObject.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="Stringformat.h" />

@@ -11,9 +11,9 @@ ObjectMove::~ObjectMove()
 
 void ObjectMove::OnDraw()
 {
-	std::list<Md2Object*>::iterator md2begin = MarxWorld::getInstance()._WorldPiece.begin();
+	std::list<SelectableObject*>::iterator md2begin = MarxWorld::getInstance().child.begin();
 
-	for (; md2begin != MarxWorld::getInstance()._WorldPiece.end(); md2begin++)
+	for (; md2begin != MarxWorld::getInstance().child.end(); md2begin++)
 	{
 		Md2Object* node = (Md2Object*)*md2begin;
 

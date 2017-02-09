@@ -20,14 +20,14 @@ namespace MarxEngine
 
 		
 		king = new Md2Object();
-		king->setName(ObjectNumberingMananger::getInstance()->getNumber());
+		king->setName(ObjectNumberingMananger::getInstance()->getNumber(king));
 		king->m_obj = king_obj;
 		king->setRotate(0, 90, 90);
 		king->setScale(0.1);
 		king->setTranslate(700,	400,0);
 		LuaScriptAttached * attach = new LuaScriptAttached();
 		king->OnAttech(attach);
-		MarxWorld::getInstance()._WorldPiece.push_back(king);
+		MarxWorld::getInstance().child.push_back(king);
 		ObjectManager* m_ObjectManager = ObjectManager::GetInstance();
 		m_ObjectManager->ReplaceMarxObject("KingPlayer", king);
 		/////////////////////////

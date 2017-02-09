@@ -11,14 +11,14 @@
 #include <cerrno>
 #include <cmath>
 #include <math.h>
-
+#include "SelectableObject.h"
 #include "Quad.h"
 
 using namespace std::chrono;
 using namespace MarxEngine;
 namespace MarxEngine
 {
-	class GameStadiumScreen
+	class GameStadiumScreen : public SelectableObject
 	{
 
 		test::Quad* m_quad;
@@ -61,53 +61,8 @@ namespace MarxEngine
 		}
 
 		int _SelectID = - 1;
-		void setSelectObj(int SelectObjectNum)
-		{
-			if (SelectObjectNum == -1)
-			{
-				if (MarxWorld::getInstance().Volkes != NULL)
-					MarxWorld::getInstance().Volkes->SetImageControlSelection(NULL);
-			}
-			_SelectID = SelectObjectNum;
-			std::vector<ImageControl*> objs = StageManager::GetGameGraphic()->GetGameStage()->getAllChild();
-			std::vector<ImageControl*>::iterator _itor = objs.begin();
 
-			while (_itor != objs.end())
-			{
-				ImageControl* target = *_itor;
-				if (target != NULL)
-				{
-					if (target->_currentName == SelectObjectNum)
-					{
-						target->m_isSelect = true;
-					}
-					else
-					{
-						target->m_isSelect = false;
-					}
-				}
-				_itor++;
-			}
-		}
 
-		ImageControl* FindSelectTopObj()
-		{
-			std::vector<ImageControl*> objs = StageManager::GetGameGraphic()->GetGameStage()->getAllChild();
-			std::vector<ImageControl*>::iterator _itor = objs.begin();
-
-			while (_itor != objs.end())
-			{
-				ImageControl* target = *_itor;
-				if (target != NULL)
-				{
-					if (target->m_isSelect)
-					{
-						return target;
-					}
-				}
-				_itor++;
-			}
-		}
 		static int glPrintf(const char *format, ...)
 		{
 			char buffer[1024];

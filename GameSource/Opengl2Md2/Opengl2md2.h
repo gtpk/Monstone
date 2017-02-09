@@ -144,7 +144,7 @@ public:
 	int	buildSkinMenu (const Md2Model::SkinMap &skinMap);
 	int	buildSelectMenu (const Md2Model::SkinMap &skinMap);
 	int	buildAnimMenu (const Md2Model::AnimMap &animMap);
-	void ProcessSelect(GLuint index[64]) ;
+	void ProcessSelect(GLuint index[128]) ;
 	void SelectObjects(GLint x, GLint y);
 
 	void SetNewPiece();
