@@ -28,7 +28,7 @@ public:
 		return inst;
 	}
 	std::vector<int> SelectObjectNum ;
-	float			old_trance[3];
+	
 	COMMONDATATYPE::mouse_input_t old_mouse;
 	void OnDraw();
 	

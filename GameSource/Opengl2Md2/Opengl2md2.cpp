@@ -38,7 +38,7 @@
 #include "CollisionMapCreater.h"
 #include "EyeMouseMove.h"
 #include "ObjectMove.h"
-
+#include "ObjectNumberingMananger.h"
 using std::cout;
 using std::cerr;
 using std::endl;
@@ -814,8 +814,14 @@ void Opengl2md2::ProcessSelect(GLuint index[128])  // NEW //
 
 				player->setSelectObj(SelectList[SelectList.size() - 1].index[0], true);
 				//새로 선택했으므로 선택리스트를 비운다.
-				ObjectMove::getinstance()->SelectObjectNum.clear();
+				//ObjectMove::getinstance()->SelectObjectNum.clear();
 				ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[SelectList.size() - 1].index[0]);
+
+				//등록된것들 다 다시 등록
+				for (int i = 0; i < ObjectMove::getinstance()->SelectObjectNum.size(); i++)
+				{
+					player->setSelectObj(ObjectMove::getinstance()->SelectObjectNum[i], true);
+				}
 			}
 
 			//최초 선택된 것만 체크한다.
@@ -824,22 +830,13 @@ void Opengl2md2::ProcessSelect(GLuint index[128])  // NEW //
 
 			if (obj != NULL)
 			{
-				ObjectMove::getinstance()->old_trance[0] = obj->getTranslate()[0];
-				ObjectMove::getinstance()->old_trance[1] = obj->getTranslate()[1];
-				ObjectMove::getinstance()->old_trance[2] = obj->getTranslate()[2];
-				ObjectMove::getinstance()->old_mouse = inst->a_mouse;
 
 				if (MarxWorld::getInstance().Volkes != NULL)
 					MarxWorld::getInstance().Volkes->SetMd2ObjectSelection(obj);
 
 			}
-			else
-			{
-				ObjectMove::getinstance()->old_trance[0] = 0;
-				ObjectMove::getinstance()->old_trance[1] = 0;
-				ObjectMove::getinstance()->old_trance[2] = 0;
-				ObjectMove::getinstance()->old_mouse = inst->a_mouse;
-			}
+
+			ObjectMove::getinstance()->old_mouse = inst->a_mouse;
 		}
 		
 	}
@@ -1215,8 +1212,8 @@ void	Opengl2md2::mouseMotion (int x, int y)
 
 				if (inst->emTrancelate == EM_TRANCELATE)
 				{
-					inst->trance[0] = ObjectMove::getinstance()->old_trance[0] + ((realposx - ObjectMove::getinstance()->old_mouse.x));
-					inst->trance[1] = ObjectMove::getinstance()->old_trance[1] + ((realposy - ObjectMove::getinstance()->old_mouse.y));
+					//inst->trance[0] = ObjectMove::getinstance()->old_trance[0] + ((realposx - ObjectMove::getinstance()->old_mouse.x));
+					//inst->trance[1] = ObjectMove::getinstance()->old_trance[1] + ((realposy - ObjectMove::getinstance()->old_mouse.y));
 					obj->x = inst->trance[0];
 					obj->y = inst->trance[1];
 				}
@@ -1228,9 +1225,18 @@ void	Opengl2md2::mouseMotion (int x, int y)
 				{
 					if (inst->emTrancelate == EM_TRANCELATE)
 					{
-						inst->trance[0] = ObjectMove::getinstance()->old_trance[0] + (( realposx - ObjectMove::getinstance()->old_mouse.x ));
-						inst->trance[1] = ObjectMove::getinstance()->old_trance[1] + (( realposy - ObjectMove::getinstance()->old_mouse.y ));
-						inst->player->setTranslate(inst->trance);
+						COMMONDATATYPE::mouse_input_t mouse;
+						mouse.x = realposx;
+						mouse.y = realposy;
+						for (int i = 0; i < ObjectMove::getinstance()->SelectObjectNum.size(); i++)
+						{
+							
+							SelectableObject* node = dynamic_cast<SelectableObject*>(ObjectNumberingMananger::getInstance()->GetMarxObject(
+								ObjectMove::getinstance()->SelectObjectNum[i]));
+							if (node != NULL)
+								node->Dragging(mouse);
+						}
+						
 						MarxWorld::getInstance().Volkes->SelectedObjectChanged();
 					}
 					else if (inst->emTrancelate == EM_ROTAION)

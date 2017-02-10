@@ -91,6 +91,10 @@ namespace MarxEngine
 
 		virtual void Save(TiXmlElement * MapPieces);
 
+
+		COMMONDATATYPE::Vector3d GetNowPostion();
+		void SetNowPostion(COMMONDATATYPE::Vector3d pos);
+
 	public:
 		// Note! 리스트에서만 지워진다. 객체는 지우지 않는다!
 		void Remove(ImageControl* child);

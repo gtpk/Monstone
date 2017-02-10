@@ -2,6 +2,7 @@
 #include <list>
 
 #include "MarxObject.h"
+#include "CommonDataType.h"
 class SelectableObject;
 
 struct EdgeTarget
@@ -31,6 +32,10 @@ public:
 	SelectableObject * FindSelectTopObj();
 
 	SelectableObject* setSelectObj(int number, bool isSelect);
+
+	virtual COMMONDATATYPE::Vector3d GetNowPostion() = 0;
+	virtual void SetNowPostion(COMMONDATATYPE::Vector3d pos) = 0;
+
 	SelectableObject* setSelectObj(int number);
 	SelectableObject* FindbyNameObj(int name);
 
@@ -39,13 +44,13 @@ public:
 	int GetUniqNumber() { return _currentName; }
 	
 	void setName(int name);
-
+	void Dragging(COMMONDATATYPE::mouse_input_t);
 
 	std::list<SelectableObject*> child;
 
 protected:
 	EdgeTarget slelectList[8];
-
+	COMMONDATATYPE::Vector3d	old_trance;
 	
 	int _currentName;
 	bool m_bselect;

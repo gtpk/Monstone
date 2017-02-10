@@ -125,7 +125,8 @@ public:
 		return m_translate[2];
 	}
 
-
+	COMMONDATATYPE::Vector3d GetNowPostion();
+	void SetNowPostion(COMMONDATATYPE::Vector3d pos);
 
 	typedef std::shared_ptr<ModelInteface> Md2ModelSPtr;
 

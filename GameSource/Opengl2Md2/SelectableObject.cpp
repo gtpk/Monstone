@@ -60,6 +60,16 @@ void SelectableObject::setSelect(bool select)
 	if (m_bselect == select)
 		return;
 	m_bselect = select;
+	old_trance = GetNowPostion();
+}
+
+void SelectableObject::Dragging(COMMONDATATYPE::mouse_input_t Mouse)
+{
+	COMMONDATATYPE::Vector3d obj;
+	obj.x = old_trance.x + ((Mouse.x - ObjectMove::getinstance()->old_mouse.x));
+	obj.y = old_trance.y + ((Mouse.y - ObjectMove::getinstance()->old_mouse.y));
+	obj.z = old_trance.z;
+	SetNowPostion(obj);
 }
 
 

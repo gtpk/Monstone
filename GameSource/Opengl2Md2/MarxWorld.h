@@ -138,7 +138,9 @@ public:
 	string _name;
 	string _currentSkin;
 	string _currentAnim;
-
+	COMMONDATATYPE::Vector3d _p;
+	COMMONDATATYPE::Vector3d GetNowPostion() { return _p; }
+	void SetNowPostion(COMMONDATATYPE::Vector3d pos) {}
 	
 	
 	int _Bottompos;

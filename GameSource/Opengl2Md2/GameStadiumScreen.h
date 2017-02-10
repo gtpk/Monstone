@@ -30,7 +30,9 @@ namespace MarxEngine
 
 	private:
 		long long ElpseTimer = 0;
-
+		COMMONDATATYPE::Vector3d _p;
+		COMMONDATATYPE::Vector3d GetNowPostion() { return _p; }
+		void SetNowPostion(COMMONDATATYPE::Vector3d pos) {}
 	public:
 		void onDrawFrame()
 		{

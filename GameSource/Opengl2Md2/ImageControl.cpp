@@ -574,4 +574,21 @@ namespace MarxEngine
 		//	_iter++;
 		//}
 	}
+
+
+	COMMONDATATYPE::Vector3d ImageControl::GetNowPostion()
+	{
+		COMMONDATATYPE::Vector3d pos;
+		pos.x = x;
+		pos.y = y;
+		pos.z = zindex;
+		return pos;
+	}
+
+	void ImageControl::SetNowPostion(COMMONDATATYPE::Vector3d pos)
+	{
+		x = pos.x;
+		y = pos.y;
+		zindex = pos.z;
+	}
 }

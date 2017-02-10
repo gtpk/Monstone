@@ -94,7 +94,21 @@ void Md2Object::Refresh()
 }
 
 
+COMMONDATATYPE::Vector3d Md2Object::GetNowPostion()
+{
+	COMMONDATATYPE::Vector3d pos;
+	pos.x = m_translate[0];
+	pos.y = m_translate[1];
+	pos.z = m_translate[2];
+	return pos;
+}
 
+void Md2Object::SetNowPostion(COMMONDATATYPE::Vector3d pos)
+{
+	m_translate[0]= pos.x;
+	m_translate[1]= pos.y;
+	m_translate[2]= pos.z;
+}
 // --------------------------------------------------------------------------
 // Md2Object::drawObjectItp
 //

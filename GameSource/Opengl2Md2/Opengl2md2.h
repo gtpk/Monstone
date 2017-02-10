@@ -134,8 +134,11 @@ public :
 	static void idleVisible ();
 	static void windowStatus (int state);
 	static void menuSelect(HMENU menu, int idx);
-
-
+	
+	//Do Noting
+	COMMONDATATYPE::Vector3d _p;
+	COMMONDATATYPE::Vector3d GetNowPostion() { return _p;} 
+	void SetNowPostion(COMMONDATATYPE::Vector3d pos) { _p = pos; }
 	
 public:
 
@@ -153,7 +156,7 @@ public:
 	void Save();
 	void Load(string sModelname);
 
-
+	
 public:
 	XINPUT_STATE Gamepad[4];
 	void DetectXboxControllerButton();
