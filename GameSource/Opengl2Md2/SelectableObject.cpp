@@ -224,12 +224,7 @@ SelectableObject* SelectableObject::setSelectObj(int number, bool isSelect)
 
 	SelectableObject* var1 = FindbyNameObj(number);
 	Md2Object* var = dynamic_cast<Md2Object*>(var1);
-	if (var != NULL)
-	{
-		
-		if(MarxWorld::getInstance().Volkes != NULL)
-			MarxWorld::getInstance().Volkes->SetMd2ObjectSelection(var);
-	}
+	
 	var1->setSelect(isSelect);
 	return var1;
 }

@@ -805,9 +805,33 @@ void Opengl2md2::ProcessSelect(GLuint index[128])  // NEW //
 				{
 					player->setSelectObj(ObjectMove::getinstance()->SelectObjectNum[i], true);
 				}
-
-				//새로운 객체를 추가한다.
-				ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[SelectList.size() - 1].index[0]);
+				bool isExsist = false;
+				for (int i = 0; i < ObjectMove::getinstance()->SelectObjectNum.size(); i++)
+				{
+					if (SelectList[SelectList.size() - 1].index[0] == ObjectMove::getinstance()->SelectObjectNum[i])
+					{
+						isExsist = true;
+					}
+				}
+				if (isExsist == false)
+				{
+					
+					//새로운 객체를 추가한다.
+					ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[SelectList.size() - 1].index[0]);
+				}
+				else
+				{
+					for (std::vector<int>::iterator i = ObjectMove::getinstance()->SelectObjectNum.begin();
+						i != ObjectMove::getinstance()->SelectObjectNum.end(); i++)
+					{
+						if (*i == SelectList[SelectList.size() - 1].index[0])
+						{
+							ObjectMove::getinstance()->SelectObjectNum.erase(i);
+							break;
+						}
+					}
+					player->setSelectObj(SelectList[SelectList.size() - 1].index[0], false);
+				}
 			}
 			else
 			{
@@ -815,8 +839,19 @@ void Opengl2md2::ProcessSelect(GLuint index[128])  // NEW //
 				player->setSelectObj(SelectList[SelectList.size() - 1].index[0], true);
 				//새로 선택했으므로 선택리스트를 비운다.
 				//ObjectMove::getinstance()->SelectObjectNum.clear();
-				ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[SelectList.size() - 1].index[0]);
-
+				bool isExsist = false;
+				for (int i = 0; i < ObjectMove::getinstance()->SelectObjectNum.size(); i++)
+				{
+					if (SelectList[SelectList.size() - 1].index[0] == ObjectMove::getinstance()->SelectObjectNum[i])
+					{
+						isExsist = true;
+					}
+				}
+				if (isExsist == false)
+				{
+					ObjectMove::getinstance()->SelectObjectNum.clear();
+					ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[SelectList.size() - 1].index[0]);
+				}
 				//등록된것들 다 다시 등록
 				for (int i = 0; i < ObjectMove::getinstance()->SelectObjectNum.size(); i++)
 				{
@@ -825,9 +860,12 @@ void Opengl2md2::ProcessSelect(GLuint index[128])  // NEW //
 			}
 
 			//최초 선택된 것만 체크한다.
-			Md2Object* obj = (Md2Object*)MarxWorld::getInstance().FindbyNameObj(
-				ObjectMove::getinstance()->SelectObjectNum[0]);
-
+			Md2Object* obj = NULL;
+			if (ObjectMove::getinstance()->SelectObjectNum.size() != 0)
+			{
+				obj = (Md2Object*)MarxWorld::getInstance().FindbyNameObj(
+					ObjectMove::getinstance()->SelectObjectNum[0]);
+			}
 			if (obj != NULL)
 			{
 
