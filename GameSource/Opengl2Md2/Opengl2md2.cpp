@@ -815,21 +815,25 @@ void Opengl2md2::ProcessSelect(GLuint index[128])  // NEW //
 				}
 				if (isExsist == false)
 				{
-					
 					//새로운 객체를 추가한다.
 					ObjectMove::getinstance()->SelectObjectNum.push_back(SelectList[SelectList.size() - 1].index[0]);
 				}
 				else
 				{
-					for (std::vector<int>::iterator i = ObjectMove::getinstance()->SelectObjectNum.begin();
-						i != ObjectMove::getinstance()->SelectObjectNum.end(); i++)
+					
+					std::vector<int>::iterator _bitor = ObjectMove::getinstance()->SelectObjectNum.begin();
+					while (_bitor != ObjectMove::getinstance()->SelectObjectNum.end())
 					{
-						if (*i == SelectList[SelectList.size() - 1].index[0])
+						if (*_bitor == SelectList[SelectList.size() - 1].index[0])
 						{
-							ObjectMove::getinstance()->SelectObjectNum.erase(i);
-							break;
+							_bitor = ObjectMove::getinstance()->SelectObjectNum.erase(_bitor);
+						}
+						else
+						{
+							_bitor++;
 						}
 					}
+	
 					player->setSelectObj(SelectList[SelectList.size() - 1].index[0], false);
 				}
 			}

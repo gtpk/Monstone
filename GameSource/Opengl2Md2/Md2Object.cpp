@@ -32,25 +32,25 @@ using namespace MarxEngine;
 // Constructors.
 // --------------------------------------------------------------------------
 
-Md2Object::Md2Object ()
+Md2Object::Md2Object (SelectableObject* _mother)
 	: _model (NULL), _currFrame (0), _nextFrame (0), m_obj(NULL),
-	_interp (0.0f), _percent (0.0f), _scale (1.0f)
+	_interp (0.0f), _percent (0.0f), _scale (1.0f), SelectableObject(_mother)
 {
 	
 }
 
 
-Md2Object::Md2Object (ModelInteface *model)
+Md2Object::Md2Object (SelectableObject* _mother,ModelInteface *model)
 	: _model (model), _currFrame (0), _nextFrame (0), m_obj(NULL),
-	_interp (0.0f), _percent (0.0f), _scale (1.0f)
+	_interp (0.0f), _percent (0.0f), _scale (1.0f), SelectableObject(_mother)
 {
 
 	setModel (model);
 }
 
-Md2Object::Md2Object(string ObjName)
+Md2Object::Md2Object(SelectableObject* _mother,string ObjName)
 	: _model(NULL), _currFrame(0), _nextFrame(0), m_obj(NULL),
-	_interp(0.0f), _percent(0.0f), _scale(1.0f)
+	_interp(0.0f), _percent(0.0f), _scale(1.0f), SelectableObject(_mother)
 {
 	SetAtlasObj(ObjName);
 }
@@ -505,9 +505,9 @@ void Md2Object::Load(Md2Object* mother,TiXmlNode * MapPieces)
 		TiXmlElement* pelement = Piece->ToElement();
 
 		pelement->Attribute("Name", &name);
-		const char* TextureName = pelement->Attribute("TextureName");
-		const char* AlphaTexture = pelement->Attribute("AlphaTexture");
-		const char* Md2Name = pelement->Attribute("ModelName");
+
+
+	
 		int i_type = 0;
 		pelement->Attribute("MARXOBJECT_TYP_ENUM", &i_type);
 		type = (MARXOBJECT_TYP_ENUM)i_type;
@@ -532,8 +532,9 @@ void Md2Object::Load(Md2Object* mother,TiXmlNode * MapPieces)
 
 		if (type == MARXOBJECT_TYP_ENUM::MARX_OBJECT_MD2_MODEL)
 		{
+			const char* TextureName = pelement->Attribute("TextureName");
 			std::ifstream pieceifs;
-
+			const char* Md2Name = pelement->Attribute("ModelName");
 			string path = Md2Name;
 			pieceifs.open(path.c_str(), std::ios::binary);
 
@@ -544,7 +545,7 @@ void Md2Object::Load(Md2Object* mother,TiXmlNode * MapPieces)
 			}
 			GLfloat pos = -10;
 
-			Md2Object* obj = new Md2Object();
+			Md2Object* obj = new Md2Object(this);
 			//_WorldPiece.push_back()
 			obj->setName(name);
 			obj->setModel(path, TextureName);
@@ -555,6 +556,8 @@ void Md2Object::Load(Md2Object* mother,TiXmlNode * MapPieces)
 		}
 		else if (type == MARXOBJECT_TYP_ENUM::MARX_OBJECT_MD2_OBJECT)
 		{
+			const char* AlphaTexture = pelement->Attribute("AlphaTexture");
+			const char* TextureName = pelement->Attribute("TextureName");
 			string TextureName_str = TextureName;
 			TextureName_str = TextureName_str.substr(
 				string(MarxWorld::getInstance()._RootDirctory + "\\asset\\").length(), TextureName_str.length());
@@ -569,18 +572,40 @@ void Md2Object::Load(Md2Object* mother,TiXmlNode * MapPieces)
 			obj->setScale(Scale);
 			obj->Load(obj,Piece);
 		}
+		else
+		{
+			this->m_obj = ImageControl::Load(MapPieces);
+		}
 	}
 }
 
 void Md2Object::Save(TiXmlElement * MapPieces)
 {
+	if (NotSave == true)
+		return;
 	TiXmlElement * Piece;
 	Piece = new TiXmlElement("Piece");
 	MapPieces->LinkEndChild(Piece);
 	Piece->SetAttribute("Name", this->GetUniqNumber());
-	Piece->SetAttribute("TextureName", this->model()->getTextureName().c_str());
-	Piece->SetAttribute("AlphaTexture", this->model()->getAlphaTextureName().c_str());
-	Piece->SetAttribute("ModelName", this->model()->getMd2name().c_str());
+	
+	if (this->model() == NULL)
+	{
+		Piece->SetAttribute("TextureName", "");
+		Piece->SetAttribute("AlphaTexture", "");
+		Piece->SetAttribute("ModelName", "");
+		Piece->SetDoubleAttribute("Width", 0);
+		Piece->SetDoubleAttribute("Height", 0);
+		this->m_obj->Save(Piece);
+	}
+	else
+	{
+		Piece->SetAttribute("TextureName", this->model()->getTextureName().c_str());
+		Piece->SetAttribute("AlphaTexture", this->model()->getAlphaTextureName().c_str());
+		Piece->SetAttribute("ModelName", this->model()->getMd2name().c_str());
+		Piece->SetDoubleAttribute("Width", this->_model->m_Width);
+		Piece->SetDoubleAttribute("Height", this->_model->m_Height);
+	}
+	
 	Piece->SetAttribute("MARXOBJECT_TYP_ENUM", this->GetType());
 	Piece->SetDoubleAttribute("Scale", this->scale());
 
@@ -592,8 +617,7 @@ void Md2Object::Save(TiXmlElement * MapPieces)
 	Piece->SetDoubleAttribute("Rotationy", this->m_rotation[1]);
 	Piece->SetDoubleAttribute("Rotationz", this->m_rotation[2]);
 
-	Piece->SetDoubleAttribute("Width", this->_model->m_Width);
-	Piece->SetDoubleAttribute("Height", this->_model->m_Height);
+	
 
 	TiXmlElement * Child;
 	Child = new TiXmlElement("Child");

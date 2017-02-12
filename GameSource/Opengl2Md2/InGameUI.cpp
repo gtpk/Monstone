@@ -17,9 +17,10 @@ namespace MarxEngine
 		///////////////////////// 테스트 플레이어
 		king_obj = new Momo();
 
-
 		
-		king = new Md2Object();
+		king = new Md2Object(this);
+		king->NotSave = true;
+
 		king->setName(ObjectNumberingMananger::getInstance()->getNumber(king));
 		king->m_obj = king_obj;
 		king->setRotate(0, 90, 90);
@@ -59,7 +60,6 @@ namespace MarxEngine
 
 	void InGameUI::onUpdate(long long dt)
 	{
-		return;
 		//currentX = _ani->getCurrentValue(system_clock::now().time_since_epoch().count() / 100000 - _ani->mSaveStartTime);
 		if (KardNameFactory::GetKardNameFactory()->IsLoaded == false)
 		{

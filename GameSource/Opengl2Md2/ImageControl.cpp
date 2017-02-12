@@ -493,10 +493,7 @@ namespace MarxEngine
 
 	void ImageControl::Load(ImageControl* mother, TiXmlNode * MapPieces)
 	{
-		TiXmlNode * ChildNode = MapPieces->FirstChild("Child");
-		if (ChildNode == NULL)
-			return;
-		TiXmlNode * Piece = ChildNode->FirstChild("ImageControl");
+		TiXmlNode * Piece = MapPieces->FirstChild("ImageControl");
 		for (; Piece != NULL; Piece = Piece->NextSibling())
 		{
 
@@ -523,7 +520,11 @@ namespace MarxEngine
 			float Height;
 			pelement->QueryFloatAttribute("Height", &Height);
 
-			ImageControl* child = ImageControl::CreateImageControl(mother, string(_TextureName), _Name, _x, _y, Width, Height);
+			ImageControl* child = NULL;
+			if (mother == NULL)
+				child = ImageControl::CreateImageControl(string(_TextureName), _Name, _x, _y, Width, Height);
+			else
+				child = ImageControl::CreateImageControl(mother, string(_TextureName), _Name, _x, _y, Width, Height);
 			child->zindex = _zindex;
 			child->m_rotate = _m_rotate;
 			child->ScaleX = _ScaleX;
@@ -531,6 +532,45 @@ namespace MarxEngine
 			child->Load(child, pelement);
 		}
 	}
+
+	ImageControl* ImageControl::Load( TiXmlNode * MapPieces)
+	{
+		TiXmlNode * Piece = MapPieces->FirstChild("ImageControl");
+		if (Piece == NULL)
+			return NULL;
+		TiXmlElement* pelement = Piece->ToElement();
+
+		const char* _Name = pelement->Attribute("Name");
+		const char* _TextureName = pelement->Attribute("TextureName");
+		int _transparent = 255;
+		pelement->Attribute("transparent", &_transparent);
+		float _ScaleX;
+		pelement->QueryFloatAttribute("ScaleX", &_ScaleX);
+		float _ScaleY;
+		pelement->QueryFloatAttribute("ScaleY", &_ScaleY);
+		float _x;
+		pelement->QueryFloatAttribute("x", &_x);
+		float _y;
+		pelement->QueryFloatAttribute("y", &_y);
+		float _zindex;
+		pelement->QueryFloatAttribute("zindex", &_zindex);
+		float _m_rotate;
+		pelement->QueryFloatAttribute("m_rotate", &_m_rotate);
+		float Width;
+		pelement->QueryFloatAttribute("Width", &Width);
+		float Height;
+		pelement->QueryFloatAttribute("Height", &Height);
+
+		ImageControl* child = NULL;
+		child = ImageControl::CreateImageControl(string(_TextureName), _Name, _x, _y, Width, Height);
+		child->zindex = _zindex;
+		child->m_rotate = _m_rotate;
+		child->ScaleX = _ScaleX;
+		child->ScaleY = _ScaleY;
+		child->Load(child, pelement);
+		return child;
+	}
+
 
 	void ImageControl::Save(TiXmlElement * MapPieces)
 	{

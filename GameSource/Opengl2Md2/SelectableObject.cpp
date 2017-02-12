@@ -5,6 +5,23 @@
 
 SelectableObject::SelectableObject() :MarxObject(MARX_OBJECT_MD2_OBJECT)
 {
+	mother = NULL;
+	_currentName = ObjectNumberingMananger::getInstance()->getNumber(this);
+
+	for (int i = 0; i < 8; i++)
+	{
+		SelectNumbers[i] = ObjectNumberingMananger::getInstance()->getNumber(this);
+		EdgeTarget edge;
+		edge.direction = i;
+		edge.id = SelectNumbers[i];
+		edge.obj = this;
+		slelectList[i] = edge;
+	}
+}
+
+SelectableObject::SelectableObject(SelectableObject* _mother) :MarxObject(MARX_OBJECT_MD2_OBJECT)
+{
+	mother = _mother;
 	_currentName = ObjectNumberingMananger::getInstance()->getNumber(this);
 
 	for (int i = 0; i < 8; i++)
@@ -43,6 +60,46 @@ SelectableObject::~SelectableObject()
 			MarxWorld::getInstance().Volkes->DeleteImageControl((ImageControl*)this);
 	}
 	ObjectNumberingMananger::getInstance()->UnUseNumber(_currentName,this);
+}
+
+bool SelectableObject::IsMyParent(SelectableObject *node)
+{
+	if(mother == NULL)
+	{
+		return false;
+	}
+	else
+	{
+		if (mother == node)
+		{
+			return true;
+		}
+		else
+		{
+			mother->IsMyParent(node);
+		}
+	}
+	
+}
+
+bool SelectableObject::IsMyParent(int ID)
+{
+	if (mother == NULL)
+	{
+		return false;
+	}
+	else
+	{
+		if (mother->GetUniqNumber() == ID)
+		{
+			return true;
+		}
+		else
+		{
+			mother->IsMyParent(ID);
+		}
+	}
+
 }
 
 SelectableObject * SelectableObject::FindSelectTopObj()
@@ -223,8 +280,11 @@ SelectableObject* SelectableObject::setSelectObj(int number, bool isSelect)
 {
 
 	SelectableObject* var1 = FindbyNameObj(number);
+	if (var1 == NULL)
+		return NULL;
 	Md2Object* var = dynamic_cast<Md2Object*>(var1);
-	
+	if (var == NULL)
+		return NULL;
 	var1->setSelect(isSelect);
 	return var1;
 }

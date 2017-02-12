@@ -47,9 +47,9 @@ public:
 
 public:
 	// Constructor/destructor
-	Md2Object ();
-	Md2Object (ModelInteface *model);
-	Md2Object(string ObjName);
+	Md2Object (SelectableObject* _mother);
+	Md2Object (SelectableObject* _mother, ModelInteface *model);
+	Md2Object(SelectableObject* _mother, string ObjName);
 	~Md2Object ();
 
 public:
@@ -78,7 +78,7 @@ public:
 	
 	ImageControl* m_obj = NULL;
 
-	
+	bool NotSave = false;
 
 
 	void setRotate(vec3_t angle );

@@ -66,7 +66,7 @@ MarxWorld *MarxWorld::inst = NULL;
 
 MarxWorld::MarxWorld()
 throw (std::runtime_error)
-	: _playerMesh(NULL), _weaponMesh(NULL), MAX_PIECE(20), _Bottompos(99)
+	:  MAX_PIECE(20), _Bottompos(99), SelectableObject()
 {
 	_RootDirctory = ProjectLoader::getinstance()->GetProjectPath();
 
@@ -126,13 +126,6 @@ void MarxWorld::drawPlayerItp (bool animated, Md2Object::Md2RenderMode renderMod
 		node->drawObjectItp (animated, renderMode);
 	}
 
-	if (_playerMesh.get ())
-	{
-		_playerMesh->setTexture (_currentSkin);
-		_playerObject.drawObjectItp (animated, renderMode);
-	}
-	if (_weaponMesh.get ())
-		_weaponObject.drawObjectItp (animated, renderMode);
 
 
 }
@@ -230,17 +223,7 @@ void MarxWorld::setSkin (const string &name)
 
 void MarxWorld::setAnim (const string &name)
 {
-	if (_weaponMesh.get ())
-	{
-		_weaponObject.setAnim (name);
-		_currentAnim = name;
-	}
 
-	if (_playerMesh.get ())
-	{
-		_playerObject.setAnim (name);
-		_currentAnim = name;
-	}
 }
 
 void MarxWorld::setRotate(vec3_t angle)
@@ -347,7 +330,7 @@ Md2Object *MarxWorld::setNewPiece(const string &dirname,const string &md2Name,co
 
 	GLfloat pos = -10;
 
-	Md2Object* obj = new Md2Object();
+	Md2Object* obj = new Md2Object(this);
 	//_WorldPiece.push_back()
 	obj->setModel (path,textureName);
 	obj->setRotate(0,90,90);
@@ -380,7 +363,7 @@ Md2Object *MarxWorld::setNewPiece(const string &md2Name, const string &textureNa
 
 	GLfloat pos = -10;
 
-	Md2Object* obj = new Md2Object();
+	Md2Object* obj = new Md2Object(this);
 	//_WorldPiece.push_back()
 	obj->setModel(path, textureName);
 	obj->setRotate(0, 90, 90);
@@ -410,7 +393,7 @@ Md2Object *MarxWorld::setNewPieceChar(const string &md2Name, const string &textu
 	}
 	pieceifs.close ();
 
-	Md2Object* obj = new Md2Object();
+	Md2Object* obj = new Md2Object(this);
 	//_WorldPiece.push_back()
 	obj->setModel (md2Name,textureName);
 	obj->setRotate(0,90,90);
@@ -451,7 +434,7 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height , const string &textu
 {
 
 
-	Md2Object* obj = new Md2Object();
+	Md2Object* obj = new Md2Object(this);
 	//_WorldPiece.push_back()
 	obj->setModel (Width,Height,textureName);
 	obj->setRotate(0,90,90);
@@ -487,7 +470,7 @@ void MarxWorld::setNewImageControl(ImageControl* model, const string &textureNam
 Md2Object *MarxWorld::setNewPiece(const string &textureName)
 {
 
-	Md2Object* obj = new Md2Object();
+	Md2Object* obj = new Md2Object(this);
 	//_WorldPiece.push_back()
 	obj->SetAtlasObj(textureName);
 	obj->setRotate(0, 90, 90);
@@ -510,7 +493,7 @@ Md2Object *MarxWorld::setNewPiece(const string &textureName)
 
 Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 {
-	Md2Object* obj = new Md2Object();
+	Md2Object* obj = new Md2Object(this);
 	//_WorldPiece.push_back()
 	
 	if (model->model() != NULL)
@@ -556,7 +539,7 @@ Md2Object *MarxWorld::setNewPiece(Md2Object* model)
 }
 Md2Object *MarxWorld::MakePiece(Md2Object* model)
 {
-	Md2Object* obj = new Md2Object();
+	Md2Object* obj = new Md2Object(this);
 	//_WorldPiece.push_back()
 
 	if (model->model() != NULL)
@@ -576,7 +559,7 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height, const string &textur
 {
 
 	
-	Md2Object* obj = new Md2Object();
+	Md2Object* obj = new Md2Object(this);
 	obj->setModel (Width,Height,textureName,textureAlpha, isAbsolute);
 	obj->setRotate(0,90,90);
 	obj->setScale(0.1);
@@ -600,7 +583,7 @@ Md2Object *MarxWorld::setNewPiece(float Width,float Height, const string &textur
 Md2Object *MarxWorld::setNewPiece(Md2Object* model, float Width, float Height, const string &textureName, const string &textureAlpha)
 {
 
-	Md2Object* obj = new Md2Object();
+	Md2Object* obj = new Md2Object(this);
 	obj->setModel(Width, Height, textureName, textureAlpha);
 	obj->setRotate(0, 90, 90);
 	obj->setScale(0.1);
@@ -783,7 +766,7 @@ bool MarxWorld::Load(string str)
 				}
 				GLfloat pos = -10;
 
-				Md2Object* obj = new Md2Object();
+				Md2Object* obj = new Md2Object(this);
 				//_WorldPiece.push_back()
 				obj->setName(name);
 				obj->setModel(path, TextureName);

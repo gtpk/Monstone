@@ -16,8 +16,9 @@ class SelectableObject : public MarxObject
 {
 public:
 	SelectableObject();
+	SelectableObject(SelectableObject* _mother);
 	~SelectableObject();
-
+	SelectableObject* mother = NULL;
 
 	void setSelect(bool select);
 	bool getSelect() { return m_bselect; }
@@ -28,6 +29,9 @@ public:
 	void setSelectionBottom();
 	void deleteSelectPiece(int _SelectID);
 	void Remove(SelectableObject* obj);
+
+	bool IsMyParent(SelectableObject* node);
+	bool IsMyParent(int ID);
 
 	SelectableObject * FindSelectTopObj();
 

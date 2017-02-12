@@ -88,6 +88,7 @@ namespace MarxEngine
 		virtual vector<ImageControl*> getAllChild();
 
 		virtual void Load(ImageControl* mother, TiXmlNode * MapPieces);
+		
 
 		virtual void Save(TiXmlElement * MapPieces);
 
@@ -112,7 +113,7 @@ namespace MarxEngine
 
 		/////////////////////////////////////////////////////////////////
 
-
+		
 		ImageControl();
 		ImageControl(string ObjName);
 		ImageControl(string ObjName, float width, float height);
@@ -124,10 +125,25 @@ namespace MarxEngine
 
 		virtual void SetHeight(float height); //@Override
 
+		static ImageControl* Load(TiXmlNode * MapPieces);
+
+
 		static ImageControl* CreateImageControl(string objectName,
 			string ImageName, int x, int y)
 		{
 			ImageControl* _ImageControl = new ImageControl(objectName);
+			_ImageControl->x = x;
+			_ImageControl->y = y;
+			_ImageControl->Name = objectName;
+			if (MarxWorld::getInstance().Volkes != NULL)
+				MarxWorld::getInstance().Volkes->setNewImageControl(_ImageControl);
+			return _ImageControl;
+		}
+
+		static ImageControl* CreateImageControl(string objectName,
+			string ImageName, int x, int y, int width, int height)
+		{
+			ImageControl* _ImageControl = new ImageControl(objectName, width, height);
 			_ImageControl->x = x;
 			_ImageControl->y = y;
 			_ImageControl->Name = objectName;

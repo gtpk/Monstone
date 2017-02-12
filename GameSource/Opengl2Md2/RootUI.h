@@ -164,7 +164,9 @@ namespace MarxEngine
 					child->ScaleX = _ScaleX;
 					child->ScaleY = _ScaleY;
 					addChild(child);
-					child->Load(child, pelement);
+
+					TiXmlNode * MapPieces = pelement->FirstChild("Child");
+					child->Load(child, MapPieces);
 				}
 			}
 

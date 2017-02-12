@@ -119,21 +119,9 @@ public:
 	const string &currentSkin () const { return _currentSkin; }
 	const string &currentAnim () const { return _currentAnim; }
 
-	const Md2Model *playerMesh () const { return _playerMesh.get (); }
-	const Md2Model *weaponMesh () const { return _weaponMesh.get (); }
-
 	void Save();
 
 	bool Load(string str);
-
-	
-
-	//std::vector<Md2ModelSPtr> _WorldPieceMash;
-	Md2ModelPtr _playerMesh;
-	Md2ModelPtr _weaponMesh;
-
-	Md2Object _playerObject;
-	Md2Object _weaponObject;
 
 	string _name;
 	string _currentSkin;
