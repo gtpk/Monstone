@@ -1,0 +1,305 @@
+﻿  ImfAttribute.cpp
+  ImfB44Compressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfb44compressor.cpp(323): warning C4244: '=': 'unsigned short'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfb44compressor.cpp(344): warning C4244: '=': 'unsigned short'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(65): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfb44compressor.cpp(492): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiMult<std::size_t>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(147): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfb44compressor.cpp(493): note: 컴파일 중인 함수 템플릿 인스턴스화 'size_t Imf::checkArraySize<std::T>(std::T,std::size_t)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(150): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(101): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfb44compressor.cpp(516): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiAdd<std::T>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+  ImfBoxAttribute.cpp
+  ImfChannelList.cpp
+  ImfChannelListAttribute.cpp
+  ImfChromaticities.cpp
+  ImfChromaticitiesAttribute.cpp
+  ImfCompressionAttribute.cpp
+  ImfCompressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(65): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcompressor.cpp(162): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiMult<std::size_t>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+  ImfConvert.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfconvert.cpp(119): warning C4244: '인수': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfCRgbaFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcrgbafile.cpp(292): warning C4244: '=': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcrgbafile.cpp(293): warning C4244: '=': 'const int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfDoubleAttribute.cpp
+  ImfEnvmap.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfenvmap.cpp(77): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfenvmap.cpp(88): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfenvmap.cpp(102): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfenvmap.cpp(103): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfEnvmapAttribute.cpp
+  ImfFloatAttribute.cpp
+  ImfFrameBuffer.cpp
+  ImfFramesPerSecond.cpp
+  ImfHeader.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfheader.cpp(715): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfheader.cpp(722): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  ImfHuf.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(168): warning C4244: '=': 'Imath::Int64'에서 'char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(247): warning C4244: '초기화 중': 'Imath::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(478): warning C4244: '초기화 중': 'Imath::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(547): warning C4244: '초기화 중': 'Imath::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(559): warning C4244: '초기화 중': 'Imath::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(618): warning C4244: '초기화 중': 'Imath::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(676): warning C4334: '<<': 32비트 시프트의 결과가 암시적으로 64비트로 변환됩니다. 64비트 시프트를 사용하시겠습니까?
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(721): warning C4244: '인수': 'Imath::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(889): warning C4244: '초기화 중': 'Imath::Int64'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(904): warning C4244: '초기화 중': 'Imath::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(919): warning C4244: '초기화 중': 'Imath::Int64'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(946): warning C4244: '초기화 중': 'Imath::Int64'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfInputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfinputfile.cpp(296): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  ImfIntAttribute.cpp
+  ImfIO.cpp
+  ImfKeyCode.cpp
+  ImfKeyCodeAttribute.cpp
+  ImfLineOrderAttribute.cpp
+  ImfLut.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imflut.cpp(155): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imflut.cpp(155): warning C4244: '초기화 중': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imflut.cpp(173): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfMatrixAttribute.cpp
+  ImfMisc.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(141): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(221): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(567): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(576): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(585): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(717): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(724): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(731): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(751): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(762): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(771): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  ImfOpaqueAttribute.cpp
+  ImfOutputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(71): error C2039: 'min': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(17): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(71): error C2873: 'min': using 선언에서 기호를 사용할 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(72): error C2039: 'max': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(17): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(72): error C2873: 'max': using 선언에서 기호를 사용할 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(221): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(335): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(336): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(341): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(342): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(450): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(456): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(457): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(955): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(955): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(978): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(978): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfoutputfile.cpp(1107): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  ImfPizCompressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpizcompressor.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(65): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpizcompressor.cpp(186): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiMult<std::size_t>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(101): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpizcompressor.cpp(190): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiAdd<std::T>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(147): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpizcompressor.cpp(193): note: 컴파일 중인 함수 템플릿 인스턴스화 'size_t Imf::checkArraySize<std::size_t>(std::T,std::size_t)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(150): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  ImfPreviewImage.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(65): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpreviewimage.cpp(56): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiMult<unsigned int>(T,T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=unsigned int
+          ]
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(147): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpreviewimage.cpp(56): note: 컴파일 중인 함수 템플릿 인스턴스화 'size_t Imf::checkArraySize<T>(T,std::size_t)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=unsigned int
+          ]
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(150): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  ImfPreviewImageAttribute.cpp
+  ImfPxr24Compressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpxr24compressor.cpp(468): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpxr24compressor.cpp(494): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpxr24compressor.cpp(518): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpxr24compressor.cpp(543): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(65): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpxr24compressor.cpp(191): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiMult<std::size_t>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(101): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpxr24compressor.cpp(195): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiAdd<std::size_t>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+  ImfRational.cpp
+  ImfRationalAttribute.cpp
+  ImfRgbaFile.cpp
+  ImfRgbaYca.cpp
+  ImfRleCompressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfrlecompressor.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(65): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfrlecompressor.cpp(169): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiMult<std::size_t>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+  ImfScanLineInputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(69): error C2039: 'min': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\fstream(13): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(69): error C2873: 'min': using 선언에서 기호를 사용할 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(70): error C2039: 'max': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\fstream(13): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(70): error C2873: 'max': using 선언에서 기호를 사용할 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(221): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(455): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(651): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(652): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(881): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(882): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(961): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  ImfStandardAttributes.cpp
+  ImfStdIO.cpp
+  ImfStringAttribute.cpp
+  ImfStringVectorAttribute.cpp
+  ImfTestFile.cpp
+  ImfThreading.cpp
+  ImfTileDescriptionAttribute.cpp
+  ImfTiledInputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledinputfile.cpp(1029): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  ImfTiledMisc.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(67): error C2039: 'max': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\set(12): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(67): error C2064: 항은 2개의 인수를 받아들이는 함수로 계산되지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(102): error C2039: 'min': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\set(12): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(102): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(103): error C2039: 'min': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\set(12): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(103): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(197): error C2039: 'max': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\set(12): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(197): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(237): error C2039: 'max': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\set(12): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledmisc.cpp(237): error C3861: 'max': 식별자를 찾을 수 없습니다.
+  ImfTiledOutputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(76): error C2039: 'min': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(17): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(76): error C2873: 'min': using 선언에서 기호를 사용할 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(77): error C2039: 'max': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(17): note: 'std' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(77): error C2873: 'max': using 선언에서 기호를 사용할 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(295): error C3861: 'max': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(1137): error C3861: 'min': 식별자를 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(1267): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(1383): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(1390): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftiledoutputfile.cpp(1391): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  ImfTiledRgbaFile.cpp
+  ImfTileOffsets.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(80): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(82): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(262): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(263): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(274): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(275): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(276): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(287): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(288): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(289): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+  ImfTimeCode.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftimecode.cpp(236): warning C4800: 'unsigned int': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftimecode.cpp(250): warning C4800: 'unsigned int': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftimecode.cpp(264): warning C4800: 'unsigned int': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftimecode.cpp(278): warning C4800: 'unsigned int': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftimecode.cpp(292): warning C4800: 'unsigned int': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftimecode.cpp(306): warning C4800: 'unsigned int': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+  ImfTimeCodeAttribute.cpp
+  ImfVecAttribute.cpp
+  ImfVersion.cpp
+  ImfWav.cpp
+  ImfZipCompressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfzipcompressor.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(65): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfzipcompressor.cpp(64): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiMult<std::size_t>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfcheckedarithmetic.h(101): warning C4101: 'staticAssertionFailed' :참조되지 않은 지역 변수입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfzipcompressor.cpp(68): note: 컴파일 중인 함수 템플릿 인스턴스화 'T Imf::uiAdd<std::size_t>(std::T,std::T)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=std::size_t
+          ]
+  ImathBox.cpp
+  ImathColorAlgo.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  ImathFun.cpp
+  ImathMatrixAlgo.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(117): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(253): note: 컴파일 중인 함수 템플릿 인스턴스화 'Imath::M44d Imath::procrustesRotationAndTranslation<double>(const Imath::V3d *,const Imath::V3d *,const double *,const std::size_t,const bool)'에 대한 참조를 확인하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(126): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(154): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(159): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(199): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(204): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(1094): error C2039: 'max': 'std'의 멤버가 아닙니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\iomanip(18): note: 'std' 선언을 참조하십시오.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(1114): note: 컴파일 중인 함수 템플릿 인스턴스화 'float Imath::`anonymous-namespace'::maxOffDiagSymm<Imath::Matrix33<float>>(const TM &)'에 대한 참조를 확인하십시오.
+          with
+          [
+              TM=Imath::Matrix33<float>
+          ]
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(1219): note: 컴파일 중인 함수 템플릿 인스턴스화 'void Imath::jacobiEigenSolver<float>(Imath::Matrix33<float> &,Imath::Vec3<float> &,Imath::Matrix33<float> &,const float)'에 대한 참조를 확인하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(1094): error C3861: 'max': 식별자를 찾을 수 없습니다.
+  ImathRandom.cpp
+  ImathShear.cpp
+  ImathVec.cpp
+  IexBaseExc.cpp
+  IexThrowErrnoExc.cpp
+  half.cpp
+  IlmThread.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmthread\ilmthread.cpp(67): warning C4297: 'IlmThread::Thread::~Thread': 함수는 예외를 Throw하지 않도록 지정되었으나 예외를 Throw했습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmthread\ilmthread.cpp(67): note: 소멸자 또는 비할당자는 가능하면 암시적으로 throw되지 않는 예외 사양을 사용합니다.
+  IlmThreadMutex.cpp
+  IlmThreadPool.cpp
+  IlmThreadSemaphore.cpp
+  코드를 생성하고 있습니다...

@@ -1,0 +1,6 @@
+C:\monstone\Monstone\GameSource\WPFOpenGLApp\obj\Debug\WPFOpenGLApp.csprojResolveAssemblyReference.cache
+C:\monstone\Monstone\GameSource\WPFOpenGLApp\obj\Debug\OpenGLUserControlWindow.baml
+C:\monstone\Monstone\GameSource\WPFOpenGLApp\obj\Debug\OpenGLUserControlWindow.g.cs
+C:\monstone\Monstone\GameSource\WPFOpenGLApp\obj\Debug\OpenGLHWndWindow.g.cs
+C:\monstone\Monstone\GameSource\WPFOpenGLApp\obj\Debug\WPFOpenGLApp_MarkupCompile.cache
+C:\monstone\Monstone\GameSource\WPFOpenGLApp\obj\Debug\WPFOpenGLApp_MarkupCompile.lref

@@ -1,0 +1,144 @@
+﻿  tif_aux.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_close.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_codec.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_color.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_compress.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_dir.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_dirinfo.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_dirread.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_dirwrite.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_dumpmode.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_error.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_extension.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_fax3.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_fax3sm.c
+  tif_flush.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_getimage.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_jpeg.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_luv.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_lzma.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_lzw.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  tif_next.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_ojpeg.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_open.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_packbits.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_pixarlog.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_predict.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_print.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_read.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_strip.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_swab.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_thunder.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_tile.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_version.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_warning.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_write.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  tif_zip.c
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1925): warning C4005: 'snprintf': 매크로 재정의
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\libtiff4\tif_config.h(84): note: 'snprintf'의 이전 정의를 참조하십시오.
+c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1927): fatal error C1189: #error:  Macro definition of snprintf conflicts with Standard Library function declaration
+  코드를 생성하고 있습니다...

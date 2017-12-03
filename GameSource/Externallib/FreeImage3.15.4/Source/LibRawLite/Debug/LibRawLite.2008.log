@@ -1,0 +1,352 @@
+﻿  libraw_datastream.cpp
+  libraw_cxx.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(158): warning C4244: '인수': 'INT64'에서 'const int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(204): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1006): warning C4804: '>>': 연산에 'bool' 형식을 사용하는 것은 안전하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1049): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1479): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1487): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1525): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1660): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1668): warning C4244: '*=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1686): warning C4838: 'double'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1686): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1718): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1726): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1970): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(1994): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(2011): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\src\libraw_cxx.cpp(2004): warning C4101: 'val' :참조되지 않은 지역 변수입니다.
+  libraw_c_api.cpp
+  demosaic_packs.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(51): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(65): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(85): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(91): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(92): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(110): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(116): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(117): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(135): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(141): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(142): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(161): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(175): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(177): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(203): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(204): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(218): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(219): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(220): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(240): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(260): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(264): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(265): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(266): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(267): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(268): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(269): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(270): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(271): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(277): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(278): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(279): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(280): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(282): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(283): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(284): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(285): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(292): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(293): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(253): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(253): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(325): warning C4101: 'current' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(325): warning C4101: 'c' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(353): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(374): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(365): warning C4101: 'pix' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(419): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(445): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(448): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(459): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(384): warning C4101: 'tmp' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(485): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(486): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(487): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(498): warning C4101: 'pix' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(559): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(560): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(561): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(562): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(564): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(565): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(566): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(567): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(569): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcb_demosaicing.c(552): warning C4101: 'current' :참조되지 않은 지역 변수입니다.
+  dcraw_fileio.cpp
+  dcraw_common.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(119): warning C4996: 'swab': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _swab. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1331): note: 'swab' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(191): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(223): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(251): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(571): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(598): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(605): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(866): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(961): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1092): warning C4101: 'r' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1136): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1149): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1196): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1452): warning C4146: 단항 빼기 연산자가 부호 없는 형식에 적용되었습니다. 결과는 역시 unsigned입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1515): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1541): warning C4101: 'row' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1541): warning C4101: 'col' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1583): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1585): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1586): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1594): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1602): warning C4244: '=': 'float'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1605): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1610): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1641): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1645): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1649): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1653): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1657): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1677): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1682): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1703): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1719): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1726): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1727): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1736): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1803): warning C4244: 'return': 'UINT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1809): warning C4244: '=': 'UINT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1849): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(1946): warning C4101: 'row' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(2049): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(2076): warning C4244: '=': 'UINT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(2108): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(2421): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(2440): warning C4804: '<=': 연산에 'bool' 형식을 사용하는 것은 안전하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(2711): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(2943): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3060): warning C4101: 'col' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3181): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3186): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3290): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3338): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3343): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3440): warning C4838: 'double'에서 'const float'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3440): warning C4305: '초기화 중': 'double'에서 'const float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3457): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3463): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3468): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3481): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3485): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3501): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3503): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3507): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3663): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3664): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3701): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3710): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3760): warning C4244: '/=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3760): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3774): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3778): warning C4244: '*=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3790): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3793): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3793): warning C4244: '=': 'float'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3794): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3797): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3797): warning C4244: '=': 'float'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3798): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3803): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3861): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3861): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3872): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3964): warning C4838: 'int'에서 'const signed char'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(3964): warning C4309: '초기화 중': 상수 값이 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4248): warning C4244: '=': 'float'에서 'short'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4249): warning C4244: '=': 'float'에서 'short'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4250): warning C4244: '=': 'float'에서 'short'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4373): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4374): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4386): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4478): warning C4838: 'double'에서 'const float'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4478): warning C4305: '초기화 중': 'double'에서 'const float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4481): warning C4838: 'double'에서 'const float'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4481): warning C4305: '초기화 중': 'double'에서 'const float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4488): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4501): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4509): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4511): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4532): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4533): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4533): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4534): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4540): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4547): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4560): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4564): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4576): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4583): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4591): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4607): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4678): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4683): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4691): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4697): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4704): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4718): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4731): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4733): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4735): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4754): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4755): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4781): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4782): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4783): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4805): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4851): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4896): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4897): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4913): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4922): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4929): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4937): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4938): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(4972): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5018): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5019): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5024): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5025): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5026): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5065): warning C4838: 'double'에서 'const float'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5065): warning C4305: '초기화 중': 'double'에서 'const float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5070): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5096): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5177): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5185): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5189): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5190): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5198): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5201): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5242): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5337): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5362): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5371): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5385): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5398): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5408): warning C4244: '인수': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5432): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5445): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5448): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5451): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5465): warning C4244: '/=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5472): warning C4244: '인수': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5493): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5501): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5529): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5573): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5614): warning C4244: '=': 'double'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5617): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5618): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5619): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5628): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5630): warning C4244: '+=': 'double'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5711): warning C4146: 단항 빼기 연산자가 부호 없는 형식에 적용되었습니다. 결과는 역시 unsigned입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5727): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5734): warning C4244: '/=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5772): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5909): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5913): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5951): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(5970): warning C4244: '인수': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6090): warning C4244: '=': 'unsigned long'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6111): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6114): warning C4244: '인수': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6138): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6139): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6140): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6144): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6164): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6178): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6200): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6305): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6311): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6315): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6367): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6406): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6433): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6522): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6523): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6529): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(6547): warning C4146: 단항 빼기 연산자가 부호 없는 형식에 적용되었습니다. 결과는 역시 unsigned입니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7269): warning C4838: 'int'에서 'short'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7269): warning C4309: '초기화 중': 상수 값이 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7284): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7304): warning C4838: 'double'에서 'const float'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7304): warning C4305: '초기화 중': 'double'에서 'const float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7349): warning C4244: '=': 'UINT64'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7356): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7500): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7538): warning C4244: '=': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7562): warning C4244: '=': 'unsigned int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7591): warning C4244: '인수': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7592): warning C4244: '인수': 'INT64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8106): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8107): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8174): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8175): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8176): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8204): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8205): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8206): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8236): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8237): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8288): warning C4804: '>>': 연산에 'bool' 형식을 사용하는 것은 안전하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8635): warning C4244: '=': 'INT64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7648): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(579): note: 'strnicmp' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(7681): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(579): note: 'strnicmp' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8847): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8848): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8849): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(8794): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(579): note: 'strnicmp' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9114): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9130): warning C4244: '=': 'double'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9132): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9138): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9139): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9189): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9190): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9200): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9200): warning C4244: '=': 'float'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9201): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9201): warning C4244: '=': 'float'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9202): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9209): warning C4244: '=': 'float'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9235): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9239): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9243): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9247): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9251): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9255): warning C4244: '=': 'double'에서 'ushort'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9335): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9354): warning C4244: '*=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9355): warning C4244: '*=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9356): warning C4244: '*=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9360): error C3688: 잘못된 리터럴 접두사 'DCRAW_VERSION'입니다. 리터럴 연산자 또는 리터럴 연산자 템플릿 '연산자 ""DCRAW_VERSION'을(를) 찾을 수 없습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9360): error C2660: 'strcpy': 함수는 1개의 매개 변수를 사용하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9403): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9411): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\librawlite\internal\dcraw_common.cpp(9440): warning C4996: 'swab': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _swab. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1331): note: 'swab' 선언을 참조하십시오.
+  코드를 생성하고 있습니다...

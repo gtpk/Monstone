@@ -1,0 +1,29 @@
+﻿  adler32.c
+  compress.c
+  crc32.c
+  deflate.c
+  gzclose.c
+  gzlib.c
+c:\monstone\monstone\gamesource\externallib\freeimage\source\zlib\gzlib.c(245): warning C4996: 'open': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _open. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\corecrt_io.h(514): note: 'open' 선언을 참조하십시오.
+  gzread.c
+c:\monstone\monstone\gamesource\externallib\freeimage\source\zlib\gzread.c(30): warning C4996: 'read': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _read. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\corecrt_io.h(521): note: 'read' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\zlib\gzread.c(591): warning C4996: 'close': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _close. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\corecrt_io.h(457): note: 'close' 선언을 참조하십시오.
+  gzwrite.c
+c:\monstone\monstone\gamesource\externallib\freeimage\source\zlib\gzwrite.c(84): warning C4996: 'write': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _write. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\corecrt_io.h(556): note: 'write' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\zlib\gzwrite.c(101): warning C4996: 'write': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _write. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\corecrt_io.h(556): note: 'write' 선언을 참조하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\zlib\gzwrite.c(573): warning C4996: 'close': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _close. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\corecrt_io.h(457): note: 'close' 선언을 참조하십시오.
+  infback.c
+  inffast.c
+  inflate.c
+  inftrees.c
+  trees.c
+  uncompr.c
+  zutil.c
+  코드를 생성하고 있습니다...
+  ZLib.2013.vcxproj -> C:\monstone\Monstone\GameSource\Externallib\FreeImage\Source\ZLib\.\Win32\Debug\ZLib.lib

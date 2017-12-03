@@ -1,0 +1,383 @@
+﻿  TextureManager.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\examples\opengl\texturemanager\../../../Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  AnimatinonBase.cpp
+  Animation.cpp
+Animation.cpp(160): warning C4244: '인수': '__int64'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  AttacheAble.cpp
+  CollisionMap.cpp
+C:\monstone\Monstone\GameSource\Externallib\freetype\include\freetype/freetype.h(2619): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+CollisionMap.cpp(65): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+CollisionMap.cpp(92): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+CollisionMap.cpp(102): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  CollisionMapCreater.cpp
+C:\monstone\Monstone\GameSource\Externallib\freetype\include\freetype/freetype.h(2619): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+CollisionMapCreater.cpp(16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  EyeMouseMove.cpp
+  InGameUI.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(135): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(136): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(146): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(148): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(170): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(171): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(172): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(184): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(185): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(80): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(86): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(104): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(130): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(158): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(159): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(173): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(174): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(60): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(159): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(38): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(71): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(73): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(96): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  KingControl.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(135): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(136): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(146): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(148): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(170): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(171): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(172): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(184): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(185): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\KingControl.h(60): warning C4474: 'snprintf' : 서식 문자열에 전달된 인수가 너무 많습니다.
+  c:\monstone\monstone\gamesource\opengl2md2\KingControl.h(60): note: 자리 표시자 및 해당 매개 변수에는 variadic 인수가 0개 필요하지만 1개가 제공되었습니다.
+  ExGameGraphicInfo.cpp
+  Image.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+Image.cpp(45): warning C4244: '=': 'std::streamoff'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+Image.cpp(911): warning C4101: 'err' :참조되지 않은 지역 변수입니다.
+Image.cpp(1084): warning C4101: 'gl_texID' :참조되지 않은 지역 변수입니다.
+  ImageControl.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(135): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(136): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(146): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(148): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(170): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(171): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(172): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(184): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(185): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(82): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(100): note: 컴파일 중인 클래스 템플릿 인스턴스화 'DataManager<T,C>'에 대한 참조를 확인하세요.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.inl(95): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  ImageLoader.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(82): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(100): note: 컴파일 중인 클래스 템플릿 인스턴스화 'DataManager<T,C>'에 대한 참조를 확인하세요.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.inl(95): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  KardNameFactory.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(82): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(100): note: 컴파일 중인 클래스 템플릿 인스턴스화 'DataManager<T,C>'에 대한 참조를 확인하세요.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.inl(95): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+KardNameFactory.cpp(141): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(207): note: 'fopen' 선언을 참조하십시오.
+KardNameFactory.cpp(144): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1195): note: 'fscanf' 선언을 참조하십시오.
+KardNameFactory.cpp(150): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1195): note: 'fscanf' 선언을 참조하십시오.
+KardNameFactory.cpp(154): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1195): note: 'fscanf' 선언을 참조하십시오.
+KardNameFactory.cpp(158): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1195): note: 'fscanf' 선언을 참조하십시오.
+KardNameFactory.cpp(161): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1195): note: 'fscanf' 선언을 참조하십시오.
+KardNameFactory.cpp(165): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1195): note: 'fscanf' 선언을 참조하십시오.
+KardNameFactory.cpp(168): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1195): note: 'fscanf' 선언을 참조하십시오.
+  LoadingScreen.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(135): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(136): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(146): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(148): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(170): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(171): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(172): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(184): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(185): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(80): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(86): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(104): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(130): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(158): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(159): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(173): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(174): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(60): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(159): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(38): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(71): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(73): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(96): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  LuaManager.cpp
+  LuaScriptAttached.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/LuaJit/Header/lua_tinker.h(825): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\string.h(136): note: 'strcpy' 선언을 참조하십시오.
+  c:\monstone\monstone\gamesource\opengl2md2\../Externallib/LuaJit/Header/lua_tinker.h(823): note: 클래스 템플릿 멤버 함수 'const char *lua_tinker::class_name<T>::name(const char *)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              T=Md2Object
+          ]
+  c:\monstone\monstone\gamesource\opengl2md2\../Externallib/LuaJit/Header/lua_tinker.h(735): note: 컴파일 중인 함수 템플릿 인스턴스화 'const char *lua_tinker::class_name<T>::name(const char *)'에 대한 참조를 확인하십시오.
+          with
+          [
+              T=Md2Object
+          ]
+  c:\monstone\monstone\gamesource\opengl2md2\../Externallib/LuaJit/Header/lua_tinker.h(735): note: 컴파일 중인 클래스 템플릿 인스턴스화 'lua_tinker::class_name<T>'에 대한 참조를 확인하세요.
+          with
+          [
+              T=Md2Object
+          ]
+  LuaScriptAttached.cpp(71): note: 컴파일 중인 함수 템플릿 인스턴스화 'void lua_tinker::class_add<Md2Object>(lua_State *,const char *)'에 대한 참조를 확인하십시오.
+  MainScreen.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(135): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(136): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(146): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(148): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(170): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(171): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(172): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(184): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(185): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(80): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(86): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(104): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(130): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(158): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(159): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(173): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(174): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(60): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(159): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(38): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(71): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(73): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Snumber.h(96): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MarxObject.cpp
+  MashManager.cpp
+  컴파일하고 있습니다...
+  Md2Model.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(82): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(100): note: 컴파일 중인 클래스 템플릿 인스턴스화 'DataManager<T,C>'에 대한 참조를 확인하세요.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.inl(95): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+Md2Model.cpp(61): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  Md2Object.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(82): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(100): note: 컴파일 중인 클래스 템플릿 인스턴스화 'DataManager<T,C>'에 대한 참조를 확인하세요.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.inl(95): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(135): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(136): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(146): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(148): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(170): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(171): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(172): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(184): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(185): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+Md2Object.cpp(501): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  MarxWorld.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(82): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(100): note: 컴파일 중인 클래스 템플릿 인스턴스화 'DataManager<T,C>'에 대한 참조를 확인하세요.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.inl(95): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(80): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(86): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(104): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(130): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(60): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\opengl2md2\GameStadiumScreen.h(79): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1467): note: 'vsprintf' 선언을 참조하십시오.
+MarxWorld.cpp(68): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+MarxWorld.cpp(608): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+MarxWorld.cpp(642): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+  ObjectManager.cpp
+  ObjectMove.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  ObjectNumberingMananger.cpp
+  Opengl2md2.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(82): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(100): note: 컴파일 중인 클래스 템플릿 인스턴스화 'DataManager<T,C>'에 대한 참조를 확인하세요.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.inl(95): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(80): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(86): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(104): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(130): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(60): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\opengl2md2\GameStadiumScreen.h(79): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1467): note: 'vsprintf' 선언을 참조하십시오.
+C:\monstone\Monstone\GameSource\Externallib\freetype\include\freetype/freetype.h(2619): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+Opengl2md2.cpp(425): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(1467): note: 'vsprintf' 선언을 참조하십시오.
+Opengl2md2.cpp(743): warning C4805: '==': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+Opengl2md2.cpp(766): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+Opengl2md2.cpp(781): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+Opengl2md2.cpp(804): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+Opengl2md2.cpp(809): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+Opengl2md2.cpp(847): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+Opengl2md2.cpp(860): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+Opengl2md2.cpp(1245): warning C4805: '!=': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+Opengl2md2.cpp(1273): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+Opengl2md2.cpp(1369): warning C4805: '!=': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+Opengl2md2.cpp(1399): warning C4805: '!=': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+  Penal.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(135): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(136): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(146): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(148): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(170): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(171): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(172): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(184): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(185): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(80): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(86): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(104): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(130): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(158): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(159): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(173): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(174): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  PieceModel.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(82): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(100): note: 컴파일 중인 클래스 템플릿 인스턴스화 'DataManager<T,C>'에 대한 참조를 확인하세요.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.inl(95): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  ProjectLoader.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+ProjectLoader.cpp(85): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+  Quad.cpp
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(82): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  c:\monstone\monstone\gamesource\opengl2md2\DataManager.h(100): note: 컴파일 중인 클래스 템플릿 인스턴스화 'DataManager<T,C>'에 대한 참조를 확인하세요.
+c:\monstone\monstone\gamesource\opengl2md2\DataManager.inl(95): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+  RootUI.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(135): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(136): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(146): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(148): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(170): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(171): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(172): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(184): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(185): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(80): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(86): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(104): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(130): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(158): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(159): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(173): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(174): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(60): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(159): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SelectableObject.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(135): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(136): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(146): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(148): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(170): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(171): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(172): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(184): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\opengl2md2\ImageControl.h(185): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SoundManager.cpp
+  StageManager.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\opengl2md2\Md2Model.h(133): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\MarxWorld.h(52): warning C4290: 함수가 __declspec(nothrow)가 아님을 나타내려는 경우를 제외하고 C++ 예외 사양은 무시됩니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(80): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(86): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(104): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\Grid.h(130): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\opengl2md2\RootUI.h(60): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+  Stringformat.h
+  Texture.cpp
+c:\monstone\monstone\gamesource\opengl2md2\../Externallib/FreeImage/Source/FreeImage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  TinyFont.cpp
+C:\monstone\Monstone\GameSource\Externallib\freetype\include\freetype/freetype.h(2619): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+TinyFont.cpp(154): warning C4996: 'vswprintf': function has been changed to conform with the ISO C standard, adding an extra character count parameter. To use the traditional Microsoft version, set _CRT_NON_CONFORMING_SWPRINTFS.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_wstdio.h(1837): note: 'vswprintf' 선언을 참조하십시오.
+  UIBase.cpp
+UIBase.cpp(9): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+UIBase.cpp(29): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+UIBase.cpp(47): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+UIBase.cpp(48): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CXBOXController.cpp
+  컴파일하고 있습니다...
+  ViewCamera.cpp
+  XBoxControllerManager.cpp
+Stringformat.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl format(char const *,...)" (?format@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBDZZ)이(가) Stringformat.obj에 이미 정의되어 있습니다. 초 정의가 무시됩니다.
+Stringformat.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl format_arg_list(char const *,char *)" (?format_arg_list@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBDPAD@Z)이(가) Stringformat.obj에 이미 정의되어 있습니다. 초 정의가 무시됩니다.
+  Opengl2Md2.vcxproj -> C:\monstone\Monstone\GameSource\ReleaseOpengl2Md2\Opengl2Md2.lib

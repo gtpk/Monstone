@@ -1,0 +1,53 @@
+﻿  autofit.c
+  bdf.c
+  cff.c
+  ftbase.c
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\autofit\afscript.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\autofit\autofit.c)
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\autofit\afblue.c : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\autofit\autofit.c)
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\autofit\afblue.c(249): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\autofit\autofit.c)
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\autofit\afscript.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\autofit\autofit.c)
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\autofit\afscript.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\autofit\autofit.c)
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\autofit\afscript.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\autofit\autofit.c)
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\autofit\afscript.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\autofit\autofit.c)
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\autofit\afscript.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\autofit\autofit.c)
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\cff\cffload.c(1371): warning C4244: '=': 'FT_UInt32'에서 'FT_Byte'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 ..\..\..\src\cff\cff.c)
+  ftbitmap.c
+  ftcache.c
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\base\ftobjs.c(4999): warning C4702: 접근할 수 없는 코드입니다.
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\base\ftobjs.c(5000): warning C4702: 접근할 수 없는 코드입니다.
+  ftfstype.c
+  ftgasp.c
+  ftglyph.c
+  ftgzip.c
+  ftinit.c
+  ftlzw.c
+  ftstroke.c
+  ftsystem.c
+  smooth.c
+  ftbbox.c
+  ftfntfmt.c
+  ftmm.c
+  ftpfr.c
+  ftsynth.c
+  fttype1.c
+  ftwinfnt.c
+  ftlcdfil.c
+  ftgxval.c
+  ftotval.c
+  ftpatent.c
+  pcf.c
+  pfr.c
+  psaux.c
+  pshinter.c
+  psmodule.c
+  raster.c
+  sfnt.c
+  truetype.c
+  type1.c
+  type1cid.c
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\sfnt\ttload.c : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\sfnt\sfnt.c)
+c:\monstone\monstone\gamesource\externallib\freetype-2.8.1\src\truetype\ttobjs.c(788): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 ..\..\..\src\truetype\truetype.c)
+  type42.c
+  winfnt.c
+  ftdebug.c
+  freetype.vcxproj -> C:\monstone\Monstone\GameSource\Externallib\freetype-2.8.1\builds\windows\vc2010\.\..\..\..\objs\vc2010\Win32\freetype281d.lib

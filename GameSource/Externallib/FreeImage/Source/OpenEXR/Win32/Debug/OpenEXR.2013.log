@@ -1,0 +1,224 @@
+﻿  IexMathFpu.cpp
+  b44ExpLogTable.cpp
+  ImfAcesFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfacesfile.cpp(59): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfacesfile.cpp(426): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfacesfile.cpp(432): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+  ImfAttribute.cpp
+  ImfB44Compressor.cpp
+  ImfBoxAttribute.cpp
+  ImfChannelList.cpp
+  ImfChannelListAttribute.cpp
+  ImfChromaticities.cpp
+  ImfChromaticitiesAttribute.cpp
+  ImfCompositeDeepScanLine.cpp
+  ImfCompressionAttribute.cpp
+  ImfCompressor.cpp
+  ImfConvert.cpp
+  ImfCRgbaFile.cpp
+  ImfDeepCompositing.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepcompositing.cpp(84): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfDeepFrameBuffer.cpp
+  ImfDeepImageStateAttribute.cpp
+  ImfDeepScanLineInputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(343): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(504): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(511): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(517): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(518): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(627): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(636): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(1471): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(1512): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(1516): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(1717): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(1722): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(1833): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineinputfile.cpp(1851): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfDeepScanLineInputPart.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  ImfDeepScanLineOutputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(378): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(384): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(696): warning C4244: '인수': 'Imath_2_2::Int64'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(736): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(759): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(769): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(786): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(974): warning C4244: '인수': 'Imath_2_2::Int64'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(979): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeepscanlineoutputfile.cpp(1479): warning C4244: '인수': 'Imath_2_2::Int64'에서 'const unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfDeepScanLineOutputPart.cpp
+  ImfDeepTiledInputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(418): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(438): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(444): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(445): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(493): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(499): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(632): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(1021): warning C4244: '인수': 'Imath_2_2::Int64'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(1025): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(1495): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(1844): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledinputfile.cpp(1857): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfDeepTiledInputPart.cpp
+  ImfDeepTiledOutputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(194): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(195): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(554): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(560): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(690): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(743): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(874): warning C4244: '인수': 'Imath_2_2::Int64'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(910): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(972): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(1002): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(1011): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(1243): warning C4244: '인수': 'Imath_2_2::Int64'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(1246): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(1251): warning C4244: '인수': 'Imath_2_2::Int64'에서 '::size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdeeptiledoutputfile.cpp(1749): warning C4244: '인수': 'Imath_2_2::Int64'에서 'const unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfDeepTiledOutputPart.cpp
+  ImfDoubleAttribute.cpp
+  ImfDwaCompressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(274): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(756): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(785): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(941): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(1139): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(1914): warning C4267: '+=': 'size_t'에서 'unsigned short'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(2423): warning C4267: '-=': 'size_t'에서 'unsigned short'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(2435): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(2986): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(3023): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(3035): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(3043): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfdwacompressor.cpp(3104): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+  ImfEnvmap.cpp
+  ImfEnvmapAttribute.cpp
+  ImfFastHuf.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imffasthuf.cpp(154): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imffasthuf.cpp(167): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imffasthuf.cpp(183): warning C4244: '=': 'Imath_2_2::Int64'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imffasthuf.cpp(186): warning C4244: '=': 'Imath_2_2::Int64'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imffasthuf.cpp(256): warning C4244: '초기화 중': 'unsigned __int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfFloatAttribute.cpp
+  ImfFloatVectorAttribute.cpp
+  ImfFrameBuffer.cpp
+  ImfFramesPerSecond.cpp
+  ImfGenericInputFile.cpp
+  ImfGenericOutputFile.cpp
+  ImfHeader.cpp
+  ImfHuf.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(171): warning C4244: '=': 'Imath_2_2::Int64'에서 'char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(250): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(481): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(550): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(562): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(621): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(679): warning C4334: '<<': 32비트 시프트의 결과가 암시적으로 64비트로 변환됩니다. 64비트 시프트를 사용하시겠습니까?
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(724): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(898): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(913): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(928): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfhuf.cpp(955): warning C4244: '초기화 중': 'Imath_2_2::Int64'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfInputFile.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  ImfInputPart.cpp
+  ImfInputPartData.cpp
+  ImfIntAttribute.cpp
+  ImfIO.cpp
+  ImfKeyCode.cpp
+  ImfKeyCodeAttribute.cpp
+  ImfLineOrderAttribute.cpp
+  ImfLut.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imflut.cpp(156): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imflut.cpp(156): warning C4244: '초기화 중': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imflut.cpp(174): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfMatrixAttribute.cpp
+  ImfMisc.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(313): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfmisc.cpp(708): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfMultiPartInputFile.cpp
+  ImfMultiPartOutputFile.cpp
+  ImfMultiView.cpp
+  ImfOpaqueAttribute.cpp
+  ImfOutputFile.cpp
+  ImfOutputPart.cpp
+  ImfOutputPartData.cpp
+  ImfPartType.cpp
+  ImfPizCompressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfpizcompressor.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ImfPreviewImage.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  ImfPreviewImageAttribute.cpp
+  ImfPxr24Compressor.cpp
+  ImfRational.cpp
+  ImfRationalAttribute.cpp
+  ImfRgbaFile.cpp
+  ImfRgbaYca.cpp
+  ImfRle.cpp
+  ImfRleCompressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfrlecompressor.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ImfScanLineInputFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfscanlineinputfile.cpp(1467): warning C4244: '인수': 'const double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfStandardAttributes.cpp
+  ImfStdIO.cpp
+  ImfStringAttribute.cpp
+  ImfStringVectorAttribute.cpp
+  ImfSystemSpecific.cpp
+  ImfTestFile.cpp
+  ImfThreading.cpp
+  ImfTileDescriptionAttribute.cpp
+  ImfTiledInputFile.cpp
+  ImfTiledInputPart.cpp
+  ImfTiledMisc.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  ImfTiledOutputFile.cpp
+  ImfTiledOutputPart.cpp
+  ImfTiledRgbaFile.cpp
+  ImfTileOffsets.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imftileoffsets.cpp(154): warning C4244: '인수': 'Imath_2_2::Int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ImfTimeCode.cpp
+  ImfTimeCodeAttribute.cpp
+  ImfVecAttribute.cpp
+  ImfVersion.cpp
+  ImfWav.cpp
+  ImfZip.cpp
+  ImfZipCompressor.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmimf\imfzipcompressor.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ImathBox.cpp
+  ImathColorAlgo.cpp
+  ImathFun.cpp
+  ImathMatrixAlgo.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(118): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(254): note: 컴파일 중인 함수 템플릿 인스턴스화 'Imath_2_2::M44d Imath_2_2::procrustesRotationAndTranslation<double>(const Imath_2_2::V3d *,const Imath_2_2::V3d *,const double *,const ::size_t,const bool)'에 대한 참조를 확인하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(127): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(155): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(160): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(200): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\imath\imathmatrixalgo.cpp(205): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  ImathRandom.cpp
+  ImathShear.cpp
+  ImathVec.cpp
+  IexBaseExc.cpp
+  IexThrowErrnoExc.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  half.cpp
+  IlmThread.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmthread\ilmthread.cpp(67): warning C4297: 'IlmThread_2_2::Thread::~Thread': 함수는 예외를 Throw하지 않도록 지정되었으나 예외를 Throw했습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\openexr\ilmthread\ilmthread.cpp(67): note: 소멸자 또는 비할당자는 가능하면 암시적으로 throw되지 않는 예외 사양을 사용합니다.
+  IlmThreadMutex.cpp
+  IlmThreadPool.cpp
+  IlmThreadSemaphore.cpp
+  IexMathFloatExc.cpp
+  코드를 생성하고 있습니다...
+ImathShear.obj : warning LNK4221: 이 개체 파일은 이전에 정의되지 않은 공용 기호를 정의하지 않으므로 이 라이브러리를 사용하는 어떠한 링크 작업에도 사용되지 않습니다.
+ImathBox.obj : warning LNK4221: 이 개체 파일은 이전에 정의되지 않은 공용 기호를 정의하지 않으므로 이 라이브러리를 사용하는 어떠한 링크 작업에도 사용되지 않습니다.
+  OpenEXR.2013.vcxproj -> C:\monstone\Monstone\GameSource\Externallib\FreeImage\Source\OpenEXR\.\Win32\Debug\OpenEXR.lib

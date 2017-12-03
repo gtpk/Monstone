@@ -11,7 +11,7 @@
 
 #include <windows.h>
 #include "../../../../../Opengl2Md2/GL/glew.h"
-#include "../../../Dist/FreeImage.h"
+#include "../../../Source/FreeImage.h"
 #include <map>
 namespace MarxEngine
 {

@@ -1,0 +1,315 @@
+﻿  BitmapAccess.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\bitmapaccess.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ColorLookup.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ConversionRGBA16.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversionrgba16.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ConversionRGBAF.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversionrgbaf.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  FreeImage.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\freeimage.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  FreeImageIO.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  GetType.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  LFPQuantizer.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\quantizers.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  MemoryIO.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\memoryio.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PixelAccess.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pixelaccess.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  NNQuantizer.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\nnquantizer.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\quantizers.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  WuQuantizer.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\wuquantizer.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\quantizers.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Conversion.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\quantizers.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Conversion16_555.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversion16_555.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Conversion16_565.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversion16_565.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Conversion24.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversion24.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Conversion32.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversion32.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Conversion4.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Conversion8.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversion8.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ConversionFloat.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversionfloat.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  ConversionRGB16.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversionrgb16.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ConversionRGBF.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversionrgbf.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ConversionType.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversiontype.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ConversionUINT16.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\conversionuint16.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Halftoning.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\halftoning.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  tmoColorConvert.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\tmocolorconvert.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\tonemapping.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  tmoDrago03.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\tmodrago03.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\tonemapping.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  tmoFattal02.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\tmofattal02.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\tonemapping.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  tmoReinhard05.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\tmoreinhard05.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\tonemapping.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ToneMapping.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\tonemapping.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  J2KHelper.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\j2khelper.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  MNGHelper.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\mnghelper.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Plugin.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginBMP.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginbmp.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginCUT.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginDDS.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\plugindds.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginEXR.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginexr.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginG3.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluging3.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginGIF.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\plugingif.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginHDR.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginhdr.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  PluginICO.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginico.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginIFF.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginiff.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginJ2K.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginj2k.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginJNG.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginJP2.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginjp2.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginJPEG.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginjpeg.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginJXR.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\libjxr\jxrgluelib\jxrglue.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\libjxr\jxrgluelib\jxrmeta.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\libjxr\image\sys\windowsmediaphoto.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginKOALA.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginMNG.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginPCD.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginPCX.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginpcx.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginPFM.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginpfm.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginPICT.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginPNG.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginPNM.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginpnm.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginPSD.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginRAS.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginras.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginRAW.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginraw.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginSGI.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginTARGA.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  PluginTIFF.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginWBMP.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginwbmp.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginWebP.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginXBM.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginxbm.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PluginXPM.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\pluginxpm.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  PSDParser.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\psdparser.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  TIFFLogLuv.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\tifflogluv.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Deprecated.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\deprecationmanager\deprecated.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  DeprecationMgr.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  CacheFile.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  MultiPage.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage\multipage.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ZLibInterface.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Exif.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\exif.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\exif.cpp(925): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  FIRational.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\firational.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\firational.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  FreeImageTag.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  IPTC.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\iptc.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  TagConversion.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\firational.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(202): warning C4477: 'sprintf' : 서식 문자열 '%ld'에 'long' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'UINT64'입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(202): note: 서식 문자열에서 '%lld'을(를) 사용하는 것이 좋습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(202): note: 서식 문자열에서 '%I64d'을(를) 사용하는 것이 좋습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(205): warning C4477: 'sprintf' : 서식 문자열 '%ld'에 'long' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'UINT64'입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(205): note: 서식 문자열에서 '%lld'을(를) 사용하는 것이 좋습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(205): note: 서식 문자열에서 '%I64d'을(를) 사용하는 것이 좋습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(215): warning C4477: 'sprintf' : 서식 문자열 '%X'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'UINT64'입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(215): note: 서식 문자열에서 '%llX'을(를) 사용하는 것이 좋습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(215): note: 서식 문자열에서 '%I64X'을(를) 사용하는 것이 좋습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(218): warning C4477: 'sprintf' : 서식 문자열 '%X'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'UINT64'입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(218): note: 서식 문자열에서 '%llX'을(를) 사용하는 것이 좋습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(218): note: 서식 문자열에서 '%I64X'을(를) 사용하는 것이 좋습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(228): warning C4477: 'sprintf' : 서식 문자열 '%ld'에 'long' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'INT64'입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(228): note: 서식 문자열에서 '%lld'을(를) 사용하는 것이 좋습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(228): note: 서식 문자열에서 '%I64d'을(를) 사용하는 것이 좋습니다.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(231): warning C4477: 'sprintf' : 서식 문자열 '%ld'에 'long' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'INT64'입니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(231): note: 서식 문자열에서 '%lld'을(를) 사용하는 것이 좋습니다.
+  c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\tagconversion.cpp(231): note: 서식 문자열에서 '%I64d'을(를) 사용하는 것이 좋습니다.
+  TagLib.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\taglib.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  XTIFF.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\freeimagetag.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\metadata\firational.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Background.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  BSplineRotate.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\bsplinerotate.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Channels.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\channels.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  ClassicRotate.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\classicrotate.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Colors.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\colors.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  CopyPaste.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\copypaste.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Display.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\display.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Flip.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\flip.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  JPEGTransform.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  MultigridPoissonSolver.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\multigridpoissonsolver.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\tonemapping.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Rescale.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\rescale.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\resize.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\filters.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Resize.cpp
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\resize.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\resize.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimage.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\monstone\monstone\gamesource\externallib\freeimage\source\freeimagetoolkit\filters.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  코드를 생성하고 있습니다...
+OpenEXR.lib(ImathBox.obj) : warning LNK4221: 이 개체 파일은 이전에 정의되지 않은 공용 기호를 정의하지 않으므로 이 라이브러리를 사용하는 어떠한 링크 작업에도 사용되지 않습니다.
+OpenEXR.lib(ImathShear.obj) : warning LNK4221: 이 개체 파일은 이전에 정의되지 않은 공용 기호를 정의하지 않으므로 이 라이브러리를 사용하는 어떠한 링크 작업에도 사용되지 않습니다.
+  FreeImageLib.2013.vcxproj -> C:\monstone\Monstone\GameSource\Externallib\FreeImage\Source\FreeImageLib\.\Win32\Debug\FreeImageLib.lib
+  하위 디렉터리 또는 파일 ..\..\Dist\x32이(가) 이미 있습니다.
+          1개 파일이 복사되었습니다.
+          1개 파일이 복사되었습니다.

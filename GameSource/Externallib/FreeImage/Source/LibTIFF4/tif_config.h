@@ -81,7 +81,9 @@ If your big endian system isn't being detected, add an OS specific check
 #endif // BYTE_ORDER
 
 #ifdef _WIN32
-#define snprintf _snprintf
+#      if !defined(_MSC_VER) || ( defined(_MSC_VER) && _MSC_VER < 1500 )
+#         define vsnprintf _vsnprintf
+#      endif
 #define lfind _lfind
 #endif // _WIN32
 

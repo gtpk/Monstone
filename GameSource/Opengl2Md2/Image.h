@@ -28,7 +28,7 @@
 #include <fstream>
 #include <string>
 
-#include "../Externallib/FreeImage/Dist/FreeImage.h"
+#include "../Externallib/FreeImage/Source/FreeImage.h"
 #include "../Externallib/FreeImage/Examples/OpenGL/TextureManager/TextureManager.h"
 
 using std::cout;
