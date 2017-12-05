@@ -26,9 +26,6 @@ namespace MarxEngine
 		{
 			OnDraw(false);
 		}
-
-
-
 	public:
 
 		void XboxControllerKeyEvent(WORD Button, bool Updown);

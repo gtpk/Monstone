@@ -287,7 +287,7 @@ void	Opengl2md2::init ()
 
 	if (render == NULL)
 		render = new GameStadiumScreen();
-	render->onSurfaceCreated();
+	//render->onSurfaceCreated();
 }
 
 void Opengl2md2::StartGame()
@@ -644,7 +644,7 @@ void Opengl2md2::draw2D ()
 
 	currSkin.assign (currSkin, currSkin.find_last_of ('/') + 1,
 		currSkin.length ());
-
+	/*
 	if (verbose > 0)
 	{
 		glRasterPos2i (10, 10);
@@ -729,7 +729,7 @@ void Opengl2md2::draw2D ()
 			glPrintf("Select Object Name NONE");
 
 	}
-
+	*/
 	//glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
 	//glMatrixMode(GL_MODELVIEW);

@@ -26,20 +26,13 @@ namespace MarxEngine
 
 
 		// 로딩 화면
-		MainScreen* m_MainScreen = NULL;
-		InGameUI * m_InGameUI = NULL;
 		LoadingScreen* m_LoadingScreen = NULL;
 	public:
 		StageManager()
 		{
-			m_NowStage = StaticStage::KADSTAGE::STORY;
+			m_NowStage = StaticStage::KADSTAGE::LOADING;
 
-			m_MainScreen = new MainScreen();
 			m_LoadingScreen = new LoadingScreen();
-			m_InGameUI = new InGameUI();
-
-			SetNowStage(StaticStage::KADSTAGE::STORY);
-
 		}
 
 	private:

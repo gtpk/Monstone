@@ -18,5 +18,11 @@
     <ClCompile Include="..\..\md2loader\Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="pacmenScreen.h">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="pacmenScreen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
